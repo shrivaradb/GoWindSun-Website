@@ -43,7 +43,7 @@ export const InteractiveEnergySimulator: React.FC = () => {
   const results = getYieldDetails();
 
   return (
-    <Section id="simulator" variant="surface">
+    <Section id="simulator" className="bg-[#F8FAFC]">
       <Container>
         <SectionHeading
           badge="Engineering Simulation"
@@ -53,18 +53,18 @@ export const InteractiveEnergySimulator: React.FC = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Controls Panel (6 Cols) */}
-          <div className="lg:col-span-6 glass-panel p-8 sm:p-10 rounded-section border-border space-y-8 shadow-enterprise">
-            <div className="flex items-center justify-between pb-4 border-b border-border/60">
+          <div className="lg:col-span-6 bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 space-y-8 shadow-xl">
+            <div className="flex items-center justify-between pb-4 border-b border-slate-200">
               <div className="flex items-center gap-3">
-                <Sliders className="w-5 h-5 text-accent-primary" />
-                <h3 className="text-lg font-bold text-white">Project Parameters</h3>
+                <Sliders className="w-5 h-5 text-emerald-600" />
+                <h3 className="text-lg font-bold text-slate-900">Project Parameters</h3>
               </div>
-              <span className="text-xs text-text-muted">CEA Standards</span>
+              <span className="text-xs font-semibold text-slate-500">CEA Standards</span>
             </div>
 
             {/* Tech Selector */}
             <div className="space-y-3">
-              <label className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
                 Technology Configuration
               </label>
               <div className="grid grid-cols-3 gap-3">
@@ -81,8 +81,8 @@ export const InteractiveEnergySimulator: React.FC = () => {
                       onClick={() => setTechType(item.id as any)}
                       className={`p-3 rounded-xl border text-xs font-bold flex flex-col items-center gap-2 transition-all ${
                         active
-                          ? "bg-accent-primary text-white border-accent-primary shadow-glow-blue"
-                          : "bg-surface-elevated text-text-secondary border-border hover:border-border-bright"
+                          ? "bg-emerald-600 text-white border-emerald-600 shadow-md"
+                          : "bg-slate-50 text-slate-700 border-slate-200 hover:border-slate-300"
                       }`}
                     >
                       <Icon className="w-4 h-4" />
@@ -96,10 +96,10 @@ export const InteractiveEnergySimulator: React.FC = () => {
             {/* Capacity Slider */}
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <label className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Target Infrastructure Capacity
                 </label>
-                <span className="text-lg font-bold text-white bg-surface-elevated px-3 py-1 rounded-lg border border-border">
+                <span className="text-lg font-bold text-slate-900 bg-slate-100 px-3 py-1 rounded-lg border border-slate-200">
                   {capacityMW} MW
                 </span>
               </div>
@@ -110,9 +110,9 @@ export const InteractiveEnergySimulator: React.FC = () => {
                 step={5}
                 value={capacityMW}
                 onChange={(e) => setCapacityMW(Number(e.target.value))}
-                className="w-full h-2 bg-surface-elevated rounded-lg appearance-none cursor-pointer accent-accent-primary"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
               />
-              <div className="flex justify-between text-[11px] text-text-muted font-medium">
+              <div className="flex justify-between text-[11px] text-slate-500 font-semibold">
                 <span>5 MW (Industrial)</span>
                 <span>100 MW (Utility Park)</span>
                 <span>250 MW (Mega Project)</span>
@@ -122,10 +122,10 @@ export const InteractiveEnergySimulator: React.FC = () => {
             {/* Grid Tariff Slider */}
             <div className="space-y-4">
               <div className="flex justify-between items-center">
-                <label className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                <label className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Discom Industrial Tariff Benchmark
                 </label>
-                <span className="text-base font-bold text-accent-cyan bg-surface-elevated px-3 py-1 rounded-lg border border-border">
+                <span className="text-base font-bold text-sky-700 bg-sky-50 px-3 py-1 rounded-lg border border-sky-200">
                   ₹{tariffRate} / kWh
                 </span>
               </div>
@@ -136,7 +136,7 @@ export const InteractiveEnergySimulator: React.FC = () => {
                 step={0.5}
                 value={tariffRate}
                 onChange={(e) => setTariffRate(Number(e.target.value))}
-                className="w-full h-2 bg-surface-elevated rounded-lg appearance-none cursor-pointer accent-accent-cyan"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-sky-600"
               />
             </div>
           </div>
@@ -148,59 +148,59 @@ export const InteractiveEnergySimulator: React.FC = () => {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4 }}
-              className="glass-panel p-8 sm:p-10 rounded-section border-accent-primary/30 shadow-enterprise space-y-8 bg-gradient-to-br from-surface-elevated to-background-deep"
+              className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl space-y-8"
             >
-              <div className="flex items-center justify-between border-b border-border/60 pb-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-accent-emerald flex items-center gap-2">
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4" /> Calculated Yield Matrix
                 </span>
-                <span className="text-xs text-text-muted">Simulated Output</span>
+                <span className="text-xs font-semibold text-slate-500">Simulated Output</span>
               </div>
 
               {/* Metric 1: Annual Energy Yield */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-surface/80 border border-border space-y-1">
-                  <div className="flex items-center gap-2 text-accent-cyan mb-1">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-2 text-sky-600 mb-1">
                     <Zap className="w-4 h-4" />
-                    <span className="text-xs font-semibold text-text-muted">Annual Energy Output</span>
+                    <span className="text-xs font-bold text-slate-500">Annual Output</span>
                   </div>
-                  <p className="text-3xl font-extrabold text-white tracking-tight">
-                    {results.annualGWh} <span className="text-sm font-normal text-text-muted">GWh</span>
+                  <p className="text-3xl font-extrabold text-slate-900 tracking-tight">
+                    {results.annualGWh} <span className="text-sm font-normal text-slate-500">GWh</span>
                   </p>
-                  <p className="text-[11px] text-text-muted">High-availability grid dispatch</p>
+                  <p className="text-[11px] text-slate-500">High-availability grid dispatch</p>
                 </div>
 
                 {/* Metric 2: CO2 Avoided */}
-                <div className="p-5 rounded-2xl bg-surface/80 border border-border space-y-1">
-                  <div className="flex items-center gap-2 text-accent-emerald mb-1">
+                <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-1">
+                  <div className="flex items-center gap-2 text-emerald-600 mb-1">
                     <Leaf className="w-4 h-4" />
-                    <span className="text-xs font-semibold text-text-muted">Annual CO2 Avoided</span>
+                    <span className="text-xs font-bold text-slate-500">CO2 Avoided</span>
                   </div>
-                  <p className="text-3xl font-extrabold text-white tracking-tight">
-                    {results.co2MitigatedTons} <span className="text-sm font-normal text-text-muted">Tons</span>
+                  <p className="text-3xl font-extrabold text-slate-900 tracking-tight">
+                    {results.co2MitigatedTons} <span className="text-sm font-normal text-slate-500">Tons</span>
                   </p>
-                  <p className="text-[11px] text-text-muted">ESG zero-carbon credit</p>
+                  <p className="text-[11px] text-slate-500">ESG zero-carbon credit</p>
                 </div>
               </div>
 
               {/* Metric 3: Financial Tariff Savings */}
-              <div className="p-6 rounded-2xl bg-accent-primary/10 border border-accent-primary/30 space-y-2">
+              <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-accent-hover flex items-center gap-1.5">
-                    <IndianRupee className="w-4 h-4" /> Annual Power Offtake Value
+                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5">
+                    <IndianRupee className="w-4 h-4" /> Annual Offtake Value
                   </span>
-                  <span className="text-xs font-semibold text-accent-emerald">PPA Savings</span>
+                  <span className="text-xs font-bold text-emerald-700">PPA Savings</span>
                 </div>
-                <p className="text-4xl font-black text-white tracking-tight">
-                  ₹{results.annualSavingsCrores} <span className="text-lg font-bold text-accent-hover">Cr / Year</span>
+                <p className="text-4xl font-black text-slate-900 tracking-tight">
+                  ₹{results.annualSavingsCrores} <span className="text-lg font-bold text-emerald-700">Cr / Year</span>
                 </p>
-                <p className="text-xs text-text-secondary">
+                <p className="text-xs text-slate-600">
                   Estimated land footprint: ~{results.estimatedLandAcres} acres required.
                 </p>
               </div>
 
               <div className="pt-2 flex items-center justify-between">
-                <p className="text-xs text-text-muted">
+                <p className="text-xs text-slate-500">
                   Looking for a detailed PVSyst feasibility report?
                 </p>
                 <Button
@@ -208,8 +208,7 @@ export const InteractiveEnergySimulator: React.FC = () => {
                   size="sm"
                   icon
                   onClick={() => {
-                    const el = document.getElementById("contact");
-                    el?.scrollIntoView({ behavior: "smooth" });
+                    window.location.href = "/contact";
                   }}
                 >
                   Request Detailed Study

@@ -32,16 +32,16 @@ export const SectionHeading: React.FC<SectionHeadingProps> = ({
       )}
     >
       {badge && (
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent-primary/10 border border-accent-primary/20 text-accent-hover text-xs font-semibold uppercase tracking-wider mb-4">
-          <span className="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
           {badge}
         </div>
       )}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-6 leading-[1.1]">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-base sm:text-lg text-text-secondary leading-relaxed font-normal">
+        <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
           {subtitle}
         </p>
       )}

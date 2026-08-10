@@ -42,7 +42,7 @@ const steps = [
 
 export const EngineeringExcellence: React.FC = () => {
   return (
-    <Section id="about" variant="grid">
+    <Section id="about" className="bg-[#F8FAFC]">
       <Container>
         <SectionHeading
           badge="Methodology"
@@ -52,7 +52,7 @@ export const EngineeringExcellence: React.FC = () => {
 
         <div className="relative">
           {/* Connecting Line for desktop */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-border/60 -translate-y-1/2 z-0" />
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-slate-200 -translate-y-1/2 z-0" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 relative z-10">
             {steps.map((item, idx) => {
@@ -64,22 +64,22 @@ export const EngineeringExcellence: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="glass-panel p-6 rounded-card border-border/80 space-y-4 hover:border-accent-primary/40 transition-all group"
+                  className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4 hover:border-emerald-500 hover:shadow-md transition-all group"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-black text-accent-hover/40 group-hover:text-accent-hover transition-colors">
+                    <span className="text-2xl font-black text-slate-300 group-hover:text-emerald-600 transition-colors">
                       {item.step}
                     </span>
-                    <div className="p-2.5 rounded-xl bg-surface-elevated text-white group-hover:bg-accent-primary transition-colors">
+                    <div className="p-2.5 rounded-xl bg-slate-100 text-slate-800 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
-                  <h3 className="text-base font-bold text-white leading-snug">
+                  <h3 className="text-base font-bold text-slate-900 leading-snug">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs text-text-secondary leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {item.description}
                   </p>
                 </motion.div>

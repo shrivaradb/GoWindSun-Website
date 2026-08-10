@@ -22,7 +22,7 @@ export const Services: React.FC = () => {
   const [activeService, setActiveService] = useState(siteConfig.services[0].id);
 
   return (
-    <Section id="services" variant="grid">
+    <Section id="services" className="bg-white">
       <Container>
         <SectionHeading
           badge="Engineering Capability"
@@ -41,18 +41,18 @@ export const Services: React.FC = () => {
                 <div
                   key={service.id}
                   onClick={() => setActiveService(service.id)}
-                  className={`p-5 rounded-2xl cursor-pointer transition-all duration-300 border flex items-center justify-between ${
+                  className={`p-5 rounded-2xl cursor-pointer transition-all duration-200 border flex items-center justify-between ${
                     isSelected
-                      ? "bg-surface-elevated border-accent-primary shadow-glow-blue"
-                      : "bg-surface/50 border-border hover:bg-surface hover:border-border-bright"
+                      ? "bg-emerald-50 border-emerald-500 shadow-md"
+                      : "bg-slate-50 border-slate-200 hover:bg-slate-100 hover:border-slate-300"
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div
                       className={`p-3 rounded-xl transition-colors ${
                         isSelected
-                          ? "bg-accent-primary text-white"
-                          : "bg-background text-text-muted"
+                          ? "bg-emerald-600 text-white"
+                          : "bg-white text-slate-500 border border-slate-200"
                       }`}
                     >
                       <IconComp className="w-5 h-5" />
@@ -60,12 +60,12 @@ export const Services: React.FC = () => {
                     <div>
                       <h3
                         className={`text-base font-bold transition-colors ${
-                          isSelected ? "text-white" : "text-text-secondary"
+                          isSelected ? "text-slate-900" : "text-slate-700"
                         }`}
                       >
                         {service.title}
                       </h3>
-                      <p className="text-xs text-text-muted mt-0.5">
+                      <p className="text-xs text-slate-500 mt-0.5">
                         {service.tags.slice(0, 2).join(" • ")}
                       </p>
                     </div>
@@ -73,8 +73,8 @@ export const Services: React.FC = () => {
                   <ArrowRight
                     className={`w-5 h-5 transition-transform duration-300 ${
                       isSelected
-                        ? "text-accent-primary translate-x-1"
-                        : "text-text-muted opacity-0 group-hover:opacity-100"
+                        ? "text-emerald-600 translate-x-1"
+                        : "text-slate-400 opacity-0 group-hover:opacity-100"
                     }`}
                   />
                 </div>
@@ -94,25 +94,25 @@ export const Services: React.FC = () => {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="glass-panel p-8 sm:p-10 rounded-section border-border/80 shadow-enterprise space-y-8"
+                    className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-xl space-y-8"
                   >
-                    <div className="flex items-center justify-between border-b border-border/60 pb-6">
+                    <div className="flex items-center justify-between border-b border-slate-200 pb-6">
                       <div className="flex items-center gap-4">
-                        <div className="p-4 rounded-2xl bg-accent-primary/20 text-accent-hover border border-accent-primary/40">
+                        <div className="p-4 rounded-2xl bg-emerald-50 text-emerald-700 border border-emerald-200">
                           <IconComp className="w-8 h-8" />
                         </div>
                         <div>
-                          <span className="text-xs uppercase font-bold tracking-widest text-accent-hover">
+                          <span className="text-xs uppercase font-bold tracking-widest text-emerald-700">
                             Enterprise Solution
                           </span>
-                          <h3 className="text-2xl font-bold text-white mt-1">
+                          <h3 className="text-2xl font-bold text-slate-900 mt-1">
                             {service.title}
                           </h3>
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-base text-text-secondary leading-relaxed">
+                    <p className="text-base text-slate-700 leading-relaxed">
                       {service.description}
                     </p>
 
@@ -121,43 +121,42 @@ export const Services: React.FC = () => {
                       {service.metrics.map((metric, i) => (
                         <div
                           key={i}
-                          className="p-4 rounded-xl bg-surface-elevated border border-border/70 text-center"
+                          className="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-center"
                         >
-                          <p className="text-xs text-text-muted uppercase tracking-wider">
+                          <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">
                             Key Metric {i + 1}
                           </p>
-                          <p className="text-sm font-bold text-white mt-1">{metric}</p>
+                          <p className="text-sm font-bold text-slate-900 mt-1">{metric}</p>
                         </div>
                       ))}
                     </div>
 
                     {/* Scope Checklist */}
                     <div className="space-y-3 pt-2">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-text-muted">
+                      <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                         Engineering Deliverables & Scope:
                       </p>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {service.tags.map((tag, i) => (
-                          <div key={i} className="flex items-center gap-2.5 text-sm text-text-secondary">
-                            <CheckCircle2 className="w-4 h-4 text-accent-emerald shrink-0" />
+                          <div key={i} className="flex items-center gap-2.5 text-sm text-slate-700 font-medium">
+                            <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                             <span>{tag}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="pt-4 flex items-center justify-between border-t border-border/60">
+                    <div className="pt-4 flex items-center justify-between border-t border-slate-200">
                       <Button
                         variant="primary"
                         icon
                         onClick={() => {
-                          const el = document.getElementById("contact");
-                          el?.scrollIntoView({ behavior: "smooth" });
+                          window.location.href = "/contact";
                         }}
                       >
                         Request Consultation & Scope
                       </Button>
-                      <span className="text-xs text-text-muted hidden sm:inline">
+                      <span className="text-xs font-semibold text-slate-500 hidden sm:inline">
                         CEA & EHV Grid Compliant
                       </span>
                     </div>

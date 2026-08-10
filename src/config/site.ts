@@ -1,29 +1,54 @@
 export const siteConfig = {
-  name: "GoWindSun India Pvt Ltd",
+  name: "GoWindSun India Private Limited",
   shortName: "GoWindSun",
   description:
     "Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems.",
   url: "https://gowindsun.com",
   ogImage: "https://gowindsun.com/og.jpg",
   contact: {
-    email: "contact@gowindsun.com",
-    phone: "+91 (022) 6800 9000",
-    address: "GoWindSun Renewable Tower, BKC Financial District, Mumbai, Maharashtra 400051, India",
+    email: "director@gowindsun.com",
+    secondaryEmail: "gowindnsun@gmail.com",
+    phone: "+91 98226 51023",
   },
   nav: [
-    { name: "Home", href: "#hero" },
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Industries", href: "#industries" },
-    { name: "Calculator", href: "#simulator" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    {
+      name: "About",
+      href: "/about",
+      children: [
+        { name: "About GoWindSun", href: "/about" },
+        { name: "Our Journey", href: "/about/our-journey" },
+      ],
+    },
+    {
+      name: "Services",
+      href: "/services",
+      children: [
+        { name: "Project Development & EPC", href: "/services/project-development-epc" },
+        { name: "Technical Consulting & Advisory Services", href: "/services/technical-consulting-advisory" },
+        { name: "Asset Management & Operations", href: "/services/asset-management-operations" },
+        { name: "Strategic Advisory & Energy Market Services", href: "/services/strategic-advisory-energy-market" },
+      ],
+    },
+    { name: "IPP Platform", href: "/ipp-platform" },
+    {
+      name: "Projects for Acquisition",
+      href: "/projects-for-acquisition",
+      children: [
+        { name: "Overview", href: "/projects-for-acquisition" },
+        { name: "Wind Projects", href: "/projects-for-acquisition/wind" },
+        { name: "Solar Projects", href: "/projects-for-acquisition/solar" },
+        { name: "Hybrid Projects", href: "/projects-for-acquisition/hybrid" },
+      ],
+    },
+    { name: "Renewable Energy Trading", href: "/services/renewable-energy-trading" },
+    { name: "Knowledge Hub", href: "/knowledge-hub" },
+    { name: "Contact Us", href: "/contact", isCta: true },
   ],
   stats: [
-    { value: "650+", unit: "MW", label: "Utility & Industrial Capacity Installed", icon: "Zap" },
-    { value: "99.85%", unit: "", label: "Grid Integration Availability Uptime", icon: "ShieldCheck" },
-    { value: "1.2M", unit: "Tons", label: "Annual CO2 Emissions Mitigated", icon: "Leaf" },
-    { value: "₹1,450", unit: "Cr+", label: "Capital Infrastructure Assets Delivered", icon: "TrendingUp" },
+    { value: "~3,000", unit: "MW", label: "Identified Greenfield Site Pipeline Potential", icon: "Zap" },
+    { value: "500", unit: "GW", label: "National Panchamrit 2030 Non-Fossil Target", icon: "TrendingUp" },
+    { value: "220+", unit: "GW", label: "India Renewable Energy Generation Base", icon: "Leaf" },
+    { value: "P50/75/90", unit: "", label: "Bankable AEP DPR Feasibility Assessment", icon: "ShieldCheck" },
   ],
   services: [
     {

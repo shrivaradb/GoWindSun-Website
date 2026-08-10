@@ -95,14 +95,14 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+    <html lang="en" className={inter.variable}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-background text-white antialiased selection:bg-accent-primary selection:text-white">
+      <body className="bg-white text-slate-900 antialiased selection:bg-emerald-600 selection:text-white">
         <SmoothScroll>
           <Navbar />
           <main className="min-h-screen">{children}</main>

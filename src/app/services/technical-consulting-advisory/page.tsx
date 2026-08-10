@@ -1,5 +1,4 @@
 import React from "react";
-import { Metadata } from "next";
 import Image from "next/image";
 import { TechnicalConsultingSection } from "@/components/services/TechnicalConsultingSection";
 import { ServicesSpecTable } from "@/components/services/ServicesSpecTable";
@@ -7,18 +6,6 @@ import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 import { Container } from "@/components/ui/Container";
 import Link from "next/link";
 import { ChevronRight, FileText, ShieldCheck, Building2, Award } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Technical Consulting & Advisory | GoWindSun India Private Limited",
-  description:
-    "Explore GoWindSun's Technical Consulting & Advisory Services: Bankable DPR preparation, due diligence, LCOE financial modeling, statutory clearances (MNRE, NIWE, CTU/STU, DISCOMs), and Owner's/Lender's engineering.",
-  openGraph: {
-    title: "Technical Consulting & Advisory Services | GoWindSun",
-    description:
-      "Techno-commercial feasibility, bankable DPR yield studies, statutory approvals, tender advisory, and Owner's/Lender's engineering across India.",
-    url: "https://gowindsun.com/services/technical-consulting-advisory",
-  },
-};
 
 export default function TechnicalConsultingAdvisoryPage() {
   return (

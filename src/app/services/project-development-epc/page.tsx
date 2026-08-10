@@ -1,5 +1,4 @@
 import React from "react";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
@@ -7,18 +6,6 @@ import { ProjectDevelopmentEpcSection } from "@/components/services/ProjectDevel
 import { EngagementWorkflow } from "@/components/services/EngagementWorkflow";
 import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 import { ChevronRight, HardHat, CheckCircle2, ArrowRight } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Project Development & EPC | GoWindSun India Private Limited",
-  description:
-    "Explore GoWindSun's Project Development & EPC capabilities: site screening, Wind Resource Assessment (WRA met masts), power evacuation, detailed engineering, WTG foundations, E-BoP, and turnkey execution across India.",
-  openGraph: {
-    title: "Project Development & EPC Services | GoWindSun",
-    description:
-      "Turnkey wind, solar, hybrid and BESS project development, met mast WRA campaigns, civil works, electrical balance of plant, and commissioning across India.",
-    url: "https://gowindsun.com/services/project-development-epc",
-  },
-};
 
 export default function ProjectDevelopmentEpcPage() {
   const lifecyclePhases = [

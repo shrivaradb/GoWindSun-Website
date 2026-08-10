@@ -1,16 +1,9 @@
 import React from "react";
-import { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
 import { IndiaPowerhouseSection } from "@/components/home/IndiaPowerhouseSection";
 import { MacroImpactStrip } from "@/components/home/MacroImpactStrip";
 import { TransitionDriversSection } from "@/components/home/TransitionDriversSection";
 import { IntegratedSolutionsInfographic } from "@/components/home/IntegratedSolutionsInfographic";
-
-export const metadata: Metadata = {
-  title: "GoWindSun India Private Limited | Integrated Renewable Energy Solutions",
-  description:
-    "Integrated Renewable Energy Solutions for Wind, Solar, Hybrid, BESS, and Energy Infrastructure across India—empowering businesses, developers, industries, and government agencies.",
-};
 
 export default function HomePage() {
   return (

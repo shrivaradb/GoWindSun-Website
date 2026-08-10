@@ -1,5 +1,4 @@
 import React from "react";
-import { Metadata } from "next";
 import { EditorialMarketHero } from "@/components/services/strategic-market-intelligence/EditorialMarketHero";
 import { EditorialStatement } from "@/components/services/strategic-market-intelligence/EditorialStatement";
 import { MarketSignalsStrip } from "@/components/services/strategic-market-intelligence/MarketSignalsStrip";
@@ -11,18 +10,6 @@ import { StrategicDecisionFrame } from "@/components/services/strategic-market-i
 import { CommercialPerspectiveSection } from "@/components/services/strategic-market-intelligence/CommercialPerspectiveSection";
 import { MarketIntelligenceIndex } from "@/components/services/strategic-market-intelligence/MarketIntelligenceIndex";
 import { MinimalStrategicCta } from "@/components/services/strategic-market-intelligence/MinimalStrategicCta";
-
-export const metadata: Metadata = {
-  title: "Strategic Advisory & Energy Market Services | GoWindSun India Private Limited",
-  description:
-    "Explore GoWindSun's Strategic Advisory & Energy Market Intelligence: Corporate PPAs, Open Access, Group Captive, asset repowering, M&A due diligence, portfolio strategy, Green Hydrogen, BESS, and Offshore Wind in India.",
-  openGraph: {
-    title: "Strategic Advisory & Energy Markets | GoWindSun Market Intelligence",
-    description:
-      "Understanding the forces shaping renewable energy markets—turning policy trends, regulatory developments, and market signals into informed commercial decisions.",
-    url: "https://gowindsun.com/services/strategic-advisory-energy-market",
-  },
-};
 
 export default function StrategicAdvisoryEnergyMarketPage() {
   return (

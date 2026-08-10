@@ -1,15 +1,8 @@
 import React from "react";
-import { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { siteConfig } from "@/config/site";
 import { Mail, Phone, ShieldCheck, Check } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Contact Us | GoWindSun India Private Limited",
-  description:
-    "Direct technical advisory & project RFP submission channel for renewable energy infrastructure developers, IPPs, and enterprise clients across India.",
-};
 
 export default function ContactPage() {
   return (

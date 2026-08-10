@@ -1,5 +1,4 @@
 import React from "react";
-import { Metadata } from "next";
 import { AboutHero } from "@/components/about/AboutHero";
 import { WhoWeAreSection } from "@/components/about/WhoWeAreSection";
 import { StatementBanner } from "@/components/about/StatementBanner";
@@ -10,12 +9,6 @@ import { VisionMissionSection } from "@/components/about/VisionMissionSection";
 import { TechSection } from "@/components/about/TechSection";
 import { WhyGoWindSunSection } from "@/components/about/WhyGoWindSunSection";
 import { AboutCtaSection } from "@/components/about/AboutCtaSection";
-
-export const metadata: Metadata = {
-  title: "About GoWindSun | Integrated Renewable Energy Solutions",
-  description:
-    "Learn about GoWindSun India Private Limited - an integrated renewable energy platform combining Consulting, EPC, Asset Development (~3,000 MW pipeline), and IPP capabilities across solar, wind, hybrid, BESS, and emerging technologies.",
-};
 
 export default function AboutPage() {
   return (

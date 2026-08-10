@@ -1,5 +1,4 @@
 import React from "react";
-import { Metadata } from "next";
 import { IppHero } from "@/components/ipp-platform/IppHero";
 import { IppPlatformStatement } from "@/components/ipp-platform/IppPlatformStatement";
 import { IppOpportunityLandscape } from "@/components/ipp-platform/IppOpportunityLandscape";
@@ -8,18 +7,6 @@ import { IppInvestmentStructures } from "@/components/ipp-platform/IppInvestment
 import { IppStrategicAdvantages } from "@/components/ipp-platform/IppStrategicAdvantages";
 import { IppPlatformOverviewBanner } from "@/components/ipp-platform/IppPlatformOverviewBanner";
 import { IppMinimalCta } from "@/components/ipp-platform/IppMinimalCta";
-
-export const metadata: Metadata = {
-  title: "IPP Platform | GoWindSun India Private Limited",
-  description:
-    "GoWindSun India Private Limited is an Independent Power Producer (IPP) platform dedicated to developing, owning, operating, and managing high-quality renewable energy assets across India.",
-  openGraph: {
-    title: "IPP Platform | GoWindSun India Private Limited",
-    description:
-      "Developing, owning, operating, and managing high-quality wind, solar, and hybrid renewable energy assets across India.",
-    url: "https://gowindsun.com/ipp-platform",
-  },
-};
 
 export default function IppPlatformPage() {
   return (

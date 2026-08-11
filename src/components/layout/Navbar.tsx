@@ -7,11 +7,13 @@ import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
+import { UnderDevelopmentModal } from "@/components/ui/UnderDevelopmentModal";
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [underDevModalOpen, setUnderDevModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,6 +64,7 @@ export const Navbar: React.FC = () => {
               {siteConfig.nav.map((item) => {
                 const hasChildren = item.children && item.children.length > 0;
                 const isCta = item.isCta;
+                const isUnderDev = item.isUnderDevelopment;
 
                 if (isCta) {
                   return (
@@ -75,6 +78,55 @@ export const Navbar: React.FC = () => {
                         {item.name}
                       </span>
                     </Link>
+                  );
+                }
+
+                if (isUnderDev) {
+                  return (
+                    <div
+                      key={item.name}
+                      className="relative group flex-shrink-0"
+                      onMouseEnter={() => hasChildren && setActiveDropdown(item.name)}
+                      onMouseLeave={() => hasChildren && setActiveDropdown(null)}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setUnderDevModalOpen(true)}
+                        className="flex items-center gap-1 py-2 text-[12px] xl:text-[13px] 2xl:text-sm font-bold text-slate-700 hover:text-amber-700 transition-colors duration-200 whitespace-nowrap cursor-pointer"
+                      >
+                        <span>{item.name}</span>
+                        <span className="ml-1 px-1.5 py-0.5 text-[10px] font-mono uppercase bg-amber-100 text-amber-800 rounded font-semibold border border-amber-200">
+                          Under Dev
+                        </span>
+                        {hasChildren && <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-amber-700 group-hover:rotate-180 transition-transform duration-200" />}
+                      </button>
+
+                      {hasChildren && (
+                        <div
+                          className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
+                            activeDropdown === item.name
+                              ? "opacity-100 visible translate-y-0"
+                              : "opacity-0 invisible -translate-y-2 pointer-events-none"
+                          }`}
+                        >
+                          <div className="w-56 rounded-xl bg-white border border-slate-200 p-2 shadow-xl space-y-1 z-50">
+                            {item.children.map((child) => (
+                              <button
+                                key={child.name}
+                                type="button"
+                                onClick={() => {
+                                  setActiveDropdown(null);
+                                  setUnderDevModalOpen(true);
+                                }}
+                                className="w-full text-left block px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-amber-700 hover:bg-amber-50 transition-colors"
+                              >
+                                {child.name}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   );
                 }
 
@@ -155,7 +207,17 @@ export const Navbar: React.FC = () => {
       </header>
 
       {/* Mobile Drawer */}
-      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+      <MobileMenu
+        isOpen={mobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
+        onOpenUnderDev={() => setUnderDevModalOpen(true)}
+      />
+
+      {/* Under Development Popup Modal */}
+      <UnderDevelopmentModal
+        isOpen={underDevModalOpen}
+        onClose={() => setUnderDevModalOpen(false)}
+      />
     </>
   );
 };

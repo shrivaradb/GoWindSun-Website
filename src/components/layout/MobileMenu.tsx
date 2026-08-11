@@ -10,13 +10,21 @@ import { ChevronDown, ArrowRight, X } from "lucide-react";
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenUnderDev?: () => void;
 }
 
-export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenUnderDev }) => {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   const toggleSubmenu = (name: string) => {
     setOpenSubmenu(openSubmenu === name ? null : name);
+  };
+
+  const handleUnderDevClick = () => {
+    onClose();
+    if (onOpenUnderDev) {
+      onOpenUnderDev();
+    }
   };
 
   return (
@@ -55,6 +63,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               {siteConfig.nav.map((item) => {
                 const hasChildren = item.children && item.children.length > 0;
                 const isExpanded = openSubmenu === item.name;
+                const isUnderDev = item.isUnderDevelopment;
 
                 if (item.isCta) {
                   return (
@@ -66,6 +75,53 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
                     >
                       {item.name}
                     </Link>
+                  );
+                }
+
+                if (isUnderDev) {
+                  return (
+                    <div key={item.name} className="border-b border-slate-100 py-2">
+                      <div className="w-full flex items-center justify-between text-base font-semibold text-slate-800 py-1">
+                        <button
+                          type="button"
+                          onClick={handleUnderDevClick}
+                          className="hover:text-amber-700 flex items-center gap-2 text-left flex-grow"
+                        >
+                          <span>{item.name}</span>
+                          <span className="px-1.5 py-0.5 text-[10px] font-mono uppercase bg-amber-100 text-amber-800 rounded font-semibold border border-amber-200">
+                            Under Dev
+                          </span>
+                        </button>
+                        {hasChildren && (
+                          <button
+                            type="button"
+                            onClick={() => toggleSubmenu(item.name)}
+                            aria-label={`Toggle ${item.name} submenu`}
+                            className="p-1"
+                          >
+                            <ChevronDown
+                              className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${
+                                isExpanded ? "rotate-180 text-amber-600" : ""
+                              }`}
+                            />
+                          </button>
+                        )}
+                      </div>
+                      {hasChildren && isExpanded && (
+                        <div className="pl-4 pt-2 pb-1 space-y-2 border-l border-amber-400 mt-1">
+                          {item.children.map((child) => (
+                            <button
+                              key={child.name}
+                              type="button"
+                              onClick={handleUnderDevClick}
+                              className="block w-full text-left text-sm font-medium text-slate-600 hover:text-amber-700 py-1"
+                            >
+                              {child.name}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   );
                 }
 

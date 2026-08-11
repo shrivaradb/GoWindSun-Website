@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -25,7 +25,7 @@ import NotFound from "@/app/not-found";
 
 export function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <SmoothScroll>
         <div className="flex flex-col min-h-screen bg-white text-slate-900 antialiased selection:bg-emerald-600 selection:text-white">
           <Navbar />
@@ -53,7 +53,7 @@ export function App() {
           <Footer />
         </div>
       </SmoothScroll>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

@@ -33,6 +33,8 @@ export const siteConfig = {
     {
       name: "Projects for Acquisition",
       href: "/projects-for-acquisition",
+      isUnderDevelopment: true,
+      badge: "Under Dev",
       children: [
         { name: "Overview", href: "/projects-for-acquisition" },
         { name: "Wind Projects", href: "/projects-for-acquisition/wind" },

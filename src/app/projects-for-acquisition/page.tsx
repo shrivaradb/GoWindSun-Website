@@ -1,16 +1,34 @@
-"use client";
-
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { ArrowRight, Wind, Sun, Layers, ShieldCheck, Zap, BarChart3, Building2, MapPin } from "lucide-react";
+import { ArrowRight, Wind, Sun, Layers, ShieldCheck, Zap, BarChart3, Building2, MapPin, Construction } from "lucide-react";
 import { motion } from "framer-motion";
+import { UnderDevelopmentModal } from "@/components/ui/UnderDevelopmentModal";
 
 export default function ProjectsForAcquisitionMainPage() {
+  const [underDevModalOpen, setUnderDevModalOpen] = useState(false);
+
   return (
     <div className="bg-white min-h-screen text-slate-900 pt-28 pb-20">
+      {/* UNDER DEVELOPMENT BANNER */}
+      <div className="bg-amber-50 border-b border-amber-200 py-3 text-amber-900 text-xs sm:text-sm font-semibold">
+        <Container className="flex flex-col sm:flex-row items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <Construction className="w-4 h-4 text-amber-600 animate-bounce shrink-0" />
+            <span>Notice: Projects for Acquisition portal & asset inventory are currently <strong>Under Active Development</strong>.</span>
+          </div>
+          <button
+            type="button"
+            onClick={() => setUnderDevModalOpen(true)}
+            className="px-3 py-1 bg-amber-600 hover:bg-amber-700 text-white text-xs rounded font-bold transition-colors whitespace-nowrap"
+          >
+            View Status Details
+          </button>
+        </Container>
+      </div>
+
       {/* 1. Bespoke Hero Section */}
       <section className="relative py-20 bg-[#06111F] text-white overflow-hidden border-b border-slate-800">
         <div className="absolute inset-0 z-0">
@@ -146,12 +164,15 @@ export default function ProjectsForAcquisitionMainPage() {
                   <span className="text-sky-400 font-bold">State Dossiers</span>
                 </div>
 
-                <Link href="/projects-for-acquisition/wind" className="block">
-                  <Button variant="primary" size="lg" className="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-none py-3.5 text-xs uppercase tracking-wider">
-                    <span>View Wind Projects</span>
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
+                <Button
+                  onClick={() => setUnderDevModalOpen(true)}
+                  variant="primary"
+                  size="lg"
+                  className="w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-none py-3.5 text-xs uppercase tracking-wider cursor-pointer"
+                >
+                  <span>View Wind Projects (Under Dev)</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
             </motion.div>
 
@@ -185,12 +206,15 @@ export default function ProjectsForAcquisitionMainPage() {
                   <span className="text-amber-400 font-bold">State Dossiers</span>
                 </div>
 
-                <Link href="/projects-for-acquisition/solar" className="block">
-                  <Button variant="primary" size="lg" className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-none py-3.5 text-xs uppercase tracking-wider">
-                    <span>View Solar Projects</span>
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
+                <Button
+                  onClick={() => setUnderDevModalOpen(true)}
+                  variant="primary"
+                  size="lg"
+                  className="w-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-none py-3.5 text-xs uppercase tracking-wider cursor-pointer"
+                >
+                  <span>View Solar Projects (Under Dev)</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
             </motion.div>
 
@@ -224,18 +248,27 @@ export default function ProjectsForAcquisitionMainPage() {
                   <span className="text-emerald-400 font-bold">State Dossiers</span>
                 </div>
 
-                <Link href="/projects-for-acquisition/hybrid" className="block">
-                  <Button variant="primary" size="lg" className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-none py-3.5 text-xs uppercase tracking-wider">
-                    <span>View Hybrid Projects</span>
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </Link>
+                <Button
+                  onClick={() => setUnderDevModalOpen(true)}
+                  variant="primary"
+                  size="lg"
+                  className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-none py-3.5 text-xs uppercase tracking-wider cursor-pointer"
+                >
+                  <span>View Hybrid Projects (Under Dev)</span>
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </div>
             </motion.div>
 
           </div>
         </Container>
       </section>
+
+      {/* Under Development Modal */}
+      <UnderDevelopmentModal
+        isOpen={underDevModalOpen}
+        onClose={() => setUnderDevModalOpen(false)}
+      />
     </div>
   );
 }

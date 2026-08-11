@@ -40,10 +40,15 @@ const Image = React.forwardRef<HTMLImageElement, ImageProps>(
       ...style,
     };
 
+    const resolvedSrc =
+      typeof src === "string" && src.startsWith("/")
+        ? `.${src}`
+        : src;
+
     return (
       <img
         ref={ref}
-        src={src}
+        src={resolvedSrc}
         alt={alt || ""}
         width={fill ? undefined : width}
         height={fill ? undefined : height}

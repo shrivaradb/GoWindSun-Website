@@ -6,7 +6,9 @@ import { Container } from "@/components/ui/Container";
 
 export const CommercialPerspectiveSection: React.FC = () => {
   return (
-    <section className="py-24 bg-[#0A4EA2] text-white relative overflow-hidden border-b border-slate-800">
+    <section className="py-24 bg-gradient-to-b from-[#06111F] to-[#0F223A] text-white relative overflow-hidden border-b border-slate-800">
+      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none z-0" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Text Column */}

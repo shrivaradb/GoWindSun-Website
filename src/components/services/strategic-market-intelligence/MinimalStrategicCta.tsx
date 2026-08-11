@@ -7,7 +7,9 @@ import { ArrowUpRight } from "lucide-react";
 
 export const MinimalStrategicCta: React.FC = () => {
   return (
-    <section className="py-24 sm:py-32 bg-[#1E4362] text-white relative overflow-hidden">
+    <section className="py-24 sm:py-32 bg-gradient-to-b from-[#06111F] to-[#0A1628] text-white relative overflow-hidden border-t border-slate-800">
+      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-emerald-600/10 blur-[120px] rounded-full pointer-events-none" />
       <Container>
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <div className="text-xs font-mono uppercase tracking-[0.25em] text-[#0186D5]">

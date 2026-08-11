@@ -39,7 +39,7 @@ export const Footer: React.FC = () => {
             </Link>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-md font-light">
-              GoWindSun India Private Limited is a renewable energy engineering, consulting, and project development organization delivering integrated wind, solar, hybrid power plants, BESS, and technical advisory across India.
+              GoWindSun India Private Limited is a renewable energy engineering, consulting, and project development company, as well as an Independent Power Producer (IPP), delivering integrated solutions across wind, solar, hybrid power projects, Battery Energy Storage Systems (BESS), and energy advisory services.
             </p>
           </div>
 

@@ -13,7 +13,7 @@ import { MinimalStrategicCta } from "@/components/services/strategic-market-inte
 
 export default function StrategicAdvisoryEnergyMarketPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-[#06111F]">
       {/* 1. Editorial Market Intelligence Hero */}
       <EditorialMarketHero />
 

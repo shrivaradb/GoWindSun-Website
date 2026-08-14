@@ -2,51 +2,28 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Sun, ShieldCheck, Activity, Zap, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { StandardHero } from "@/components/ui/StandardHero";
 
 export default function SolarProjectsPage() {
   return (
-    <div className="bg-white min-h-screen text-slate-900 pt-28 pb-20">
+    <div className="bg-white min-h-screen text-slate-900">
       {/* 1. Dedicated Solar Intro Banner */}
-      <section className="bg-slate-950 text-white py-16 border-b border-slate-800 relative overflow-hidden">
-        <Container>
-          <div className="space-y-6 max-w-4xl">
-            <div className="flex items-center gap-4 text-xs font-mono tracking-[0.25em] text-amber-400 uppercase">
-              <span>SOLAR ASSET CATEGORIES</span>
-              <span className="h-px w-8 bg-amber-400" />
-              <span>UTILITY &amp; INDUSTRIAL SOLAR</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-tight">
-              SOLAR PROJECTS FOR <span className="text-amber-400">ACQUISITION.</span>
-            </h1>
-
-            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-3xl">
-              Discover ground-mounted solar park land parcels, high-GHI solar zones, tracker-compatible acreage, and grid evacuation access categorized by project development stage.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300 pt-2 border-t border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <Zap className="w-3.5 h-3.5 text-amber-400" />
-                <span>Mono PERC / Bifacial PV Module Compatibility</span>
-              </div>
-              <span className="text-slate-600">•</span>
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>NA Land &amp; Collector Clearances</span>
-              </div>
-              <span className="text-slate-600">•</span>
-              <div className="flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-sky-400" />
-                <span>400kV / 220kV Pooling Substation Bays</span>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <StandardHero
+        title={
+          <>
+            SOLAR PROJECTS FOR <span className="text-amber-400">ACQUISITION.</span>
+          </>
+        }
+        subtitle="Ground-Mounted & High-GHI Solar Energy Asset Pipeline Across India."
+        description="High-irradiation solar PV project sites, STU/CTU substation connectivity approvals, PPA structuring, and bankable due diligence for utility-scale solar asset transactions."
+        image="/SOLAR PROJECTS FOR ACQUISITION..png"
+        imageAlt="Solar Projects for Acquisition"
+      />
 
       {/* 2. Three Solar Stage Selection Cards */}
       <section className="py-20 bg-slate-50 border-b border-slate-200">

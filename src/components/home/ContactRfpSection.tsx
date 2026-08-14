@@ -15,7 +15,6 @@ export const ContactRfpSection: React.FC = () => {
     <Section id="contact" className="bg-white">
       <Container>
         <SectionHeading
-          badge="Direct Engineering Channel"
           title="Schedule Engineering Advisory / Submit RFP"
           subtitle="Connect directly with GoWindSun's senior engineering leaders to evaluate project feasibility, land availability, and EHV grid interconnection."
         />

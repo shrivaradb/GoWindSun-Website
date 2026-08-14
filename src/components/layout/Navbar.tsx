@@ -108,7 +108,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       key={item.name}
                       href={item.href}
-                      className="relative group inline-flex items-center justify-center px-4 xl:px-5 py-2 xl:py-2.5 text-[12px] xl:text-xs 2xl:text-sm font-bold text-white bg-[#059669] hover:bg-[#047857] rounded-full shadow-md shadow-emerald-600/20 transition-all duration-200 transform hover:-translate-y-0.5 flex-shrink-0 whitespace-nowrap ml-1 xl:ml-2"
+                      className="relative group inline-flex items-center justify-center px-4 xl:px-5 py-2 xl:py-2.5 text-[12px] xl:text-xs 2xl:text-sm font-bold text-white bg-[#EA580C] hover:bg-[#C2410C] rounded-full shadow-md shadow-orange-600/20 transition-all duration-200 transform hover:-translate-y-0.5 flex-shrink-0 whitespace-nowrap ml-1 xl:ml-2"
                     >
                       <span className="flex items-center gap-1.5 xl:gap-2">
                         <span className="w-1.5 h-1.5 xl:w-2 xl:h-2 rounded-full bg-white animate-pulse" />

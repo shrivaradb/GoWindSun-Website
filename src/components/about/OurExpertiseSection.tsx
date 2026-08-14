@@ -9,7 +9,7 @@ const domains = [
     num: "01",
     title: "Wind Energy Solutions",
     category: "Onshore & Grid-Connected",
-    description: "End-to-end wind energy development including wind mast installation, wind resource measurements, micro-siting, turbine power curve validation, civil foundations, and high-voltage grid interconnection.",
+    description: "End-to-end wind energy development including wind mast installation, wind resource measurements, micro-siting, Land acquistion, Grid connection, all Govt. Permits, Turbine power curve validation, civil foundations, and high-voltage grid interconnection.",
     tag: "Resource Masts & Micro-siting",
   },
   {

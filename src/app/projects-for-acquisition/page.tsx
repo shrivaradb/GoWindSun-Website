@@ -7,48 +7,26 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Wind, Sun, Layers, ShieldCheck, Zap, BarChart3, Building2, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { StandardHero } from "@/components/ui/StandardHero";
 
 export default function ProjectsForAcquisitionMainPage() {
   return (
     <div className="bg-white min-h-screen text-slate-900">
       {/* 1. Bespoke Hero Section */}
-      <section className="relative min-h-[calc(100vh-72px)] flex flex-col justify-start pt-28 sm:pt-32 lg:pt-36 pb-16 lg:pb-24 bg-[#06111F] text-white overflow-hidden border-b border-slate-800 w-full">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/services/wind_solar_hybrid.png"
-            alt="GoWindSun Projects for Acquisition"
-            fill
-            className="object-cover object-center brightness-[0.35] contrast-105"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06111F]/95 via-[#06111F]/80 to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:32px_32px] opacity-15" />
-        </div>
-
-        <Container className="relative z-10">
-          <div className="max-w-4xl space-y-6">
-            <div className="flex items-center gap-4 text-xs font-mono tracking-[0.25em] text-sky-400 uppercase">
-              <span>ACQUISITION ADVISORY</span>
-              <span className="h-px w-8 bg-sky-400" />
-              <span>RENEWABLE ENERGY ASSET TRANSACTIONS</span>
-            </div>
-
-            <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-[1.04] uppercase font-sans">
-              PROJECTS FOR <br />
-              <span className="text-sky-400">ACQUISITION.</span>
-            </h1>
-
-            <p className="text-xl sm:text-2xl text-slate-200 font-light leading-snug max-w-3xl">
-              Strategic transaction advisory, project screening, clear-title land verification, and M&amp;A due diligence for utility-scale wind, solar, and hybrid energy assets across India.
-            </p>
-
-            <p className="text-sm sm:text-base text-slate-400 font-light leading-relaxed max-w-2xl">
-              GoWindSun India Private Limited bridges Independent Power Producers (IPPs), project developers, corporate investors, and institutional funds with bankable, high-CUF renewable energy acquisition opportunities.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <StandardHero
+        title={
+          <>
+            Projects For <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+              Acquisition.
+            </span>
+          </>
+        }
+        subtitle="Strategic transaction advisory, project screening, clear-title land verification, and M&A due diligence for utility-scale wind, solar, and hybrid energy assets across India."
+        description="GoWindSun India Private Limited connects Independent Power Producers (IPPs), project developers, corporate investors, and institutional funds with bankable, high-CUF renewable energy acquisition opportunities, enabling efficient access to quality operating and development-stage assets."
+        image="/PROJECTS FOR ACQUISITION.png"
+        imageAlt="GoWindSun Projects for Acquisition"
+      />
 
       {/* 2. Process & Advisory Framework */}
       <section className="py-20 bg-slate-50 border-b border-slate-200">

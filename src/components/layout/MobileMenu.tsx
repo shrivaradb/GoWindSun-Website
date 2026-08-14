@@ -38,22 +38,6 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
           className="fixed inset-x-0 top-[73px] z-40 bg-white border-b border-slate-200 shadow-2xl p-6 lg:hidden max-h-[calc(100vh-80px)] overflow-y-auto flex flex-col justify-between"
         >
           <div className="space-y-4">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <div className="flex items-center gap-2.5">
-                <IndiaFlag className="w-8 h-5.5 rounded-[2px]" animated />
-                <span className="text-xs font-mono font-bold text-slate-800 uppercase tracking-wider">
-                  NAVIGATION MENU
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={onClose}
-                aria-label="Close menu"
-                className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
 
             <nav className="flex flex-col space-y-2">
               {siteConfig.nav.map((item: any) => {
@@ -68,7 +52,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                       key={item.name}
                       href={item.href}
                       onClick={onClose}
-                      className="mt-4 w-full text-center py-3 px-6 rounded-full font-semibold text-white bg-[#059669] hover:bg-[#047857] shadow-md shadow-emerald-600/20"
+                      className="mt-4 w-full text-center py-3 px-6 rounded-full font-semibold text-white bg-[#EA580C] hover:bg-[#C2410C] shadow-md shadow-orange-600/20"
                     >
                       {item.name}
                     </Link>

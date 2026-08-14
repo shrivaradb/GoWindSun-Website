@@ -14,46 +14,25 @@ export default function GreenfieldWindProjectsPage() {
   const currentRecords = selectedStateCode ? greenfieldWindExcelDataset[selectedStateCode] || [] : [];
 
   return (
-    <div className="bg-white min-h-screen text-slate-900 pt-28 pb-20">
-      {/* 1. Greenfield Wind Intro Banner */}
-      <section className="bg-[#06111F] text-white py-16 border-b border-slate-800 relative overflow-hidden">
-        <Container>
-          <div className="space-y-6 max-w-4xl">
-            <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-sky-400 uppercase">
-              <Link href="/projects-for-acquisition/wind" className="hover:underline">
-                WIND PROJECTS
-              </Link>
-              <span>/</span>
-              <span className="text-white font-bold">GREENFIELD</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-tight">
+    <div className="bg-white min-h-screen text-slate-900 w-full pt-28 pb-20">
+      {/* 1. Greenfield Wind Intro Banner — Group B Layout & 3-Tier Typography */}
+      <section className="bg-[#06111F] text-white py-16 flex flex-col justify-center relative overflow-hidden">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-4xl">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase text-white tracking-tight leading-tight">
               GREENFIELD WIND PROJECTS <br />
               <span className="text-sky-400">FOR ACQUISITION.</span>
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-3xl">
-              Utility-scale greenfield wind project opportunities mapped directly by State, District, Grid Evacuation Corridor (CTU/STU), and MW Capacity.
+            <p className="text-2xl sm:text-3xl font-normal text-slate-200 mt-4">
+              Early-Stage Wind Site Development &amp; Met Mast Yield Corridors.
             </p>
 
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300 pt-2 border-t border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <Compass className="w-3.5 h-3.5 text-sky-400" />
-                <span>State &amp; District Mapped Dataset</span>
-              </div>
-              <span className="text-slate-600">•</span>
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>CTU / STU Evacuation Mapped</span>
-              </div>
-              <span className="text-slate-600">•</span>
-              <div className="flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-amber-400" />
-                <span>MW Capacity Mapped</span>
-              </div>
-            </div>
+            <p className="text-base sm:text-lg font-normal text-slate-300 max-w-3xl mt-6">
+              Utility-scale greenfield wind project opportunities mapped directly by State, District, Grid Evacuation Corridor (CTU/STU), and MW Capacity.
+            </p>
           </div>
-        </Container>
+        </div>
       </section>
 
       {/* 2. Interactive Map & State Project Panel */}

@@ -94,7 +94,7 @@ export const ServicesGateway: React.FC = () => {
                   "Owner's Engineer & Owner's Representation Services",
                   "Lender's Engineer & Techno-Commercial Due Diligence",
                   "Corporate & Industrial (C&I) Open Access PPA Structuring",
-                  "MNRE RLMM & Wind Turbine Type Certification Support",
+                  "MNRE ALMM & Wind Turbine Type Certification Support",
                   "RE Auction Advisory, Tariff Modeling & Bidding Strategy",
                   "Power Sale Advisory, Energy Trading & REC Mechanisms",
                   "Market Intelligence, Technology Benchmarking & BESS Research",

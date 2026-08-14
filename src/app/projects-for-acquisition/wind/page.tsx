@@ -2,51 +2,28 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Wind, Compass, ShieldCheck, Activity, ArrowRight, Layers, CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
+import { StandardHero } from "@/components/ui/StandardHero";
 
 export default function WindProjectsPage() {
   return (
-    <div className="bg-white min-h-screen text-slate-900 pt-28 pb-20">
+    <div className="bg-white min-h-screen text-slate-900">
       {/* 1. Dedicated Wind Intro Banner */}
-      <section className="bg-[#06111F] text-white py-16 border-b border-slate-800 relative overflow-hidden">
-        <Container>
-          <div className="space-y-6 max-w-4xl">
-            <div className="flex items-center gap-4 text-xs font-mono tracking-[0.25em] text-sky-400 uppercase">
-              <span>WIND ASSET CATEGORIES</span>
-              <span className="h-px w-8 bg-sky-400" />
-              <span>UTILITY-SCALE WIND POWER</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-tight">
-              WIND PROJECTS FOR <span className="text-sky-400">ACQUISITION.</span>
-            </h1>
-
-            <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-3xl">
-              Explore utility-scale wind energy sites across India&apos;s premier wind velocity corridors categorized by project development stage — from Greenfield site development to Shovel-Ready permitted land and Operational commissioned wind farms.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300 pt-2 border-t border-slate-800">
-              <div className="flex items-center gap-1.5">
-                <Compass className="w-3.5 h-3.5 text-sky-400" />
-                <span>WAsP Aerodynamic Micro-Siting</span>
-              </div>
-              <span className="text-slate-600">•</span>
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Clear-Title Land Due Diligence</span>
-              </div>
-              <span className="text-slate-600">•</span>
-              <div className="flex items-center gap-1.5">
-                <Activity className="w-3.5 h-3.5 text-amber-400" />
-                <span>STU / CTU Evacuation Corridors</span>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <StandardHero
+        title={
+          <>
+            WIND PROJECTS FOR <span className="text-sky-400">ACQUISITION.</span>
+          </>
+        }
+        subtitle="Utility-Scale Wind Asset Acquisition & Site Pipeline Across India."
+        description="Bankable onshore wind turbine sites, micrositing assessments, wind resource data verification, clear-title land packages, and evacuation approval due diligence for IPPs and investors."
+        image="/WIND PROJECTS FOR ACQUISITION.png"
+        imageAlt="Wind Projects for Acquisition"
+      />
 
       {/* 2. Three Wind Stage Selection Cards */}
       <section className="py-20 bg-slate-50 border-b border-slate-200">

@@ -19,9 +19,8 @@ export const IndiaFlag: React.FC<IndiaFlagProps> = ({
         viewBox="0 0 900 600"
         width={width}
         height={height}
-        className={`rounded-[3px] shadow-2xs inline-block align-middle flex-shrink-0 transition-transform duration-300 ${
-          animated ? "group-hover/flag:scale-105" : ""
-        } ${className}`}
+        className={`rounded-[3px] shadow-2xs inline-block align-middle flex-shrink-0 transition-transform duration-300 ${animated ? "group-hover/flag:scale-105" : ""
+          } ${className}`}
         aria-hidden="true"
       >
         {/* Saffron Stripe */}

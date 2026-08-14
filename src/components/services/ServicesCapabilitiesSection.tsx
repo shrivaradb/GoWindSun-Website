@@ -220,7 +220,7 @@ export const ServicesCapabilitiesSection: React.FC = () => {
                 Independent Techno-Commercial & Regulatory Advisory
               </h3>
               <p className="text-slate-300 font-light leading-relaxed text-sm sm:text-base">
-                GoWindSun provides multidisciplinary technical due diligence, bankable P50/P75/P90 DPR yield assessments, Owner's & Lender's engineering, Corporate C&I Open Access PPA structuring, and MNRE RLMM wind turbine type certification.
+                GoWindSun provides multidisciplinary technical due diligence, bankable P50/P75/P90 DPR yield assessments, Owner's & Lender's engineering, Corporate C&I Open Access PPA structuring, and MNRE ALMM wind turbine type certification.
               </p>
               <div className="pt-2">
                 <Link

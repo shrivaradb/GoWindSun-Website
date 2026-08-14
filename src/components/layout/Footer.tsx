@@ -18,22 +18,22 @@ export const Footer: React.FC = () => {
           {/* Col 1: Brand & Profile (2 columns wide) */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center gap-3.5 flex-shrink-0 group">
-              <div className="relative w-[60px] h-[60px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-[72px] h-[72px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/logo.png"
                   alt="GoWindSun Logo"
-                  width={76}
-                  height={76}
-                  className="w-auto h-[60px] object-contain"
+                  width={90}
+                  height={90}
+                  className="w-auto h-[72px] object-contain"
                 />
               </div>
               <div className="flex flex-col flex-shrink-0 justify-center">
                 <Image
                   src="/images/logo_text.png"
                   alt="GoWindSun India Private Limited"
-                  width={175}
-                  height={42}
-                  className="w-auto h-[34px] object-contain"
+                  width={210}
+                  height={50}
+                  className="w-auto h-[42px] object-contain"
                 />
               </div>
             </Link>
@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Navigation Links */}
           <div className="space-y-4">
-            <h4 className="text-xs uppercase font-bold tracking-wider text-slate-400 font-mono">
+            <h4 className="text-xs uppercase font-bold tracking-wider text-[#059669] font-mono">
               Quick Navigation
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
@@ -57,11 +57,6 @@ export const Footer: React.FC = () => {
               <li>
                 <Link href="/about" className="hover:text-emerald-400 transition-colors">
                   About GoWindSun
-                </Link>
-              </li>
-              <li>
-                <Link href="/about/director" className="hover:text-emerald-400 transition-colors">
-                  Founder Director
                 </Link>
               </li>
               <li>
@@ -81,7 +76,7 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/tenders" className="hover:text-emerald-400 transition-colors">
-                  Tenders & Procurement
+                  Tenders &amp; Procurement
                 </Link>
               </li>
               <li>
@@ -99,7 +94,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Core Services */}
           <div className="space-y-4">
-            <h4 className="text-xs uppercase font-bold tracking-wider text-slate-400 font-mono">
+            <h4 className="text-xs uppercase font-bold tracking-wider text-[#0186D5] font-mono">
               Our Services
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
@@ -110,22 +105,22 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <Link href="/services/project-development-epc" className="hover:text-emerald-400 transition-colors">
-                  Project Development & EPC
+                  Project Development &amp; EPC
                 </Link>
               </li>
               <li>
                 <Link href="/services/technical-consulting-advisory" className="hover:text-emerald-400 transition-colors">
-                  Technical Consulting & Advisory
+                  Technical Consulting &amp; Advisory
                 </Link>
               </li>
               <li>
                 <Link href="/services/asset-management-operations" className="hover:text-emerald-400 transition-colors">
-                  Asset Management & Operations
+                  Asset Management &amp; Operations
                 </Link>
               </li>
               <li>
                 <Link href="/services/strategic-advisory-energy-market" className="hover:text-emerald-400 transition-colors">
-                  Strategic Advisory & Energy Markets
+                  Strategic Advisory &amp; Energy Markets
                 </Link>
               </li>
             </ul>
@@ -133,7 +128,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Direct Corporate Contact */}
           <div className="space-y-4">
-            <h4 className="text-xs uppercase font-bold tracking-wider text-slate-400 font-mono">
+            <h4 className="text-xs uppercase font-bold tracking-wider text-[#F99D1C] font-mono">
               Direct Contact
             </h4>
             <ul className="space-y-3 text-sm text-slate-300">
@@ -156,7 +151,7 @@ export const Footer: React.FC = () => {
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
                 <a href="tel:+919011071864" className="hover:text-amber-400 transition-colors text-xs sm:text-sm">
-                  +91 90110 71864
+                  +91 90110 71 864
                 </a>
               </li>
             </ul>

@@ -126,7 +126,7 @@ export const PlatformBentoBlock: React.FC = () => {
               </h3>
 
               <p className="text-sm text-slate-600 leading-relaxed font-normal">
-                Integrated strategic, financial, and technical advisory providing Bankable DPRs (P50/P75/P90), Owner's Engineer, Lender's Engineer, Technical Due Diligence, Auction Advisory, and MNRE RLMM/Type Certification.
+                Integrated strategic, financial, and technical advisory providing Bankable DPRs (P50/P75/P90), Owner's Engineer, Lender's Engineer, Technical Due Diligence, Auction Advisory, and MNRE ALMM/Type Certification.
               </p>
             </div>
 

@@ -23,7 +23,7 @@ export const WhoWeAreSection: React.FC = () => {
           {/* Right Column: Narrative specifically from "About GoWindSun India Private Limited" Section */}
           <div className="lg:col-span-7 space-y-6 text-base text-slate-700 leading-relaxed font-normal">
             <p className="text-lg text-slate-800 font-medium leading-relaxed">
-              GoWindSun India Private Limited is founded by a industry professional with over 3 decades of leadership experience across renewable energy, power systems, infrastructure, manufacturing, project & business development and strategic advisory services.
+              GoWindSun India Private Limited is founded by prominent industry professional with over 3 decades of leadership experience across renewable energy, power systems, infrastructure, manufacturing, project & business development and strategic advisory services.
             </p>
             <p>
               We are committed to accelerating the transition toward a sustainable, low-carbon energy future by delivering innovative, technology-driven solutions across the renewable energy value chain. Our expertise spans onshore wind, ground-mounted solar PV, wind-solar hybrid plants, battery energy storage systems (BESS), green hydrogen, and strategic advisory.

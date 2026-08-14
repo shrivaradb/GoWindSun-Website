@@ -33,7 +33,7 @@ const matrix = [
   {
     stakeholder: "Equipment OEMs & Manufacturers",
     need: "Regulatory model approvals & market access",
-    value: "MNRE RLMM (Revised List of Models & Manufacturers) registration, Type Certification support, and regulatory liaison.",
+    value: "MNRE ALMM (Approved List of Models & Manufacturers) registration, Type Certification support, and regulatory liaison.",
   },
   {
     stakeholder: "Local Communities & Environment",

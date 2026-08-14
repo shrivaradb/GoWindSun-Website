@@ -9,7 +9,7 @@ export const AssetTelemetryMatrix: React.FC = () => {
       scope: "WTG & Solar PV Plant O&M",
       stakeholders: "Asset Owners, IPPs, Yield Investors",
       protocol: "Preventive & Predictive Maintenance",
-      deliverable: "99%+ Guaranteed Availability Audit & Monthly Generation Reports",
+      deliverable: "98%+ Guaranteed Availability Audit & Monthly Generation Reports",
     },
     {
       scope: "BESS & Storage Container O&M",
@@ -39,7 +39,7 @@ export const AssetTelemetryMatrix: React.FC = () => {
       scope: "Spare Parts & OEM Warranty",
       stakeholders: "WTG OEMs, Component Suppliers",
       protocol: "Strategic Warehousing & Claim Governance",
-      deliverable: "LTSA Governance Report & Optimised Inventory Master Schedule",
+      deliverable: "Long Term Service Agreement (LTSA) Governance Report & Optimised Inventory Master Schedule",
     },
   ];
 

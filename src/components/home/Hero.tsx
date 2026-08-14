@@ -22,13 +22,13 @@ export const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-[1.05] select-none"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.05] select-none"
           >
-            INTEGRATED <br />
+            Integrated <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] via-[#0EA5E9] to-[#FBBF24] whitespace-nowrap">
-              RENEWABLE ENERGY
+              Renewable Energy
             </span> <br />
-            SOLUTIONS.
+            Solutions.
           </motion.h1>
 
           {/* Call to Action Buttons */}

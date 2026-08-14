@@ -24,10 +24,10 @@ export const ServicesSpecTable: React.FC = () => {
       standardsDeliverables: "Long-term PPA Contracts, Tariff Savings Financial Models, DISCOM Open Access Approvals",
     },
     {
-      serviceGroup: "MNRE RLMM & Type Certification",
+      serviceGroup: "MNRE ALMM & Type Certification",
       targetStakeholders: "Wind Turbine OEMs, Component Manufacturers",
-      technicalScope: "Statutory RLMM Listing, Type Certification Coordination, NIWE Liaison, Grid Code Fault-Ride-Through (FRT)",
-      standardsDeliverables: "MNRE RLMM Registration, Type Certificates, Fault-Ride-Through Test Verification",
+      technicalScope: "Statutory ALMM Listing, Type Certification Coordination, Grid Code Advisory",
+      standardsDeliverables: "MNRE ALMM Registration, Type Certificates, Fault-Ride-Through Test Verification",
     },
     {
       serviceGroup: "Performance & Asset Optimization",

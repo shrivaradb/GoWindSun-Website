@@ -1,69 +1,84 @@
 import React from "react";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
-import { Mail, Phone, ShieldCheck, ArrowRight, MapPin, Clock, FileText, Send, Building2 } from "lucide-react";
+import { Mail, Phone, ShieldCheck, ArrowRight, MapPin, Clock, FileText, Send, Building2, Zap } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { StandardHero } from "@/components/ui/StandardHero";
 
 export default function ContactPage() {
   const phoneClean = siteConfig.contact.phone.replace(/\s+/g, "");
 
   const quickActions = [
     {
-      title: "Submit Technical RFP",
-      description: "Send project capacity, site coordinates, and evacuation parameters directly to our technical team.",
-      subject: "Renewable Energy Project RFP Submission",
-      badge: "EPC & Tenders",
-      icon: Send,
-      actionText: "Email RFP Parameters",
-    },
-    {
-      title: "Project Acquisition Inquiry",
-      description: "Inquire about greenfield, shovel-ready, or operational solar/wind/hybrid assets available for acquisition.",
-      subject: "Asset Acquisition Inquiry",
-      badge: "Asset Transfer",
-      icon: Building2,
-      actionText: "Inquire on Acquisition",
-    },
-    {
       title: "Technical Advisory & Feasibility",
       description: "Request bankable P50/75/90 DPR yield assessments, owner's engineering, or grid interconnection feasibility.",
-      subject: "Technical Advisory & DPR Request",
-      badge: "Consulting",
+      subject: "Technical Advisory & Feasibility Assessment Request",
+      badge: "CONSULTING",
       icon: FileText,
       actionText: "Request Feasibility Advisory",
     },
     {
-      title: "Mutual NDA Request",
-      description: "Initiate mutual non-disclosure agreements prior to exchanging detailed project telemetry and data rooms.",
-      subject: "Mutual NDA Request - GoWindSun",
-      badge: "Confidentiality",
+      title: "Submit Technical RFP",
+      description: "Send project capacity, site coordinates, and evacuation parameters directly to our technical team.",
+      subject: "Renewable Energy Project RFP Submission",
+      badge: "EPC & Tenders",
+      icon: FileText,
+      actionText: "Email RFP Scope",
+    },
+    {
+      title: "Corporate PPA Advisory",
+      description: "Inquire about Group Captive and Open Access solar-wind hybrid power sourcing for C&I off-takers.",
+      subject: "Corporate PPA & Power Sourcing Inquiry",
+      badge: "Commercial Power",
+      icon: Send,
+      actionText: "Inquire PPA Terms",
+    },
+    {
+      title: "Project Acquisition Inquiry",
+      description: "Inquire about greenfield, shovel-ready, or operational solar/wind/hybrid assets available for acquisition.",
+      subject: "Project Acquisition Inquiry & Asset Availability",
+      badge: "ASSET TRANSFER",
+      icon: Building2,
+      actionText: "Inquire on Acquisition",
+    },
+    {
+      title: "IPP Platform Partnership",
+      description: "Inquire about strategic IPP co-investment, equity partnerships, or long-term renewable power plant asset ownership.",
+      subject: "IPP Platform Partnership & Co-Investment Inquiry",
+      badge: "IPP PLATFORM",
+      icon: Zap,
+      actionText: "Inquire IPP Platform",
+    },
+    {
+      title: "Confidential M&A Due Diligence",
+      description: "Request a bilateral Non-Disclosure Agreement (NDA) for acquiring or selling renewable energy projects.",
+      subject: "Confidential Project Acquisition & NDA Request",
+      badge: "Asset Acquisition",
       icon: ShieldCheck,
       actionText: "Request Mutual NDA",
     },
   ];
 
   return (
-    <div className="bg-white min-h-screen pt-28 sm:pt-36 pb-24 text-slate-900">
-      <Container>
-        {/* 1. MINIMAL TYPOGRAPHIC HEADER */}
-        <div className="max-w-4xl pb-12 sm:pb-16 border-b border-slate-200">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono font-bold uppercase tracking-wider mb-6">
-            <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
-            Direct Engineering Channel
-          </div>
+    <div className="bg-white min-h-screen text-slate-900">
+      {/* 1. HERO SECTION — Global Dark Hero System */}
+      <StandardHero
+        image="/images/contact_hero.png"
+        imageAlt="Contact GoWindSun"
+        theme="dark"
+        title={
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+            Contact GoWindSun.
+          </span>
+        }
+        subtitle="Direct Senior Leadership & Engineering Desk Communication."
+        description="Connect directly with GoWindSun's senior leadership and engineering team. Reach out via direct email or telephone to submit your techno-commercial requirements, project RFPs, or advisory queries."
+      />
 
-          <h1 className="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-[1.08] mb-6">
-            Contact GoWindSun
-          </h1>
-
-          <p className="text-lg sm:text-xl text-slate-600 max-w-3xl leading-relaxed font-normal">
-            Connect directly with GoWindSun's senior leadership and engineering team. Reach out via direct email or telephone to submit your techno-commercial requirements, project RFPs, or advisory queries.
-          </p>
-        </div>
-
+      <Container className="py-12 sm:py-16">
         {/* 2. DUAL-COLUMN DIRECT CONTACT HUB */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-12 sm:pt-16 items-start">
-          
+
           {/* LEFT: DIRECT CONTACT CHANNELS & CORPORATE INFO (5 COLS) */}
           <div className="lg:col-span-5 space-y-8">
             <div className="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 space-y-8">
@@ -207,25 +222,6 @@ export default function ContactPage() {
                 );
               })}
             </div>
-
-            {/* Mutual NDA & Security Banner */}
-            <div className="p-6 bg-slate-900 text-white rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mt-6">
-              <div className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-5 h-5 text-emerald-400" />
-                  <h4 className="text-sm font-bold text-white">Strict Confidentiality Policy</h4>
-                </div>
-                <p className="text-xs text-slate-300">
-                  All telemetry, PPA terms, and site data shared are held under strict mutual NDA protection.
-                </p>
-              </div>
-              <a
-                href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent("Request Execution of Mutual NDA")}`}
-                className="shrink-0 px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg transition-colors"
-              >
-                Request Corporate NDA
-              </a>
-            </div>
           </div>
 
         </div>
@@ -236,7 +232,6 @@ export default function ContactPage() {
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>GoWindSun India Private Limited — Integrated Clean Energy Infrastructure</span>
           </div>
-          <span>Zero Spam Policy • Mutual NDA Protection</span>
         </div>
       </Container>
     </div>

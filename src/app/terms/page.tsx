@@ -1,38 +1,21 @@
 import React from "react";
 import { Container } from "@/components/ui/Container";
 import { FileText, Scale, ShieldAlert, Copyright, Gavel, CheckCircle2 } from "lucide-react";
+import { StandardHero } from "@/components/ui/StandardHero";
 
 export default function TermsOfServicePage() {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
-      {/* 1. HERO HEADER */}
-      <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 bg-[#06111F] text-white border-b border-slate-800 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
-        
-        <Container className="relative z-10">
-          <div className="max-w-4xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 bg-sky-950/80 border border-sky-800/80 rounded-full text-sky-400 text-xs font-mono font-semibold uppercase tracking-wider">
-              <Scale className="w-3.5 h-3.5" />
-              Legal & Governance
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white uppercase font-sans leading-tight">
-              Terms of <span className="text-[#0186D5]">Service</span>
-            </h1>
-            
-            <p className="text-lg sm:text-xl text-slate-300 font-light leading-relaxed max-w-3xl">
-              GoWindSun India Private Limited Website Terms of Use & Legal Notice
-            </p>
-
-            <div className="pt-2 text-xs font-mono text-slate-400 flex items-center gap-4">
-              <span>GoWindSun India Private Limited</span>
-              <span>•</span>
-              <span>Last Updated: August 2026</span>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* 1. HERO HEADER — Global Layout & 3-Tier Typography Standard */}
+      <StandardHero
+        title={
+          <>
+            TERMS OF <span className="text-[#0186D5]">SERVICE.</span>
+          </>
+        }
+        subtitle="Website Terms of Use & Legal Advisory Governance Notice."
+        description="These terms govern your access to and use of GoWindSun India Private Limited's digital platforms, advisory materials, project dossiers, and market intelligence publications."
+      />
 
       {/* 2. MAIN TERMS CONTENT */}
       <section className="py-16 sm:py-20">

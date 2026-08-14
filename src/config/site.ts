@@ -56,14 +56,7 @@ export const siteConfig = {
     },
     { name: "Renewable Energy Trading", href: "/services/renewable-energy-trading" },
     { name: "IPP Platform", href: "/ipp-platform" },
-    {
-      name: "Knowledge Hub",
-      href: "/knowledge-hub",
-      children: [
-        { name: "Knowledge Hub", href: "/knowledge-hub" },
-        { name: "Global Energy Market Intelligence", href: "/knowledge-hub/global-energy-market-intelligence" },
-      ],
-    },
+    { name: "Knowledge Hub", href: "/knowledge-hub" },
     { name: "Contact Us", href: "/contact", isCta: true },
   ],
   stats: [

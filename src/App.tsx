@@ -11,7 +11,6 @@ import OurJourneyPage from "@/app/about/our-journey/page";
 import ContactPage from "@/app/contact/page";
 import IppPlatformPage from "@/app/ipp-platform/page";
 import KnowledgeHubPage from "@/app/knowledge-hub/page";
-import GlobalEnergyMarketIntelligencePage from "@/app/knowledge-hub/global-energy-market-intelligence/page";
 import TendersPage from "@/app/tenders/page";
 import CareersPage from "@/app/careers/page";
 
@@ -57,7 +56,6 @@ export function App() {
               <Route path="/tenders" element={<TendersPage />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/knowledge-hub" element={<KnowledgeHubPage />} />
-              <Route path="/knowledge-hub/global-energy-market-intelligence" element={<GlobalEnergyMarketIntelligencePage />} />
               <Route path="/privacy" element={<PrivacyPolicyPage />} />
               <Route path="/terms" element={<TermsOfServicePage />} />
 

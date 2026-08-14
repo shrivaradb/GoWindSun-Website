@@ -1,45 +1,23 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { Container } from "@/components/ui/Container";
+import { StandardHero } from "@/components/ui/StandardHero";
 
 export const AdvisoryServicesHero: React.FC = () => {
   return (
-    <section className="relative min-h-[calc(100vh-72px)] flex flex-col justify-start pt-28 sm:pt-32 lg:pt-36 pb-16 lg:pb-24 bg-[#06111F] border-b border-slate-800/80 overflow-hidden text-white w-full">
-      {/* Background Full-Width Hero Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/services/technical-consulting-advisory-hero.png"
-          alt="GoWindSun Technical Consulting & Advisory Engineering Assessment"
-          fill
-          className="object-cover object-center brightness-[0.38] contrast-105"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06111F]/95 via-[#06111F]/80 to-transparent" />
-      </div>
-
-      {/* Precision Grid Background Details */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none z-0" />
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-600/10 blur-[120px] rounded-full pointer-events-none" />
-
-      <Container className="relative z-10">
-
-        {/* Header Content */}
-        <div className="max-w-4xl space-y-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight text-white leading-[1.08]">
-            ADVISORY SERVICES
-            <span className="block mt-3 text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-medium text-slate-300">
-              Strategic, technical, commercial & regulatory transaction support.
-            </span>
-          </h1>
-
-          <p className="text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl font-light">
-            GoWindSun acts as a trusted technical advisor to equity investors, banks, infrastructure funds, utilities, OEMs, and commercial energy consumers—helping reduce energy costs, mitigate project execution risks, and navigate complex statutory frameworks.
-          </p>
-        </div>
-      </Container>
-    </section>
+    <StandardHero
+      title={
+        <>
+          Technical Consulting &amp; <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+            Advisory Services.
+          </span>
+        </>
+      }
+      subtitle="Strategic, technical, commercial & regulatory transaction support."
+      description="GoWindSun acts as a trusted technical advisor to equity investors, banks, infrastructure funds, utilities, OEMs, and commercial energy consumers—helping reduce energy costs, mitigate project execution risks, and navigate complex statutory frameworks."
+      image="/images/services/technical-consulting-advisory-hero.png"
+      imageAlt="GoWindSun Technical Consulting & Advisory Engineering Assessment"
+    />
   );
 };

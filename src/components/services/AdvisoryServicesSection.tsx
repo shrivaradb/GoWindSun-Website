@@ -82,14 +82,14 @@ export const AdvisoryServicesSection: React.FC = () => {
     },
     {
       id: "rlmm-cert",
-      title: "MNRE RLMM & Type Certification Advisory",
+      title: "MNRE ALMM & Type Certification Advisory",
       subtitle: "Regulatory Compliance Support for OEMs & Manufacturers",
       icon: Award,
       badge: "Regulatory & Compliance",
       summary:
-        "Guiding wind turbine manufacturers (OEMs) and developers through statutory approvals, MNRE Revised List of Models and Manufacturers (RLMM) listing, and wind turbine Type Certification.",
+        "Guiding wind turbine manufacturers (OEMs) and developers through statutory approvals, MNRE Approved List of Models and Manufacturers (ALMM) listing, and wind turbine Type Certification.",
       deliverables: [
-        "MNRE RLMM listing documentation & submission",
+        "MNRE ALMM listing documentation & submission",
         "Wind turbine Type Certificate verification & audit",
         "NIWE (National Institute of Wind Energy) technical liaison",
         "Grid code compliance & fault-ride-through (FRT) certification",

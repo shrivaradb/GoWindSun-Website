@@ -19,9 +19,11 @@ export default function OperationalSolarProjectsPage() {
       <section className="bg-[#06111F] text-white py-16 flex flex-col justify-center relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-4xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase text-white tracking-tight leading-tight">
-              OPERATIONAL SOLAR ASSETS <br />
-              <span className="text-amber-400">COMMISSIONED &amp; GENERATING.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
+              Operational Solar Assets <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+                Commissioned &amp; Generating.
+              </span>
             </h1>
 
             <p className="text-2xl sm:text-3xl font-normal text-slate-200 mt-4">

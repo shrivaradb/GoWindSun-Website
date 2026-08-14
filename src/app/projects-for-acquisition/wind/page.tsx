@@ -16,7 +16,10 @@ export default function WindProjectsPage() {
       <StandardHero
         title={
           <>
-            WIND PROJECTS FOR <span className="text-sky-400">ACQUISITION.</span>
+            Wind Projects For <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+              Acquisition.
+            </span>
           </>
         }
         subtitle="Utility-Scale Wind Asset Acquisition & Site Pipeline Across India."

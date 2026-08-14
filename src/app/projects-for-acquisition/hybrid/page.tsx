@@ -21,8 +21,10 @@ export default function HybridProjectsPage() {
       <StandardHero
         title={
           <>
-            WIND-SOLAR HYBRID PROJECTS <br />
-            <span className="text-emerald-400">FOR ACQUISITION.</span>
+            Wind-Solar Hybrid Projects <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+              For Acquisition.
+            </span>
           </>
         }
         subtitle="Co-Located Wind & Solar Evacuation Optimization Assets Across India."

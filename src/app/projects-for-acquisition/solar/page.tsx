@@ -16,7 +16,10 @@ export default function SolarProjectsPage() {
       <StandardHero
         title={
           <>
-            SOLAR PROJECTS FOR <span className="text-amber-400">ACQUISITION.</span>
+            Solar Projects For <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+              Acquisition.
+            </span>
           </>
         }
         subtitle="Ground-Mounted & High-GHI Solar Energy Asset Pipeline Across India."

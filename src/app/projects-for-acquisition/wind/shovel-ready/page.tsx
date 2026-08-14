@@ -19,9 +19,11 @@ export default function ShovelReadyWindProjectsPage() {
       <section className="bg-[#06111F] text-white py-16 flex flex-col justify-center relative overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-4xl">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase text-white tracking-tight leading-tight">
-              SHOVEL READY WIND PROJECTS <br />
-              <span className="text-sky-400">LAND &amp; GRID SECURED.</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
+              Shovel Ready Wind Projects <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+                Land &amp; Grid Secured.
+              </span>
             </h1>
 
             <p className="text-2xl sm:text-3xl font-normal text-slate-200 mt-4">

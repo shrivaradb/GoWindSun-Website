@@ -1,36 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { IndiaSvgMap } from "@/components/projects/IndiaSvgMap";
-import { ProjectStatePanel } from "@/components/projects/ProjectStatePanel";
-import { solarProjectsData, getProjectsByState, getActiveStateCodes } from "@/data/acquisitionProjects";
-import { Sun, ChevronRight, Compass, ShieldCheck, Activity, Zap } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Sun, ShieldCheck, Activity, Zap, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function SolarProjectsPage() {
-  const [selectedStateCode, setSelectedStateCode] = useState<string | null>("IN-RJ");
-  const activeStateCodes = getActiveStateCodes("solar");
-  const currentProjects = selectedStateCode ? getProjectsByState("solar", selectedStateCode) : [];
-
   return (
     <div className="bg-white min-h-screen text-slate-900 pt-28 pb-20">
       {/* 1. Dedicated Solar Intro Banner */}
       <section className="bg-slate-950 text-white py-16 border-b border-slate-800 relative overflow-hidden">
         <Container>
           <div className="space-y-6 max-w-4xl">
-            {/* Breadcrumb Navigation */}
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-slate-300">
-              <Link href="/projects-for-acquisition" className="hover:text-amber-400 transition-colors">
-                Projects for Acquisition
-              </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-              <span className="text-amber-400 font-bold">Solar Projects</span>
-            </div>
-
-            <div className="flex items-center gap-3 text-xs font-mono tracking-[0.25em] text-amber-400 uppercase">
-              <Sun className="w-4 h-4 text-amber-400 animate-spin-slow" />
-              <span>UTILITY &amp; INDUSTRIAL SOLAR PV ASSETS</span>
+            <div className="flex items-center gap-4 text-xs font-mono tracking-[0.25em] text-amber-400 uppercase">
+              <span>SOLAR ASSET CATEGORIES</span>
+              <span className="h-px w-8 bg-amber-400" />
+              <span>UTILITY &amp; INDUSTRIAL SOLAR</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-tight">
@@ -38,7 +25,7 @@ export default function SolarProjectsPage() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-3xl">
-              Discover clear-title ground-mounted solar park land parcels, high-GHI solar energy zones, tracker-compatible acreage, and ISTS / STU grid evacuation access across India.
+              Discover ground-mounted solar park land parcels, high-GHI solar zones, tracker-compatible acreage, and grid evacuation access categorized by project development stage.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300 pt-2 border-t border-slate-800">
@@ -61,76 +48,131 @@ export default function SolarProjectsPage() {
         </Container>
       </section>
 
-      {/* 2. Interactive Map & State Project Panel Section */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
+      {/* 2. Three Solar Stage Selection Cards */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200">
         <Container>
-          <div className="max-w-3xl mb-10 space-y-2">
+          <div className="max-w-3xl mb-12 space-y-3">
             <span className="text-xs font-mono font-bold text-amber-700 uppercase tracking-widest">
-              INTERACTIVE STATE ACQUISITION MAP
+              SELECT SOLAR DEVELOPMENT STAGE
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight uppercase">
-              SELECT STATE TO INSPECT SOLAR OPPORTUNITIES
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight uppercase">
+              SOLAR PROJECT CATEGORIES
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-light">
-              Click on an individual state on the interactive map below to load solar park opportunities, land acreage, capacity, and development status.
+            <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+              Select a project stage below to view the interactive state-by-state acquisition map and detailed asset dossiers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Interactive SVG India Map Column */}
-            <div className="lg:col-span-6">
-              <IndiaSvgMap
-                selectedState={selectedStateCode}
-                onSelectState={(code) => setSelectedStateCode(code)}
-                activeStateCodes={activeStateCodes}
-              />
-            </div>
-
-            {/* Information Dossier Panel Column */}
-            <div className="lg:col-span-6 h-full">
-              <ProjectStatePanel
-                selectedStateCode={selectedStateCode}
-                projects={currentProjects}
-                category="solar"
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* 3. Supporting Technical Highlights */}
-      <section className="py-16 bg-white">
-        <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="text-xs font-mono font-bold text-amber-700 uppercase">
-                GHI &amp; Irradiance Screening
+            
+            {/* STAGE 1: GREENFIELD SOLAR */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl flex flex-col justify-between space-y-6 group"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#F97316] font-mono font-bold text-sm">
+                  01
+                </div>
+                <div className="space-y-1">
+                  <span className="text-xs font-mono text-[#F97316] font-bold uppercase tracking-widest">
+                    EARLY STAGE
+                  </span>
+                  <h3 className="text-xl font-black uppercase text-slate-900 tracking-tight">
+                    GREENFIELD SOLAR
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  High-GHI ground-mounted solar land parcels, tracker-compatible acreage, title clearance pipeline, and STU/ISTS grid screening.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-slate-900">High Global Horizontal Irradiance</h3>
-              <p className="text-xs text-slate-600 font-light leading-relaxed">
-                Satellite &amp; ground-station GHI data verification for high annual specific yield (kWh/kWp) and optimal performance ratio (PR) modeling.
-              </p>
-            </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="text-xs font-mono font-bold text-amber-700 uppercase">
-                Land Acquisition &amp; Topography
+              <div className="pt-4 border-t border-slate-100">
+                <Link href="/projects-for-acquisition/solar/greenfield" className="block w-full">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="group w-full bg-[#F97316] hover:bg-[#EA580C] text-white font-bold rounded-full py-3 text-xs uppercase tracking-wider cursor-pointer shadow-md shadow-orange-500/20"
+                  >
+                    <span>View Greenfield Map</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
               </div>
-              <h3 className="text-base font-bold text-slate-900">Contour &amp; Soil Suitability</h3>
-              <p className="text-xs text-slate-600 font-light leading-relaxed">
-                Flat terrain screening, soil resistivity testing, flood risk assessment, and non-agricultural (NA) revenue conversion support.
-              </p>
-            </div>
+            </motion.div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="text-xs font-mono font-bold text-amber-700 uppercase">
-                Power Evacuation &amp; PPA
+            {/* STAGE 2: SHOVEL READY SOLAR */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl flex flex-col justify-between space-y-6 group"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#F97316] font-mono font-bold text-sm">
+                  02
+                </div>
+                <div className="space-y-1">
+                  <span className="text-xs font-mono text-[#F97316] font-bold uppercase tracking-widest">
+                    PERMITTED STAGE
+                  </span>
+                  <h3 className="text-xl font-black uppercase text-slate-900 tracking-tight">
+                    SHOVEL READY SOLAR
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Fully permitted solar park acreage with NA conversion complete, grid NOC secured, and ready for module &amp; tracker installation.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-slate-900">Group Captive &amp; Third-Party PPA</h3>
-              <p className="text-xs text-slate-600 font-light leading-relaxed">
-                Open Access wheeling feasibility, STU/ISTS transmission clearance, and bankable corporate off-take PPA structuring.
-              </p>
-            </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <Link href="/projects-for-acquisition/solar/shovel-ready" className="block w-full">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="group w-full bg-[#F97316] hover:bg-[#EA580C] text-white font-bold rounded-full py-3 text-xs uppercase tracking-wider cursor-pointer shadow-md shadow-orange-500/20"
+                  >
+                    <span>View Shovel Ready Map</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* STAGE 3: OPERATIONAL SOLAR */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl flex flex-col justify-between space-y-6 group"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center text-[#F97316] font-mono font-bold text-sm">
+                  03
+                </div>
+                <div className="space-y-1">
+                  <span className="text-xs font-mono text-[#F97316] font-bold uppercase tracking-widest">
+                    COMMISSIONED ASSETS
+                  </span>
+                  <h3 className="text-xl font-black uppercase text-slate-900 tracking-tight">
+                    OPERATIONAL SOLAR
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Fully commissioned ground-mounted solar plants with verified generation history, active PPA off-take, and synchronized evacuation.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <Link href="/projects-for-acquisition/solar/operational" className="block w-full">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="group w-full bg-[#F97316] hover:bg-[#EA580C] text-white font-bold rounded-full py-3 text-xs uppercase tracking-wider cursor-pointer shadow-md shadow-orange-500/20"
+                  >
+                    <span>View Operational Map</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+
           </div>
         </Container>
       </section>

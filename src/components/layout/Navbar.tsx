@@ -5,15 +5,43 @@ import Link from "next/link";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import { MobileMenu } from "./MobileMenu";
 import { UnderDevelopmentModal } from "@/components/ui/UnderDevelopmentModal";
+import { IndiaFlag } from "@/components/ui/IndiaFlag";
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [underDevModalOpen, setUnderDevModalOpen] = useState(false);
+  const [underDevModalConfig, setUnderDevModalConfig] = useState<{
+    isOpen: boolean;
+    title?: string;
+    description?: string;
+  }>({
+    isOpen: false,
+    title: "",
+    description: "",
+  });
+
+  const handleOpenUnderDevModal = (title?: string, description?: string) => {
+    let modalTitle = title || "Under Development";
+    let modalDesc = description;
+
+    if (!modalDesc) {
+      if (modalTitle.toLowerCase().includes("knowledge")) {
+        modalDesc = "Our Knowledge Hub technical whitepaper repository, MNRE regulatory briefs, and PPA tariff intelligence tools are currently under active technical compilation and onboarding.";
+      } else {
+        modalDesc = "Our Projects for Acquisition platform, digital asset directory, and utility-scale Solar, Wind, and Hybrid project acquisition portfolios are currently under active technical onboarding.";
+      }
+    }
+
+    setUnderDevModalConfig({
+      isOpen: true,
+      title: modalTitle,
+      description: modalDesc,
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,42 +54,51 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-200 border-b border-slate-200/80 ${
-          scrolled ? "py-2 shadow-md" : "py-2.5 shadow-sm"
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-200 border-b border-slate-200/80 ${scrolled ? "py-2 shadow-md" : "py-2.5 shadow-sm"
+          }`}
       >
+        {/* Subtle Indian Tricolor Top Accent Stripe */}
+        <div
+          className="w-full h-[3.5px] bg-gradient-to-r from-[#FF9933] via-slate-100 to-[#138808] absolute top-0 left-0 right-0 z-10"
+        />
+
         <Container>
           <nav className="flex items-center justify-between gap-4 h-16 xl:h-18">
-            {/* LEFT: Logo Emblem + 3-Color Go-Wind-Sun Brand Lockup (Perfect Balanced Sizing) */}
+            {/* LEFT: Logo Emblem + Logo Text + Big Indian Flag Badge */}
             <Link
               href="/"
-              className="flex items-center gap-3.5 flex-shrink-0 group pr-1 lg:pr-3 xl:pr-4"
+              className="flex items-center gap-3 xl:gap-3.5 flex-shrink-0 group pr-1 lg:pr-3 xl:pr-4"
             >
-              <div className="relative w-[60px] h-[60px] xl:w-[68px] xl:h-[68px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-[54px] h-[54px] xl:w-[64px] xl:h-[64px] flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/logo.png"
                   alt="GoWindSun Logo"
                   width={76}
                   height={76}
-                  className="w-auto h-[60px] xl:h-[68px] object-contain"
+                  className="w-auto h-[54px] xl:h-[64px] object-contain"
                   priority
                 />
               </div>
-              <div className="flex flex-col flex-shrink-0 justify-center">
+              <div className="flex items-center gap-2.5 flex-shrink-0">
                 <Image
                   src="/images/logo_text.png"
                   alt="GoWindSun India Private Limited"
                   width={175}
                   height={42}
-                  className="w-auto h-[34px] xl:h-[40px] object-contain"
+                  className="w-auto h-[32px] xl:h-[38px] object-contain"
                   priority
                 />
+
+                {/* STANDALONE BORDERLESS FLAG */}
+                <div className="flex items-center justify-center pl-1 sm:pl-1.5 flex-shrink-0">
+                  <IndiaFlag className="w-9 h-6 sm:w-11 sm:h-7.5 rounded-[3px] flex-shrink-0" animated />
+                </div>
               </div>
             </Link>
 
             {/* RIGHT: Floating Desktop Navigation Items (Fits 1024px+ Screens) */}
             <div className="hidden lg:flex items-center gap-2.5 xl:gap-4 2xl:gap-6 flex-shrink-0">
-              {siteConfig.nav.map((item) => {
+              {siteConfig.nav.map((item: any) => {
                 const hasChildren = item.children && item.children.length > 0;
                 const isCta = item.isCta;
                 const isUnderDev = item.isUnderDevelopment;
@@ -91,7 +128,7 @@ export const Navbar: React.FC = () => {
                     >
                       <button
                         type="button"
-                        onClick={() => setUnderDevModalOpen(true)}
+                        onClick={() => handleOpenUnderDevModal(item.name)}
                         className="flex items-center gap-1 py-2 text-[12px] xl:text-[13px] 2xl:text-sm font-bold text-slate-700 hover:text-amber-700 transition-colors duration-200 whitespace-nowrap cursor-pointer"
                       >
                         <span>{item.name}</span>
@@ -103,20 +140,19 @@ export const Navbar: React.FC = () => {
 
                       {hasChildren && (
                         <div
-                          className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
-                            activeDropdown === item.name
-                              ? "opacity-100 visible translate-y-0"
-                              : "opacity-0 invisible -translate-y-2 pointer-events-none"
-                          }`}
+                          className={`absolute top-full left-0 pt-2 transition-all duration-200 ${activeDropdown === item.name
+                            ? "opacity-100 visible translate-y-0"
+                            : "opacity-0 invisible -translate-y-2 pointer-events-none"
+                            }`}
                         >
                           <div className="w-56 rounded-xl bg-white border border-slate-200 p-2 shadow-xl space-y-1 z-50">
-                            {item.children.map((child) => (
+                            {item.children.map((child: any) => (
                               <button
                                 key={child.name}
                                 type="button"
                                 onClick={() => {
                                   setActiveDropdown(null);
-                                  setUnderDevModalOpen(true);
+                                  handleOpenUnderDevModal(child.name);
                                 }}
                                 className="w-full text-left block px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-amber-700 hover:bg-amber-50 transition-colors"
                               >
@@ -169,23 +205,53 @@ export const Navbar: React.FC = () => {
                     {/* Light Theme Dropdown Menu */}
                     {hasChildren && (
                       <div
-                        className={`absolute top-full left-0 pt-2 transition-all duration-200 ${
-                          activeDropdown === item.name
-                            ? "opacity-100 visible translate-y-0"
-                            : "opacity-0 invisible -translate-y-2 pointer-events-none"
-                        }`}
+                        className={`absolute top-full left-0 pt-2 transition-all duration-200 ${activeDropdown === item.name
+                          ? "opacity-100 visible translate-y-0"
+                          : "opacity-0 invisible -translate-y-2 pointer-events-none"
+                          }`}
                       >
-                        <div className="w-56 rounded-xl bg-white border border-slate-200 p-2 shadow-xl space-y-1 z-50">
-                          {item.children.map((child) => (
-                            <Link
-                              key={child.name}
-                              href={child.href}
-                              className="block px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-emerald-700 hover:bg-slate-100 transition-colors"
-                              onClick={() => setActiveDropdown(null)}
-                            >
-                              {child.name}
-                            </Link>
-                          ))}
+                        <div className="w-60 rounded-xl bg-white border border-slate-200 p-2 shadow-2xl space-y-1 z-50">
+                          {item.children.map((child: any) => {
+                            const hasSubChildren = child.children && child.children.length > 0;
+                            if (hasSubChildren) {
+                              return (
+                                <div key={child.name} className="relative group/sub">
+                                  <Link
+                                    href={child.href}
+                                    className="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-xs font-bold text-slate-800 hover:text-[#0186D5] hover:bg-slate-100 transition-colors"
+                                    onClick={() => setActiveDropdown(null)}
+                                  >
+                                    <span>{child.name}</span>
+                                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover/sub:text-[#0186D5]" />
+                                  </Link>
+
+                                  <div className="absolute left-full top-0 ml-1.5 opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-200 w-52 rounded-xl bg-white border border-slate-200 p-2 shadow-2xl space-y-1">
+                                    {child.children.map((sub: any) => (
+                                      <Link
+                                        key={sub.name}
+                                        href={sub.href}
+                                        className="block px-3 py-2 rounded-lg text-xs font-semibold text-slate-700 hover:text-[#0186D5] hover:bg-sky-50 transition-colors"
+                                        onClick={() => setActiveDropdown(null)}
+                                      >
+                                        {sub.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+                              );
+                            }
+
+                            return (
+                              <Link
+                                key={child.name}
+                                href={child.href}
+                                className="block px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:text-emerald-700 hover:bg-slate-100 transition-colors"
+                                onClick={() => setActiveDropdown(null)}
+                              >
+                                {child.name}
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -210,16 +276,16 @@ export const Navbar: React.FC = () => {
       <MobileMenu
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
-        onOpenUnderDev={() => setUnderDevModalOpen(true)}
+        onOpenUnderDev={(title, description) => handleOpenUnderDevModal(title, description)}
       />
 
       {/* Under Development Popup Modal */}
       <UnderDevelopmentModal
-        isOpen={underDevModalOpen}
-        onClose={() => setUnderDevModalOpen(false)}
+        isOpen={underDevModalConfig.isOpen}
+        onClose={() => setUnderDevModalConfig((prev) => ({ ...prev, isOpen: false }))}
+        title={underDevModalConfig.title}
+        description={underDevModalConfig.description}
       />
     </>
   );
 };
-
-

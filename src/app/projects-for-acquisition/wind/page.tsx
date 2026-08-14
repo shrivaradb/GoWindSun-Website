@@ -1,36 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { IndiaSvgMap } from "@/components/projects/IndiaSvgMap";
-import { ProjectStatePanel } from "@/components/projects/ProjectStatePanel";
-import { windProjectsData, getProjectsByState, getActiveStateCodes } from "@/data/acquisitionProjects";
-import { Wind, ChevronRight, Compass, ShieldCheck, Activity, BarChart3 } from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Wind, Compass, ShieldCheck, Activity, ArrowRight, Layers, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function WindProjectsPage() {
-  const [selectedStateCode, setSelectedStateCode] = useState<string | null>("IN-MH");
-  const activeStateCodes = getActiveStateCodes("wind");
-  const currentProjects = selectedStateCode ? getProjectsByState("wind", selectedStateCode) : [];
-
   return (
     <div className="bg-white min-h-screen text-slate-900 pt-28 pb-20">
       {/* 1. Dedicated Wind Intro Banner */}
       <section className="bg-[#06111F] text-white py-16 border-b border-slate-800 relative overflow-hidden">
         <Container>
           <div className="space-y-6 max-w-4xl">
-            {/* Breadcrumb Navigation */}
-            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-slate-300">
-              <Link href="/projects-for-acquisition" className="hover:text-sky-400 transition-colors">
-                Projects for Acquisition
-              </Link>
-              <ChevronRight className="w-3.5 h-3.5 text-slate-500" />
-              <span className="text-sky-400 font-bold">Wind Projects</span>
-            </div>
-
-            <div className="flex items-center gap-3 text-xs font-mono tracking-[0.25em] text-sky-400 uppercase">
-              <Wind className="w-4 h-4 text-sky-400 animate-spin-slow" />
-              <span>UTILITY-SCALE WIND ENERGY ASSETS</span>
+            <div className="flex items-center gap-4 text-xs font-mono tracking-[0.25em] text-sky-400 uppercase">
+              <span>WIND ASSET CATEGORIES</span>
+              <span className="h-px w-8 bg-sky-400" />
+              <span>UTILITY-SCALE WIND POWER</span>
             </div>
 
             <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight uppercase leading-tight">
@@ -38,7 +25,7 @@ export default function WindProjectsPage() {
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 font-light leading-relaxed max-w-3xl">
-              Explore utility-scale wind energy sites, calibrated met mast WRA data campaigns, high-hub height WTG micrositing, and EHV grid interconnection corridors across India&apos;s premier wind velocity states.
+              Explore utility-scale wind energy sites across India&apos;s premier wind velocity corridors categorized by project development stage — from Greenfield site development to Shovel-Ready permitted land and Operational commissioned wind farms.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-300 pt-2 border-t border-slate-800">
@@ -61,76 +48,131 @@ export default function WindProjectsPage() {
         </Container>
       </section>
 
-      {/* 2. Interactive Map & State Project Panel Section */}
-      <section className="py-16 bg-slate-50 border-b border-slate-200">
+      {/* 2. Three Wind Stage Selection Cards */}
+      <section className="py-20 bg-slate-50 border-b border-slate-200">
         <Container>
-          <div className="max-w-3xl mb-10 space-y-2">
+          <div className="max-w-3xl mb-12 space-y-3">
             <span className="text-xs font-mono font-bold text-sky-700 uppercase tracking-widest">
-              INTERACTIVE STATE ACQUISITION MAP
+              SELECT WIND DEVELOPMENT STAGE
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight uppercase">
-              SELECT STATE TO INSPECT WIND OPPORTUNITIES
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight uppercase">
+              WIND PROJECT CATEGORIES
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-light">
-              Click on an individual state on the interactive map below to load state acquisition details, land parcels, capacity, and development status.
+            <p className="text-sm sm:text-base text-slate-600 font-light leading-relaxed">
+              Select a project stage below to view the interactive state-by-state acquisition map and detailed asset dossiers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Interactive SVG India Map Column */}
-            <div className="lg:col-span-6">
-              <IndiaSvgMap
-                selectedState={selectedStateCode}
-                onSelectState={(code) => setSelectedStateCode(code)}
-                activeStateCodes={activeStateCodes}
-              />
-            </div>
-
-            {/* Information Dossier Panel Column */}
-            <div className="lg:col-span-6 h-full">
-              <ProjectStatePanel
-                selectedStateCode={selectedStateCode}
-                projects={currentProjects}
-                category="wind"
-              />
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* 3. Supporting Technical Highlights */}
-      <section className="py-16 bg-white">
-        <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="text-xs font-mono font-bold text-sky-700 uppercase">
-                Met Mast WRA Validation
+            
+            {/* STAGE 1: GREENFIELD WIND */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl flex flex-col justify-between space-y-6 group"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-[#0186D5] font-mono font-bold text-sm">
+                  01
+                </div>
+                <div className="space-y-1">
+                  <span className="text-xs font-mono text-[#0186D5] font-bold uppercase tracking-widest">
+                    EARLY STAGE
+                  </span>
+                  <h3 className="text-xl font-black uppercase text-slate-900 tracking-tight">
+                    GREENFIELD WIND
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Early-stage wind sites with calibrated Met Mast WRA campaigns, land leasehold identification, and STU grid corridor screening.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-slate-900">Bankable Wind Data</h3>
-              <p className="text-xs text-slate-600 font-light leading-relaxed">
-                High-frequency data logging with calibrated anemometers, wind vane sensors, and temperature/pressure logging for bankable P50/P75/P90 DPR modeling.
-              </p>
-            </div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="text-xs font-mono font-bold text-sky-700 uppercase">
-                Encumbrance-Free Title
+              <div className="pt-4 border-t border-slate-100">
+                <Link href="/projects-for-acquisition/wind/greenfield" className="block w-full">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="group w-full bg-[#0186D5] hover:bg-[#0186D5]/90 text-white font-bold rounded-full py-3 text-xs uppercase tracking-wider cursor-pointer shadow-md shadow-sky-500/20"
+                  >
+                    <span>View Greenfield Map</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
               </div>
-              <h3 className="text-base font-bold text-slate-900">Revenue & Land Due Diligence</h3>
-              <p className="text-xs text-slate-600 font-light leading-relaxed">
-                Verification of private, government, and leasehold land parcels, NA conversions, and State Nodal Agency (SNA) project sanctions.
-              </p>
-            </div>
+            </motion.div>
 
-            <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-              <div className="text-xs font-mono font-bold text-sky-700 uppercase">
-                Substation Grid Evacuation
+            {/* STAGE 2: SHOVEL READY WIND */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl flex flex-col justify-between space-y-6 group"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-[#0186D5] font-mono font-bold text-sm">
+                  02
+                </div>
+                <div className="space-y-1">
+                  <span className="text-xs font-mono text-[#0186D5] font-bold uppercase tracking-widest">
+                    PERMITTED STAGE
+                  </span>
+                  <h3 className="text-xl font-black uppercase text-slate-900 tracking-tight">
+                    SHOVEL READY WIND
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Fully permitted land-secured wind projects with grid evacuation NOC in-hand, ready for immediate EPC civil execution and turbine erection.
+                </p>
               </div>
-              <h3 className="text-base font-bold text-slate-900">High-Voltage Line Corridors</h3>
-              <p className="text-xs text-slate-600 font-light leading-relaxed">
-                Proximity verification to 132kV / 220kV / 400kV STU and ISTS pooling stations to ensure unhindered power evacuation.
-              </p>
-            </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <Link href="/projects-for-acquisition/wind/shovel-ready" className="block w-full">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="group w-full bg-[#0186D5] hover:bg-[#0186D5]/90 text-white font-bold rounded-full py-3 text-xs uppercase tracking-wider cursor-pointer shadow-md shadow-sky-500/20"
+                  >
+                    <span>View Shovel Ready Map</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* STAGE 3: OPERATIONAL WIND */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl flex flex-col justify-between space-y-6 group"
+            >
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 border border-sky-200 flex items-center justify-center text-[#0186D5] font-mono font-bold text-sm">
+                  03
+                </div>
+                <div className="space-y-1">
+                  <span className="text-xs font-mono text-[#0186D5] font-bold uppercase tracking-widest">
+                    COMMISSIONED ASSETS
+                  </span>
+                  <h3 className="text-xl font-black uppercase text-slate-900 tracking-tight">
+                    OPERATIONAL WIND
+                  </h3>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                  Commissioned wind farms with verified generation track records, active utility/corporate PPAs, and synchronized EHV evacuation lines.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-slate-100">
+                <Link href="/projects-for-acquisition/wind/operational" className="block w-full">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    className="group w-full bg-[#0186D5] hover:bg-[#0186D5]/90 text-white font-bold rounded-full py-3 text-xs uppercase tracking-wider cursor-pointer shadow-md shadow-sky-500/20"
+                  >
+                    <span>View Operational Map</span>
+                    <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
+
           </div>
         </Container>
       </section>

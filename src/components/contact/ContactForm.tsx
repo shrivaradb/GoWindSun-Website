@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle2, Send, Lock } from "lucide-react";
+import { CheckCircle2, Send, Lock, ArrowRight } from "lucide-react";
 
 const rfpSchema = z.object({
   fullName: z.string().min(2, "Full name must be at least 2 characters"),
@@ -199,11 +199,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           variant="primary"
           size="lg"
           loading={isSubmitting}
-          className="w-full justify-center rounded-none bg-slate-900 hover:bg-slate-800 text-white py-4 text-base sm:text-lg font-bold"
+          className="group w-full justify-center rounded-full bg-[#0186D5] hover:bg-[#0186D5]/90 text-white py-4 text-base sm:text-lg font-bold shadow-xl shadow-sky-500/20 border border-sky-300/30 transition-all duration-300"
         >
           <span className="inline-flex items-center justify-center gap-2.5">
             <span>{submitButtonText}</span>
-            <Send className="w-5 h-5 shrink-0" />
+            <ArrowRight className="w-5 h-5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
           </span>
         </Button>
       </div>

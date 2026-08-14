@@ -27,15 +27,15 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "inline-flex items-center justify-center font-semibold rounded-btn transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none active:scale-[0.98]";
+      "group inline-flex items-center justify-center font-semibold rounded-btn transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-accent-primary/50 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer select-none active:scale-[0.98]";
 
     const variants = {
       primary:
-        "bg-[#059669] hover:bg-[#047857] text-white shadow-md shadow-emerald-600/20 border border-emerald-600/30",
+        "bg-[#0186D5] hover:bg-[#0186D5]/90 text-white font-bold shadow-xl shadow-sky-500/20 border border-sky-300/40",
       secondary:
         "bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 shadow-sm",
       outline:
-        "bg-transparent text-slate-800 border border-slate-300 hover:border-emerald-600 hover:text-emerald-700 hover:bg-emerald-50/50",
+        "bg-transparent text-slate-800 border border-slate-300 hover:border-[#0186D5] hover:text-[#0186D5] hover:bg-sky-50/50",
       glass:
         "bg-white/80 hover:bg-white text-slate-900 border border-slate-200 backdrop-blur-md",
       ghost:
@@ -55,10 +55,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(baseStyles, variants[variant], sizes[size], className)}
         {...props}
       >
-        {loading && <Loader2 className="w-4 h-4 animate-spin text-current" />}
-        <span>{children}</span>
+        {loading && <Loader2 className="w-4 h-4 animate-spin text-current shrink-0" />}
+        {children}
         {icon && !loading && (
-          <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+          <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
         )}
       </button>
     );

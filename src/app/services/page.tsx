@@ -17,7 +17,18 @@ export default function ServicesPage() {
       <EngagementWorkflow />
 
       {/* 5. Strategic Consultation & RFP CTA */}
-      <ServicesCtaSection />
+      <ServicesCtaSection
+        badge="INTEGRATED LIFECYCLE SERVICES"
+        title={
+          <>
+            READY TO EXPLORE OUR INTEGRATED <br />
+            RENEWABLE ENERGY SERVICES?
+          </>
+        }
+        description="Connect with GoWindSun's engineering and commercial team to structure turnkey EPC, appoint Owner's Engineers, evaluate greenfield sites, or explore corporate PPA off-take solutions."
+        buttonText="Submit Project Inquiry"
+      />
     </main>
   );
 }
+

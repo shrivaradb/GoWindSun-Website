@@ -2,15 +2,15 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { siteConfig } from "@/config/site";
-import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IndiaFlag } from "@/components/ui/IndiaFlag";
 
 interface MobileMenuProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpenUnderDev?: () => void;
+  onOpenUnderDev?: (title?: string, description?: string) => void;
 }
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenUnderDev }) => {
@@ -20,10 +20,10 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
     setOpenSubmenu(openSubmenu === name ? null : name);
   };
 
-  const handleUnderDevClick = () => {
+  const handleUnderDevClick = (title?: string) => {
     onClose();
     if (onOpenUnderDev) {
-      onOpenUnderDev();
+      onOpenUnderDev(title);
     }
   };
 
@@ -34,38 +34,35 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="fixed inset-0 z-40 bg-white lg:hidden flex flex-col justify-between pt-24 pb-8 px-6 overflow-y-auto"
+          transition={{ duration: 0.2 }}
+          className="fixed inset-x-0 top-[73px] z-40 bg-white border-b border-slate-200 shadow-2xl p-6 lg:hidden max-h-[calc(100vh-80px)] overflow-y-auto flex flex-col justify-between"
         >
-          <div className="flex flex-col gap-6">
-            <div className="flex justify-between items-center pb-4 border-b border-slate-200">
-              <Link href="/" onClick={onClose} className="flex items-center gap-3">
-                <Image
-                  src="/logo.png"
-                  alt="GoWindSun Logo"
-                  width={64}
-                  height={64}
-                  className="w-auto h-14 object-contain"
-                />
-                <div className="flex flex-col justify-center">
-                  <Image
-                    src="/images/logo_text.png"
-                    alt="GoWindSun India Private Limited"
-                    width={180}
-                    height={40}
-                    className="w-auto h-9 object-contain"
-                  />
-                </div>
-              </Link>
+          <div className="space-y-4">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+              <div className="flex items-center gap-2.5">
+                <IndiaFlag className="w-8 h-5.5 rounded-[2px]" animated />
+                <span className="text-xs font-mono font-bold text-slate-800 uppercase tracking-wider">
+                  NAVIGATION MENU
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close menu"
+                className="p-1 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            <nav className="flex flex-col gap-2">
-              {siteConfig.nav.map((item) => {
+            <nav className="flex flex-col space-y-2">
+              {siteConfig.nav.map((item: any) => {
                 const hasChildren = item.children && item.children.length > 0;
                 const isExpanded = openSubmenu === item.name;
+                const isCta = item.isCta;
                 const isUnderDev = item.isUnderDevelopment;
 
-                if (item.isCta) {
+                if (isCta) {
                   return (
                     <Link
                       key={item.name}
@@ -84,11 +81,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                       <div className="w-full flex items-center justify-between text-base font-semibold text-slate-800 py-1">
                         <button
                           type="button"
-                          onClick={handleUnderDevClick}
+                          onClick={() => handleUnderDevClick(item.name)}
                           className="hover:text-amber-700 flex items-center gap-2 text-left flex-grow"
                         >
                           <span>{item.name}</span>
-                          <span className="px-1.5 py-0.5 text-[10px] font-mono uppercase bg-amber-100 text-amber-800 rounded font-semibold border border-amber-200">
+                          <span className="ml-1 px-1.5 py-0.5 text-[10px] font-mono uppercase bg-amber-100 text-amber-800 rounded font-semibold border border-amber-200">
                             Under Dev
                           </span>
                         </button>
@@ -100,20 +97,19 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                             className="p-1"
                           >
                             <ChevronDown
-                              className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${
-                                isExpanded ? "rotate-180 text-amber-600" : ""
-                              }`}
+                              className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${isExpanded ? "rotate-180 text-amber-600" : ""
+                                }`}
                             />
                           </button>
                         )}
                       </div>
                       {hasChildren && isExpanded && (
                         <div className="pl-4 pt-2 pb-1 space-y-2 border-l border-amber-400 mt-1">
-                          {item.children.map((child) => (
+                          {item.children.map((child: any) => (
                             <button
                               key={child.name}
                               type="button"
-                              onClick={handleUnderDevClick}
+                              onClick={() => handleUnderDevClick(child.name)}
                               className="block w-full text-left text-sm font-medium text-slate-600 hover:text-amber-700 py-1"
                             >
                               {child.name}
@@ -144,24 +140,52 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                             className="p-1"
                           >
                             <ChevronDown
-                              className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${
-                                isExpanded ? "rotate-180 text-emerald-600" : ""
-                              }`}
+                              className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${isExpanded ? "rotate-180 text-emerald-600" : ""
+                                }`}
                             />
                           </button>
                         </div>
                         {isExpanded && (
-                          <div className="pl-4 pt-2 pb-1 space-y-2 border-l border-emerald-500 mt-1">
-                            {item.children.map((child) => (
-                              <Link
-                                key={child.name}
-                                href={child.href}
-                                onClick={onClose}
-                                className="block text-sm font-medium text-slate-600 hover:text-emerald-600 py-1"
-                              >
-                                {child.name}
-                              </Link>
-                            ))}
+                          <div className="pl-4 pt-2 pb-1 space-y-3 border-l border-emerald-500 mt-1">
+                            {item.children.map((child: any) => {
+                              const hasSubChildren = child.children && child.children.length > 0;
+                              if (hasSubChildren) {
+                                return (
+                                  <div key={child.name} className="space-y-1 pt-1">
+                                    <Link
+                                      href={child.href}
+                                      onClick={onClose}
+                                      className="font-bold text-xs uppercase tracking-wider text-[#0186D5] block pt-1 pb-0.5"
+                                    >
+                                      {child.name}
+                                    </Link>
+                                    <div className="pl-3 space-y-1 border-l border-sky-300">
+                                      {child.children.map((sub: any) => (
+                                        <Link
+                                          key={sub.name}
+                                          href={sub.href}
+                                          onClick={onClose}
+                                          className="block text-xs font-semibold text-slate-700 hover:text-[#0186D5] py-1"
+                                        >
+                                          {sub.name}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                );
+                              }
+
+                              return (
+                                <Link
+                                  key={child.name}
+                                  href={child.href}
+                                  onClick={onClose}
+                                  className="block text-sm font-medium text-slate-600 hover:text-emerald-600 py-1"
+                                >
+                                  {child.name}
+                                </Link>
+                              );
+                            })}
                           </div>
                         )}
                       </div>
@@ -191,5 +215,3 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
     </AnimatePresence>
   );
 };
-
-

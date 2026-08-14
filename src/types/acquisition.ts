@@ -1,5 +1,16 @@
 export type ProjectCategory = "wind" | "solar" | "hybrid";
 
+export type ProjectStageKey =
+  | "wind"
+  | "wind-greenfield"
+  | "wind-shovel-ready"
+  | "wind-operational"
+  | "solar"
+  | "solar-greenfield"
+  | "solar-shovel-ready"
+  | "solar-operational"
+  | "hybrid";
+
 export interface AcquisitionProject {
   id: string;
   stateCode: string; // e.g. "IN-MH", "IN-GJ", "IN-RJ"
@@ -7,12 +18,14 @@ export interface AcquisitionProject {
   district?: string;
   projectName?: string;
   projectType: ProjectCategory;
+  stageKey?: ProjectStageKey;
   availableLand?: string;
   landArea?: string;
   potentialCapacity?: string;
   technology?: string;
   developmentStage?: string;
   gridConnectivity?: string;
+  nearestSubstation?: string;
   substation?: string;
   transmissionAvailability?: string;
   location?: string;
@@ -26,38 +39,39 @@ export type StateProjectDataMap = Record<string, AcquisitionProject[]>;
 export interface StateInfo {
   code: string;
   name: string;
+  svgId: string;
 }
 
 export const INDIA_STATES: StateInfo[] = [
-  { code: "IN-AP", name: "Andhra Pradesh" },
-  { code: "IN-AR", name: "Arunachal Pradesh" },
-  { code: "IN-AS", name: "Assam" },
-  { code: "IN-BR", name: "Bihar" },
-  { code: "IN-CT", name: "Chhattisgarh" },
-  { code: "IN-GA", name: "Goa" },
-  { code: "IN-GJ", name: "Gujarat" },
-  { code: "IN-HR", name: "Haryana" },
-  { code: "IN-HP", name: "Himachal Pradesh" },
-  { code: "IN-JH", name: "Jharkhand" },
-  { code: "IN-KA", name: "Karnataka" },
-  { code: "IN-KL", name: "Kerala" },
-  { code: "IN-MP", name: "Madhya Pradesh" },
-  { code: "IN-MH", name: "Maharashtra" },
-  { code: "IN-MN", name: "Manipur" },
-  { code: "IN-ML", name: "Meghalaya" },
-  { code: "IN-MZ", name: "Mizoram" },
-  { code: "IN-NL", name: "Nagaland" },
-  { code: "IN-OD", name: "Odisha" },
-  { code: "IN-PB", name: "Punjab" },
-  { code: "IN-RJ", name: "Rajasthan" },
-  { code: "IN-SK", name: "Sikkim" },
-  { code: "IN-TN", name: "Tamil Nadu" },
-  { code: "IN-TS", name: "Telangana" },
-  { code: "IN-TR", name: "Tripura" },
-  { code: "IN-UP", name: "Uttar Pradesh" },
-  { code: "IN-UT", name: "Uttarakhand" },
-  { code: "IN-WB", name: "West Bengal" },
-  { code: "IN-DL", name: "Delhi" },
-  { code: "IN-JK", name: "Jammu & Kashmir" },
-  { code: "IN-LA", name: "Ladakh" },
+  { code: "IN-AP", name: "Andhra Pradesh", svgId: "ap" },
+  { code: "IN-AR", name: "Arunachal Pradesh", svgId: "ar" },
+  { code: "IN-AS", name: "Assam", svgId: "as" },
+  { code: "IN-BR", name: "Bihar", svgId: "br" },
+  { code: "IN-CT", name: "Chhattisgarh", svgId: "ct" },
+  { code: "IN-GA", name: "Goa", svgId: "ga" },
+  { code: "IN-GJ", name: "Gujarat", svgId: "gj" },
+  { code: "IN-HR", name: "Haryana", svgId: "hr" },
+  { code: "IN-HP", name: "Himachal Pradesh", svgId: "hp" },
+  { code: "IN-JH", name: "Jharkhand", svgId: "jh" },
+  { code: "IN-KA", name: "Karnataka", svgId: "ka" },
+  { code: "IN-KL", name: "Kerala", svgId: "kl" },
+  { code: "IN-MP", name: "Madhya Pradesh", svgId: "mp" },
+  { code: "IN-MH", name: "Maharashtra", svgId: "mh" },
+  { code: "IN-MN", name: "Manipur", svgId: "mn" },
+  { code: "IN-ML", name: "Meghalaya", svgId: "ml" },
+  { code: "IN-MZ", name: "Mizoram", svgId: "mz" },
+  { code: "IN-NL", name: "Nagaland", svgId: "nl" },
+  { code: "IN-OD", name: "Odisha", svgId: "or" },
+  { code: "IN-PB", name: "Punjab", svgId: "pb" },
+  { code: "IN-RJ", name: "Rajasthan", svgId: "rj" },
+  { code: "IN-SK", name: "Sikkim", svgId: "sk" },
+  { code: "IN-TN", name: "Tamil Nadu", svgId: "tn" },
+  { code: "IN-TS", name: "Telangana", svgId: "ts" },
+  { code: "IN-TR", name: "Tripura", svgId: "tr" },
+  { code: "IN-UP", name: "Uttar Pradesh", svgId: "up" },
+  { code: "IN-UT", name: "Uttarakhand", svgId: "ut" },
+  { code: "IN-WB", name: "West Bengal", svgId: "wb" },
+  { code: "IN-DL", name: "Delhi", svgId: "dl" },
+  { code: "IN-JK", name: "Jammu & Kashmir", svgId: "jk" },
+  { code: "IN-LA", name: "Ladakh", svgId: "la" },
 ];

@@ -1,82 +1,49 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
-import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { motion } from "framer-motion";
-import { ArrowLeft, BookOpen } from "lucide-react";
+import React, { useState } from "react";
+import { KnowledgeHero } from "@/components/knowledge/KnowledgeHero";
+import { OpenAccessCalculator } from "@/components/knowledge/OpenAccessCalculator";
+import { LandCapacityCalculator } from "@/components/knowledge/LandCapacityCalculator";
+import { ArticlesGrid } from "@/components/knowledge/ArticlesGrid";
+import { WhitepaperDownloads } from "@/components/knowledge/WhitepaperDownloads";
+import { ImportantNewsSection } from "@/components/knowledge/ImportantNewsSection";
+import { KnowledgeAdvisoryCTA } from "@/components/knowledge/KnowledgeAdvisoryCTA";
 
 export default function KnowledgeHubPage() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All Topics");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
   return (
-    <div className="bg-white min-h-screen flex flex-col justify-center items-center relative text-slate-900 pt-32 pb-20 overflow-hidden">
-      {/* Subtle Hairline Engineering Border Line Accent (Top & Bottom Rules) */}
-      <div className="absolute top-28 left-0 right-0 h-px bg-slate-200" />
-      <div className="absolute bottom-16 left-0 right-0 h-px bg-slate-200" />
+    <div className="bg-white min-h-screen text-slate-900">
+      {/* 1. Hero Section with Search & Category Filters */}
+      <KnowledgeHero
+        selectedCategory={selectedCategory}
+        onSelectCategory={setSelectedCategory}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+      />
 
-      <Container className="relative z-10 my-auto">
-        <div className="max-w-4xl mx-auto text-center space-y-10">
-          {/* Eyebrow Pill Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 bg-slate-100 border border-slate-200 text-slate-700 text-xs font-mono font-bold uppercase tracking-widest"
-          >
-            <BookOpen className="w-3.5 h-3.5 text-sky-600 animate-spin-slow" />
-            <span>Knowledge Hub</span>
-          </motion.div>
+      {/* 2. Important News Section */}
+      <ImportantNewsSection />
 
-          {/* Main Large Architectural Typography */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="space-y-4"
-          >
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-slate-900 tracking-tight leading-[0.95] select-none">
-              COMING <br />
-              <span className="text-slate-300">SOON</span>
-            </h1>
-          </motion.div>
+      {/* 3. Interactive Utility 1: Open Access Savings Estimator */}
+      <OpenAccessCalculator />
 
-          {/* Minimalist Narrative Statement */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-2xl mx-auto space-y-4 pt-4 border-t border-slate-100"
-          >
-            <p className="text-xl sm:text-2xl font-bold text-slate-800 tracking-tight leading-snug">
-              Industry insights & regulatory intelligence are on the way.
-            </p>
-            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
-              Explore technical whitepapers, MNRE regulatory updates, Open Access PPA modeling, and renewable energy research from GoWindSun India Private Limited as this repository evolves.
-            </p>
-          </motion.div>
+      {/* 4. Filterable Research Articles & Technical Briefs Grid */}
+      <ArticlesGrid
+        selectedCategory={selectedCategory}
+        searchQuery={searchQuery}
+      />
 
-          {/* Minimalist Navigation Actions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <Link href="/">
-              <Button variant="primary" size="lg" className="bg-slate-900 hover:bg-slate-800 text-white rounded-none px-8 py-3.5">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Return to Home Page
-              </Button>
-            </Link>
+      {/* 5. Interactive Utility 2: Land Acreage & Grid Capacity Calculator */}
+      <LandCapacityCalculator />
 
-            <Link href="/contact">
-              <Button variant="outline" size="lg" className="border-slate-300 hover:border-slate-900 text-slate-800 rounded-none px-8 py-3.5">
-                Contact Advisory Desk
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </Container>
+      {/* 6. Downloadable Industry Whitepapers & Policy Handbooks */}
+      <WhitepaperDownloads />
+
+      {/* 7. Advisory Desk CTA Banner */}
+      <KnowledgeAdvisoryCTA />
     </div>
   );
 }
+

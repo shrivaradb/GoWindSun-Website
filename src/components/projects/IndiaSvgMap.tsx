@@ -1,338 +1,306 @@
 "use client";
 
-import React, { useState } from "react";
-import { INDIA_STATES } from "@/types/acquisition";
+import React, { useState, useEffect } from "react";
+import IndiaMapData from "@svg-maps/india";
+import { INDIA_STATES, ProjectCategory } from "@/types/acquisition";
+import { motion, AnimatePresence } from "framer-motion";
+import { Minimize2 } from "lucide-react";
 
 interface IndiaSvgMapProps {
   selectedState: string | null;
   onSelectState: (stateCode: string) => void;
   activeStateCodes: string[];
+  category?: ProjectCategory; // "wind" | "solar" | "hybrid"
 }
 
-interface MapStatePath {
-  code: string;
+interface SvgLocation {
+  id: string;
   name: string;
   path: string;
-  labelCoords?: { x: number; y: number };
 }
 
-// Vector paths for Indian States calibrated for clean 650x720 SVG coordinate space
-const STATE_PATHS: MapStatePath[] = [
-  {
-    code: "IN-JK",
-    name: "Jammu & Kashmir",
-    path: "M 220 90 L 260 60 L 300 70 L 320 110 L 290 150 L 230 140 Z",
-    labelCoords: { x: 260, y: 105 },
+// Map between @svg-maps/india SVG location IDs and standard IN-XX state codes
+const SVG_ID_TO_STATE_CODE: Record<string, string> = {
+  ap: "IN-AP",
+  ar: "IN-AR",
+  as: "IN-AS",
+  br: "IN-BR",
+  ct: "IN-CT",
+  ga: "IN-GA",
+  gj: "IN-GJ",
+  hr: "IN-HR",
+  hp: "IN-HP",
+  jh: "IN-JH",
+  ka: "IN-KA",
+  kl: "IN-KL",
+  mp: "IN-MP",
+  mh: "IN-MH",
+  mn: "IN-MN",
+  ml: "IN-ML",
+  mz: "IN-MZ",
+  nl: "IN-NL",
+  or: "IN-OD",
+  pb: "IN-PB",
+  rj: "IN-RJ",
+  sk: "IN-SK",
+  tn: "IN-TN",
+  ts: "IN-TS",
+  tr: "IN-TR",
+  up: "IN-UP",
+  ut: "IN-UT",
+  wb: "IN-WB",
+  dl: "IN-DL",
+  jk: "IN-JK",
+  la: "IN-LA",
+};
+
+// Mathematically Exact ViewBoxes for All States in @svg-maps/india (Centered & Scaled to Fill Viewport)
+const STATE_ZOOM_VIEWBOXES: Record<string, string> = {
+  "IN-MH": "67.6 342.8 224.3 185.0",  // Maharashtra
+  "IN-RJ": "0.0 147.9 238.9 217.8",   // Rajasthan
+  "IN-KA": "109.6 421.6 122.0 194.2", // Karnataka
+  "IN-TN": "155.4 533.7 112.1 151.5", // Tamil Nadu
+  "IN-GJ": "0.0 287.3 171.2 135.2",   // Gujarat
+  "IN-MP": "94.9 232.4 238.7 173.1",  // Madhya Pradesh (100% Exact Bounding Center)
+  "IN-AP": "218.9 469.4 89.2 103.3",  // Andhra Pradesh
+  "IN-UP": "162.6 144.7 205.3 200.4", // Uttar Pradesh
+  "IN-TG": "175.1 398.0 124.0 117.1", // Telangana
+  "IN-OD": "257.2 336.0 165.9 138.3", // Odisha
+  "IN-WB": "356.5 224.7 110.2 170.0", // West Bengal
+  "IN-KL": "127.9 552.9 76.9 124.5",  // Kerala
+  "IN-PB": "107.0 102.5 88.0 98.2",   // Punjab
+  "IN-HR": "119.4 143.2 89.5 102.8",  // Haryana
+  "IN-BR": "301.1 225.2 135.4 99.3",  // Bihar
+  "IN-JH": "302.3 276.0 126.5 101.4", // Jharkhand
+  "IN-CT": "239.3 295.6 112.9 184.4", // Chhattisgarh
+  "IN-HP": "142.7 85.5 95.5 94.9",   // Himachal Pradesh
+  "IN-UT": "184.3 129.9 96.4 90.8",   // Uttarakhand
+  "IN-JK": "68.8 0.0 207.7 158.6",    // Jammu & Kashmir
+};
+
+// Theme configurations for Wind (Blue), Solar (Orange), and Hybrid (Green)
+const CATEGORY_THEMES = {
+  wind: {
+    activeFill: "#D0E8F8",       // Soft Electric Sky Blue
+    activeStroke: "#0186D5",     // Electric Blue
+    hoverFill: "#0186D5",        // Electric Blue
+    hoverStroke: "#FFFFFF",
+    selectedFill: "#0A4EA2",     // Dark Blue
+    selectedStroke: "#38BDF8",   // Sky Blue Stroke
+    badgeHex: "#0186D5",
+    textAccentClass: "text-[#0186D5]",
+    pulseClass: "bg-[#0186D5]",
   },
-  {
-    code: "IN-LA",
-    name: "Ladakh",
-    path: "M 260 60 L 330 30 L 400 70 L 360 120 L 300 70 Z",
-    labelCoords: { x: 330, y: 70 },
+  solar: {
+    activeFill: "#FFEDD5",       // Warm Solar Orange Tint
+    activeStroke: "#F97316",     // Solar Orange
+    hoverFill: "#F97316",        // Solar Orange
+    hoverStroke: "#FFFFFF",
+    selectedFill: "#C2410C",     // Deep Solar Orange
+    selectedStroke: "#FDBA74",   // Warm Gold Stroke
+    badgeHex: "#F97316",
+    textAccentClass: "text-[#F97316]",
+    pulseClass: "bg-[#F97316]",
   },
-  {
-    code: "IN-HP",
-    name: "Himachal Pradesh",
-    path: "M 260 140 L 300 120 L 330 150 L 290 180 Z",
-    labelCoords: { x: 295, y: 150 },
+  hybrid: {
+    activeFill: "#D1FAE5",       // Soft Mint Green Tint
+    activeStroke: "#059669",     // Emerald Green
+    hoverFill: "#059669",        // Emerald Green
+    hoverStroke: "#FFFFFF",
+    selectedFill: "#047857",     // Deep Emerald Green
+    selectedStroke: "#6EE7B7",   // Mint Stroke
+    badgeHex: "#059669",
+    textAccentClass: "text-[#059669]",
+    pulseClass: "bg-[#059669]",
   },
-  {
-    code: "IN-PB",
-    name: "Punjab",
-    path: "M 210 140 L 260 140 L 270 180 L 220 190 Z",
-    labelCoords: { x: 240, y: 165 },
-  },
-  {
-    code: "IN-HR",
-    name: "Haryana",
-    path: "M 230 190 L 280 180 L 290 220 L 250 240 Z",
-    labelCoords: { x: 260, y: 210 },
-  },
-  {
-    code: "IN-UT",
-    name: "Uttarakhand",
-    path: "M 300 150 L 350 160 L 340 200 L 290 180 Z",
-    labelCoords: { x: 320, y: 175 },
-  },
-  {
-    code: "IN-RJ",
-    name: "Rajasthan",
-    path: "M 110 200 L 220 190 L 260 250 L 240 330 L 150 350 L 90 270 Z",
-    labelCoords: { x: 170, y: 270 },
-  },
-  {
-    code: "IN-UP",
-    name: "Uttar Pradesh",
-    path: "M 280 200 L 350 200 L 440 260 L 390 310 L 290 250 Z",
-    labelCoords: { x: 350, y: 250 },
-  },
-  {
-    code: "IN-GJ",
-    name: "Gujarat",
-    path: "M 40 300 L 140 320 L 170 380 L 140 430 L 70 410 L 30 350 Z",
-    labelCoords: { x: 95, y: 360 },
-  },
-  {
-    code: "IN-MP",
-    name: "Madhya Pradesh",
-    path: "M 190 320 L 290 270 L 390 320 L 370 410 L 240 410 L 170 370 Z",
-    labelCoords: { x: 275, y: 355 },
-  },
-  {
-    code: "IN-BR",
-    name: "Bihar",
-    path: "M 440 250 L 510 250 L 520 290 L 440 300 Z",
-    labelCoords: { x: 475, y: 275 },
-  },
-  {
-    code: "IN-WB",
-    name: "West Bengal",
-    path: "M 510 270 L 540 250 L 550 340 L 510 370 L 500 310 Z",
-    labelCoords: { x: 525, y: 310 },
-  },
-  {
-    code: "IN-JH",
-    name: "Jharkhand",
-    path: "M 440 300 L 500 300 L 500 350 L 430 350 Z",
-    labelCoords: { x: 465, y: 325 },
-  },
-  {
-    code: "IN-CT",
-    name: "Chhattisgarh",
-    path: "M 360 340 L 420 340 L 420 440 L 370 460 L 350 400 Z",
-    labelCoords: { x: 385, y: 395 },
-  },
-  {
-    code: "IN-OD",
-    name: "Odisha",
-    path: "M 420 350 L 490 350 L 500 420 L 430 440 Z",
-    labelCoords: { x: 460, y: 390 },
-  },
-  {
-    code: "IN-MH",
-    name: "Maharashtra",
-    path: "M 140 420 L 240 400 L 330 420 L 330 480 L 230 520 L 140 470 Z",
-    labelCoords: { x: 220, y: 460 },
-  },
-  {
-    code: "IN-TS",
-    name: "Telangana",
-    path: "M 300 440 L 370 440 L 370 500 L 300 500 Z",
-    labelCoords: { x: 335, y: 470 },
-  },
-  {
-    code: "IN-AP",
-    name: "Andhra Pradesh",
-    path: "M 310 500 L 380 470 L 420 530 L 320 590 L 300 540 Z",
-    labelCoords: { x: 350, y: 535 },
-  },
-  {
-    code: "IN-KA",
-    name: "Karnataka",
-    path: "M 180 500 L 260 490 L 280 570 L 230 610 L 190 560 Z",
-    labelCoords: { x: 230, y: 550 },
-  },
-  {
-    code: "IN-GA",
-    name: "Goa",
-    path: "M 175 510 L 195 510 L 190 530 L 175 525 Z",
-    labelCoords: { x: 185, y: 520 },
-  },
-  {
-    code: "IN-TN",
-    name: "Tamil Nadu",
-    path: "M 230 600 L 310 580 L 300 680 L 240 680 Z",
-    labelCoords: { x: 270, y: 635 },
-  },
-  {
-    code: "IN-KL",
-    name: "Kerala",
-    path: "M 200 600 L 230 600 L 240 670 L 210 660 Z",
-    labelCoords: { x: 220, y: 630 },
-  },
-  {
-    code: "IN-SK",
-    name: "Sikkim",
-    path: "M 530 220 L 550 220 L 550 240 L 530 240 Z",
-    labelCoords: { x: 540, y: 230 },
-  },
-  {
-    code: "IN-AR",
-    name: "Arunachal Pradesh",
-    path: "M 580 180 L 640 180 L 630 220 L 570 210 Z",
-    labelCoords: { x: 600, y: 195 },
-  },
-  {
-    code: "IN-AS",
-    name: "Assam",
-    path: "M 560 220 L 620 220 L 610 250 L 550 250 Z",
-    labelCoords: { x: 580, y: 235 },
-  },
-  {
-    code: "IN-ML",
-    name: "Meghalaya",
-    path: "M 560 250 L 600 250 L 600 270 L 560 270 Z",
-    labelCoords: { x: 580, y: 260 },
-  },
-  {
-    code: "IN-TR",
-    name: "Tripura",
-    path: "M 580 270 L 600 270 L 595 295 L 580 290 Z",
-    labelCoords: { x: 590, y: 282 },
-  },
-  {
-    code: "IN-MN",
-    name: "Manipur",
-    path: "M 610 240 L 630 240 L 630 270 L 610 270 Z",
-    labelCoords: { x: 620, y: 255 },
-  },
-  {
-    code: "IN-MZ",
-    name: "Mizoram",
-    path: "M 605 270 L 625 270 L 620 305 L 605 300 Z",
-    labelCoords: { x: 615, y: 287 },
-  },
-  {
-    code: "IN-NL",
-    name: "Nagaland",
-    path: "M 615 210 L 635 210 L 630 240 L 615 235 Z",
-    labelCoords: { x: 625, y: 225 },
-  },
-];
+};
 
 export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
   selectedState,
   onSelectState,
   activeStateCodes,
+  category = "wind",
 }) => {
-  const [hoveredState, setHoveredState] = useState<MapStatePath | null>(null);
+  const [hoveredLocation, setHoveredLocation] = useState<SvgLocation | null>(null);
+
+  const locations = (IndiaMapData.locations || []) as SvgLocation[];
+  const theme = CATEGORY_THEMES[category] || CATEGORY_THEMES.wind;
+
+  // Global Click & Esc Listener: Click ANYWHERE on screen or press 'Esc' to reset zoom to original map
+  useEffect(() => {
+    if (!selectedState) return;
+
+    const handleGlobalClick = () => {
+      onSelectState("");
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onSelectState("");
+      }
+    };
+
+    // Attach click listener on next tick so initial state click doesn't trigger instant reset
+    const timer = setTimeout(() => {
+      window.addEventListener("click", handleGlobalClick);
+    }, 50);
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("click", handleGlobalClick);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedState, onSelectState]);
+
+  // Determine current SVG ViewBox (focused state if selected, otherwise full India map)
+  const targetViewBox =
+    selectedState && STATE_ZOOM_VIEWBOXES[selectedState]
+      ? STATE_ZOOM_VIEWBOXES[selectedState]
+      : "0 0 612 696";
 
   return (
-    <div className="relative w-full aspect-[650/720] bg-slate-900/90 border border-slate-800 rounded-3xl p-4 sm:p-6 shadow-2xl overflow-hidden flex flex-col justify-between">
-      {/* Map Header Controls */}
-      <div className="flex items-center justify-between pb-2 border-b border-slate-800 z-10">
+    <div className="relative w-full bg-white border border-slate-200 rounded-3xl p-5 sm:p-7 shadow-xl flex flex-col justify-between space-y-4 overflow-hidden">
+      {/* Map Header & Legend */}
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-100 gap-3 z-10">
         <div className="flex items-center gap-2">
-          <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-xs font-mono font-bold text-slate-300 uppercase tracking-widest">
-            Interactive India State Map
-          </span>
+          <span className={`w-2.5 h-2.5 rounded-full ${theme.pulseClass} animate-pulse`} />
+          <h3 className="text-xs font-mono font-bold text-[#1E4362] uppercase tracking-widest">
+            Geographic India {category.toUpperCase()} Map
+          </h3>
         </div>
-        <div className="flex items-center gap-4 text-[11px] font-mono text-slate-400">
+
+        {/* Dynamic Category Legend */}
+        <div className="flex items-center gap-4 text-xs font-mono text-slate-600">
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-sm bg-[#0186D5]" />
-            <span>Listed Opportunities</span>
+            <span
+              className="w-3 h-3 rounded-sm border"
+              style={{ backgroundColor: theme.selectedFill, borderColor: theme.selectedStroke }}
+            />
+            <span className="font-semibold text-slate-800">Selected</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-sm bg-slate-700" />
-            <span>No Listing Listed</span>
+            <span className="w-3 h-3 rounded-sm" style={{ backgroundColor: theme.hoverFill }} />
+            <span className="font-semibold text-slate-800">Listed State</span>
           </div>
         </div>
       </div>
 
-      {/* SVG Vector Map Canvas */}
-      <div className="relative w-full h-full flex items-center justify-center py-2">
+      {/* SVG Map Canvas Container */}
+      <div
+        className="relative w-full flex items-center justify-center min-h-[440px] sm:min-h-[520px] cursor-pointer"
+        onClick={() => {
+          if (selectedState) onSelectState("");
+        }}
+      >
         <svg
-          viewBox="0 0 660 720"
-          className="w-full h-full max-h-[560px] drop-shadow-2xl transition-all duration-300"
+          viewBox={targetViewBox}
+          className="w-full h-auto max-h-[580px] drop-shadow-md select-none transition-all duration-700 ease-in-out"
         >
           <g>
-            {STATE_PATHS.map((state) => {
-              const isSelected = selectedState === state.code;
-              const hasProjects = activeStateCodes.includes(state.code);
-              const isHovered = hoveredState?.code === state.code;
+            {locations.map((loc) => {
+              const stateCode = SVG_ID_TO_STATE_CODE[loc.id] || loc.id.toUpperCase();
+              const isSelected = selectedState === stateCode;
+              const hasProjects = activeStateCodes.includes(stateCode);
+              const isHovered = hoveredLocation?.id === loc.id;
 
-              // Determine fill & stroke color dynamically based on GoWindSun theme
-              let fill = "#1E293B"; // default slate-800
-              let stroke = "#334155";
-              let strokeWidth = 1.2;
+              let fill = "#F1F5F9";
+              let stroke = "#CBD5E1";
+              let strokeWidth = 0.8;
 
               if (hasProjects) {
-                fill = "#0E3A5D"; // deep sky blue
-                stroke = "#0186D5";
+                fill = theme.activeFill;
+                stroke = theme.activeStroke;
+                strokeWidth = 1.2;
               }
 
               if (isHovered) {
-                fill = "#0186D5"; // Electric Blue
-                stroke = "#FFFFFF";
+                fill = theme.hoverFill;
+                stroke = theme.hoverStroke;
                 strokeWidth = 2;
               }
 
               if (isSelected) {
-                fill = "#0A4EA2"; // Dark Blue
-                stroke = "#4CA745"; // Emerald Accent
+                fill = theme.selectedFill;
+                stroke = theme.selectedStroke;
                 strokeWidth = 2.5;
               }
 
               return (
-                <g key={state.code} className="cursor-pointer group">
-                  <path
-                    d={state.path}
-                    fill={fill}
-                    stroke={stroke}
-                    strokeWidth={strokeWidth}
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                    className="transition-all duration-300 hover:brightness-125"
-                    onMouseEnter={() => setHoveredState(state)}
-                    onMouseLeave={() => setHoveredState(null)}
-                    onClick={() => onSelectState(state.code)}
-                  />
-
-                  {/* Indicator Dot for Active States with Listings */}
-                  {hasProjects && state.labelCoords && (
-                    <circle
-                      cx={state.labelCoords.x}
-                      cy={state.labelCoords.y}
-                      r={isSelected ? 6 : 4}
-                      fill={isSelected ? "#4CA745" : "#38BDF8"}
-                      stroke="#FFFFFF"
-                      strokeWidth={1}
-                      className="pointer-events-none transition-all duration-300"
-                    />
-                  )}
-
-                  {/* State Name Short Label */}
-                  {state.labelCoords && (
-                    <text
-                      x={state.labelCoords.x}
-                      y={state.labelCoords.y + (hasProjects ? 12 : 4)}
-                      textAnchor="middle"
-                      className="text-[9px] font-mono font-bold fill-slate-300 pointer-events-none select-none opacity-80 group-hover:opacity-100 group-hover:fill-white transition-opacity"
-                    >
-                      {state.code.replace("IN-", "")}
-                    </text>
-                  )}
-                </g>
+                <path
+                  key={loc.id}
+                  id={loc.id}
+                  d={loc.path}
+                  fill={fill}
+                  stroke={stroke}
+                  strokeWidth={strokeWidth}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  aria-label={loc.name}
+                  className="transition-colors duration-200 cursor-pointer focus:outline-none"
+                  onMouseEnter={() => setHoveredLocation(loc)}
+                  onMouseLeave={() => setHoveredLocation(null)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (isSelected) {
+                      // Clicking the already zoomed/selected state resets to original map
+                      onSelectState("");
+                    } else {
+                      // Selecting a new state zooms into that state
+                      onSelectState(stateCode);
+                    }
+                  }}
+                />
               );
             })}
           </g>
         </svg>
 
-        {/* Hover Tooltip Overlay */}
-        {hoveredState && (
-          <div className="absolute top-4 left-4 bg-slate-950/90 backdrop-blur-md px-3.5 py-2 border border-slate-700 shadow-xl pointer-events-none z-30 space-y-0.5 rounded-lg">
-            <div className="text-xs font-mono font-bold text-white uppercase">
-              {hoveredState.name} ({hoveredState.code})
-            </div>
-            <div className="text-[11px] font-mono text-sky-400">
-              {activeStateCodes.includes(hoveredState.code)
-                ? "✓ Opportunities Available — Click to View"
-                : "No Listed Opportunities — Click for Info"}
-            </div>
-          </div>
-        )}
+        {/* Hover Tooltip Card */}
+        <AnimatePresence>
+          {hoveredLocation && (
+            <motion.div
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 5 }}
+              className="absolute top-3 left-3 bg-[#1E4362]/95 backdrop-blur-md text-white px-4 py-2.5 rounded-2xl border border-white/20 shadow-2xl pointer-events-none z-30 space-y-0.5"
+            >
+              <div className="text-xs font-bold uppercase tracking-wider text-white">
+                {hoveredLocation.name}
+              </div>
+              <div className="text-[11px] font-mono" style={{ color: theme.activeFill }}>
+                {activeStateCodes.includes(SVG_ID_TO_STATE_CODE[hoveredLocation.id] || "")
+                  ? `✓ ${category.toUpperCase()} Opportunities Mapped — Click to Inspect`
+                  : "No Projects Currently Listed"}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
-      {/* Footer Instruction Banner */}
-      <div className="pt-2 border-t border-slate-800 text-[11px] font-mono text-slate-400 flex items-center justify-between z-10">
-        <span>Click any state boundary to load state project dossier</span>
-        <span className="text-sky-400 font-bold">
+      {/* Map Footer Helper Bar */}
+      <div className="pt-3 border-t border-slate-100 text-xs font-mono text-slate-500 flex items-center justify-between z-10">
+        <span>
           {selectedState
-            ? `Selected: ${
-                INDIA_STATES.find((s) => s.code === selectedState)?.name || selectedState
-              }`
-            : "Select a State"}
+            ? "Click anywhere on screen or press 'Esc' key to reset map view"
+            : "Click any state to view state dossier"}
         </span>
+        
+        {selectedState ? (
+          <button
+            type="button"
+            onClick={() => onSelectState("")}
+            className="flex items-center gap-1 font-bold text-[#0186D5] hover:underline cursor-pointer"
+          >
+            <Minimize2 className="w-3.5 h-3.5" />
+            <span>Reset View</span>
+          </button>
+        ) : (
+          <span className={`font-bold ${theme.textAccentClass}`}>
+            Select a State
+          </span>
+        )}
       </div>
     </div>
   );

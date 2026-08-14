@@ -27,18 +27,7 @@ export const StrategicMarketHero: React.FC = () => {
       <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-sky-600/10 blur-[140px] rounded-full pointer-events-none" />
 
       <Container className="relative z-10">
-        {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-slate-400 mb-8">
-          <Link href="/" className="hover:text-emerald-400 transition-colors">
-            Home
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-          <Link href="/services" className="hover:text-emerald-400 transition-colors">
-            Services
-          </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-          <span className="text-emerald-400">Strategic Advisory & Energy Markets</span>
-        </div>
+
 
         {/* Hero Main Content Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -65,7 +54,7 @@ export const StrategicMarketHero: React.FC = () => {
                 variant="primary"
                 size="lg"
                 icon
-                className="bg-emerald-600 hover:bg-emerald-500 text-white shadow-xl shadow-emerald-950/50 border border-emerald-400/40"
+                className="bg-[#0186D5] hover:bg-[#0186D5]/90 text-white shadow-xl shadow-sky-950/50 border border-sky-400/40 rounded-full"
                 onClick={() => {
                   window.location.href = "/contact";
                 }}

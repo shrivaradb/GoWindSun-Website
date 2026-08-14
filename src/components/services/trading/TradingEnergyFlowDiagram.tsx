@@ -48,9 +48,9 @@ export const TradingEnergyFlowDiagram: React.FC = () => {
               Connecting clean power generation directly with commercial energy demand through structured Open Access transactions, wheeling arrangements, and corporate power purchase contracts.
             </p>
 
-            <div className="relative h-60 sm:h-72 w-full border border-slate-300 overflow-hidden shadow-md">
+            <div className="relative aspect-[4/3] w-full border border-slate-300 overflow-hidden shadow-md rounded-lg">
               <Image
-                src="/images/trading/trading-energy-flow.png"
+                src="/images/trading/power-flow-market-connection.png"
                 alt="Renewable Power Flow & Grid Interconnection"
                 fill
                 className="object-cover"

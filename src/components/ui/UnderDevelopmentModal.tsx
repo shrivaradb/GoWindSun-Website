@@ -8,6 +8,7 @@ interface UnderDevelopmentModalProps {
   onClose: () => void;
   title?: string;
   subtitle?: string;
+  description?: string;
 }
 
 export const UnderDevelopmentModal: React.FC<UnderDevelopmentModalProps> = ({
@@ -15,6 +16,7 @@ export const UnderDevelopmentModal: React.FC<UnderDevelopmentModalProps> = ({
   onClose,
   title = "Projects for Acquisition",
   subtitle = "Portal Under Active Development",
+  description = "Our Projects for Acquisition platform, digital asset directory, and utility-scale Solar, Wind, and Hybrid project acquisition portfolios are currently under active technical onboarding.",
 }) => {
   return (
     <AnimatePresence>
@@ -58,7 +60,7 @@ export const UnderDevelopmentModal: React.FC<UnderDevelopmentModalProps> = ({
               </h3>
 
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                Our <strong className="font-semibold text-slate-900">Projects for Acquisition</strong> platform, digital asset directory, and utility-scale Solar, Wind, and Hybrid project acquisition portfolios are currently under active technical onboarding.
+                {description}
               </p>
 
               <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">

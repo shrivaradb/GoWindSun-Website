@@ -3,51 +3,40 @@
 import React from "react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { LineChart, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export const StrategicAdvisoryCta: React.FC = () => {
-  return (
-    <section className="py-20 sm:py-24 bg-gradient-to-br from-[#06111F] via-[#0A1628] to-slate-900 text-white relative overflow-hidden">
-      {/* Top Accent Line */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-sky-500 to-amber-500" />
+  const router = useRouter();
 
+  return (
+    <section className="py-16 sm:py-20 bg-[#1E4362] text-white relative overflow-hidden">
       <Container>
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950 border border-emerald-700/60 text-emerald-400 text-xs font-mono font-semibold uppercase tracking-wider">
-            <LineChart className="w-3.5 h-3.5" />
-            <span>BOARDROOM STRATEGY & COMMERCIAL ENGAGEMENT</span>
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <div className="text-xs font-mono uppercase tracking-[0.2em] text-[#0186D5]">
+            BOARDROOM STRATEGY & ADVISORY
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
-            Ready to Evaluate Commercial Opportunities & Structure Corporate PPAs?
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white uppercase leading-tight">
+            READY TO EVALUATE COMMERCIAL OPPORTUNITIES <br />
+            & STRUCTURE CORPORATE PPAS?
           </h2>
 
-          <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed max-w-xl mx-auto">
             Schedule an executive briefing with our energy market advisory team to evaluate Open Access tariffs, M&A due diligence, asset repowering, or Green Hydrogen feasibility.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <div className="pt-2 flex justify-center">
             <Button
               variant="primary"
-              size="lg"
-              icon
-              className="bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl shadow-emerald-950/80 border border-emerald-400/40 w-full sm:w-auto"
+              size="md"
+              className="group bg-[#0186D5] hover:bg-[#0186D5]/90 text-white font-bold text-sm px-6 py-3 rounded-none border border-sky-300/40 shadow-xl transition-all duration-300 hover:shadow-sky-500/25"
               onClick={() => {
-                window.location.href = "/contact";
+                router.push("/contact");
               }}
             >
-              Schedule Strategic Consultation
-            </Button>
-
-            <Button
-              variant="outline"
-              size="lg"
-              className="bg-slate-900/80 hover:bg-slate-800 text-white border-slate-700 backdrop-blur-md w-full sm:w-auto"
-              onClick={() => {
-                window.location.href = "/services";
-              }}
-            >
-              Explore All Service Categories
+              <span>Schedule Strategic Consultation</span>
+              <ArrowRight className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1 shrink-0" />
             </Button>
           </div>
         </div>
@@ -55,3 +44,5 @@ export const StrategicAdvisoryCta: React.FC = () => {
     </section>
   );
 };
+
+

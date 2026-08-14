@@ -80,6 +80,16 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/tenders" className="hover:text-emerald-400 transition-colors">
+                  Tenders & Procurement
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers" className="hover:text-emerald-400 transition-colors">
+                  Careers
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="hover:text-emerald-400 transition-colors">
                   Contact Us
                 </Link>
@@ -145,8 +155,8 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href="tel:+919822651023" className="hover:text-amber-400 transition-colors text-xs sm:text-sm">
-                  +91 98226 51023
+                <a href="tel:+919011071864" className="hover:text-amber-400 transition-colors text-xs sm:text-sm">
+                  +91 90110 71864
                 </a>
               </li>
             </ul>
@@ -157,6 +167,12 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} GoWindSun India Private Limited. All rights reserved.</p>
           <div className="flex items-center gap-6">
+            <Link href="/tenders" className="hover:text-slate-200 transition-colors">
+              Tenders
+            </Link>
+            <Link href="/careers" className="hover:text-slate-200 transition-colors">
+              Careers
+            </Link>
             <Link href="/privacy" className="hover:text-slate-200 transition-colors">
               Privacy Policy
             </Link>

@@ -3,45 +3,48 @@
 import React from "react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-import { HeroSlideshow } from "@/components/home/HeroSlideshow";
 import { motion } from "framer-motion";
+import { HeroSlideshow } from "@/components/home/HeroSlideshow";
+import { useRouter } from "next/navigation";
 
 export const Hero: React.FC = () => {
+  const router = useRouter();
+
   return (
-    <section id="hero" className="relative min-h-screen pt-32 sm:pt-36 md:pt-40 pb-20 md:pb-28 flex items-center bg-slate-900 overflow-hidden">
-      {/* Full-Screen Natural Brightness Renewable Energy Slideshow (No Black Mask, No Blue Tint) */}
+    <section className="relative min-h-[90vh] sm:min-h-screen flex items-center pt-32 sm:pt-36 md:pt-40 pb-20 md:pb-28 overflow-hidden bg-slate-950 text-white">
+      {/* Background Slideshow (Cycles through High-Res Project Images) */}
       <HeroSlideshow />
 
       <Container className="relative z-10">
-        <div className="max-w-4xl text-left space-y-8">
-          {/* High-Contrast White Headline with About Page Font Styling */}
+        <div className="max-w-4xl text-left space-y-6 sm:space-y-8">
+          {/* Main Headline */}
           <motion.h1
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] uppercase text-white"
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-white leading-[1.05] select-none"
           >
             INTEGRATED <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] via-[#0EA5E9] to-[#FBBF24] whitespace-nowrap">
               RENEWABLE ENERGY
             </span> <br />
             SOLUTIONS.
           </motion.h1>
 
-          {/* High-Contrast Action Buttons */}
+          {/* Call to Action Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4"
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2 justify-start"
           >
             <Button
               variant="primary"
               size="lg"
               icon
-              className="bg-emerald-600 hover:bg-emerald-500 text-white shadow-2xl border border-emerald-400/40"
+              className="bg-[#0186D5] hover:bg-[#0186D5]/90 text-white rounded-full px-8 py-3.5 shadow-2xl font-bold text-sm sm:text-base tracking-wide border-0"
               onClick={() => {
-                window.location.href = "/contact";
+                router.push("/contact");
               }}
             >
               Schedule Technical Consultation
@@ -50,9 +53,9 @@ export const Hero: React.FC = () => {
             <Button
               variant="outline"
               size="lg"
-              className="bg-slate-900/80 hover:bg-slate-800 text-white border-white/40 backdrop-blur-md shadow-xl"
+              className="bg-[#0F172A]/90 hover:bg-[#1E293B] text-white rounded-full px-8 py-3.5 border border-slate-500/60 backdrop-blur-md shadow-xl font-bold text-sm sm:text-base tracking-wide"
               onClick={() => {
-                window.location.href = "/about";
+                router.push("/about");
               }}
             >
               Learn About GoWindSun

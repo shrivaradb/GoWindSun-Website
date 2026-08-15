@@ -56,15 +56,23 @@ export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children
       }
     } else {
       // New Route Navigation: ALWAYS reset scroll position to absolute top (0)
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
 
       if (lenisRef.current) {
         lenisRef.current.scrollTo(0, { immediate: true });
       }
+
+      // Secondary RAF tick to ensure post-render DOM height recalculation maintains top scroll
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        if (lenisRef.current) {
+          lenisRef.current.scrollTo(0, { immediate: true });
+        }
+      });
     }
-  }, [location.pathname, location.search, location.hash]);
+  }, [location.pathname, location.search, location.hash, location.key]);
 
   return <>{children}</>;
 };

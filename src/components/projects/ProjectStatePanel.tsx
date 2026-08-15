@@ -153,9 +153,9 @@ export const ProjectStatePanel: React.FC<ProjectStatePanelProps> = ({
       {/* Projects Container (Scrollable if Multiple Projects) */}
       <div
         data-lenis-prevent="true"
-        className="space-y-6 overflow-y-auto max-h-[520px] pr-1 overscroll-contain touch-pan-y"
-        onWheel={(e) => e.stopPropagation()}
-        onTouchMove={(e) => e.stopPropagation()}
+        tabIndex={0}
+        aria-label="Project Information Panel"
+        className="space-y-6 overflow-y-auto max-h-[520px] pr-1 overscroll-contain touch-pan-y focus:outline-none"
       >
         {projects.map((proj, idx) => (
           <div

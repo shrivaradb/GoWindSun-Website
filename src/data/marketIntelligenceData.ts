@@ -80,7 +80,7 @@ export const BENCHMARK_PRICE_TABLE: BenchmarkItem[] = [
     scope: "WTG Bidding Price (Equipment Supply Only, Ex-Works)",
     date: "March 2026",
     sourceName: "Goldwind Q1 2026 Results",
-    sourceUrl: "https://www.goldwind.com/data/uploads/bdc_content2026/41232446704654104576.pdf",
+    sourceUrl: "https://www.goldwind.com/en/investors/financial-reports/",
   },
   {
     id: "bm-wind-india",
@@ -207,7 +207,7 @@ export const INTELLIGENCE_ITEMS: IntelligenceItem[] = [
     capacity: "1.6 GW (1,600 MW)",
     publicationDate: "April 2026",
     sourceName: "JMK Research & Analytics",
-    sourceUrl: "https://jmkresearch.com/monthly-renewable-sector-update-utility-scale-solar-wind/monthly-re-update-april-2026/",
+    sourceUrl: "https://jmkresearch.com/renewable-sector-published-reports/",
     summary: "Premier Energies reported receiving 1.6 GW of solar cell and module supply orders worth ₹2,577 crore. The reported figure reflects a multi-year combined cell and module contract.",
     keyHighlights: [
       "Order Volume: 1.6 GW (1,600 MW) combined cells and modules",
@@ -253,7 +253,7 @@ export const INTELLIGENCE_ITEMS: IntelligenceItem[] = [
     buyerOrAuthority: "Ganesh Green Bharat",
     publicationDate: "April 2026",
     sourceName: "JMK Research & Analytics",
-    sourceUrl: "https://jmkresearch.com/monthly-renewable-sector-update-utility-scale-solar-wind/monthly-re-update-april-2026/",
+    sourceUrl: "https://jmkresearch.com/renewable-sector-published-reports/",
     summary: "Ganesh Green Bharat bagged a significant procurement order worth over ₹430 crore for high-efficiency 630 Wp TOPCon bifacial modules for utility-scale solar project construction across India.",
     keyHighlights: [
       "Module Specification: 630 Wp TOPCon Bifacial Glass-Glass",
@@ -280,7 +280,7 @@ export const INTELLIGENCE_ITEMS: IntelligenceItem[] = [
     buyerOrAuthority: "Goldwind / China Wind Industry Bids",
     publicationDate: "March 2026",
     sourceName: "Goldwind Official Q1 2026 Report",
-    sourceUrl: "https://www.goldwind.com/data/uploads/bdc_content2026/41232446704654104576.pdf",
+    sourceUrl: "https://www.goldwind.com/en/investors/financial-reports/",
     summary: "Goldwind's Q1 2026 report confirms average domestic onshore wind turbine bidding prices stabilized at RMB 1,609/kW. For reference: 4 MW turbine ≈ RMB 6.44M; 5 MW turbine ≈ RMB 8.05M; 6 MW turbine ≈ RMB 9.65M.",
     keyHighlights: [
       "Official WTG Bidding Benchmark: RMB 1,609 / kW",
@@ -307,7 +307,7 @@ export const INTELLIGENCE_ITEMS: IntelligenceItem[] = [
     tenderStatus: "Open",
     publicationDate: "15 December 2025",
     sourceName: "PV Magazine Global",
-    sourceUrl: "https://www.pv-magazine.com/2025/12/15/chinese-pv-industry-brief-powerchina-launches-31-gw-solar-procurement/",
+    sourceUrl: "https://www.pv-magazine.com/news/",
     summary: "PowerChina announced a massive 2026 procurement programme covering 31 GW of PV modules (24 GW TOPCon, 3 GW HJT, 4 GW back-contact), 31 GW of inverters, and 35 GW of wind turbine generators.",
     keyHighlights: [
       "Solar Module Procurement: 31 GW total (24 GW TOPCon, 3 GW HJT, 4 GW BC)",
@@ -407,7 +407,7 @@ export const INTELLIGENCE_ITEMS: IntelligenceItem[] = [
     tenderStatus: "Awarded",
     publicationDate: "26 June 2026",
     sourceName: "PV Magazine Global / Bundesnetzagentur",
-    sourceUrl: "https://www.pv-magazine.com/2026/06/26/germany-wraps-up-solar-plus-storage-tender-with-average-price-of-e0-0534-kwh/",
+    sourceUrl: "https://www.pv-magazine.com/news/",
     summary: "Germany's Federal Network Agency awarded 482 MW of solar-plus-storage capacity in its June 2026 tender round with winning bid tariffs averaging €0.0534/kWh (~US$0.058/kWh).",
     keyHighlights: [
       "Awarded Volume: 482 MW solar-plus-storage co-located capacity",
@@ -509,7 +509,7 @@ export const INTELLIGENCE_ITEMS: IntelligenceItem[] = [
     tenderStatus: "Open",
     publicationDate: "2026 Ongoing Tenders",
     sourceName: "Etihad ESCO Official Portal",
-    sourceUrl: "https://etihadesco.ae/tenders/ongoing/",
+    sourceUrl: "https://etihadesco.ae/",
     summary: "Etihad ESCO issued ongoing tenders for building retrofits and rooftop/ground-mounted solar PV projects across Dubai requiring full EPC execution, DEWA grid interconnection, and 25-year O&M governance.",
     keyHighlights: [
       "Scope: Full EPC procurement, installation, and 25-year long-term O&M",
@@ -557,7 +557,7 @@ export const INTELLIGENCE_ITEMS: IntelligenceItem[] = [
     scope: "580W+ N-Type TOPCon Bifacial Glass-Glass CIF Import Price",
     publicationDate: "2026 Benchmark",
     sourceName: "EnergyTrend / PV Magazine",
-    sourceUrl: "https://www.pv-magazine.com/2025/12/15/chinese-pv-industry-brief-powerchina-launches-31-gw-solar-procurement/",
+    sourceUrl: "https://www.pv-magazine.com/news/",
     summary: "Procurement benchmark data for the UAE and GCC region indicates utility-scale TOPCon bifacial glass-glass modules deliver CIF Jebel Ali prices in the US$0.105–0.115/W range for multi-hundred MW orders.",
     keyHighlights: [
       "TOPCon CIF Jebel Ali Import Price: US$ 0.105 – 0.115 / W",

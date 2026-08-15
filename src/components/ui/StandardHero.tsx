@@ -26,7 +26,7 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
 
   return (
     <section
-      className={`relative w-full h-screen min-h-screen flex items-center overflow-hidden ${
+      className={`relative w-full min-h-[580px] lg:min-h-[640px] xl:min-h-[700px] flex items-center overflow-hidden py-28 lg:py-32 ${
         isLight ? "bg-white text-slate-900" : "bg-[#06111F] text-white"
       }`}
     >
@@ -55,7 +55,7 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
       )}
 
       {/* Hero Content Container */}
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-12 lg:pt-28 lg:pb-16">
+      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 lg:py-6">
         <div className="max-w-4xl text-left">
           {/* Tier 1 H1 Title */}
           <h1

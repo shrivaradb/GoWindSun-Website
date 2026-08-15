@@ -78,6 +78,45 @@ const STATE_ZOOM_VIEWBOXES: Record<string, string> = {
   "IN-JK": "68.8 0.0 207.7 158.6",    // Jammu & Kashmir
 };
 
+// District project site marker coordinates overlay (SVG ViewBox space for selected states)
+const STATE_DISTRICT_MARKERS: Record<string, Array<{ district: string; x: number; y: number }>> = {
+  "IN-MH": [
+    { district: "Solapur", x: 165, y: 462 },
+    { district: "Buldhana", x: 172, y: 375 },
+    { district: "Dhule", x: 122, y: 368 },
+    { district: "Latur", x: 215, y: 428 },
+    { district: "Aurangabad", x: 152, y: 408 },
+    { district: "Satara", x: 142, y: 472 },
+  ],
+  "IN-RJ": [
+    { district: "Jaisalmer", x: 62, y: 238 },
+    { district: "Bikaner", x: 88, y: 262 },
+    { district: "Pratapgarh", x: 148, y: 318 },
+  ],
+  "IN-KA": [
+    { district: "Vijayapura", x: 168, y: 448 },
+    { district: "Chitradurga", x: 158, y: 508 },
+  ],
+  "IN-TN": [
+    { district: "Tuticorin", x: 198, y: 638 },
+    { district: "Virudhunagar", x: 208, y: 618 },
+    { district: "Coimbatore", x: 184, y: 588 },
+  ],
+  "IN-GJ": [
+    { district: "Kutch", x: 48, y: 328 },
+    { district: "Rajkot", x: 68, y: 368 },
+    { district: "Banaskantha", x: 108, y: 318 },
+  ],
+  "IN-AP": [
+    { district: "Anantapur", x: 242, y: 508 },
+    { district: "Kadapa", x: 262, y: 528 },
+  ],
+  "IN-MP": [
+    { district: "Ratlam", x: 148, y: 288 },
+    { district: "Rewa", x: 278, y: 268 },
+  ],
+};
+
 // Theme configurations for Wind (Blue), Solar (Orange), and Hybrid (Green)
 const CATEGORY_THEMES = {
   wind: {
@@ -254,6 +293,63 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
                 />
               );
             })}
+            {/* Render District Site Markers when a State is Selected */}
+            {selectedState && STATE_DISTRICT_MARKERS[selectedState] && (
+              <g className="pointer-events-none">
+                {STATE_DISTRICT_MARKERS[selectedState].map((m, idx) => (
+                  <g key={idx} transform={`translate(${m.x}, ${m.y})`}>
+                    {/* Outer Pulsing Aura Ring */}
+                    <circle r="8" fill="none" stroke="#FFFFFF" opacity="0.6" strokeWidth="1">
+                      <animate attributeName="r" values="6;12;6" dur="2.5s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.5s" repeatCount="indefinite" />
+                    </circle>
+
+                    {/* Marker Background Pin */}
+                    <circle r="5" fill="#FFFFFF" stroke={theme.selectedStroke} strokeWidth="1.2" className="drop-shadow-md" />
+
+                    {/* Category Specific White Marker Icon */}
+                    {category === "wind" ? (
+                      /* White Wind Turbine Icon (Tower + Hub + 3 Rotor Blades) */
+                      <g transform="scale(0.6)">
+                        <path d="M -0.4 3 L 0.4 3 L 0.2 -2.5 L -0.2 -2.5 Z" fill={theme.selectedFill} />
+                        <circle cx="0" cy="-2.5" r="0.8" fill={theme.selectedFill} />
+                        {/* Blade 1 (Vertical Top) */}
+                        <path d="M 0 -2.5 Q 0.5 -5 0.1 -6.5 Q -0.3 -5 0 -2.5 Z" fill={theme.selectedFill} />
+                        {/* Blade 2 (Bottom Right) */}
+                        <path d="M 0 -2.5 Q 3.8 -1.2 4.8 -2.5 Q 3.2 -3.2 0 -2.5 Z" fill={theme.selectedFill} />
+                        {/* Blade 3 (Bottom Left) */}
+                        <path d="M 0 -2.5 Q -3.2 -3.2 -4.8 -2.5 Q -3.8 -1.2 0 -2.5 Z" fill={theme.selectedFill} />
+                      </g>
+                    ) : category === "solar" ? (
+                      /* Crisp Solar Sun Icon */
+                      <g transform="scale(0.65)">
+                        <circle cx="0" cy="0" r="2.2" fill={theme.selectedFill} />
+                        <path d="M 0 -3.8 L 0 -2.6 M 0 2.6 L 0 3.8 M -3.8 0 L -2.6 0 M 2.6 0 L 3.8 0 M -2.7 -2.7 L -1.8 -1.8 M 1.8 1.8 L 2.7 2.7 M -2.7 2.7 L -1.8 1.8 M 1.8 -1.8 L 2.7 -2.7" stroke={theme.selectedFill} strokeWidth="0.8" strokeLinecap="round" />
+                      </g>
+                    ) : (
+                      /* Hybrid Lightning/Leaf Icon */
+                      <g transform="scale(0.6)">
+                        <path d="M 0.5 -4 L -2 0 L 0.5 0 L -0.5 4 L 2 0 L -0.5 0 Z" fill={theme.selectedFill} />
+                      </g>
+                    )}
+
+                    {/* District Name Label Badge */}
+                    <text
+                      x="0"
+                      y="-7.5"
+                      textAnchor="middle"
+                      fill="#FFFFFF"
+                      fontSize="3.8"
+                      fontWeight="bold"
+                      fontFamily="sans-serif"
+                      className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] uppercase font-mono tracking-tight pointer-events-none"
+                    >
+                      {m.district}
+                    </text>
+                  </g>
+                ))}
+              </g>
+            )}
           </g>
         </svg>
 

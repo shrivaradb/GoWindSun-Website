@@ -25,7 +25,7 @@ export const TradingOverviewBanner: React.FC = () => {
 
           {/* Screenshot-Style Outer Framed Card Container */}
           <div className="p-3 sm:p-5 md:p-6 bg-slate-900/90 border border-slate-800 rounded-3xl shadow-2xl shadow-sky-950/50 space-y-6">
-            
+
             {/* Inner White Presentation Frame with Uncropped Image */}
             <div className="bg-white rounded-2xl p-2 sm:p-4 shadow-xl border border-slate-200/80 overflow-hidden">
               <div className="relative w-full aspect-[1536/902] bg-white rounded-xl overflow-hidden">
@@ -42,7 +42,7 @@ export const TradingOverviewBanner: React.FC = () => {
 
             {/* Bottom 3-Card Structured Grid */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-              
+
               {/* Card 1: Commercial Commitment (Dark Navy Card) */}
               <div className="md:col-span-4 p-5 rounded-2xl bg-[#06111F] border border-slate-800 flex flex-col justify-between space-y-4">
                 <div className="space-y-2">

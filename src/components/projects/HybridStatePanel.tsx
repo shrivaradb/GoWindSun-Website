@@ -109,9 +109,9 @@ export const HybridStatePanel: React.FC<HybridStatePanelProps> = ({
 
       <div
         data-lenis-prevent="true"
-        className="space-y-5 overflow-y-auto max-h-[520px] pr-1.5 overscroll-contain touch-pan-y"
-        onWheel={(e) => e.stopPropagation()}
-        onTouchMove={(e) => e.stopPropagation()}
+        tabIndex={0}
+        aria-label="Hybrid Projects Information Panel"
+        className="space-y-5 overflow-y-auto max-h-[520px] pr-1.5 overscroll-contain touch-pan-y focus:outline-none"
       >
         {records.map((rec, idx) => (
           <div

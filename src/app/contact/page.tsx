@@ -82,15 +82,9 @@ export default function ContactPage() {
           {/* LEFT: DIRECT CONTACT CHANNELS & CORPORATE INFO (5 COLS) */}
           <div className="lg:col-span-5 space-y-8">
             <div className="bg-slate-50 p-8 sm:p-10 rounded-3xl border border-slate-200 space-y-8">
-              <span className="text-xs uppercase font-mono font-bold tracking-widest text-emerald-700 block">
-                Direct Communication Desks
-              </span>
 
               {/* Primary Email */}
               <div className="space-y-3 pb-6 border-b border-slate-200">
-                <span className="text-xs uppercase font-mono font-semibold tracking-wider text-slate-500 block">
-                  Primary Director Email
-                </span>
                 <div className="flex items-center gap-3">
                   <Mail className="w-6 h-6 text-emerald-600 shrink-0" />
                   <a
@@ -111,9 +105,6 @@ export default function ContactPage() {
 
               {/* Secondary Email */}
               <div className="space-y-3 pb-6 border-b border-slate-200">
-                <span className="text-xs uppercase font-mono font-semibold tracking-wider text-slate-500 block">
-                  Secondary Corporate Desk
-                </span>
                 <div className="flex items-center gap-3">
                   <Mail className="w-6 h-6 text-sky-600 shrink-0" />
                   <a
@@ -134,9 +125,6 @@ export default function ContactPage() {
 
               {/* Direct Phone */}
               <div className="space-y-3 pb-6 border-b border-slate-200">
-                <span className="text-xs uppercase font-mono font-semibold tracking-wider text-slate-500 block">
-                  Telephonic Advisory Desk
-                </span>
                 <div className="flex items-center gap-3">
                   <Phone className="w-6 h-6 text-amber-600 shrink-0" />
                   <a
@@ -224,14 +212,6 @@ export default function ContactPage() {
             </div>
           </div>
 
-        </div>
-
-        {/* 3. MINIMAL BOTTOM REASSURANCE BAR */}
-        <div className="mt-20 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>GoWindSun India Private Limited — Integrated Clean Energy Infrastructure</span>
-          </div>
         </div>
       </Container>
     </div>

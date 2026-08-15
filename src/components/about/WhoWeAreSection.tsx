@@ -5,55 +5,96 @@ import { Container } from "@/components/ui/Container";
 
 export const WhoWeAreSection: React.FC = () => {
   return (
-    <section className="py-24 bg-white border-b border-slate-200">
+    <section className="py-20 lg:py-24 bg-white border-b border-slate-200">
       <Container>
-        {/* Editorial Two-Column Layout (About GoWindSun Section from Website.docx) */}
+        {/* Editorial Two-Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-          {/* Left Column: Big Heading */}
-          <div className="lg:col-span-5 space-y-4">
+          {/* Left Column: Heading & Sticky Context */}
+          <div className="lg:col-span-5 space-y-4 lg:sticky lg:top-28">
             <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-700">
-              <span className="w-2 h-2 rounded-full bg-emerald-600" />
+              <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
               Corporate Identity & Founding Purpose
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
               Decades of Sector Leadership & Technical Mastery.
             </h2>
+            <p className="text-sm text-slate-500 leading-relaxed pt-2">
+              Accelerating India’s clean energy transition through bankable project development, techno-commercial advisory, and market solutions.
+            </p>
           </div>
 
-          {/* Right Column: Narrative specifically from "About GoWindSun India Private Limited" Section */}
+          {/* Right Column: Narrative */}
           <div className="lg:col-span-7 space-y-6 text-base text-slate-700 leading-relaxed font-normal">
-            <p className="text-lg text-slate-800 font-medium leading-relaxed">
-              GoWindSun India Private Limited is founded by prominent industry professional with over 3 decades of leadership experience across renewable energy, power systems, infrastructure, manufacturing, project & business development and strategic advisory services.
+            <p className="text-lg text-slate-900 font-semibold leading-relaxed">
+              GoWindSun is founded by an industry professional with over three decades of leadership experience across renewable energy, power systems, infrastructure, manufacturing, project and business development, and strategic advisory.
             </p>
+
             <p>
-              We are committed to accelerating the transition toward a sustainable, low-carbon energy future by delivering innovative, technology-driven solutions across the renewable energy value chain. Our expertise spans onshore wind, ground-mounted solar PV, wind-solar hybrid plants, battery energy storage systems (BESS), green hydrogen, and strategic advisory.
+              We are committed to accelerating India’s transition towards a sustainable, secure and low-carbon energy future by delivering practical, technology-driven and commercially viable solutions across the renewable energy value chain. Our capabilities span onshore wind, ground-mounted solar PV, wind-solar hybrid projects, Battery Energy Storage Systems (BESS), green hydrogen, power procurement, EPC and strategic advisory services.
             </p>
-            <p>
-              We create lasting value for developers, investors, lenders, utilities, manufacturers, industrial consumers, employees, and local communities through practical, techno-commercially viable solutions backed by transparent corporate governance.
-            </p>
+
+            {/* Sub-Section 1: Opportunity */}
+            <div className="pt-4 space-y-4">
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight border-l-4 border-emerald-600 pl-3">
+                India’s Renewable Energy Opportunity
+              </h3>
+              <p>
+                India is undergoing a significant transformation of its energy landscape. As of July 2026, the country has approximately 552 GW of installed power capacity, of which 300.50 GW, or more than 54%, is from non-fossil sources. India has emerged as the third-largest country globally in renewable energy installed capacity, demonstrating the scale and momentum of its clean-energy transition.
+              </p>
+              <p>
+                Solar and wind are driving this transformation. India’s installed solar capacity has reached 164.59 GW, compared with just 2.8 GW in 2014, while wind capacity has grown to 58.14 GW. During FY 2025–26 alone, India added a record 6.05 GW of wind capacity, with approximately 28 GW of additional wind capacity under implementation. Domestic wind-turbine manufacturing capacity has also increased to around 24 GW, supported by 70–80% indigenisation across key components. India now ranks fourth globally in installed wind capacity.
+              </p>
+              <p>
+                These developments are creating substantial opportunities across renewable project development, equipment manufacturing, EPC, transmission infrastructure, energy storage, power procurement and innovative C&I energy solutions. The increasing adoption of hybrid projects and round-the-clock renewable power is further transforming the way electricity is generated, transmitted and consumed.
+              </p>
+            </div>
+
+            {/* Sub-Section 2: Our Role */}
+            <div className="pt-4 space-y-4">
+              <h3 className="text-xl font-bold text-slate-900 tracking-tight border-l-4 border-emerald-600 pl-3">
+                Our Role
+              </h3>
+              <p>
+                GoWindSun aims to bridge the gap between technology, projects, capital and energy consumers by providing integrated solutions tailored to the requirements of developers, investors, lenders, utilities, manufacturers and C&I consumers.
+              </p>
+              <p>
+                Our services encompass project development and acquisition, techno-commercial and strategic advisory, engineering, EPC facilitation, power procurement, regulatory support, investment facilitation and renewable energy market solutions.
+              </p>
+              <p>
+                We create long-term value through independent advice, transparent governance, strong technical and commercial expertise, and a clear focus on project bankability and execution—while contributing to sustainable development and creating value for our partners, employees and local communities.
+              </p>
+            </div>
+
+            {/* Tagline Card */}
+            <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-emerald-950 via-slate-900 to-emerald-900 text-white shadow-lg border border-emerald-800/30">
+              <p className="text-lg font-bold tracking-wide text-emerald-400">
+                GoWindSun — Engineering a Sustainable Clean Energy Future.
+              </p>
+            </div>
           </div>
         </div>
 
         {/* Bottom Horizontal Core Capability Focus Strip */}
         <div className="mt-16 pt-12 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">Wind & Solar</span>
-            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Utility & Captive Assets</span>
+            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">300+ GW</span>
+            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">India Non-Fossil Capacity</span>
           </div>
           <div>
-            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">4 Pillars</span>
-            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Consulting, EPC, Dev, IPP</span>
+            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">4th Globally</span>
+            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Installed Wind Capacity</span>
           </div>
           <div>
-            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">~3,000 MW</span>
-            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Identified Site Pipeline</span>
+            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">30+ Years</span>
+            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Leadership Experience</span>
           </div>
           <div>
-            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">Bankable DPRs</span>
-            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">P50 / P75 / P90 Yield Analysis</span>
+            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">End-to-End</span>
+            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Advisory, Dev & EPC</span>
           </div>
         </div>
       </Container>
     </section>
   );
 };
+

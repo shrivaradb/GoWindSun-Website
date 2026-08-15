@@ -89,9 +89,9 @@ export const Navbar: React.FC = () => {
                   priority
                 />
 
-                {/* STANDALONE BORDERLESS FLAG */}
+                {/* PROMINENT ANIMATED FLAG EMBLEM */}
                 <div className="flex items-center justify-center pl-1 sm:pl-1.5 flex-shrink-0">
-                  <IndiaFlag className="w-9 h-6 sm:w-11 sm:h-7.5 rounded-[3px] flex-shrink-0" animated />
+                  <IndiaFlag className="w-12 h-12 sm:w-14 sm:h-14 xl:w-16 xl:h-16 flex-shrink-0" animated />
                 </div>
               </div>
             </Link>

@@ -45,7 +45,7 @@ export const MacroImpactStrip: React.FC = () => {
             transition={{ duration: 0.4, delay: 0.2 }}
           >
             <span className="block text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-              <CountUp end={220} suffix="+ GW" duration={2.2} />
+              <CountUp end={300} suffix="+ GW" duration={2.2} />
             </span>
             <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">
               Installed Non-Fossil Power Base

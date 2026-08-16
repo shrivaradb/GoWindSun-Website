@@ -62,7 +62,7 @@ export const siteConfig = {
   stats: [
     { value: "~3,000", unit: "MW", label: "Identified Greenfield Site Pipeline Potential", icon: "Zap" },
     { value: "500", unit: "GW", label: "National Panchamrit 2030 Non-Fossil Target", icon: "TrendingUp" },
-    { value: "220+", unit: "GW", label: "India Renewable Energy Generation Base", icon: "Leaf" },
+    { value: "300+", unit: "GW", label: "India Renewable Energy Generation Base", icon: "Leaf" },
     { value: "P50/75/90", unit: "", label: "Bankable AEP DPR Feasibility Assessment", icon: "ShieldCheck" },
   ],
   services: [

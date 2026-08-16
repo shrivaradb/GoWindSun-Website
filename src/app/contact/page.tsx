@@ -138,7 +138,7 @@ export default function ContactPage() {
                   href={`tel:${phoneClean}`}
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 hover:text-amber-800 tracking-wide uppercase mt-1"
                 >
-                  <span>Call Directly</span>
+                  <span>Call Us</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>

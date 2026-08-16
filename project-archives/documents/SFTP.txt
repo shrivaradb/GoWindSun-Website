@@ -1,0 +1,6 @@
+SSH Command
+ ssh client_43d2206b76_755657@755657.us28.ssh.myftpupload.com
+Username
+ client_43d2206b76_755657
+Password
+ D9RGCOeVxqPgID

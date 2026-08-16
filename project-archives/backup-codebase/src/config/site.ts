@@ -1,0 +1,176 @@
+export const siteConfig = {
+  name: "GoWindSun India Private Limited",
+  shortName: "GoWindSun",
+  description:
+    "Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems.",
+  url: "https://gowindsun.com",
+  ogImage: "https://gowindsun.com/og.jpg",
+  contact: {
+    email: "director@gowindsun.com",
+    secondaryEmail: "gowindnsun@gmail.com",
+    phone: "+91 90110 71864",
+  },
+  nav: [
+    {
+      name: "About",
+      href: "/about",
+      children: [
+        { name: "About GoWindSun", href: "/about" },
+        { name: "Our Journey", href: "/about/our-journey" },
+      ],
+    },
+    {
+      name: "Services",
+      href: "/services",
+      children: [
+        { name: "Project Development & EPC", href: "/services/project-development-epc" },
+        { name: "Technical Consulting & Advisory Services", href: "/services/technical-consulting-advisory" },
+        { name: "Asset Management & Operations", href: "/services/asset-management-operations" },
+        { name: "Strategic Advisory & Energy Market Services", href: "/services/strategic-advisory-energy-market" },
+      ],
+    },
+    {
+      name: "Projects for Acquisition",
+      href: "/projects-for-acquisition",
+      children: [
+        {
+          name: "Wind Projects",
+          href: "/projects-for-acquisition/wind",
+          children: [
+            { name: "Greenfield Wind", href: "/projects-for-acquisition/wind/greenfield" },
+            { name: "Shovel Ready Wind", href: "/projects-for-acquisition/wind/shovel-ready" },
+            { name: "Operational Wind", href: "/projects-for-acquisition/wind/operational" },
+          ],
+        },
+        {
+          name: "Solar Projects",
+          href: "/projects-for-acquisition/solar",
+          children: [
+            { name: "Greenfield Solar", href: "/projects-for-acquisition/solar/greenfield" },
+            { name: "Shovel Ready Solar", href: "/projects-for-acquisition/solar/shovel-ready" },
+            { name: "Operational Solar", href: "/projects-for-acquisition/solar/operational" },
+          ],
+        },
+        { name: "Hybrid Projects", href: "/projects-for-acquisition/hybrid" },
+      ],
+    },
+    { name: "Renewable Energy Trading", href: "/services/renewable-energy-trading" },
+    { name: "IPP Platform", href: "/ipp-platform" },
+    { name: "Knowledge Hub", href: "/knowledge-hub" },
+    { name: "Contact Us", href: "/contact", isCta: true },
+  ],
+  stats: [
+    { value: "~3,000", unit: "MW", label: "Identified Greenfield Site Pipeline Potential", icon: "Zap" },
+    { value: "500", unit: "GW", label: "National Panchamrit 2030 Non-Fossil Target", icon: "TrendingUp" },
+    { value: "220+", unit: "GW", label: "India Renewable Energy Generation Base", icon: "Leaf" },
+    { value: "P50/75/90", unit: "", label: "Bankable AEP DPR Feasibility Assessment", icon: "ShieldCheck" },
+  ],
+  services: [
+    {
+      id: "solar-power",
+      title: "Utility & Industrial Solar Power",
+      description: "Turnkey engineering, procurement, and construction (EPC) of high-efficiency utility-scale and ground-mounted solar power plants with advanced SCADA monitoring.",
+      metrics: ["Efficiency: 22.8%+", "Capacity: 10MW - 250MW+", "Lifespan: 25+ Years"],
+      icon: "Sun",
+      tags: ["Utility-Scale", "Roof-Top", "Ground-Mounted", "SCADA Integration"],
+    },
+    {
+      id: "wind-energy",
+      title: "Wind Energy Engineering",
+      description: "Comprehensive wind energy infrastructure development, wind resource assessment, micro-siting, turbine civil engineering, and high-voltage grid interconnection.",
+      metrics: ["Capacity Factor: >42%", "Turbine Ratings: 3.3MW - 5.0MW", "Grid Compliance: 100%"],
+      icon: "Wind",
+      tags: ["Wind Resource Assessment", "Micro-siting", "High Voltage Grid", "O&M Advisory"],
+    },
+    {
+      id: "hybrid-systems",
+      title: "Solar-Wind Hybrid Power Plants",
+      description: "Co-located solar and wind power generation systems engineered to maximize capacity utilization factors (CUF) and optimize shared transmission infrastructure.",
+      metrics: ["CUF Improvement: +35%", "Capex Efficiency: 18% Savings", "24/7 Energy Profile"],
+      icon: "Boxes",
+      tags: ["Co-location Design", "Shared Substation", "Peak Shaving", "Grid Stability"],
+    },
+    {
+      id: "bess",
+      title: "Battery Energy Storage Systems (BESS)",
+      description: "Utility-grade containerized LFP energy storage infrastructure providing frequency regulation, peak load shifting, microgrid resiliency, and spinning reserve capability.",
+      metrics: ["Response Time: <20ms", "Cycle Life: 8,000+ Cycles", "Chemistry: LFP Safe"],
+      icon: "BatteryCharging",
+      tags: ["Frequency Regulation", "Peak Shifting", "Microgrids", "BMS Security"],
+    },
+    {
+      id: "technical-advisory",
+      title: "Renewable Energy Consulting & Advisory",
+      description: "Independent technical advisory, bankable feasibility studies, owner's engineering, yield optimization, and lender's technical due diligence for enterprise investments.",
+      metrics: ["Bankable Reports", "PVSyst & WAsP Certified", "Risk Mitigation"],
+      icon: "FileCheck",
+      tags: ["Due Diligence", "Owner's Engineer", "Yield Assessment", "Financial Advisory"],
+    },
+    {
+      id: "grid-integration",
+      title: "Substation & Grid Integration",
+      description: "High-voltage extra-high-voltage (EHV) substation construction, transmission line routing, grid compliance testing, and automated load dispatch center connectivity.",
+      metrics: ["Voltage: 33kV - 400kV", "IEC 61850 Compliant", "Zero-Harm Safety"],
+      icon: "Activity",
+      tags: ["EHV Substations", "Grid Compliance", "Transmission Lines", "Automated Load Dispatch"],
+    },
+  ],
+  industries: [
+    {
+      title: "Independent Power Producers (IPPs)",
+      description: "Utility-scale EPC execution, asset optimization, and grid dispatch infrastructure designed for maximum IRR and multi-decadal asset reliability.",
+      icon: "Building2",
+    },
+    {
+      title: "Manufacturing & Heavy Industries",
+      description: "Captive renewable energy power plants and wheeling arrangements through open access, drastically reducing industrial power tariffs.",
+      icon: "Factory",
+    },
+    {
+      title: "Infrastructure & Data Centers",
+      description: "Round-the-clock green energy solutions and dedicated BESS storage to meet strict RE100 zero-carbon targets with 99.999% uptime compliance.",
+      icon: "Server",
+    },
+    {
+      title: "Government & Public Sector Units (PSUs)",
+      description: "Execution of government tenders, public utility solar parks, and strategic clean energy infrastructure under strict EPC compliance.",
+      icon: "Landmark",
+    },
+    {
+      title: "Banks & Financial Institutions",
+      description: "Technical due diligence, asset audit, engineering valuation, and independent owner's advisory for project finance underwriting.",
+      icon: "Scale",
+    },
+    {
+      title: "Commercial Real Estate & SEZs",
+      description: "Integrated rooftop, carport, and distributed energy microgrids for enterprise campuses, tech parks, and commercial zones.",
+      icon: "Building",
+    },
+  ],
+  projects: [
+    {
+      title: "Kutch 150MW Utility Solar Park",
+      location: "Gujarat, India",
+      capacity: "150 MW DC",
+      type: "Solar EPC",
+      description: "Turnkey engineering, procurement, grid integration and 220kV substation commissioning for IPP developer in saline desert terrain.",
+      stats: { yield: "310 GWh/yr", period: "10 Months", uptime: "99.92%" },
+    },
+    {
+      title: "Jaisalmer 100MW Solar-Wind Hybrid Hub",
+      location: "Rajasthan, India",
+      capacity: "100 MW Hybrid",
+      type: "Hybrid Infrastructure",
+      description: "Integrated 60MW Solar PV and 40MW Wind generation with shared pooling substation, increasing transmission line load factor by 38%.",
+      stats: { yield: "245 GWh/yr", period: "14 Months", uptime: "99.88%" },
+    },
+    {
+      title: "Pune Industrial SEZ Captive Clean Energy",
+      location: "Maharashtra, India",
+      capacity: "45 MWp + 20MWh BESS",
+      type: "Industrial Microgrid",
+      description: "Captive solar installation coupled with LFP battery storage providing peak-shaving and reliable power backup for auto manufacturing plants.",
+      stats: { yield: "78 GWh/yr", period: "7 Months", uptime: "100%" },
+    },
+  ],
+};

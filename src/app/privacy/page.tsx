@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { Container } from "@/components/ui/Container";
 import { Shield, Lock, FileText, CheckCircle2, Eye } from "lucide-react";
@@ -6,6 +7,7 @@ import { StandardHero } from "@/components/ui/StandardHero";
 export default function PrivacyPolicyPage() {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
+      <SEO title="Privacy Policy" description="GoWindSun India Private Limited Privacy Policy and data protection terms." canonical="/privacy" />
       {/* 1. HERO HEADER — Global Layout & 3-Tier Typography Standard */}
       <StandardHero
         title={

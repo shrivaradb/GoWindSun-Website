@@ -55,7 +55,7 @@ export const StrategicDomainPanels: React.FC = () => {
 
             <div className="lg:col-span-6 relative h-72 sm:h-80 w-full rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/services/ehv_substation_grid.png"
+                src="/images/services/ehv_substation_grid.webp"
                 alt="High Voltage Grid & Corporate Open Access Power Evacuation"
                 fill
                 className="object-cover object-center"
@@ -67,7 +67,7 @@ export const StrategicDomainPanels: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-10 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-500/40 transition-all duration-300 shadow-sm">
             <div className="lg:col-span-6 order-2 lg:order-1 relative h-72 sm:h-80 w-full rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/services/wind_solar_hybrid.png"
+                src="/images/services/wind_solar_hybrid.webp"
                 alt="Renewable Energy Park Asset Repowering and M&A Transactions"
                 fill
                 className="object-cover object-center"
@@ -133,7 +133,7 @@ export const StrategicDomainPanels: React.FC = () => {
 
             <div className="lg:col-span-6 relative h-72 sm:h-80 w-full rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/services/bess_energy_storage.png"
+                src="/images/services/bess_energy_storage.webp"
                 alt="Battery Energy Storage System BESS and Green Hydrogen Advisory"
                 fill
                 className="object-cover object-center"

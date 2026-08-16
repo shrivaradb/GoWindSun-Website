@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 "use client";
 
 import React, { useState } from "react";
@@ -151,6 +152,7 @@ export default function TendersPage() {
 
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
+      <SEO title="Tenders & Procurement" description="Current renewable energy tenders, RE procurement opportunities, SECI bids, and state DISCOM auction updates in India." canonical="/tenders" />
       
       {/* 1. HERO SECTION — Standard Global Dark Hero System */}
       <StandardHero

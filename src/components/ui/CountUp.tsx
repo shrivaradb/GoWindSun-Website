@@ -6,7 +6,7 @@ import { useInView, useReducedMotion } from "framer-motion";
 export interface CountUpProps {
   end: number;
   start?: number;
-  duration?: number; // In seconds (default: 2.0)
+  duration?: number;
   decimals?: number;
   prefix?: string;
   suffix?: string;
@@ -40,14 +40,14 @@ export const CountUp: React.FC<CountUpProps> = ({
     let startTime: number | null = null;
     let animationFrameId: number;
 
-    const easeOutCubic = (t: number): number => {
-      return 1 - Math.pow(1 - t, 3);
+    const easeOutQuart = (t: number): number => {
+      return 1 - Math.pow(1 - t, 4);
     };
 
     const updateCounter = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / (duration * 1000), 1);
-      const easedProgress = easeOutCubic(progress);
+      const easedProgress = easeOutQuart(progress);
       const currentVal = start + (end - start) * easedProgress;
 
       setDisplayValue(prefix + currentVal.toFixed(decimals) + suffix);

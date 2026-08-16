@@ -14,7 +14,7 @@ export const IppStrategicAdvantages: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative h-[360px] sm:h-[440px] w-full border border-slate-800 shadow-2xl overflow-hidden">
               <Image
-                src="/images/ipp/ipp-long-term-value.png"
+                src="/images/ipp/ipp-long-term-value.webp"
                 alt="Long-Term Renewable Energy Asset Infrastructure Value"
                 fill
                 className="object-cover object-center brightness-90 contrast-105"

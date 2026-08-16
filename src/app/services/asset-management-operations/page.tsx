@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { AssetOperationsHero } from "@/components/services/asset-operations/AssetOperationsHero";
 import { AssetLifecyclePipeline } from "@/components/services/asset-operations/AssetLifecyclePipeline";
@@ -8,6 +9,7 @@ import { AssetOperationsCta } from "@/components/services/asset-operations/Asset
 export default function AssetManagementOperationsPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
+      <SEO title="Asset Management & Operations" description="O&M asset management, SCADA grid monitoring, performance optimization, and preventive maintenance for RE plants." canonical="/services/asset-management-operations" />
       {/* 1. Live Asset Performance & Control Center Hero */}
       <AssetOperationsHero />
 

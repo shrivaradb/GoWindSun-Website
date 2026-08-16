@@ -13,22 +13,22 @@ export interface SlideItem {
 const slides: SlideItem[] = [
   {
     id: 1,
-    src: "/hero_slideshow_1.png",
+    src: "/images/hero_slideshow_1.webp",
     alt: "Onshore Wind Turbine Generator Power Park",
   },
   {
     id: 2,
-    src: "/hero_slideshow_2.png",
+    src: "/images/hero_slideshow_2.webp",
     alt: "Utility-Scale Ground Mounted Solar PV Power Plant",
   },
   {
     id: 3,
-    src: "/hero_slideshow_3.png",
+    src: "/images/hero_slideshow_3.webp",
     alt: "Containerized Battery Energy Storage System (BESS) Facility",
   },
   {
     id: 4,
-    src: "/hero_slideshow_4.png",
+    src: "/images/hero_slideshow_4.webp",
     alt: "Extra High Voltage (EHV) Grid Substation and Transmission Lines",
   },
 ];
@@ -39,7 +39,7 @@ export const HeroSlideshow: React.FC = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length);
-    }, 3000); // 3 seconds per slide
+    }, 4000);
 
     return () => clearInterval(timer);
   }, []);
@@ -47,19 +47,18 @@ export const HeroSlideshow: React.FC = () => {
   const currentSlide = slides[currentIndex];
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-slate-900">
-      {/* Animated Full-Bleed Natural Image Slideshow (Full Brightness & Color) */}
+    <div className="absolute inset-0 z-0 overflow-hidden bg-slate-900 gpu-layer">
       <AnimatePresence mode="popLayout">
         <motion.div
           key={currentSlide.id}
-          initial={{ opacity: 0, scale: 1.04 }}
+          initial={{ opacity: 0, scale: 1.03 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0 }}
           transition={{
-            opacity: { duration: 0.8, ease: "easeInOut" },
-            scale: { duration: 3, ease: "linear" },
+            opacity: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
+            scale: { duration: 4.0, ease: [0.25, 1, 0.5, 1] },
           }}
-          className="absolute inset-0"
+          className="absolute inset-0 gpu-layer"
         >
           <Image
             src={currentSlide.src}
@@ -71,9 +70,8 @@ export const HeroSlideshow: React.FC = () => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Minimal Light Text Shadow Overlay (No Heavy Black, No Blue Tint) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 pointer-events-none" />
     </div>
   );
 };

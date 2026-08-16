@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 "use client";
 
 import React from "react";

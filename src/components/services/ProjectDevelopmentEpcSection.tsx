@@ -15,7 +15,7 @@ export const ProjectDevelopmentEpcSection: React.FC = () => {
             {/* Feature Image Frame */}
             <div className="lg:col-span-6 relative h-[380px] sm:h-[460px] w-full rounded-2xl overflow-hidden shadow-2xl group border border-slate-200">
               <Image
-                src="/images/services/wind_solar_hybrid.png"
+                src="/images/services/wind_solar_hybrid.webp"
                 alt="Greenfield Wind Solar Hybrid Site Pipeline"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -111,7 +111,7 @@ export const ProjectDevelopmentEpcSection: React.FC = () => {
             {/* Right Met Mast Image Frame */}
             <div className="lg:col-span-6 relative h-[380px] sm:h-[460px] w-full rounded-2xl overflow-hidden shadow-2xl group border border-slate-200 order-1 lg:order-2">
               <Image
-                src="/images/services/wind_mast_assessment.png"
+                src="/images/services/wind_mast_assessment.webp"
                 alt="Wind Resource Assessment Met Mast Erection"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -176,7 +176,7 @@ export const ProjectDevelopmentEpcSection: React.FC = () => {
             {/* Right Land Acquisition Image Card (Matching Phase 01 & Phase 02 Style) */}
             <div className="lg:col-span-6 relative h-[380px] sm:h-[460px] w-full rounded-2xl overflow-hidden shadow-2xl group border border-slate-200">
               <Image
-                src="/images/land-acquisition.jpeg"
+                src="/images/land-acquisition.webp"
                 alt="Land Identification Title Due Diligence and RoW Clearance"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -217,7 +217,7 @@ export const ProjectDevelopmentEpcSection: React.FC = () => {
             {/* Left High-Voltage Substation Image */}
             <div className="lg:col-span-7 relative h-[360px] sm:h-[420px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl group">
               <Image
-                src="/images/pdepc/pdepc-substation-evacuation.png"
+                src="/images/pdepc/pdepc-substation-evacuation.webp"
                 alt="HV/EHV Substation & Grid Evacuation Infrastructure EPC"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -239,7 +239,7 @@ export const ProjectDevelopmentEpcSection: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <div className="relative w-16 h-16 rounded-xl overflow-hidden border border-slate-600 flex-shrink-0">
                     <Image
-                      src="/images/services/epc_project_development_hero.png"
+                      src="/images/services/epc_project_development_hero.webp"
                       alt="Solar PV & Wind Grid Integration EPC"
                       fill
                       className="object-cover"
@@ -297,7 +297,7 @@ export const ProjectDevelopmentEpcSection: React.FC = () => {
             {/* Left Site Engineers Image */}
             <div className="lg:col-span-6 relative h-[380px] sm:h-[440px] rounded-2xl overflow-hidden border border-slate-200 shadow-2xl group">
               <Image
-                src="/images/pdepc/pdepc-civil-engineers.png"
+                src="/images/pdepc/pdepc-civil-engineers.webp"
                 alt="Engineers Site Inspection & Construction Supervision"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
@@ -319,7 +319,7 @@ export const ProjectDevelopmentEpcSection: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <div className="relative w-14 h-14 rounded-xl overflow-hidden border border-slate-300 flex-shrink-0">
                     <Image
-                      src="/images/pdepc/pdepc-bess-execution.png"
+                      src="/images/pdepc/pdepc-bess-execution.webp"
                       alt="BESS Battery Energy Storage System Engineering"
                       fill
                       className="object-cover"

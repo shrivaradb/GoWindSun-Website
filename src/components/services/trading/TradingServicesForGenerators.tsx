@@ -63,7 +63,7 @@ export const TradingServicesForGenerators: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative h-[360px] sm:h-[440px] w-full border border-slate-800 shadow-2xl overflow-hidden">
               <Image
-                src="/images/trading/trading-grid-dispatch.png"
+                src="/images/trading/trading-grid-dispatch.webp"
                 alt="RE Generation Dispatch & Off-Take Coordination"
                 fill
                 className="object-cover object-center brightness-90 contrast-105"

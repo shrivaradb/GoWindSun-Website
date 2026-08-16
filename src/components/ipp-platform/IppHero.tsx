@@ -16,7 +16,7 @@ export const IppHero: React.FC = () => {
       }
       subtitle="Developing, Owning & Operating High-Quality Renewable Assets Across India."
       description="Leveraging deep industry expertise, strategic partnerships, and extensive market knowledge, we identify and develop renewable energy opportunities that offer long-term value and sustainable growth."
-      image="/images/ipp/ipp-hero.png"
+      image="/images/ipp/ipp-hero.webp"
       imageAlt="GoWindSun IPP Platform - Utility Scale Renewable Energy Asset Platform"
     />
   );

@@ -16,7 +16,7 @@ export const AssetOperationsHero: React.FC = () => {
       }
       subtitle="Keeping renewable energy assets reliable, available, and performing throughout their lifecycle."
       description="GoWindSun delivers end-to-end Operations & Maintenance (O&M) services, plant reliability enhancement, specialist technical manpower deployment, preventive/predictive maintenance, and spare parts management across wind, solar, hybrid, BESS, and high-voltage grid infrastructure in India."
-      image="/images/asset-management.png"
+      image="/images/asset-management.webp"
       imageAlt="GoWindSun Asset Management & Operations Control Center"
     />
   );

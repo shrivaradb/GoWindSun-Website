@@ -25,14 +25,14 @@ export const Navbar: React.FC = () => {
   });
 
   const handleOpenUnderDevModal = (title?: string, description?: string) => {
-    let modalTitle = title || "Under Development";
+    let modalTitle = title || "Specialized Access Portal";
     let modalDesc = description;
 
     if (!modalDesc) {
       if (modalTitle.toLowerCase().includes("knowledge")) {
-        modalDesc = "Our Knowledge Hub technical whitepaper repository, MNRE regulatory briefs, and PPA tariff intelligence tools are currently under active technical compilation and onboarding.";
+        modalDesc = "Our Knowledge Hub technical publication library, regulatory briefs, and PPA tariff tools are currently being updated with new industry insights.";
       } else {
-        modalDesc = "Our Projects for Acquisition platform, digital asset directory, and utility-scale Solar, Wind, and Hybrid project acquisition portfolios are currently under active technical onboarding.";
+        modalDesc = "Our Projects for Acquisition platform and utility-scale Solar, Wind, and Hybrid project directories are currently being updated with new asset listings.";
       }
     }
 
@@ -81,7 +81,7 @@ export const Navbar: React.FC = () => {
               </div>
               <div className="flex items-center gap-2.5 flex-shrink-0">
                 <Image
-                  src="/images/logo_text.png"
+                  src="/images/logo_text.webp"
                   alt="GoWindSun India Private Limited"
                   width={175}
                   height={42}
@@ -133,7 +133,7 @@ export const Navbar: React.FC = () => {
                       >
                         <span>{item.name}</span>
                         <span className="ml-1 px-1.5 py-0.5 text-[10px] font-mono uppercase bg-amber-100 text-amber-800 rounded font-semibold border border-amber-200">
-                          Under Dev
+                          Coming Soon
                         </span>
                         {hasChildren && <ChevronDown className="w-3.5 h-3.5 text-slate-400 group-hover:text-amber-700 group-hover:rotate-180 transition-transform duration-200" />}
                       </button>

@@ -46,7 +46,7 @@ export const IppInvestmentStructures: React.FC = () => {
 
             <div className="relative h-48 sm:h-56 w-full border border-slate-300 overflow-hidden shadow-md">
               <Image
-                src="/images/ipp/ipp-investment-structuring.png"
+                src="/images/ipp/ipp-investment-structuring.webp"
                 alt="Renewable Energy Capital & Investment Evaluation"
                 fill
                 className="object-cover"

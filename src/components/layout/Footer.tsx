@@ -29,7 +29,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex flex-col flex-shrink-0 justify-center">
                 <Image
-                  src="/images/logo_text.png"
+                  src="/images/logo_text.webp"
                   alt="GoWindSun India Private Limited"
                   width={210}
                   height={50}

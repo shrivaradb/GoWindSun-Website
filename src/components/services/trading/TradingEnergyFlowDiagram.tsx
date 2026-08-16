@@ -50,7 +50,7 @@ export const TradingEnergyFlowDiagram: React.FC = () => {
 
             <div className="relative aspect-[4/3] w-full border border-slate-300 overflow-hidden shadow-md rounded-lg">
               <Image
-                src="/images/trading/power-flow-market-connection.png"
+                src="/images/trading/power-flow-market-connection.webp"
                 alt="Renewable Power Flow & Grid Interconnection"
                 fill
                 className="object-cover"

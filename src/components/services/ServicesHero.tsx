@@ -16,7 +16,7 @@ export const ServicesHero: React.FC = () => {
       }
       subtitle="Engineering, developing, operating and advising across the renewable energy value chain."
       description="GoWindSun India Private Limited delivers integrated lifecycle solutions for wind, solar, hybrid power plants, and battery energy storage systems (BESS)—supporting India's 500 GW Panchamrit 2030 non-fossil capacity target across a ~3,000 MW identified greenfield site pipeline and India's 300+ GW renewable energy market landscape."
-      image="/images/services/services-hero.png"
+      image="/images/services/services-hero.webp"
       imageAlt="GoWindSun Integrated Renewable Energy Services Ecosystem"
     />
   );

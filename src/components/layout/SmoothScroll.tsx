@@ -10,16 +10,18 @@ export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children
 
   // 1. Initialize Lenis Smooth Scroll Instance
   useEffect(() => {
-    // Disable browser automatic history scroll restoration
     if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
     }
 
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      gestureOrientation: "vertical",
       smoothWheel: true,
-      touchMultiplier: 2,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.5,
     });
 
     lenisRef.current = lenis;
@@ -37,25 +39,23 @@ export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children
     };
   }, []);
 
-  // 2. Centralized Route Navigation Handler (Always Start at Top of New Pages)
+  // 2. Centralized Route Navigation Handler
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const hash = location.hash;
 
     if (hash && hash !== "#" && !hash.startsWith("#/")) {
-      // Same-page anchor: Scroll smoothly to the target element
       const id = hash.replace("#", "");
       const element = document.getElementById(id);
       if (element) {
         if (lenisRef.current) {
-          lenisRef.current.scrollTo(element, { immediate: false, duration: 1.0 });
+          lenisRef.current.scrollTo(element, { immediate: false, duration: 1.2 });
         } else {
           element.scrollIntoView({ behavior: "smooth" });
         }
       }
     } else {
-      // New Route Navigation: ALWAYS reset scroll position to absolute top (0)
       window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
@@ -64,7 +64,6 @@ export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children
         lenisRef.current.scrollTo(0, { immediate: true });
       }
 
-      // Secondary RAF tick to ensure post-render DOM height recalculation maintains top scroll
       requestAnimationFrame(() => {
         window.scrollTo(0, 0);
         if (lenisRef.current) {
@@ -76,5 +75,3 @@ export const SmoothScroll: React.FC<{ children: React.ReactNode }> = ({ children
 
   return <>{children}</>;
 };
-
-

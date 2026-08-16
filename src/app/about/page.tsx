@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { AboutHero } from "@/components/about/AboutHero";
 import { WhoWeAreSection } from "@/components/about/WhoWeAreSection";
@@ -12,7 +13,9 @@ import { AboutCtaSection } from "@/components/about/AboutCtaSection";
 
 export default function AboutPage() {
   return (
-    <>
+ <>
+      <SEO title="About Us" description="Learn about GoWindSun India, an engineering powerhouse delivering utility-scale solar, wind, hybrid, and BESS projects across India." canonical="/about" />
+
       {/* 1. Dedicated About Hero */}
       <AboutHero />
 

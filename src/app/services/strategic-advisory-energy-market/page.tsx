@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { EditorialMarketHero } from "@/components/services/strategic-market-intelligence/EditorialMarketHero";
 import { EditorialStatement } from "@/components/services/strategic-market-intelligence/EditorialStatement";
@@ -14,6 +15,7 @@ import { MinimalStrategicCta } from "@/components/services/strategic-market-inte
 export default function StrategicAdvisoryEnergyMarketPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
+      <SEO title="Strategic Advisory & Energy Markets" description="Market intelligence, tariff modeling, asset valuation, and regulatory advisory for energy transition investors." canonical="/services/strategic-advisory-energy-market" />
       {/* 1. Editorial Market Intelligence Hero */}
       <EditorialMarketHero />
 

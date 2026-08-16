@@ -12,7 +12,7 @@ const landscapeDomains = [
     subtitle: "High-yield wind corridors across Western & Southern Indian states.",
     description:
       "India possesses some of the world's most favorable wind corridors, particularly across western and southern states. Our wind portfolio focuses on sites with strong wind resources, robust grid connectivity, and long-term operational viability.",
-    image: "/images/ipp/ipp-wind-project.png",
+    image: "/images/ipp/ipp-wind-project.webp",
     imageAlt: "Utility Wind Energy Infrastructure",
     highlights: [
       "Favorable wind corridors in Western & Southern states",
@@ -27,7 +27,7 @@ const landscapeDomains = [
     subtitle: "Utility-scale ground-mounted and captive solar power projects.",
     description:
       "With high solar irradiation levels across most regions, India continues to be one of the fastest-growing solar markets globally. We identify utility-scale and captive solar opportunities capable of delivering stable and predictable returns.",
-    image: "/images/ipp/ipp-solar-project.png",
+    image: "/images/ipp/ipp-solar-project.webp",
     imageAlt: "Utility Scale Ground Mounted Solar PV Infrastructure",
     highlights: [
       "High solar irradiation levels across major regions",
@@ -42,7 +42,7 @@ const landscapeDomains = [
     subtitle: "Combining wind and solar technologies to optimize project economics.",
     description:
       "Combining wind and solar technologies enables improved energy generation profiles, enhanced grid utilization, and optimized project economics.",
-    image: "/images/ipp/ipp-hybrid-project.png",
+    image: "/images/ipp/ipp-hybrid-project.webp",
     imageAlt: "Co-located Wind Solar Hybrid Infrastructure",
     highlights: [
       "Improved energy generation profiles",
@@ -57,7 +57,7 @@ const landscapeDomains = [
     subtitle: "Clean, cost-effective power for Commercial & Industrial consumers.",
     description:
       "We develop renewable energy solutions for commercial and industrial (C&I) consumers seeking clean, reliable, and cost-effective power through open access and captive consumption models.",
-    image: "/images/ipp/ipp-project-pipeline.png",
+    image: "/images/ipp/ipp-project-pipeline.webp",
     imageAlt: "C&I Open Access Transmission Evacuation & Pipeline",
     highlights: [
       "Open Access and captive consumption power models",

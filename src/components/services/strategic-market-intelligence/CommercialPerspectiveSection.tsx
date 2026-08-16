@@ -47,7 +47,7 @@ export const CommercialPerspectiveSection: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative h-[360px] sm:h-[420px] w-full border-2 border-[#0186D5]/40 shadow-2xl overflow-hidden">
               <Image
-                src="/images/strategic/strategic-portfolio-valuation.png"
+                src="/images/strategic/strategic-portfolio-valuation.webp"
                 alt="Renewable Energy Portfolio Commercial Valuation & Strategy"
                 fill
                 className="object-cover object-center brightness-90 contrast-105"

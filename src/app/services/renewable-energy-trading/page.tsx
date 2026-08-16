@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { TradingHero } from "@/components/services/trading/TradingHero";
 import { TradingEnergyFlowDiagram } from "@/components/services/trading/TradingEnergyFlowDiagram";
@@ -10,6 +11,7 @@ import { TradingMinimalCta } from "@/components/services/trading/TradingMinimalC
 export default function RenewableEnergyTradingPage() {
   return (
     <main className="min-h-screen bg-white">
+      <SEO title="Renewable Energy Trading" description="Power trading, corporate PPAs, open access power procurement, green attribute certificate trading in India." canonical="/services/renewable-energy-trading" />
       {/* 1. Energy Flow Hero with Animated Power Flow Visualization */}
       <TradingHero />
 

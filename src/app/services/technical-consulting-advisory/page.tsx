@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { AdvisoryServicesHero } from "@/components/services/AdvisoryServicesHero";
 import { TechnicalConsultingSection } from "@/components/services/TechnicalConsultingSection";
@@ -7,6 +8,7 @@ import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 export default function TechnicalConsultingAdvisoryPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
+      <SEO title="Technical Consulting & Advisory" description="Bankable PVSyst yield reports, Met Mast wind assessment, site screening, and technical due diligence." canonical="/services/technical-consulting-advisory" />
       <AdvisoryServicesHero />
 
       {/* Capabilities Breakdown Section */}

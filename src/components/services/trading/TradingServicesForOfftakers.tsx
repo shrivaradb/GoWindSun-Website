@@ -36,7 +36,7 @@ export const TradingServicesForOfftakers: React.FC = () => {
           <div className="lg:col-span-5 relative">
             <div className="relative h-[360px] sm:h-[440px] w-full border border-slate-300 shadow-xl overflow-hidden">
               <Image
-                src="/images/trading/trading-commercial-ppa.png"
+                src="/images/trading/trading-commercial-ppa.webp"
                 alt="Corporate & Industrial Green Power Procurement"
                 fill
                 className="object-cover object-center"

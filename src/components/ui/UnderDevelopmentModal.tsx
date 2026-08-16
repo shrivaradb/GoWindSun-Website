@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Construction, X, ArrowRight, ShieldCheck } from "lucide-react";
 import Link from "next/link";
@@ -15,29 +17,45 @@ export const UnderDevelopmentModal: React.FC<UnderDevelopmentModalProps> = ({
   isOpen,
   onClose,
   title = "Projects for Acquisition",
-  subtitle = "Portal Under Active Development",
-  description = "Our Projects for Acquisition platform, digital asset directory, and utility-scale Solar, Wind, and Hybrid project acquisition portfolios are currently under active technical onboarding.",
+  subtitle = "Specialized Access Portal",
+  description = "Our Projects for Acquisition platform and utility-scale Solar, Wind, and Hybrid project directories are currently being updated with new asset listings.",
 }) => {
+  // Prevent background scroll stuck behavior when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+        <div
+          data-lenis-prevent="true"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 overflow-y-auto gpu-layer"
+        >
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             onClick={onClose}
-            className="fixed inset-0 bg-slate-950/70 backdrop-blur-md"
+            className="fixed inset-0 bg-slate-950/75 backdrop-blur-md"
           />
 
           {/* Modal Container */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 10 }}
+            initial={{ opacity: 0, scale: 0.96, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 10 }}
-            transition={{ type: "spring", duration: 0.3 }}
-            className="relative w-full max-w-lg bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden text-slate-900 z-10 p-6 sm:p-8"
+            exit={{ opacity: 0, scale: 0.96, y: 8 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-lg bg-white border border-slate-200 rounded-2xl shadow-2xl overflow-hidden text-slate-900 z-10 p-6 sm:p-8 gpu-layer"
           >
             {/* Top Close Button */}
             <button
@@ -51,7 +69,7 @@ export const UnderDevelopmentModal: React.FC<UnderDevelopmentModalProps> = ({
             {/* Content Header */}
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-800 text-xs font-mono font-bold uppercase tracking-wider">
-                <Construction className="w-4 h-4 text-amber-600 animate-bounce" />
+                <Construction className="w-4 h-4 text-amber-600 animate-pulse" />
                 <span>{subtitle}</span>
               </div>
 
@@ -79,17 +97,17 @@ export const UnderDevelopmentModal: React.FC<UnderDevelopmentModalProps> = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition-colors"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-slate-200 text-sm font-semibold text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
               >
                 Close
               </button>
               <Link
                 href="/contact"
                 onClick={onClose}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white text-sm font-bold shadow-md transition-all group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#059669] hover:bg-[#047857] text-white text-sm font-bold shadow-md transition-all duration-300 hover:shadow-emerald-600/30 group"
               >
                 <span>Direct Contact Request</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
           </motion.div>

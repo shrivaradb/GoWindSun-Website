@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { Container } from "@/components/ui/Container";
 import { FileText, Scale, ShieldAlert, Copyright, Gavel, CheckCircle2 } from "lucide-react";
@@ -6,6 +7,7 @@ import { StandardHero } from "@/components/ui/StandardHero";
 export default function TermsOfServicePage() {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
+      <SEO title="Terms of Service" description="GoWindSun India Private Limited Terms of Service and legal policies." canonical="/terms" />
       {/* 1. HERO HEADER — Global Layout & 3-Tier Typography Standard */}
       <StandardHero
         title={

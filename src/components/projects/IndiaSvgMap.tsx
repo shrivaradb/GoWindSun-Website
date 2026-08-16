@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import IndiaMapData from "@svg-maps/india";
-import { INDIA_STATES, ProjectCategory } from "@/types/acquisition";
+import { ProjectCategory } from "@/types/acquisition";
 import { motion, AnimatePresence } from "framer-motion";
-import { Minimize2 } from "lucide-react";
+import { Minimize2, Compass, Zap, Sun, Wind, Layers } from "lucide-react";
 
 interface IndiaSvgMapProps {
   selectedState: string | null;
@@ -54,14 +54,14 @@ const SVG_ID_TO_STATE_CODE: Record<string, string> = {
   la: "IN-LA",
 };
 
-// Mathematically Exact ViewBoxes for All States in @svg-maps/india (Centered & Scaled to Fill Viewport)
+// Mathematically Exact ViewBoxes for All States in @svg-maps/india
 const STATE_ZOOM_VIEWBOXES: Record<string, string> = {
   "IN-MH": "67.6 342.8 224.3 185.0",  // Maharashtra
   "IN-RJ": "0.0 147.9 238.9 217.8",   // Rajasthan
   "IN-KA": "109.6 421.6 122.0 194.2", // Karnataka
   "IN-TN": "155.4 533.7 112.1 151.5", // Tamil Nadu
   "IN-GJ": "0.0 287.3 171.2 135.2",   // Gujarat
-  "IN-MP": "94.9 232.4 238.7 173.1",  // Madhya Pradesh (100% Exact Bounding Center)
+  "IN-MP": "94.9 232.4 238.7 173.1",  // Madhya Pradesh
   "IN-AP": "218.9 469.4 89.2 103.3",  // Andhra Pradesh
   "IN-UP": "162.6 144.7 205.3 200.4", // Uttar Pradesh
   "IN-TG": "175.1 398.0 124.0 117.1", // Telangana
@@ -78,7 +78,7 @@ const STATE_ZOOM_VIEWBOXES: Record<string, string> = {
   "IN-JK": "68.8 0.0 207.7 158.6",    // Jammu & Kashmir
 };
 
-// District project site marker coordinates overlay (SVG ViewBox space for selected states)
+// District project site marker coordinates overlay
 const STATE_DISTRICT_MARKERS: Record<string, Array<{ district: string; x: number; y: number }>> = {
   "IN-MH": [
     { district: "Solapur", x: 165, y: 462 },
@@ -117,40 +117,46 @@ const STATE_DISTRICT_MARKERS: Record<string, Array<{ district: string; x: number
   ],
 };
 
-// Theme configurations for Wind (Blue), Solar (Orange), and Hybrid (Green)
+// Light-Mode Theme configurations for Wind, Solar, and Hybrid
 const CATEGORY_THEMES = {
   wind: {
-    activeFill: "#D0E8F8",       // Soft Electric Sky Blue
-    activeStroke: "#0186D5",     // Electric Blue
-    hoverFill: "#0186D5",        // Electric Blue
+    gradientId: "lightWindGrad",
+    activeFill: "url(#lightWindGrad)",
+    activeStroke: "#0284C7",
+    hoverFill: "#0284C7",
     hoverStroke: "#FFFFFF",
-    selectedFill: "#0A4EA2",     // Dark Blue
-    selectedStroke: "#38BDF8",   // Sky Blue Stroke
+    selectedFill: "#0369A1",
+    selectedStroke: "#0284C7",
     badgeHex: "#0186D5",
     textAccentClass: "text-[#0186D5]",
     pulseClass: "bg-[#0186D5]",
+    icon: Wind,
   },
   solar: {
-    activeFill: "#FFEDD5",       // Warm Solar Orange Tint
-    activeStroke: "#F97316",     // Solar Orange
-    hoverFill: "#F97316",        // Solar Orange
+    gradientId: "lightSolarGrad",
+    activeFill: "url(#lightSolarGrad)",
+    activeStroke: "#EA580C",
+    hoverFill: "#EA580C",
     hoverStroke: "#FFFFFF",
-    selectedFill: "#C2410C",     // Deep Solar Orange
-    selectedStroke: "#FDBA74",   // Warm Gold Stroke
+    selectedFill: "#C2410C",
+    selectedStroke: "#EA580C",
     badgeHex: "#F97316",
     textAccentClass: "text-[#F97316]",
     pulseClass: "bg-[#F97316]",
+    icon: Sun,
   },
   hybrid: {
-    activeFill: "#D1FAE5",       // Soft Mint Green Tint
-    activeStroke: "#059669",     // Emerald Green
-    hoverFill: "#059669",        // Emerald Green
+    gradientId: "lightHybridGrad",
+    activeFill: "url(#lightHybridGrad)",
+    activeStroke: "#059669",
+    hoverFill: "#059669",
     hoverStroke: "#FFFFFF",
-    selectedFill: "#047857",     // Deep Emerald Green
-    selectedStroke: "#6EE7B7",   // Mint Stroke
+    selectedFill: "#047857",
+    selectedStroke: "#059669",
     badgeHex: "#059669",
     textAccentClass: "text-[#059669]",
     pulseClass: "bg-[#059669]",
+    icon: Layers,
   },
 };
 
@@ -161,11 +167,12 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
   category = "wind",
 }) => {
   const [hoveredLocation, setHoveredLocation] = useState<SvgLocation | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const locations = (IndiaMapData.locations || []) as SvgLocation[];
   const theme = CATEGORY_THEMES[category] || CATEGORY_THEMES.wind;
+  const CategoryIcon = theme.icon;
 
-  // Global Click & Esc Listener: Click ANYWHERE on screen or press 'Esc' to reset zoom to original map
   useEffect(() => {
     if (!selectedState) return;
 
@@ -179,7 +186,6 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
       }
     };
 
-    // Attach click listener on next tick so initial state click doesn't trigger instant reset
     const timer = setTimeout(() => {
       window.addEventListener("click", handleGlobalClick);
     }, 50);
@@ -193,77 +199,149 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
     };
   }, [selectedState, onSelectState]);
 
-  // Determine current SVG ViewBox (focused state if selected, otherwise full India map)
   const targetViewBox =
     selectedState && STATE_ZOOM_VIEWBOXES[selectedState]
       ? STATE_ZOOM_VIEWBOXES[selectedState]
       : "0 0 612 696";
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
-    <div className="relative w-full bg-white border border-slate-200 rounded-3xl p-5 sm:p-7 shadow-xl flex flex-col justify-between space-y-4 overflow-hidden">
+    <div className="relative w-full bg-white border border-slate-200 rounded-3xl p-5 sm:p-7 shadow-xl flex flex-col justify-between space-y-4 overflow-hidden gpu-layer">
+      {/* Background Decorative Tech Pattern & Subtle Light Radial Backdrop */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-50/60 via-slate-50/80 to-white pointer-events-none" />
+      
       {/* Map Header & Legend */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-slate-100 gap-3 z-10">
-        <div className="flex items-center gap-2">
-          <span className={`w-2.5 h-2.5 rounded-full ${theme.pulseClass} animate-pulse`} />
-          <h3 className="text-xs font-mono font-bold text-[#1E4362] uppercase tracking-widest">
-            Geographic India {category.toUpperCase()} Map
-          </h3>
+        <div className="flex items-center gap-3">
+          <div className="p-2 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 shadow-sm flex items-center justify-center">
+            <CategoryIcon className={`w-4 h-4 ${theme.textAccentClass}`} />
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className={`w-2 h-2 rounded-full ${theme.pulseClass} animate-ping`} />
+              <h3 className="text-xs font-mono font-bold text-slate-900 uppercase tracking-widest">
+                Interactive {category.toUpperCase()} Projects Map
+              </h3>
+            </div>
+            <p className="text-[11px] font-mono text-slate-500">
+              Utility-Scale Project Locations Across India
+            </p>
+          </div>
         </div>
 
         {/* Dynamic Category Legend */}
-        <div className="flex items-center gap-4 text-xs font-mono text-slate-600">
+        <div className="flex items-center gap-4 text-xs font-mono text-slate-600 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-sm">
           <div className="flex items-center gap-1.5">
-            <span
-              className="w-3 h-3 rounded-sm border"
-              style={{ backgroundColor: theme.selectedFill, borderColor: theme.selectedStroke }}
-            />
-            <span className="font-semibold text-slate-800">Selected</span>
+            <span className="w-3 h-3 rounded-sm border" style={{ backgroundColor: theme.selectedFill, borderColor: theme.selectedStroke }} />
+            <span className="font-semibold text-slate-900">Selected State</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-sm" style={{ backgroundColor: theme.hoverFill }} />
-            <span className="font-semibold text-slate-800">Listed State</span>
+            <span className="w-3 h-3 rounded-sm border border-sky-400" style={{ backgroundColor: theme.badgeHex }} />
+            <span className="font-semibold text-slate-800">Mapped Assets</span>
           </div>
         </div>
       </div>
 
       {/* SVG Map Canvas Container */}
       <div
-        className="relative w-full flex items-center justify-center min-h-[440px] sm:min-h-[520px] cursor-pointer"
+        className="relative w-full flex items-center justify-center min-h-[440px] sm:min-h-[520px] cursor-pointer group"
+        onMouseMove={handleMouseMove}
         onClick={() => {
           if (selectedState) onSelectState("");
         }}
       >
         <svg
           viewBox={targetViewBox}
-          className="w-full h-auto max-h-[580px] drop-shadow-md select-none transition-all duration-700 ease-in-out"
+          className="w-full h-auto max-h-[580px] select-none transition-all duration-700 ease-in-out filter drop-shadow-sm"
         >
-          <g>
+          {/* Light-Mode SVG Definitions for Vector Gradients, Filters & Patterns */}
+          <defs>
+            {/* Wind Light Sky Blue Vector Gradient */}
+            <linearGradient id="lightWindGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#E0F2FE" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#BAE6FD" stopOpacity="0.95" />
+            </linearGradient>
+
+            {/* Solar Light Warm Orange Vector Gradient */}
+            <linearGradient id="lightSolarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#FFEDD5" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#FED7AA" stopOpacity="0.95" />
+            </linearGradient>
+
+            {/* Hybrid Light Emerald Vector Gradient */}
+            <linearGradient id="lightHybridGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#D1FAE5" stopOpacity="0.9" />
+              <stop offset="100%" stopColor="#A7F3D0" stopOpacity="0.95" />
+            </linearGradient>
+
+            {/* Inactive State Clean Light Slate Gradient */}
+            <linearGradient id="lightInactiveGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#F8FAFC" stopOpacity="1" />
+              <stop offset="100%" stopColor="#F1F5F9" stopOpacity="1" />
+            </linearGradient>
+
+            {/* Clean Light-Mode Vector Grid Pattern */}
+            <pattern id="lightVectorGridPattern" width="16" height="16" patternUnits="userSpaceOnUse">
+              <path d="M 16 0 L 0 0 0 16" fill="none" stroke="#E2E8F0" strokeWidth="0.4" strokeDasharray="1,3" />
+            </pattern>
+
+            {/* Soft Shadow Filter */}
+            <filter id="lightShadow" x="-20%" y="-20%" width="140%" height="140%">
+              <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#0F172A" floodOpacity="0.12" />
+            </filter>
+          </defs>
+
+          {/* Background Light Vector Grid Mesh Overlay */}
+          <rect width="612" height="696" fill="url(#lightVectorGridPattern)" opacity="0.6" />
+
+          {/* Latitude & Longitude Coordinate Lines */}
+          <g stroke="#CBD5E1" strokeWidth="0.5" strokeDasharray="3 3" opacity="0.5">
+            <line x1="0" y1="200" x2="612" y2="200" />
+            <line x1="0" y1="400" x2="612" y2="400" />
+            <line x1="0" y1="600" x2="612" y2="600" />
+            <line x1="150" y1="0" x2="150" y2="696" />
+            <line x1="300" y1="0" x2="300" y2="696" />
+            <line x1="450" y1="0" x2="450" y2="696" />
+          </g>
+
+          {/* Main India SVG State Path Layers */}
+          <g className="gpu-layer">
             {locations.map((loc) => {
               const stateCode = SVG_ID_TO_STATE_CODE[loc.id] || loc.id.toUpperCase();
               const isSelected = selectedState === stateCode;
               const hasProjects = activeStateCodes.includes(stateCode);
               const isHovered = hoveredLocation?.id === loc.id;
 
-              let fill = "#F1F5F9";
+              let fill = "url(#lightInactiveGrad)";
               let stroke = "#CBD5E1";
-              let strokeWidth = 0.8;
+              let strokeWidth = 0.7;
+              let filterAttr = undefined;
 
               if (hasProjects) {
                 fill = theme.activeFill;
                 stroke = theme.activeStroke;
-                strokeWidth = 1.2;
+                strokeWidth = 1.3;
               }
 
               if (isHovered) {
                 fill = theme.hoverFill;
                 stroke = theme.hoverStroke;
-                strokeWidth = 2;
+                strokeWidth = 2.2;
+                filterAttr = "url(#lightShadow)";
               }
 
               if (isSelected) {
                 fill = theme.selectedFill;
                 stroke = theme.selectedStroke;
-                strokeWidth = 2.5;
+                strokeWidth = 2.8;
+                filterAttr = "url(#lightShadow)";
               }
 
               return (
@@ -274,61 +352,74 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
                   fill={fill}
                   stroke={stroke}
                   strokeWidth={strokeWidth}
+                  filter={filterAttr}
                   strokeLinejoin="round"
                   strokeLinecap="round"
                   aria-label={loc.name}
-                  className="transition-colors duration-200 cursor-pointer focus:outline-none"
+                  className="transition-all duration-300 cursor-pointer focus:outline-none"
                   onMouseEnter={() => setHoveredLocation(loc)}
                   onMouseLeave={() => setHoveredLocation(null)}
                   onClick={(e) => {
                     e.stopPropagation();
                     if (isSelected) {
-                      // Clicking the already zoomed/selected state resets to original map
                       onSelectState("");
                     } else {
-                      // Selecting a new state zooms into that state
                       onSelectState(stateCode);
                     }
                   }}
                 />
               );
             })}
-            {/* Render District Site Markers when a State is Selected */}
+
+            {/* Dynamic District Site Markers & Vector Animations when State is Selected */}
             {selectedState && STATE_DISTRICT_MARKERS[selectedState] && (
               <g className="pointer-events-none">
                 {STATE_DISTRICT_MARKERS[selectedState].map((m, idx) => (
                   <g key={idx} transform={`translate(${m.x}, ${m.y})`}>
-                    {/* Outer Pulsing Aura Ring */}
-                    <circle r="8" fill="none" stroke="#FFFFFF" opacity="0.6" strokeWidth="1">
-                      <animate attributeName="r" values="6;12;6" dur="2.5s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.8;0.1;0.8" dur="2.5s" repeatCount="indefinite" />
+                    {/* Animated Concentric Sonar Pulse Rings */}
+                    <circle r="9" fill="none" stroke={theme.activeStroke} opacity="0.6" strokeWidth="0.8">
+                      <animate attributeName="r" values="5;14;5" dur="2.2s" repeatCount="indefinite" />
+                      <animate attributeName="opacity" values="0.8;0.15;0.8" dur="2.2s" repeatCount="indefinite" />
                     </circle>
 
-                    {/* Marker Background Pin */}
-                    <circle r="5" fill="#FFFFFF" stroke={theme.selectedStroke} strokeWidth="1.2" className="drop-shadow-md" />
+                    {/* Pin Backdrop Circle */}
+                    <circle r="4.5" fill="#FFFFFF" stroke={theme.activeStroke} strokeWidth="1.5" className="drop-shadow-md" />
 
-                    {/* Category Specific White Marker Icon */}
+                    {/* Animated SVG Vector Graphic Icon */}
                     {category === "wind" ? (
-                      /* White Wind Turbine Icon (Tower + Hub + 3 Rotor Blades) */
-                      <g transform="scale(0.6)">
-                        <path d="M -0.4 3 L 0.4 3 L 0.2 -2.5 L -0.2 -2.5 Z" fill={theme.selectedFill} />
-                        <circle cx="0" cy="-2.5" r="0.8" fill={theme.selectedFill} />
-                        {/* Blade 1 (Vertical Top) */}
-                        <path d="M 0 -2.5 Q 0.5 -5 0.1 -6.5 Q -0.3 -5 0 -2.5 Z" fill={theme.selectedFill} />
-                        {/* Blade 2 (Bottom Right) */}
-                        <path d="M 0 -2.5 Q 3.8 -1.2 4.8 -2.5 Q 3.2 -3.2 0 -2.5 Z" fill={theme.selectedFill} />
-                        {/* Blade 3 (Bottom Left) */}
-                        <path d="M 0 -2.5 Q -3.2 -3.2 -4.8 -2.5 Q -3.8 -1.2 0 -2.5 Z" fill={theme.selectedFill} />
+                      /* Wind Turbine Node with Animated Spinning Blades */
+                      <g transform="scale(0.55)">
+                        <path d="M -0.4 4 L 0.4 4 L 0.2 -2 L -0.2 -2 Z" fill={theme.selectedFill} />
+                        <circle cx="0" cy="-2" r="0.9" fill={theme.selectedFill} />
+                        {/* Spinning Rotor Blades */}
+                        <g>
+                          <path d="M 0 -2 Q 0.6 -5 0.1 -6.8 Q -0.4 -5 0 -2 Z" fill={theme.selectedFill} />
+                          <path d="M 0 -2 Q 4.2 -0.8 5.2 -2.2 Q 3.6 -3 0 -2 Z" fill={theme.selectedFill} />
+                          <path d="M 0 -2 Q -3.6 -3 -5.2 -2.2 Q -4.2 -0.8 0 -2 Z" fill={theme.selectedFill} />
+                          <animateTransform
+                            attributeName="transform"
+                            type="rotate"
+                            from="0 0 -2"
+                            to="360 0 -2"
+                            dur="3s"
+                            repeatCount="indefinite"
+                          />
+                        </g>
                       </g>
                     ) : category === "solar" ? (
-                      /* Crisp Solar Sun Icon */
-                      <g transform="scale(0.65)">
+                      /* Solar PV Sun Node with Radiating Rays */
+                      <g transform="scale(0.6)">
                         <circle cx="0" cy="0" r="2.2" fill={theme.selectedFill} />
-                        <path d="M 0 -3.8 L 0 -2.6 M 0 2.6 L 0 3.8 M -3.8 0 L -2.6 0 M 2.6 0 L 3.8 0 M -2.7 -2.7 L -1.8 -1.8 M 1.8 1.8 L 2.7 2.7 M -2.7 2.7 L -1.8 1.8 M 1.8 -1.8 L 2.7 -2.7" stroke={theme.selectedFill} strokeWidth="0.8" strokeLinecap="round" />
+                        <path
+                          d="M 0 -4 L 0 -2.6 M 0 2.6 L 0 4 M -4 0 L -2.6 0 M 2.6 0 L 4 0 M -2.8 -2.8 L -1.9 -1.9 M 1.9 1.9 L 2.8 2.8 M -2.8 2.8 L -1.9 1.9 M 1.9 -1.9 L 2.8 -2.8"
+                          stroke={theme.selectedFill}
+                          strokeWidth="0.9"
+                          strokeLinecap="round"
+                        />
                       </g>
                     ) : (
-                      /* Hybrid Lightning/Leaf Icon */
-                      <g transform="scale(0.6)">
+                      /* Hybrid Lightning/Energy Pulse Icon */
+                      <g transform="scale(0.55)">
                         <path d="M 0.5 -4 L -2 0 L 0.5 0 L -0.5 4 L 2 0 L -0.5 0 Z" fill={theme.selectedFill} />
                       </g>
                     )}
@@ -338,11 +429,13 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
                       x="0"
                       y="-7.5"
                       textAnchor="middle"
-                      fill="#FFFFFF"
+                      fill="#0F172A"
+                      stroke="#FFFFFF"
+                      strokeWidth="0.6"
                       fontSize="3.8"
                       fontWeight="bold"
                       fontFamily="sans-serif"
-                      className="drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] uppercase font-mono tracking-tight pointer-events-none"
+                      className="uppercase font-mono tracking-tight pointer-events-none"
                     >
                       {m.district}
                     </text>
@@ -351,24 +444,38 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
               </g>
             )}
           </g>
+
+          {/* Clean Light-Mode Vector Compass Rose */}
+          <g transform="translate(560, 40) scale(0.7)" opacity="0.7" className="pointer-events-none">
+            <circle cx="0" cy="0" r="18" fill="none" stroke="#CBD5E1" strokeWidth="1" strokeDasharray="2,2" />
+            <path d="M 0 -16 L 4 0 L 0 16 L -4 0 Z" fill="#0284C7" />
+            <path d="M -16 0 L 0 4 L 16 0 L 0 -4 Z" fill="#94A3B8" />
+            <text x="0" y="-20" textAnchor="middle" fill="#0284C7" fontSize="8" fontWeight="bold" fontFamily="monospace">N</text>
+          </g>
         </svg>
 
-        {/* Hover Tooltip Card */}
+        {/* Floating Tooltip Card */}
         <AnimatePresence>
           {hoveredLocation && (
             <motion.div
-              initial={{ opacity: 0, y: 5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 5 }}
-              className="absolute top-3 left-3 bg-[#1E4362]/95 backdrop-blur-md text-white px-4 py-2.5 rounded-2xl border border-white/20 shadow-2xl pointer-events-none z-30 space-y-0.5"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.15 }}
+              style={{
+                left: `${mousePos.x + 15}px`,
+                top: `${mousePos.y - 15}px`,
+              }}
+              className="absolute bg-white/95 backdrop-blur-md text-slate-900 px-4 py-2.5 rounded-2xl border border-slate-200 shadow-2xl pointer-events-none z-30 space-y-0.5"
             >
-              <div className="text-xs font-bold uppercase tracking-wider text-white">
-                {hoveredLocation.name}
+              <div className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
+                <Zap className={`w-3.5 h-3.5 ${theme.textAccentClass}`} />
+                <span>{hoveredLocation.name}</span>
               </div>
-              <div className="text-[11px] font-mono" style={{ color: theme.activeFill }}>
+              <div className="text-[11px] font-mono text-slate-600">
                 {activeStateCodes.includes(SVG_ID_TO_STATE_CODE[hoveredLocation.id] || "")
-                  ? `✓ ${category.toUpperCase()} Opportunities Mapped — Click to Inspect`
-                  : "No Projects Currently Listed"}
+                  ? `✓ ${category.toUpperCase()} Assets Available — Click to View`
+                  : "No Pipeline Assets Currently Listed"}
               </div>
             </motion.div>
           )}
@@ -380,21 +487,22 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
         <span>
           {selectedState
             ? "Click anywhere on screen or press 'Esc' key to reset map view"
-            : "Click any state to view state dossier"}
+            : "Click any highlighted state to inspect state dossier"}
         </span>
-        
+
         {selectedState ? (
           <button
             type="button"
             onClick={() => onSelectState("")}
-            className="flex items-center gap-1 font-bold text-[#0186D5] hover:underline cursor-pointer"
+            className="flex items-center gap-1.5 font-bold text-[#0284C7] hover:text-[#0369A1] transition-colors cursor-pointer"
           >
             <Minimize2 className="w-3.5 h-3.5" />
-            <span>Reset View</span>
+            <span>Reset Map View</span>
           </button>
         ) : (
-          <span className={`font-bold ${theme.textAccentClass}`}>
-            Select a State
+          <span className={`font-bold flex items-center gap-1 ${theme.textAccentClass}`}>
+            <Compass className="w-3.5 h-3.5 animate-spin-slow" />
+            <span>Interactive Region Map</span>
           </span>
         )}
       </div>

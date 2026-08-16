@@ -14,7 +14,7 @@ export const Services4CategoriesOverview: React.FC = () => {
       subtitle: "Site Screening, Resource Assessment, Detailed Engineering & Turnkey EPC Execution",
       icon: HardHat,
       badge: "Category 01",
-      image: "/images/services/wind_solar_hybrid.png",
+      image: "/images/services/wind_solar_hybrid.webp",
       imageAlt: "Project Development & EPC Infrastructure",
       description:
         "Identification, screening, and technical assessment of wind, solar, and hybrid project sites; comprehensive Wind Resource Assessment (WRA) including met mast installation, micro-siting, power evacuation planning, and turnkey EPC execution.",
@@ -34,7 +34,7 @@ export const Services4CategoriesOverview: React.FC = () => {
       subtitle: "Bankable DPR Preparation, Due Diligence, Owner's/Lender's Engineering & Statutory Clearances",
       icon: FileText,
       badge: "Category 02",
-      image: "/images/services/engineers_site_inspection.png",
+      image: "/images/services/engineers_site_inspection.webp",
       imageAlt: "Technical Consulting & Advisory Engineers",
       description:
         "Preparation of Detailed Project Reports (DPRs), techno-commercial due diligence, financial modelling, LCOE analysis, statutory approvals (e.g. MNRE, NIWE, CTU/STU, SNAs like MEDA, GEDA, KREDL, DISCOMs, Defence, Aviation, Pollution Control, CEIG etc.) and Owner's & Lender's engineering.",
@@ -54,7 +54,7 @@ export const Services4CategoriesOverview: React.FC = () => {
       subtitle: "Comprehensive O&M, Reliability Improvement, Maintenance & Manpower Deployment",
       icon: Settings,
       badge: "Category 03",
-      image: "/images/services/bess_energy_storage.png",
+      image: "/images/services/bess_energy_storage.webp",
       imageAlt: "Asset Management & Operations Infrastructure",
       description:
         "Comprehensive Operations & Maintenance (O&M) services for wind turbines, solar PV plants, hybrid renewable energy projects, BESS, HV/EHV substations, pooling stations, transmission lines, and spare parts management.",
@@ -74,7 +74,7 @@ export const Services4CategoriesOverview: React.FC = () => {
       subtitle: "Energy Trading, Corporate CPPAs, Repowering, M&A Valuation & Emerging Tech",
       icon: LineChart,
       badge: "Category 04",
-      image: "/images/services/ehv_substation_grid.png",
+      image: "/images/services/ehv_substation_grid.webp",
       imageAlt: "Strategic Advisory & Energy Market Infrastructure",
       description:
         "Energy trading advisory (Corporate Power Purchase Agreements / CPPAs, Open Access, Group Captive, Virtual PPAs), repowering aging assets, M&A project acquisitions/divestments, Green Hydrogen, BESS, and Offshore Wind advisory.",

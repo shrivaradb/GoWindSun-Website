@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 "use client";
 
 import React from "react";
@@ -12,6 +13,7 @@ import { StandardHero } from "@/components/ui/StandardHero";
 export default function WindProjectsPage() {
   return (
     <div className="bg-white min-h-screen text-slate-900">
+      <SEO title="Wind Projects For Acquisition" description="Explore Greenfield, Shovel-Ready, and Operational wind power project assets for acquisition in India." canonical="/projects-for-acquisition/wind" />
       {/* 1. Dedicated Wind Intro Banner */}
       <StandardHero
         title={

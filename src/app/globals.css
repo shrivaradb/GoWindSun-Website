@@ -12,7 +12,7 @@
     color-scheme: light;
     background-color: #FFFFFF;
     color: #0F172A;
-    scroll-behavior: smooth;
+    scroll-behavior: auto; /* Handled smoothly by Lenis JS */
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
@@ -27,6 +27,19 @@
   }
 }
 
+/* Hardware Acceleration & Smooth Motion Utilities */
+.gpu-layer {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.transition-smooth {
+  transition-property: transform, opacity, box-shadow, border-color, background-color, color;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 450ms;
+}
+
 /* Glassmorphism & Custom Light Utility Classes */
 .glass-panel {
   background: rgba(255, 255, 255, 0.9);
@@ -36,14 +49,14 @@
 }
 
 .glass-panel-hover {
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-panel-hover:hover {
   background: #FFFFFF;
   border-color: rgba(37, 99, 235, 0.3);
   box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .text-gradient {

@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 export interface StandardHeroProps {
   title: React.ReactNode;
@@ -23,16 +24,28 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
   children,
 }) => {
   const isLight = theme === "light";
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  // Parallax scroll hooks
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
 
   return (
     <section
-      className={`relative w-full min-h-[580px] lg:min-h-[640px] xl:min-h-[700px] flex items-center overflow-hidden py-28 lg:py-32 ${
+      ref={heroRef}
+      className={`relative w-full min-h-[580px] lg:min-h-[640px] xl:min-h-[700px] flex items-center overflow-hidden py-28 lg:py-32 gpu-layer ${
         isLight ? "bg-white text-slate-900" : "bg-[#06111F] text-white"
       }`}
     >
-      {/* Background Hero Image */}
+      {/* Background Hero Image with Parallax Shift */}
       {image && (
-        <div className="absolute inset-0 z-0">
+        <motion.div style={{ y: bgY }} className="absolute inset-0 z-0 gpu-layer">
           <Image
             src={image}
             alt={imageAlt || "GoWindSun Hero Visual"}
@@ -42,7 +55,7 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#06111F]/95 via-[#06111F]/80 to-transparent" />
-        </div>
+        </motion.div>
       )}
 
       {/* Decorative Accents when No Image */}
@@ -54,8 +67,11 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
         </>
       )}
 
-      {/* Hero Content Container */}
-      <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 lg:py-6">
+      {/* Hero Content Container with Parallax Translation & Fade */}
+      <motion.div
+        style={{ y: textY, opacity }}
+        className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 w-full py-4 lg:py-6 gpu-layer"
+      >
         <div className="max-w-4xl text-left">
           {/* Tier 1 H1 Title */}
           <h1
@@ -88,10 +104,10 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
             </p>
           )}
 
-          {/* Extra Children (e.g. Search Bar or Live Tickers) */}
+          {/* Extra Children */}
           {children}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

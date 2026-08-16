@@ -35,7 +35,7 @@ export const IntegratedSolutionsInfographic: React.FC = () => {
         >
           <div className="relative w-full aspect-[1536/1024] rounded-xl overflow-hidden bg-slate-950">
             <Image
-              src="/home_integrated_solutions.png"
+              src="/images/home_integrated_solutions.webp"
               alt="GoWindSun Integrated Renewable Energy Solutions Architecture - Wind, Solar, Storage, Transmission"
               fill
               sizes="(max-width: 1280px) 100vw, 1200px"

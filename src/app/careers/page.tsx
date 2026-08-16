@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 "use client";
 
 import React from "react";
@@ -32,6 +33,7 @@ import { StandardHero } from "@/components/ui/StandardHero";
 export default function CareersPage() {
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
+      <SEO title="Careers" description="Join the team at GoWindSun India Private Limited and engineer the future of renewable energy infrastructure." canonical="/careers" />
       
       {/* 1. HERO SECTION — Standard Global Dark Hero System */}
       <StandardHero

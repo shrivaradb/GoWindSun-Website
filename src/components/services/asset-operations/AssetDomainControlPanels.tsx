@@ -55,7 +55,7 @@ export const AssetDomainControlPanels: React.FC = () => {
 
             <div className="lg:col-span-6 relative h-72 sm:h-80 w-full rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/asset-ops/asset-ops-bess-storage.png"
+                src="/images/asset-ops/asset-ops-bess-storage.webp"
                 alt="Battery Energy Storage System BESS and Renewable O&M"
                 fill
                 className="object-cover object-center"
@@ -68,7 +68,7 @@ export const AssetDomainControlPanels: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-10 rounded-2xl bg-slate-50 border border-slate-200 hover:border-amber-500/40 transition-all duration-300 shadow-sm">
             <div className="lg:col-span-6 order-2 lg:order-1 relative h-72 sm:h-80 w-full rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/asset-ops/asset-ops-grid-substation.png"
+                src="/images/asset-ops/asset-ops-grid-substation.webp"
                 alt="Extra High Voltage Substation and Transmission Grid O&M"
                 fill
                 className="object-cover object-center"
@@ -135,7 +135,7 @@ export const AssetDomainControlPanels: React.FC = () => {
 
             <div className="lg:col-span-6 relative h-72 sm:h-80 w-full rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/asset-ops/asset-ops-field-maintenance.png"
+                src="/images/asset-ops/asset-ops-field-maintenance.webp"
                 alt="Skilled Renewable Energy Field Engineers Site Inspection & Wind Maintenance"
                 fill
                 className="object-cover object-center"

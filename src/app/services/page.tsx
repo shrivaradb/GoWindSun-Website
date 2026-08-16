@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { ServicesHero } from "@/components/services/ServicesHero";
 import { Services4CategoriesOverview } from "@/components/services/Services4CategoriesOverview";
@@ -7,6 +8,7 @@ import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
+      <SEO title="Engineering Services" description="Comprehensive renewable energy engineering services across solar, wind, hybrid plants, and BESS ecosystems." canonical="/services" />
       {/* 1. Typography-Led Services Hero with CountUp Stats */}
       <ServicesHero />
 

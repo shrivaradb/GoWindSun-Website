@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { Hero } from "@/components/home/Hero";
 import { IndiaPowerhouseSection } from "@/components/home/IndiaPowerhouseSection";
@@ -7,7 +8,9 @@ import { IntegratedSolutionsInfographic } from "@/components/home/IntegratedSolu
 
 export default function HomePage() {
   return (
-    <>
+ <>
+      <SEO title="Home" description="Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems." canonical="/" />
+
       {/* 1. Full-Screen Cinematic Image Slideshow Hero */}
       <Hero />
 

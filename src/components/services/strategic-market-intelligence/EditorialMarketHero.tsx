@@ -16,7 +16,7 @@ export const EditorialMarketHero: React.FC = () => {
       }
       subtitle="Understanding the forces shaping renewable-energy markets—turning policy trends, regulatory developments, and market signals into informed commercial decisions."
       description="GoWindSun provides corporate energy trading advisory, Corporate PPA structuring, asset repowering, M&A due diligence, portfolio strategy, Green Hydrogen, and offshore wind advisory across India."
-      image="/strategic_advisory_hero.png"
+      image="/images/strategic_advisory_hero.webp"
       imageAlt="Strategic Advisory & Energy Markets - Global RE Network & Grid Integration"
     />
   );

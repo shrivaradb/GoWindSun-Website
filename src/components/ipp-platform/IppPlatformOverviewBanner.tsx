@@ -30,7 +30,7 @@ export const IppPlatformOverviewBanner: React.FC = () => {
             <div className="bg-white rounded-2xl p-2 sm:p-4 shadow-xl border border-slate-200/80 overflow-hidden">
               <div className="relative w-full aspect-[1536/902] bg-white rounded-xl overflow-hidden">
                 <Image
-                  src="/images/ipp-platform.png"
+                  src="/images/ipp-platform.webp"
                   alt="GoWindSun Renewable Energy IPP Platform Asset Infrastructure Diagram"
                   fill
                   className="object-contain object-center brightness-100 contrast-105"

@@ -12,7 +12,7 @@ export const AssetManagementSection: React.FC = () => {
       title: "Comprehensive O&M for Wind, Solar, Hybrid & BESS",
       icon: Settings,
       tag: "Turnkey O&M",
-      image: "/images/services/bess_energy_storage.png",
+      image: "/images/services/bess_energy_storage.webp",
       imageAlt: "Turnkey O&M for Wind Solar Hybrid & BESS",
       description:
         "End-to-end Operations & Maintenance (O&M) services for utility-scale wind turbine generators (WTGs), solar PV power plants, co-located hybrid renewable systems, and containerized Battery Energy Storage Systems (BESS).",
@@ -27,7 +27,7 @@ export const AssetManagementSection: React.FC = () => {
       title: "Substation & Transmission Infrastructure O&M",
       icon: Activity,
       tag: "EHV Substation O&M",
-      image: "/images/services/ehv_substation_grid.png",
+      image: "/images/services/ehv_substation_grid.webp",
       imageAlt: "Substation & Transmission Line O&M",
       description:
         "Operations and maintenance of high-voltage (HV) and extra-high-voltage (EHV) substations, 33kV to 400kV transformers, circuit breakers, pooling stations, overhead transmission lines, and associated electrical Balance of Plant (E-BoP).",
@@ -55,7 +55,7 @@ export const AssetManagementSection: React.FC = () => {
       title: "Skilled O&M Manpower Deployment & Management",
       icon: Users,
       tag: "Specialist Teams",
-      image: "/images/services/engineers_site_inspection.png",
+      image: "/images/services/engineers_site_inspection.webp",
       imageAlt: "Deployment of Skilled O&M Personnel",
       description:
         "Deployment and management of qualified, safety-trained O&M manpower—including site managers, electrical engineers, mechanical technicians, high-voltage specialists, and emergency response service teams.",

@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
@@ -61,6 +62,7 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white min-h-screen text-slate-900">
+      <SEO title="Contact Us" description="Get in touch with GoWindSun India Private Limited for utility-scale solar, wind, hybrid, and BESS engineering advisory." canonical="/contact" />
       {/* 1. HERO SECTION — Global Dark Hero System */}
       <StandardHero
         image="/images/contact_hero.png"

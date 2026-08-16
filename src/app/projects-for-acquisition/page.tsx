@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 "use client";
 
 import React, { useState } from "react";
@@ -12,6 +13,7 @@ import { StandardHero } from "@/components/ui/StandardHero";
 export default function ProjectsForAcquisitionMainPage() {
   return (
     <div className="bg-white min-h-screen text-slate-900">
+      <SEO title="Projects For Acquisition" description="Bankable utility-scale wind, solar, and hybrid project opportunities available for acquisition across India." canonical="/projects-for-acquisition" />
       {/* 1. Bespoke Hero Section */}
       <StandardHero
         title={

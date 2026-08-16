@@ -12,7 +12,7 @@ export const ProjectServicesSection: React.FC = () => {
       title: "Greenfield Site Identification (~3,000 MW Pipeline)",
       icon: MapPin,
       tag: "Site Development",
-      image: "/images/services/wind_solar_hybrid.png",
+      image: "/images/services/wind_solar_hybrid.webp",
       imageAlt: "Greenfield Wind Solar Hybrid Site Pipeline",
       description:
         "GoWindSun has identified high-potential sites for wind, solar, and hybrid project development across India with an aggregate capacity potential of nearly 3,000 MW. We evaluate nearest STU and CTU state and national grid sub-stations to facilitate asset acquisition for investors and developers.",
@@ -27,7 +27,7 @@ export const ProjectServicesSection: React.FC = () => {
       title: "Wind & Solar Resource Measurement",
       icon: Compass,
       tag: "Data Bankability",
-      image: "/images/services/wind_mast_assessment.png",
+      image: "/images/services/wind_mast_assessment.webp",
       imageAlt: "Wind Resource Assessment Mast",
       description:
         "We design, develop, and manage comprehensive energy measurement campaigns. Our services include wind mast installation, wind data logging, solar irradiation measurement, and meteorological data analysis to produce bankable, investor-grade project datasets.",
@@ -55,7 +55,7 @@ export const ProjectServicesSection: React.FC = () => {
       title: "Grid Connection & Evacuation Engineering",
       icon: Navigation,
       tag: "Power Evacuation",
-      image: "/images/services/ehv_substation_grid.png",
+      image: "/images/services/ehv_substation_grid.webp",
       imageAlt: "Extra High Voltage EHV Substation Grid Evacuation",
       description:
         "Designing and optimizing grid connection architecture to deliver maximum generated power with minimal transmission losses and zero curtailment. We evaluate existing and planned STU and CTU sub-station capacities in collaboration with transmission utilities.",
@@ -96,7 +96,7 @@ export const ProjectServicesSection: React.FC = () => {
       title: "Utility-Scale Ground-Mounted Solar PV",
       icon: Sun,
       tag: "Solar Infrastructure",
-      image: "/images/services/wind_solar_hybrid.png",
+      image: "/images/services/wind_solar_hybrid.webp",
       imageAlt: "Utility-Scale Ground-Mounted Solar PV Infrastructure",
       description:
         "Feasibility studies, structural engineering, and EPC execution of utility-scale ground-mounted solar PV projects across India, optimizing land layout and energy yields.",
@@ -111,7 +111,7 @@ export const ProjectServicesSection: React.FC = () => {
       title: "Project Performance Management & Asset Optimization",
       icon: BarChart3,
       tag: "Asset Recovery",
-      image: "/images/services/engineers_site_inspection.png",
+      image: "/images/services/engineers_site_inspection.webp",
       imageAlt: "Project Performance Diagnostic Engineers",
       description:
         "Acting as Owner’s Representative, we manage operational asset performance across the full project lifecycle. We capture real-time field operational data, identify underperforming assets, investigate root causes, and execute engineering optimizations to maximize RoI.",

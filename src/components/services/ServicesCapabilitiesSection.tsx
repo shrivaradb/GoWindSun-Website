@@ -29,7 +29,7 @@ export const ServicesCapabilitiesSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-10 rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-500/40 transition-all duration-300">
             <div className="lg:col-span-5 relative h-64 sm:h-80 w-full rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/services/wind_solar_hybrid.png"
+                src="/images/services/wind_solar_hybrid.webp"
                 alt="Utility Ground-Mounted Solar PV Infrastructure"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -117,7 +117,7 @@ export const ServicesCapabilitiesSection: React.FC = () => {
 
             <div className="lg:col-span-5 relative h-64 sm:h-80 w-full rounded-xl overflow-hidden shadow-lg group order-1 lg:order-2">
               <Image
-                src="/images/services/wind_mast_assessment.png"
+                src="/images/services/wind_mast_assessment.webp"
                 alt="Wind Resource Assessment Mast"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -136,7 +136,7 @@ export const ServicesCapabilitiesSection: React.FC = () => {
               <div>
                 <div className="relative h-48 w-full rounded-xl overflow-hidden mb-6 group">
                   <Image
-                    src="/images/services/wind_solar_hybrid.png"
+                    src="/images/services/wind_solar_hybrid.webp"
                     alt="Wind-Solar Hybrid Project"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -168,7 +168,7 @@ export const ServicesCapabilitiesSection: React.FC = () => {
               <div>
                 <div className="relative h-48 w-full rounded-xl overflow-hidden mb-6 group">
                   <Image
-                    src="/images/services/bess_energy_storage.png"
+                    src="/images/services/bess_energy_storage.webp"
                     alt="Battery Energy Storage System BESS"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -200,7 +200,7 @@ export const ServicesCapabilitiesSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-8 sm:p-10 rounded-2xl bg-slate-900 text-white border border-slate-800 shadow-xl">
             <div className="lg:col-span-5 relative h-64 sm:h-80 w-full rounded-xl overflow-hidden shadow-md group">
               <Image
-                src="/images/services/engineers_site_inspection.png"
+                src="/images/services/engineers_site_inspection.webp"
                 alt="Renewable Energy Advisory & Engineering Inspection"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"

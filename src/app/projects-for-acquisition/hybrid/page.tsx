@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 "use client";
 
 import React, { useState } from "react";
@@ -17,6 +18,7 @@ export default function HybridProjectsPage() {
 
   return (
     <div className="bg-white min-h-screen text-slate-900">
+      <SEO title="Wind-Solar Hybrid Projects" description="Utility-scale wind-solar hybrid project pipelines and co-located storage project opportunities." canonical="/projects-for-acquisition/hybrid" />
       {/* Intro Banner */}
       <StandardHero
         title={

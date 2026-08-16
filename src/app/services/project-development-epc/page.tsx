@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { ProjectServicesHero } from "@/components/services/ProjectServicesHero";
 import { ProjectDevelopmentEpcSection } from "@/components/services/ProjectDevelopmentEpcSection";
@@ -7,6 +8,7 @@ import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 export default function ProjectDevelopmentEpcPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
+      <SEO title="Project Development & EPC" description="Turnkey EPC services, land acquisition, EHV substation engineering, and grid evacuation for solar & wind plants." canonical="/services/project-development-epc" />
       <ProjectServicesHero />
 
       {/* DETAILED EDITORIAL LIFECYCLE BREAKDOWN (Previses all 6 images with dynamic layout rhythm) */}

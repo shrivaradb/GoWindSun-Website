@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 "use client";
 
 import React, { useState, useMemo } from "react";
@@ -45,6 +46,7 @@ export default function KnowledgeHubPage() {
 
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
+      <SEO title="Knowledge Hub" description="Industry insights, technical papers, PVSyst yield analysis guides, and regulatory updates on Indian renewable energy." canonical="/knowledge-hub" />
       
       {/* 1. Dedicated Standard Hero — Exact Global Sizing System */}
       <StandardHero

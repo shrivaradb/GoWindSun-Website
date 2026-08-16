@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { siteConfig } from "@/config/site";
-import { ChevronDown, ArrowRight, X } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { IndiaFlag } from "@/components/ui/IndiaFlag";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -15,6 +14,17 @@ interface MobileMenuProps {
 
 export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenUnderDev }) => {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   const toggleSubmenu = (name: string) => {
     setOpenSubmenu(openSubmenu === name ? null : name);
@@ -31,14 +41,14 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          data-lenis-prevent="true"
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-x-0 top-[73px] z-40 bg-white border-b border-slate-200 shadow-2xl p-6 lg:hidden max-h-[calc(100vh-80px)] overflow-y-auto flex flex-col justify-between"
+          exit={{ opacity: 0, y: -12 }}
+          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          className="fixed inset-x-0 top-[73px] z-40 bg-white border-b border-slate-200 shadow-2xl p-6 lg:hidden max-h-[calc(100vh-80px)] overflow-y-auto flex flex-col justify-between gpu-layer"
         >
           <div className="space-y-4">
-
             <nav className="flex flex-col space-y-2">
               {siteConfig.nav.map((item: any) => {
                 const hasChildren = item.children && item.children.length > 0;
@@ -52,7 +62,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                       key={item.name}
                       href={item.href}
                       onClick={onClose}
-                      className="mt-4 w-full text-center py-3 px-6 rounded-full font-semibold text-white bg-[#EA580C] hover:bg-[#C2410C] shadow-md shadow-orange-600/20"
+                      className="mt-4 w-full text-center py-3 px-6 rounded-full font-semibold text-white bg-[#EA580C] hover:bg-[#C2410C] shadow-md shadow-orange-600/20 transition-all duration-300"
                     >
                       {item.name}
                     </Link>
@@ -66,11 +76,11 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                         <button
                           type="button"
                           onClick={() => handleUnderDevClick(item.name)}
-                          className="hover:text-amber-700 flex items-center gap-2 text-left flex-grow"
+                          className="hover:text-amber-700 flex items-center gap-2 text-left flex-grow cursor-pointer"
                         >
                           <span>{item.name}</span>
                           <span className="ml-1 px-1.5 py-0.5 text-[10px] font-mono uppercase bg-amber-100 text-amber-800 rounded font-semibold border border-amber-200">
-                            Under Dev
+                            Coming Soon
                           </span>
                         </button>
                         {hasChildren && (
@@ -78,11 +88,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                             type="button"
                             onClick={() => toggleSubmenu(item.name)}
                             aria-label={`Toggle ${item.name} submenu`}
-                            className="p-1"
+                            className="p-1 cursor-pointer"
                           >
                             <ChevronDown
-                              className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${isExpanded ? "rotate-180 text-amber-600" : ""
-                                }`}
+                              className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
+                                isExpanded ? "rotate-180 text-amber-600" : ""
+                              }`}
                             />
                           </button>
                         )}
@@ -94,7 +105,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                               key={child.name}
                               type="button"
                               onClick={() => handleUnderDevClick(child.name)}
-                              className="block w-full text-left text-sm font-medium text-slate-600 hover:text-amber-700 py-1"
+                              className="block w-full text-left text-sm font-medium text-slate-600 hover:text-amber-700 py-1 cursor-pointer"
                             >
                               {child.name}
                             </button>
@@ -121,11 +132,12 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
                             type="button"
                             onClick={() => toggleSubmenu(item.name)}
                             aria-label={`Toggle ${item.name} submenu`}
-                            className="p-1"
+                            className="p-1 cursor-pointer"
                           >
                             <ChevronDown
-                              className={`w-5 h-5 text-slate-400 transition-transform duration-200 ${isExpanded ? "rotate-180 text-emerald-600" : ""
-                                }`}
+                              className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
+                                isExpanded ? "rotate-180 text-emerald-600" : ""
+                              }`}
                             />
                           </button>
                         </div>

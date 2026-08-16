@@ -1,3 +1,4 @@
+import { SEO } from "@/components/seo/SEO";
 import React from "react";
 import { IppHero } from "@/components/ipp-platform/IppHero";
 import { IppPlatformStatement } from "@/components/ipp-platform/IppPlatformStatement";
@@ -11,6 +12,7 @@ import { IppMinimalCta } from "@/components/ipp-platform/IppMinimalCta";
 export default function IppPlatformPage() {
   return (
     <main className="min-h-screen bg-white">
+      <SEO title="IPP Platform" description="Institutional Independent Power Producer platform for utility-scale renewable energy project development and capital structuring." canonical="/ipp-platform" />
       {/* 1. Bespoke Hero: Opportunity Gateway */}
       <IppHero />
 

@@ -30,7 +30,7 @@ export const TradingOverviewBanner: React.FC = () => {
             <div className="bg-white rounded-2xl p-2 sm:p-4 shadow-xl border border-slate-200/80 overflow-hidden">
               <div className="relative w-full aspect-[1536/902] bg-white rounded-xl overflow-hidden">
                 <Image
-                  src="/images/renewable-energy-trading-diagram.png"
+                  src="/images/renewable-energy-trading-diagram.webp"
                   alt="GoWindSun Renewable Energy Trading & Open Access Power Flow Diagram"
                   fill
                   className="object-contain object-center brightness-100 contrast-105"

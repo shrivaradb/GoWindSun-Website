@@ -16,9 +16,9 @@ export const WhoWeAreSection: React.FC = () => {
               Corporate Identity & Founding Purpose
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-              Decades of Sector Leadership & Technical Mastery.
+              Decades of Sector Leadership & Technocommercial Mastery.
             </h2>
-            <p className="text-sm text-slate-500 leading-relaxed pt-2">
+            <p className="text-sm font-bold text-slate-700 leading-relaxed pt-2">
               Accelerating India’s clean energy transition through bankable project development, techno-commercial advisory, and market solutions.
             </p>
           </div>
@@ -71,26 +71,6 @@ export const WhoWeAreSection: React.FC = () => {
                 GoWindSun — Engineering a Sustainable Clean Energy Future.
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Bottom Horizontal Core Capability Focus Strip */}
-        <div className="mt-16 pt-12 border-t border-slate-200 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div>
-            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">300+ GW</span>
-            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">India Non-Fossil Capacity</span>
-          </div>
-          <div>
-            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">4th Globally</span>
-            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Installed Wind Capacity</span>
-          </div>
-          <div>
-            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">30+ Years</span>
-            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Leadership Experience</span>
-          </div>
-          <div>
-            <span className="block text-2xl font-extrabold text-slate-900 tracking-tight">End-to-End</span>
-            <span className="block text-xs font-bold uppercase tracking-wider text-slate-500 mt-1">Advisory, Dev & EPC</span>
           </div>
         </div>
       </Container>

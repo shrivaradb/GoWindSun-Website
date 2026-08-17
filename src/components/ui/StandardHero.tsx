@@ -11,6 +11,7 @@ export interface StandardHeroProps {
   image?: string;
   imageAlt?: string;
   theme?: "dark" | "light";
+  overlayClassName?: string;
   children?: React.ReactNode;
 }
 
@@ -21,6 +22,7 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
   image,
   imageAlt,
   theme = "dark",
+  overlayClassName,
   children,
 }) => {
   const isLight = theme === "light";
@@ -50,11 +52,11 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
             src={image}
             alt={imageAlt || "GoWindSun Hero Visual"}
             fill
-            className="object-cover object-center brightness-[0.38] contrast-105"
+            className="object-cover object-center brightness-[0.45] contrast-105"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06111F]/95 via-[#06111F]/80 to-transparent" />
+          <div className={overlayClassName || "absolute inset-0 bg-gradient-to-r from-[#06111F]/80 via-[#06111F]/55 to-transparent"} />
         </motion.div>
       )}
 

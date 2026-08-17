@@ -26,7 +26,7 @@ export default function SolarProjectsPage() {
         }
         subtitle="Ground-Mounted & High-GHI Solar Energy Asset Pipeline Across India."
         description="High-irradiation solar PV project sites, STU/CTU substation connectivity approvals, PPA structuring, and bankable due diligence for utility-scale solar asset transactions."
-        image="/SOLAR PROJECTS FOR ACQUISITION..png"
+        image="/images/projectsforacquisition/Solar Projects.png"
         imageAlt="Solar Projects for Acquisition"
       />
 

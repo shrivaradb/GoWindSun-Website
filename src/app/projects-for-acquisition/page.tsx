@@ -26,7 +26,7 @@ export default function ProjectsForAcquisitionMainPage() {
         }
         subtitle="Strategic transaction advisory, project screening, clear-title land verification, and M&A due diligence for utility-scale wind, solar, and hybrid energy assets across India."
         description="GoWindSun India Private Limited connects Independent Power Producers (IPPs), project developers, corporate investors, and institutional funds with bankable, high-CUF renewable energy acquisition opportunities, enabling efficient access to quality operating and development-stage assets."
-        image="/PROJECTS FOR ACQUISITION.png"
+        image="/images/projectsforacquisition/Projects For Acquisition.png"
         imageAlt="GoWindSun Projects for Acquisition"
       />
 

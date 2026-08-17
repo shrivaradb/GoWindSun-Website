@@ -26,7 +26,7 @@ export default function WindProjectsPage() {
         }
         subtitle="Utility-Scale Wind Asset Acquisition & Site Pipeline Across India."
         description="Bankable onshore wind turbine sites, micrositing assessments, wind resource data verification, clear-title land packages, and evacuation approval due diligence for IPPs and investors."
-        image="/WIND PROJECTS FOR ACQUISITION.png"
+        image="/images/projectsforacquisition/Wind Projects.png"
         imageAlt="Wind Projects for Acquisition"
       />
 

@@ -31,7 +31,7 @@ export default function HybridProjectsPage() {
         }
         subtitle="Co-Located Wind & Solar Evacuation Optimization Assets Across India."
         description="Utility-scale wind-solar hybrid project opportunities optimizing evacuation capacity, mapped by District, State, CTU/STU, and MW Capacity."
-        image="/WIND-SOLAR HYBRID PROJECTS.png"
+        image="/images/projectsforacquisition/Wind-Solar Hybrid Projects.png"
         imageAlt="Wind-Solar Hybrid Projects for Acquisition"
       />
 

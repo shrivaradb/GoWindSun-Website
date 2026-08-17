@@ -16,7 +16,7 @@ export const TradingHero: React.FC = () => {
       }
       subtitle="Strategic transaction advisory, Corporate PPA structuring, Open Access feasibility, and renewable power sourcing."
       description="GoWindSun enables commercial and industrial power off-takers to secure reliable, cost-effective green electricity through Third-Party Sale, Group Captive, and Inter-State / Intra-State Open Access models."
-      image="/images/re-trading.webp"
+      image="/images/re-trading-hero.png"
       imageAlt="GoWindSun Renewable Energy Trading - Power Flow Infrastructure"
     />
   );

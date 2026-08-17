@@ -16,7 +16,7 @@ export const ProjectServicesHero: React.FC = () => {
       }
       subtitle="End-to-end wind, solar & hybrid asset execution in India."
       description="GoWindSun supports project developers, IPPs, and institutional partners across the entire renewable energy project lifecycle—from greenfield site identification and development (~3,000 MW pipeline) and bankable resource assessment to grid evacuation, turnkey EPC execution, and operational asset optimisation."
-      image="/images/services/project-development-epc-hero.webp"
+      image="/images/project-development-hero.png"
       imageAlt="GoWindSun Renewable Energy Project Development & Turnkey EPC Execution"
     />
   );

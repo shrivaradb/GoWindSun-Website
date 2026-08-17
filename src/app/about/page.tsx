@@ -14,7 +14,11 @@ import { AboutCtaSection } from "@/components/about/AboutCtaSection";
 export default function AboutPage() {
   return (
  <>
-      <SEO title="About Us" description="Learn about GoWindSun India, an engineering powerhouse delivering utility-scale solar, wind, hybrid, and BESS projects across India." canonical="/about" />
+      <SEO
+        title="About GoWindSun India Pvt Ltd"
+        description="Learn about GoWindSun India Private Limited, an Indian renewable energy engineering powerhouse delivering integrated utility-scale solar, wind, hybrid, and storage infrastructure."
+        canonical="/about"
+      />
 
       {/* 1. Dedicated About Hero */}
       <AboutHero />

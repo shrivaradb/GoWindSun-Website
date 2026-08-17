@@ -29,33 +29,10 @@ export const siteConfig = {
         { name: "Strategic Advisory & Energy Market Services", href: "/services/strategic-advisory-energy-market" },
       ],
     },
-    {
-      name: "Projects for Acquisition",
-      href: "/projects-for-acquisition",
-      children: [
-        {
-          name: "Wind Projects",
-          href: "/projects-for-acquisition/wind",
-          children: [
-            { name: "Greenfield Wind", href: "/projects-for-acquisition/wind/greenfield" },
-            { name: "Shovel Ready Wind", href: "/projects-for-acquisition/wind/shovel-ready" },
-            { name: "Operational Wind", href: "/projects-for-acquisition/wind/operational" },
-          ],
-        },
-        {
-          name: "Solar Projects",
-          href: "/projects-for-acquisition/solar",
-          children: [
-            { name: "Greenfield Solar", href: "/projects-for-acquisition/solar/greenfield" },
-            { name: "Shovel Ready Solar", href: "/projects-for-acquisition/solar/shovel-ready" },
-            { name: "Operational Solar", href: "/projects-for-acquisition/solar/operational" },
-          ],
-        },
-        { name: "Hybrid Projects", href: "/projects-for-acquisition/hybrid" },
-      ],
-    },
+    { name: "Projects for Acquisition", href: "/projects-for-acquisition" },
     { name: "Renewable Energy Trading", href: "/services/renewable-energy-trading" },
     { name: "IPP Platform", href: "/ipp-platform" },
+    { name: "Tenders", href: "/tenders" },
     { name: "Knowledge Hub", href: "/knowledge-hub" },
     { name: "Contact Us", href: "/contact", isCta: true },
   ],

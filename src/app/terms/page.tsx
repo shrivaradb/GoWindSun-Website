@@ -7,7 +7,11 @@ import { StandardHero } from "@/components/ui/StandardHero";
 export default function TermsOfServicePage() {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
-      <SEO title="Terms of Service" description="GoWindSun India Private Limited Terms of Service and legal policies." canonical="/terms" />
+      <SEO
+        title="Terms of Service | GoWindSun India Pvt Ltd"
+        description="GoWindSun India Private Limited Terms of Service, website terms of use, and legal advisory governance policies."
+        canonical="/terms"
+      />
       {/* 1. HERO HEADER — Global Layout & 3-Tier Typography Standard */}
       <StandardHero
         title={

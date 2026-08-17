@@ -13,11 +13,11 @@ export interface SEOProps {
 
 const DEFAULT_TITLE = "GoWindSun India Private Limited";
 const DEFAULT_DESCRIPTION =
-  "Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems.";
+  "GoWindSun India Private Limited delivers integrated renewable energy solutions across solar, wind, and battery storage to accelerate the clean energy transition.";
 const DEFAULT_KEYWORDS =
-  "Renewable Energy Engineering, Solar EPC India, Wind Power Projects, Solar Wind Hybrid Plants, BESS Energy Storage Systems, Substation Grid Integration, PVSyst Yield Advisory, GoWindSun India";
+  "Renewable Energy India, Utility Scale Solar, Wind Energy Developer, Solar Wind Hybrid, BESS Battery Storage, Open Access Solar, Group Captive PPA, GoWindSun India";
 const SITE_URL = "https://gowindsun.com";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/images/services/services-hero.webp`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.png`;
 
 export function SEO({
   title,
@@ -29,12 +29,15 @@ export function SEO({
   jsonLd,
 }: SEOProps) {
   const location = useLocation();
-  const currentUrl = canonical ? `${SITE_URL}${canonical}` : `${SITE_URL}${location.pathname}`;
+  const rawPath = canonical || location.pathname;
+  const cleanPath = rawPath === "/" ? "" : rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
+  const currentUrl = `${SITE_URL}${cleanPath}`;
 
-  const pageTitle = title ? `${title} | GoWindSun India` : DEFAULT_TITLE;
+  // Strict SEO Title Mapping — Accepts Exact Title Provided or Defaults to Home Title
+  const pageTitle = title || DEFAULT_TITLE;
 
   useEffect(() => {
-    // 1. Update Title
+    // 1. Update Document Title
     document.title = pageTitle;
 
     // Helper to set or update meta tag
@@ -78,7 +81,7 @@ export function SEO({
     setMetaTag('meta[name="twitter:description"]', "content", description);
     setMetaTag('meta[name="twitter:image"]', "content", ogImage);
 
-    // 5. Canonical Link
+    // 5. Canonical Link (Non-WWW HTTPS Source of Truth)
     setLinkTag("canonical", currentUrl);
 
     // 6. JSON-LD Structured Data

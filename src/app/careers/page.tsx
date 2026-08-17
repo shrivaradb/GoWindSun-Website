@@ -33,8 +33,12 @@ import { StandardHero } from "@/components/ui/StandardHero";
 export default function CareersPage() {
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
-      <SEO title="Careers" description="Join the team at GoWindSun India Private Limited and engineer the future of renewable energy infrastructure." canonical="/careers" />
-      
+      <SEO
+        title="Careers | GoWindSun India Pvt Ltd"
+        description="Join GoWindSun India Private Limited — Empowering engineers, wind energy analysts, solar EPC managers, power market specialists, and regulatory experts."
+        canonical="/careers"
+      />
+
       {/* 1. HERO SECTION — Standard Global Dark Hero System */}
       <StandardHero
         title={
@@ -53,12 +57,12 @@ export default function CareersPage() {
       <section className="py-16 md:py-24 bg-[#06111F] border-t border-slate-800">
         <Container>
           <div className="max-w-5xl mx-auto space-y-16">
-            
+
             {/* PROGRAMME INTRODUCTION */}
             <div className="bg-[#0B1E36] text-white rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl border border-slate-700/80">
               <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-80 h-80 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-              
+
               <div className="relative z-10 space-y-6 max-w-4xl">
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold uppercase tracking-widest">
                   <Sparkles className="w-3.5 h-3.5" />
@@ -165,7 +169,7 @@ export default function CareersPage() {
 
             {/* WHO CAN APPLY & WHAT WE ARE LOOKING FOR */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              
+
               {/* Who Can Apply */}
               <div className="bg-[#0B1E36] border border-slate-700/80 rounded-3xl p-8 space-y-6 shadow-md">
                 <div className="flex items-center gap-3 border-b border-slate-700/80 pb-4">

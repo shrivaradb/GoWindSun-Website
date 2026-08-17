@@ -46,8 +46,12 @@ export default function KnowledgeHubPage() {
 
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
-      <SEO title="Knowledge Hub" description="Industry insights, technical papers, PVSyst yield analysis guides, and regulatory updates on Indian renewable energy." canonical="/knowledge-hub" />
-      
+      <SEO
+        title="Renewable Energy Knowledge Hub | GoWindSun"
+        description="Official renewable energy market intelligence repository tracking verified wind turbine prices (WTG), solar PV module costs, CAPEX benchmarks, tenders, and tariffs."
+        canonical="/knowledge-hub"
+      />
+
       {/* 1. Dedicated Standard Hero — Exact Global Sizing System */}
       <StandardHero
         theme="dark"
@@ -78,7 +82,7 @@ export default function KnowledgeHubPage() {
       <section className="py-16 md:py-20 bg-[#06111F]">
         <Container>
           <div className="space-y-8">
-            
+
             {/* Feed Section Header */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
               <div>

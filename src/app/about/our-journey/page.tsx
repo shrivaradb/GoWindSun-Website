@@ -9,7 +9,13 @@ import { StandardHero } from "@/components/ui/StandardHero";
 
 export default function OurJourneyPage() {
   return (
-    <StandardHero
+    <>
+      <SEO
+        title="Our Journey | GoWindSun India Pvt Ltd"
+        description="Explore the growth chronicle, engineering milestones, greenfield site allocations, and asset acquisition pipeline of GoWindSun India Private Limited."
+        canonical="/about/our-journey"
+      />
+      <StandardHero
       theme="dark"
       title={
         <>
@@ -31,5 +37,6 @@ export default function OurJourneyPage() {
         </Link>
       </div>
     </StandardHero>
+    </>
   );
 }

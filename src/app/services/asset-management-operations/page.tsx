@@ -9,7 +9,11 @@ import { AssetOperationsCta } from "@/components/services/asset-operations/Asset
 export default function AssetManagementOperationsPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
-      <SEO title="Asset Management & Operations" description="O&M asset management, SCADA grid monitoring, performance optimization, and preventive maintenance for RE plants." canonical="/services/asset-management-operations" />
+      <SEO
+        title="Renewable Energy Asset Management | GoWindSun"
+        description="Comprehensive operations & maintenance (O&M), SCADA real-time monitoring, preventive maintenance, performance optimization, and asset life extension."
+        canonical="/services/asset-management-operations"
+      />
       {/* 1. Live Asset Performance & Control Center Hero */}
       <AssetOperationsHero />
 

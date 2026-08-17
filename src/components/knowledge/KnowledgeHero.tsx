@@ -23,12 +23,16 @@ export const KnowledgeHero: React.FC<KnowledgeHeroProps> = ({
     <StandardHero
       title={
         <>
-          KNOWLEDGE HUB & <br />
-          <span className="text-[#0186D5]">REGULATORY INTELLIGENCE</span>
+          KNOWLEDGE HUB &amp; <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+            REGULATORY INTELLIGENCE
+          </span>
         </>
       }
-      subtitle="Authoritative Technical Whitepapers & Clean Energy Market Research."
+      subtitle="Authoritative Technical Whitepapers &amp; Clean Energy Market Research."
       description="Technical whitepapers, Open Access tariff frameworks, CTU/STU grid evacuation blueprints, and project due diligence intelligence compiled for C&I power off-takers, IPPs, and investors."
+      image="/images/strategic_advisory_hero.webp"
+      imageAlt="GoWindSun Knowledge Hub &amp; Regulatory Intelligence"
     >
       {/* Search Bar & Category Tabs */}
       <motion.div

@@ -69,7 +69,7 @@ const ACTIVE_TENDERS: TenderItem[] = [
   {
     id: "tender-2",
     tenderId: "GWS-TND-2026-002",
-    title: "2. Shovel-Ready Wind & Solar Energy Project Sites Acquisition",
+    title: "2. Acquisition of Shovel-Ready Wind & Solar Project Sites",
     authority: "GoWindSun India Private Limited",
     country: "India",
     countryFlag: "🇮🇳",
@@ -78,7 +78,7 @@ const ACTIVE_TENDERS: TenderItem[] = [
     submissionDeadline: "Open / Rolling Basis",
     publishedDate: "Active Notice",
     status: "Open",
-    description: "We are seeking shovel-ready wind and solar energy project sites across India, where land is secured, grid connectivity is established, and all requisite statutory approvals and development permits are in place and valid, enabling immediate commencement of project development and construction.",
+    description: "We are seeking shovel-ready wind and solar energy project sites across India with secured land and grid connectivity. Such projects should be development-ready and capable of moving immediately into construction, subject to final due diligence and transaction closure.",
     requirements: [
       "Secured land packages with clear title",
       "Established STU/CTU grid connectivity approval",
@@ -152,19 +152,20 @@ export default function TendersPage() {
 
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
-      <SEO title="Tenders & Procurement" description="Current renewable energy tenders, RE procurement opportunities, SECI bids, and state DISCOM auction updates in India." canonical="/tenders" />
+      <SEO
+        title="Renewable Energy Tenders | GoWindSun India Pvt Ltd"
+        description="Active renewable energy tenders, project procurement notices, land acquisition RFPs, and C&I Corporate PPA off-take invitations across India."
+        canonical="/tenders"
+      />
       
       {/* 1. HERO SECTION — Standard Global Dark Hero System */}
       <StandardHero
         image="/images/tenders_procurement_hero.png"
         imageAlt="Renewable Energy Tenders and Procurement"
         title={
-          <>
-            Renewable Energy <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-              Tenders &amp; Procurement
-            </span>
-          </>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+            Tenders &amp; Procurement
+          </span>
         }
         subtitle="Active Commercial Procurement Notices & Project Acquisition RFPs."
         description="Official procurement portal tracking commercial opportunities, utility-scale wind & solar tenders, hybrid auctions, and turn-key EPC invitations across primary clean energy markets in India."
@@ -175,32 +176,6 @@ export default function TendersPage() {
         <Container>
           <div className="max-w-5xl mx-auto space-y-10">
             
-            {/* Category Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { title: "Wind Energy Tenders", category: "Wind", desc: "Onshore & offshore wind turbine supply, EPC, and asset acquisition.", color: "text-[#0186D5]", bg: "bg-[#0B1E36] border-slate-700/80" },
-                { title: "Solar PV Auctions", category: "Solar", desc: "Utility-scale ground-mounted solar PV power plant & site acquisitions.", color: "text-[#F99D1C]", bg: "bg-[#0B1E36] border-slate-700/80" },
-                { title: "Hybrid Power Scopes", category: "Hybrid", desc: "Co-located solar-wind hybrid and peak-shaving energy procurement.", color: "text-slate-200", bg: "bg-[#0B1E36] border-slate-700/80" },
-                { title: "BESS & Grid Storage", category: "Storage", desc: "Standalone lithium-ion battery energy storage systems (BESS) auctions.", color: "text-[#059669]", bg: "bg-[#0B1E36] border-slate-700/80" },
-              ].map((card, i) => (
-                <button
-                  key={i}
-                  onClick={() => setSelectedCategory(selectedCategory === card.category ? "ALL" : card.category)}
-                  className={`p-6 rounded-2xl border transition-all text-left space-y-3 cursor-pointer ${
-                    selectedCategory === card.category
-                      ? "ring-2 ring-[#0186D5] bg-[#0E2442] shadow-xl border-[#0186D5]"
-                      : `${card.bg} hover:border-[#0186D5]/60 hover:shadow-lg`
-                  }`}
-                >
-                  <div className={`font-mono text-xs font-bold uppercase ${card.color}`}>
-                    {card.category} PROCUREMENT
-                  </div>
-                  <h3 className="text-base font-bold text-white uppercase">{card.title}</h3>
-                  <p className="text-xs text-slate-300 font-normal leading-relaxed">{card.desc}</p>
-                </button>
-              ))}
-            </div>
-
             {/* Filter & Search Bar */}
             <div className="bg-[#0A1728] border border-slate-700/80 rounded-2xl p-6 shadow-md space-y-4">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">

@@ -15,7 +15,11 @@ import { MinimalStrategicCta } from "@/components/services/strategic-market-inte
 export default function StrategicAdvisoryEnergyMarketPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
-      <SEO title="Strategic Advisory & Energy Markets" description="Market intelligence, tariff modeling, asset valuation, and regulatory advisory for energy transition investors." canonical="/services/strategic-advisory-energy-market" />
+      <SEO
+        title="Renewable Energy Strategic Advisory | GoWindSun"
+        description="Executive strategic advisory across Corporate PPAs, Open Access wheeling, Group Captive models, asset repowering, M&A due diligence, and energy market intelligence."
+        canonical="/services/strategic-advisory-energy-market"
+      />
       {/* 1. Editorial Market Intelligence Hero */}
       <EditorialMarketHero />
 

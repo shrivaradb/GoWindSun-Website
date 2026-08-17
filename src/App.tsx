@@ -1,46 +1,33 @@
-import React, { Suspense, lazy } from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import React, { Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
-// Primary Landing Page (Direct Import for Instant Initial Render & No Footer Flash)
+// Eager Static Imports for All Application Routes (Eliminates Lazy Chunk Network Delays & Global Footer Flash)
 import HomePage from "@/app/page";
+import AboutPage from "@/app/about/page";
+import OurJourneyPage from "@/app/about/our-journey/page";
+import ContactPage from "@/app/contact/page";
+import IppPlatformPage from "@/app/ipp-platform/page";
+import KnowledgeHubPage from "@/app/knowledge-hub/page";
+import TendersPage from "@/app/tenders/page";
+import CareersPage from "@/app/careers/page";
 
-// Lazy Loaded Pages
-const AboutPage = lazy(() => import("@/app/about/page"));
-const OurJourneyPage = lazy(() => import("@/app/about/our-journey/page"));
-const ContactPage = lazy(() => import("@/app/contact/page"));
-const IppPlatformPage = lazy(() => import("@/app/ipp-platform/page"));
-const KnowledgeHubPage = lazy(() => import("@/app/knowledge-hub/page"));
-const TendersPage = lazy(() => import("@/app/tenders/page"));
-const CareersPage = lazy(() => import("@/app/careers/page"));
-
-// Projects for Acquisition Imports
-const ProjectsForAcquisitionMainPage = lazy(() => import("@/app/projects-for-acquisition/page"));
-const WindProjectsPage = lazy(() => import("@/app/projects-for-acquisition/wind/page"));
-const GreenfieldWindProjectsPage = lazy(() => import("@/app/projects-for-acquisition/wind/greenfield/page"));
-const ShovelReadyWindProjectsPage = lazy(() => import("@/app/projects-for-acquisition/wind/shovel-ready/page"));
-const OperationalWindProjectsPage = lazy(() => import("@/app/projects-for-acquisition/wind/operational/page"));
-
-const SolarProjectsPage = lazy(() => import("@/app/projects-for-acquisition/solar/page"));
-const GreenfieldSolarProjectsPage = lazy(() => import("@/app/projects-for-acquisition/solar/greenfield/page"));
-const ShovelReadySolarProjectsPage = lazy(() => import("@/app/projects-for-acquisition/solar/shovel-ready/page"));
-const OperationalSolarProjectsPage = lazy(() => import("@/app/projects-for-acquisition/solar/operational/page"));
-
-const HybridProjectsPage = lazy(() => import("@/app/projects-for-acquisition/hybrid/page"));
+// Projects for Acquisition Import (Unified Filter-Driven Portal)
+import ProjectsForAcquisitionMainPage from "@/app/projects-for-acquisition/page";
 
 // Services Imports
-const ServicesPage = lazy(() => import("@/app/services/page"));
-const AssetManagementOperationsPage = lazy(() => import("@/app/services/asset-management-operations/page"));
-const ProjectDevelopmentEpcPage = lazy(() => import("@/app/services/project-development-epc/page"));
-const RenewableEnergyTradingPage = lazy(() => import("@/app/services/renewable-energy-trading/page"));
-const StrategicAdvisoryEnergyMarketPage = lazy(() => import("@/app/services/strategic-advisory-energy-market/page"));
-const TechnicalConsultingAdvisoryPage = lazy(() => import("@/app/services/technical-consulting-advisory/page"));
+import ServicesPage from "@/app/services/page";
+import AssetManagementOperationsPage from "@/app/services/asset-management-operations/page";
+import ProjectDevelopmentEpcPage from "@/app/services/project-development-epc/page";
+import RenewableEnergyTradingPage from "@/app/services/renewable-energy-trading/page";
+import StrategicAdvisoryEnergyMarketPage from "@/app/services/strategic-advisory-energy-market/page";
+import TechnicalConsultingAdvisoryPage from "@/app/services/technical-consulting-advisory/page";
 
-const PrivacyPolicyPage = lazy(() => import("@/app/privacy/page"));
-const TermsOfServicePage = lazy(() => import("@/app/terms/page"));
-const NotFound = lazy(() => import("@/app/not-found"));
+import PrivacyPolicyPage from "@/app/privacy/page";
+import TermsOfServicePage from "@/app/terms/page";
+import NotFound from "@/app/not-found";
 
 function PageLoader() {
   return (
@@ -58,7 +45,7 @@ function PageLoader() {
 
 export function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <SmoothScroll>
         <div className="flex flex-col min-h-screen bg-white text-slate-900 antialiased selection:bg-emerald-600 selection:text-white">
           <Navbar />
@@ -76,19 +63,8 @@ export function App() {
                 <Route path="/privacy" element={<PrivacyPolicyPage />} />
                 <Route path="/terms" element={<TermsOfServicePage />} />
 
-                {/* Projects for Acquisition Routes */}
+                {/* Projects for Acquisition Route */}
                 <Route path="/projects-for-acquisition" element={<ProjectsForAcquisitionMainPage />} />
-                <Route path="/projects-for-acquisition/wind" element={<WindProjectsPage />} />
-                <Route path="/projects-for-acquisition/wind/greenfield" element={<GreenfieldWindProjectsPage />} />
-                <Route path="/projects-for-acquisition/wind/shovel-ready" element={<ShovelReadyWindProjectsPage />} />
-                <Route path="/projects-for-acquisition/wind/operational" element={<OperationalWindProjectsPage />} />
-
-                <Route path="/projects-for-acquisition/solar" element={<SolarProjectsPage />} />
-                <Route path="/projects-for-acquisition/solar/greenfield" element={<GreenfieldSolarProjectsPage />} />
-                <Route path="/projects-for-acquisition/solar/shovel-ready" element={<ShovelReadySolarProjectsPage />} />
-                <Route path="/projects-for-acquisition/solar/operational" element={<OperationalSolarProjectsPage />} />
-
-                <Route path="/projects-for-acquisition/hybrid" element={<HybridProjectsPage />} />
 
                 {/* Services Routes */}
                 <Route path="/services" element={<ServicesPage />} />
@@ -98,6 +74,7 @@ export function App() {
                 <Route path="/services/strategic-advisory-energy-market" element={<StrategicAdvisoryEnergyMarketPage />} />
                 <Route path="/services/technical-consulting-advisory" element={<TechnicalConsultingAdvisoryPage />} />
 
+                {/* Explicit 404 Catch-All Route for Any Non-Existent Path */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
@@ -105,7 +82,7 @@ export function App() {
           <Footer />
         </div>
       </SmoothScroll>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

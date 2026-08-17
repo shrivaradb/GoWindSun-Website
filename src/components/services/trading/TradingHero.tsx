@@ -9,7 +9,7 @@ export const TradingHero: React.FC = () => {
       title={
         <>
           Renewable Energy <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] via-[#0EA5E9] to-[#FBBF24]">
             Power Trading
           </span>
         </>

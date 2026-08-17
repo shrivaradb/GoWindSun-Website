@@ -8,7 +8,11 @@ import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 export default function TechnicalConsultingAdvisoryPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
-      <SEO title="Technical Consulting & Advisory" description="Bankable PVSyst yield reports, Met Mast wind assessment, site screening, and technical due diligence." canonical="/services/technical-consulting-advisory" />
+      <SEO
+        title="Renewable Energy Technical Advisory | GoWindSun"
+        description="Bankable PVSyst yield reports, Met Mast wind resource campaigns, DPR feasibility audits, owner's engineering, and technical due diligence."
+        canonical="/services/technical-consulting-advisory"
+      />
       <AdvisoryServicesHero />
 
       {/* Capabilities Breakdown Section */}

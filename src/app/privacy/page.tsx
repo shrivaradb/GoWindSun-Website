@@ -7,7 +7,11 @@ import { StandardHero } from "@/components/ui/StandardHero";
 export default function PrivacyPolicyPage() {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
-      <SEO title="Privacy Policy" description="GoWindSun India Private Limited Privacy Policy and data protection terms." canonical="/privacy" />
+      <SEO
+        title="Privacy Policy | GoWindSun India Pvt Ltd"
+        description="GoWindSun India Private Limited Privacy Policy, corporate telemetry protection, and data governance commitments."
+        canonical="/privacy"
+      />
       {/* 1. HERO HEADER — Global Layout & 3-Tier Typography Standard */}
       <StandardHero
         title={

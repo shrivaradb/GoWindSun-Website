@@ -11,7 +11,11 @@ import { TradingMinimalCta } from "@/components/services/trading/TradingMinimalC
 export default function RenewableEnergyTradingPage() {
   return (
     <main className="min-h-screen bg-white">
-      <SEO title="Renewable Energy Trading" description="Power trading, corporate PPAs, open access power procurement, green attribute certificate trading in India." canonical="/services/renewable-energy-trading" />
+      <SEO
+        title="Renewable Energy Trading | GoWindSun India Pvt Ltd"
+        description="Power trading advisory, Corporate PPAs, Open Access power procurement, Group Captive models, and green energy attribute certificate trading in India."
+        canonical="/services/renewable-energy-trading"
+      />
       {/* 1. Energy Flow Hero with Animated Power Flow Visualization */}
       <TradingHero />
 

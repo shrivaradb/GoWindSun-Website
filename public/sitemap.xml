@@ -2,121 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gowindsun.com/</loc>
-    <lastmod>2026-08-16</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/services</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/about</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://gowindsun.com/about/our-journey</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://gowindsun.com/services</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/services/project-development-epc</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/services/project-development-epc</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/services/technical-consulting-advisory</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/services/technical-consulting-advisory</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/services/asset-management-operations</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/services/asset-management-operations</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/services/renewable-energy-trading</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/services/strategic-advisory-energy-market</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/services/strategic-advisory-energy-market</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/services/renewable-energy-trading</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/ipp-platform</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://gowindsun.com/#/projects-for-acquisition</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/projects-for-acquisition</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://gowindsun.com/ipp-platform</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/projects-for-acquisition/wind</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://gowindsun.com/#/projects-for-acquisition/solar</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://gowindsun.com/#/projects-for-acquisition/hybrid</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://gowindsun.com/#/tenders</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/tenders</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://gowindsun.com/knowledge-hub</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/knowledge-hub</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://gowindsun.com/contact</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/about</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/careers</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/about/our-journey</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gowindsun.com/#/contact</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://gowindsun.com/#/careers</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://gowindsun.com/#/privacy</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/privacy</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://gowindsun.com/#/terms</loc>
-    <lastmod>2026-08-16</lastmod>
+    <loc>https://gowindsun.com/terms</loc>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

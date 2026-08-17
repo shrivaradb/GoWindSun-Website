@@ -16,6 +16,8 @@ export const StrategicMarketHero: React.FC = () => {
       }
       subtitle="Turning energy-market intelligence into informed commercial decisions."
       description="GoWindSun delivers executive strategic advisory across energy trading (Corporate PPAs, Open Access, Group Captive), repowering aging assets, M&A project acquisitions/divestments, portfolio strategy, Green Hydrogen, and Offshore Wind advisory across India."
+      image="/images/strategic_advisory_hero.webp"
+      imageAlt="GoWindSun Strategic Advisory & Energy Markets"
     />
   );
 };

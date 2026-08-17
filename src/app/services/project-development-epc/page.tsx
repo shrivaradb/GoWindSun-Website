@@ -8,7 +8,11 @@ import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 export default function ProjectDevelopmentEpcPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
-      <SEO title="Project Development & EPC" description="Turnkey EPC services, land acquisition, EHV substation engineering, and grid evacuation for solar & wind plants." canonical="/services/project-development-epc" />
+      <SEO
+        title="Renewable Energy Project Development | GoWindSun"
+        description="Turnkey EPC execution, clear-title land acquisition, EHV substation construction, and grid evacuation engineering for utility-scale solar, wind, and hybrid projects."
+        canonical="/services/project-development-epc"
+      />
       <ProjectServicesHero />
 
       {/* DETAILED EDITORIAL LIFECYCLE BREAKDOWN (Previses all 6 images with dynamic layout rhythm) */}

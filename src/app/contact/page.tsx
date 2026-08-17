@@ -62,7 +62,11 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white min-h-screen text-slate-900">
-      <SEO title="Contact Us" description="Get in touch with GoWindSun India Private Limited for utility-scale solar, wind, hybrid, and BESS engineering advisory." canonical="/contact" />
+      <SEO
+        title="Contact GoWindSun India Pvt Ltd"
+        description="Get in touch with GoWindSun India Private Limited for utility-scale solar, wind, hybrid, and storage engineering advisory, turnkey EPC, and project acquisition."
+        canonical="/contact"
+      />
       {/* 1. HERO SECTION — Global Dark Hero System */}
       <StandardHero
         image="/images/contact_hero.png"

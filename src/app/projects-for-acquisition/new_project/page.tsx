@@ -51,7 +51,7 @@ export interface AuthenticProjectRecord {
   capacityMW: string;
 }
 
-export default function ProjectsForAcquisitionMainPage() {
+export default function NewProjectAcquisitionPage() {
   // 1. Consolidate All 7 Excel Datasets into a Single Source of Truth
   const allProjects = useMemo<AuthenticProjectRecord[]>(() => {
     const list: AuthenticProjectRecord[] = [];
@@ -180,25 +180,17 @@ export default function ProjectsForAcquisitionMainPage() {
   return (
     <div className="bg-white min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
       <SEO
-        title="Renewable Energy Projects for Acquisition | GoWindSun"
-        description="Explore renewable energy projects for acquisition across wind, solar and hybrid assets through GoWindSun's project acquisition platform."
-        canonical="/projects-for-acquisition"
+        title="Renewable Energy Projects for Acquisition"
+        description="Explore renewable energy project acquisition opportunities across India, including wind, solar, and hybrid projects by state and district."
+        canonical="/projects-for-acquisition/new_project"
       />
 
+      {/* 1. HERO SECTION — Standard Global Dark Hero System */}
       <StandardHero
         image="/images/projectsforacquisition/Projects For Acquisition.png"
         imageAlt="Renewable Energy Projects for Acquisition"
         theme="dark"
-        title={
-          <>
-            Projects for <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#10B981] via-[#0EA5E9] to-[#FBBF24]">
-              Renewable Energy
-            </span>{" "}
-            <br />
-            Acquisition
-          </>
-        }
+        title="Renewable Energy Projects for Acquisition"
         subtitle="Explore curated renewable energy acquisition opportunities across India by project type, state, and district."
         description="Filter bankable utility-scale wind, solar, and hybrid energy assets by technology, development stage, state, and district corridors for direct M&A, equity investment, and project acquisition."
       />

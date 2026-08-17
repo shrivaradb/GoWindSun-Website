@@ -8,7 +8,11 @@ import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 export default function ServicesPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
-      <SEO title="Engineering Services" description="Comprehensive renewable energy engineering services across solar, wind, hybrid plants, and BESS ecosystems." canonical="/services" />
+      <SEO
+        title="Renewable Energy Services | GoWindSun India Pvt Ltd"
+        description="Comprehensive renewable energy engineering, EPC execution, technical advisory, asset management, and strategic market services across solar, wind, hybrid, and storage ecosystems."
+        canonical="/services"
+      />
       {/* 1. Typography-Led Services Hero with CountUp Stats */}
       <ServicesHero />
 

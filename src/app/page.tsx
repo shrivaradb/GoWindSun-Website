@@ -9,7 +9,12 @@ import { IntegratedSolutionsInfographic } from "@/components/home/IntegratedSolu
 export default function HomePage() {
   return (
  <>
-      <SEO title="Home" description="Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems." canonical="/" />
+      <SEO
+        title="GoWindSun India Private Limited"
+        description="GoWindSun India Private Limited delivers integrated renewable energy solutions across solar, wind, and battery storage to accelerate the clean energy transition."
+        ogImage="https://gowindsun.com/logo.png"
+        canonical="/"
+      />
 
       {/* 1. Full-Screen Cinematic Image Slideshow Hero */}
       <Hero />

@@ -12,7 +12,11 @@ import { IppMinimalCta } from "@/components/ipp-platform/IppMinimalCta";
 export default function IppPlatformPage() {
   return (
     <main className="min-h-screen bg-white">
-      <SEO title="IPP Platform" description="Institutional Independent Power Producer platform for utility-scale renewable energy project development and capital structuring." canonical="/ipp-platform" />
+      <SEO
+        title="IPP Platform | GoWindSun India Pvt Ltd"
+        description="Institutional Independent Power Producer platform for utility-scale solar, wind, and hybrid renewable energy project development, asset acquisition, and capital structuring."
+        canonical="/ipp-platform"
+      />
       {/* 1. Bespoke Hero: Opportunity Gateway */}
       <IppHero />
 

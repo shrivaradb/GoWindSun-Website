@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
       <StandardHero
         title={
           <>
-            PRIVACY <span className="text-[#0186D5]">POLICY.</span>
+            PRIVACY <span className="text-[#0186D5]">POLICY</span>
           </>
         }
         subtitle="Commitment to Data Protection & Personal Privacy."

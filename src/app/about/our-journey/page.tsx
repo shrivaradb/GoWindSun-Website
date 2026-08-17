@@ -15,7 +15,7 @@ export default function OurJourneyPage() {
         <>
           Our Journey <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-            Chronicle &amp; Milestones.
+            Chronicle &amp; Milestones
           </span>
         </>
       }

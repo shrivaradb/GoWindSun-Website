@@ -11,7 +11,7 @@ export interface SEOProps {
   jsonLd?: Record<string, any>;
 }
 
-const DEFAULT_TITLE = "GoWindSun India Private Limited — Integrated Clean Energy Infrastructure";
+const DEFAULT_TITLE = "GoWindSun India Private Limited";
 const DEFAULT_DESCRIPTION =
   "Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems.";
 const DEFAULT_KEYWORDS =

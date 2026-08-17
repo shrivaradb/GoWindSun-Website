@@ -22,7 +22,7 @@ export default function OperationalWindProjectsPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
               Operational Wind Assets <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-                Commissioned &amp; Generating.
+                Commissioned &amp; Generating
               </span>
             </h1>
 

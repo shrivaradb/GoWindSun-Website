@@ -41,9 +41,8 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
   return (
     <section
       ref={heroRef}
-      className={`relative w-full min-h-[580px] lg:min-h-[640px] xl:min-h-[700px] flex items-center overflow-hidden py-28 lg:py-32 gpu-layer ${
-        isLight ? "bg-white text-slate-900" : "bg-[#06111F] text-white"
-      }`}
+      className={`relative w-full min-h-[580px] lg:min-h-[640px] xl:min-h-[700px] flex items-center overflow-hidden py-28 lg:py-32 gpu-layer ${isLight ? "bg-white text-slate-900" : "bg-[#06111F] text-white"
+        }`}
     >
       {/* Background Hero Image with Parallax Shift */}
       {image && (
@@ -77,9 +76,8 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
         <div className="max-w-4xl text-left">
           {/* Tier 1 H1 Title */}
           <h1
-            className={`text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] ${
-              isLight ? "text-slate-900" : "text-white"
-            }`}
+            className={`text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight leading-[1.05] ${isLight ? "text-slate-900" : "text-white"
+              }`}
           >
             {title}
           </h1>
@@ -87,9 +85,8 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
           {/* Tier 2 Lead Subtitle */}
           {subtitle && (
             <p
-              className={`text-2xl sm:text-3xl font-normal mt-4 ${
-                isLight ? "text-slate-800" : "text-slate-200"
-              }`}
+              className={`text-2xl sm:text-3xl font-normal mt-4 ${isLight ? "text-slate-800" : "text-slate-200"
+                }`}
             >
               {subtitle}
             </p>
@@ -98,9 +95,8 @@ export const StandardHero: React.FC<StandardHeroProps> = ({
           {/* Tier 3 Description */}
           {description && (
             <p
-              className={`text-base sm:text-lg font-normal max-w-3xl mt-6 ${
-                isLight ? "text-slate-700" : "text-slate-300"
-              }`}
+              className={`text-base sm:text-lg font-normal max-w-3xl mt-6 ${isLight ? "text-slate-700" : "text-slate-300"
+                }`}
             >
               {description}
             </p>

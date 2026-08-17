@@ -10,7 +10,7 @@ export const AssetOperationsHero: React.FC = () => {
         <>
           Asset Management &amp; <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-            Operations Excellence.
+            Operations Excellence
           </span>
         </>
       }

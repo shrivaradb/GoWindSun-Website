@@ -18,7 +18,9 @@ export const IndiaPowerhouseSection: React.FC = () => {
               Introduction
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-              India: A Global Clean Energy Powerhouse.
+              India: A Global Clean <br />
+              Energy <br />
+              Powerhouse
             </h2>
           </div>
 

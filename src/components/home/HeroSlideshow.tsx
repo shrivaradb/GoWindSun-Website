@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export interface SlideItem {
   id: number;
@@ -35,43 +35,62 @@ const slides: SlideItem[] = [
 
 export const HeroSlideshow: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
 
   useEffect(() => {
+    // Preload all slideshow images in browser memory to eliminate any network load delays
+    slides.forEach((slide) => {
+      const img = new window.Image();
+      img.src = slide.src;
+    });
+
     const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % slides.length);
+      setCurrentIndex((prev) => {
+        setPrevIndex(prev);
+        return (prev + 1) % slides.length;
+      });
     }, 4000);
 
     return () => clearInterval(timer);
   }, []);
 
-  const currentSlide = slides[currentIndex];
-
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-slate-900 gpu-layer">
-      <AnimatePresence mode="popLayout">
-        <motion.div
-          key={currentSlide.id}
-          initial={{ opacity: 0, scale: 1.03 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{
-            opacity: { duration: 1.2, ease: [0.16, 1, 0.3, 1] },
-            scale: { duration: 4.0, ease: [0.25, 1, 0.5, 1] },
-          }}
-          className="absolute inset-0 gpu-layer"
-        >
-          <Image
-            src={currentSlide.src}
-            alt={currentSlide.alt}
-            fill
-            priority={currentIndex === 0}
-            className="object-cover object-center brightness-100"
-          />
-        </motion.div>
-      </AnimatePresence>
+      {slides.map((slide, index) => {
+        const isActive = index === currentIndex;
+        const isPrev = index === prevIndex;
+        const zIndex = isActive ? 20 : isPrev ? 10 : 0;
 
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/25 to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30 pointer-events-none" />
+        return (
+          <motion.div
+            key={slide.id}
+            initial={false}
+            animate={{
+              opacity: isActive ? 1 : 0,
+              scale: isActive ? 1.04 : 1.0,
+            }}
+            transition={{
+              opacity: { duration: 1.4, ease: [0.25, 1, 0.5, 1] },
+              scale: { duration: 4.0, ease: [0.25, 1, 0.5, 1] },
+            }}
+            style={{ zIndex }}
+            className="absolute inset-0 gpu-layer pointer-events-none"
+          >
+            <Image
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center brightness-100"
+            />
+          </motion.div>
+        );
+      })}
+
+      {/* Gradient Overlays above stacked image layers */}
+      <div className="absolute inset-0 z-30 bg-gradient-to-r from-black/50 via-black/25 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 z-30 bg-gradient-to-b from-black/30 via-transparent to-black/30 pointer-events-none" />
     </div>
   );
 };

@@ -41,7 +41,7 @@ export default function CareersPage() {
           <>
             Careers At <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-              GoWindSun Engineering.
+              GoWindSun Engineering
             </span>
           </>
         }

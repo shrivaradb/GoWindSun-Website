@@ -4,8 +4,10 @@ import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
+// Primary Landing Page (Direct Import for Instant Initial Render & No Footer Flash)
+import HomePage from "@/app/page";
+
 // Lazy Loaded Pages
-const HomePage = lazy(() => import("@/app/page"));
 const AboutPage = lazy(() => import("@/app/about/page"));
 const OurJourneyPage = lazy(() => import("@/app/about/our-journey/page"));
 const ContactPage = lazy(() => import("@/app/contact/page"));
@@ -42,7 +44,7 @@ const NotFound = lazy(() => import("@/app/not-found"));
 
 function PageLoader() {
   return (
-    <div className="flex items-center justify-center min-h-[60vh] w-full">
+    <div className="flex items-center justify-center min-h-[85vh] w-full">
       <div className="flex flex-col items-center space-y-4">
         <div className="relative w-12 h-12">
           <div className="absolute inset-0 rounded-full border-2 border-emerald-500/20 animate-ping"></div>

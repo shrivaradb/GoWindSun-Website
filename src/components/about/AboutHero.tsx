@@ -23,7 +23,7 @@ export const AboutHero: React.FC = () => {
           >
             Engineering a Sustainable <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#059669] via-[#0284C7] to-[#D97706]">
-              Clean Energy Future.
+              Clean Energy Future
             </span>
           </motion.h1>
 

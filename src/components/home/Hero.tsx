@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
                 Renewable Energy
               </span>{" "}
               <br />
-              Solutions.
+              Solutions
             </motion.h1>
 
             {/* Call to Action Buttons */}

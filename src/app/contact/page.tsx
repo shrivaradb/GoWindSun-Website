@@ -70,7 +70,7 @@ export default function ContactPage() {
         theme="dark"
         title={
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-            Contact GoWindSun.
+            Contact GoWindSun
           </span>
         }
         subtitle="Direct Senior Leadership & Engineering Desk Communication."

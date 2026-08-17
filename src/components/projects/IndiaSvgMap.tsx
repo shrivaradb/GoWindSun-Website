@@ -85,35 +85,69 @@ const STATE_DISTRICT_MARKERS: Record<string, Array<{ district: string; x: number
     { district: "Buldhana", x: 172, y: 375 },
     { district: "Dhule", x: 122, y: 368 },
     { district: "Latur", x: 215, y: 428 },
-    { district: "Aurangabad", x: 152, y: 408 },
+    { district: "Aurangabad / Sambhaji Nagar", x: 152, y: 408 },
     { district: "Satara", x: 142, y: 472 },
+    { district: "Sangli", x: 148, y: 488 },
+    { district: "Kolhapur", x: 138, y: 492 },
+    { district: "Ahilya Nagar", x: 146, y: 424 },
+    { district: "Beed", x: 182, y: 426 },
+    { district: "Dharashiv", x: 195, y: 442 },
+    { district: "Jalna", x: 178, y: 398 },
+    { district: "Washim", x: 210, y: 388 },
+    { district: "Jalgaon", x: 156, y: 362 },
+    { district: "Chandrapur", x: 275, y: 395 },
+    { district: "Yavatmal", x: 238, y: 382 },
+    { district: "Nashik", x: 118, y: 404 },
+    { district: "Nanded", x: 232, y: 416 },
+    { district: "Wardha", x: 252, y: 372 },
+    { district: "Amravati", x: 228, y: 366 },
+    { district: "Hingoli", x: 222, y: 402 },
+    { district: "Nandurbar", x: 112, y: 352 },
   ],
   "IN-RJ": [
     { district: "Jaisalmer", x: 62, y: 238 },
     { district: "Bikaner", x: 88, y: 262 },
     { district: "Pratapgarh", x: 148, y: 318 },
-  ],
-  "IN-KA": [
-    { district: "Vijayapura", x: 168, y: 448 },
-    { district: "Chitradurga", x: 158, y: 508 },
-  ],
-  "IN-TN": [
-    { district: "Tuticorin", x: 198, y: 638 },
-    { district: "Virudhunagar", x: 208, y: 618 },
-    { district: "Coimbatore", x: 184, y: 588 },
+    { district: "Phalodi / Jodhpur", x: 78, y: 252 },
+    { district: "Churu", x: 124, y: 202 },
   ],
   "IN-GJ": [
     { district: "Kutch", x: 48, y: 328 },
     { district: "Rajkot", x: 68, y: 368 },
     { district: "Banaskantha", x: 108, y: 318 },
+    { district: "Patan", x: 98, y: 332 },
+    { district: "Morbi", x: 66, y: 352 },
+  ],
+  "IN-KA": [
+    { district: "Vijayapura", x: 168, y: 448 },
+    { district: "Chitradurga", x: 158, y: 508 },
+    { district: "Koppal", x: 162, y: 482 },
+    { district: "Kalaburagi", x: 204, y: 442 },
+    { district: "Yadgir", x: 212, y: 454 },
+    { district: "Pavagada / Tumakuru", x: 182, y: 512 },
+    { district: "Ballari", x: 178, y: 486 },
+  ],
+  "IN-TN": [
+    { district: "Tuticorin", x: 198, y: 638 },
+    { district: "Virudhunagar", x: 208, y: 618 },
+    { district: "Coimbatore / Rasipalayam", x: 184, y: 588 },
+    { district: "Pudukkottai", x: 228, y: 602 },
+    { district: "Villupuram", x: 242, y: 568 },
+    { district: "Vadakuvanthanam", x: 192, y: 628 },
+    { district: "Ottapidaram", x: 196, y: 632 },
+    { district: "Muppandal / Kayathar", x: 188, y: 642 },
+  ],
+  "IN-MP": [
+    { district: "Ratlam", x: 148, y: 288 },
+    { district: "Mandsaur", x: 146, y: 268 },
+    { district: "Rewa", x: 278, y: 268 },
   ],
   "IN-AP": [
     { district: "Anantapur", x: 242, y: 508 },
     { district: "Kadapa", x: 262, y: 528 },
   ],
-  "IN-MP": [
-    { district: "Ratlam", x: 148, y: 288 },
-    { district: "Rewa", x: 278, y: 268 },
+  "IN-TG": [
+    { district: "Nalgonda", x: 252, y: 456 },
   ],
 };
 
@@ -371,76 +405,7 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
               );
             })}
 
-            {/* Dynamic District Site Markers & Vector Animations when State is Selected */}
-            {selectedState && STATE_DISTRICT_MARKERS[selectedState] && (
-              <g className="pointer-events-none">
-                {STATE_DISTRICT_MARKERS[selectedState].map((m, idx) => (
-                  <g key={idx} transform={`translate(${m.x}, ${m.y})`}>
-                    {/* Animated Concentric Sonar Pulse Rings */}
-                    <circle r="9" fill="none" stroke={theme.activeStroke} opacity="0.6" strokeWidth="0.8">
-                      <animate attributeName="r" values="5;14;5" dur="2.2s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.8;0.15;0.8" dur="2.2s" repeatCount="indefinite" />
-                    </circle>
 
-                    {/* Pin Backdrop Circle */}
-                    <circle r="4.5" fill="#FFFFFF" stroke={theme.activeStroke} strokeWidth="1.5" className="drop-shadow-md" />
-
-                    {/* Animated SVG Vector Graphic Icon */}
-                    {category === "wind" ? (
-                      /* Wind Turbine Node with Animated Spinning Blades */
-                      <g transform="scale(0.55)">
-                        <path d="M -0.4 4 L 0.4 4 L 0.2 -2 L -0.2 -2 Z" fill={theme.selectedFill} />
-                        <circle cx="0" cy="-2" r="0.9" fill={theme.selectedFill} />
-                        {/* Spinning Rotor Blades */}
-                        <g>
-                          <path d="M 0 -2 Q 0.6 -5 0.1 -6.8 Q -0.4 -5 0 -2 Z" fill={theme.selectedFill} />
-                          <path d="M 0 -2 Q 4.2 -0.8 5.2 -2.2 Q 3.6 -3 0 -2 Z" fill={theme.selectedFill} />
-                          <path d="M 0 -2 Q -3.6 -3 -5.2 -2.2 Q -4.2 -0.8 0 -2 Z" fill={theme.selectedFill} />
-                          <animateTransform
-                            attributeName="transform"
-                            type="rotate"
-                            from="0 0 -2"
-                            to="360 0 -2"
-                            dur="3s"
-                            repeatCount="indefinite"
-                          />
-                        </g>
-                      </g>
-                    ) : category === "solar" ? (
-                      /* Solar PV Sun Node with Radiating Rays */
-                      <g transform="scale(0.6)">
-                        <circle cx="0" cy="0" r="2.2" fill={theme.selectedFill} />
-                        <path
-                          d="M 0 -4 L 0 -2.6 M 0 2.6 L 0 4 M -4 0 L -2.6 0 M 2.6 0 L 4 0 M -2.8 -2.8 L -1.9 -1.9 M 1.9 1.9 L 2.8 2.8 M -2.8 2.8 L -1.9 1.9 M 1.9 -1.9 L 2.8 -2.8"
-                          stroke={theme.selectedFill}
-                          strokeWidth="0.9"
-                          strokeLinecap="round"
-                        />
-                      </g>
-                    ) : (
-                      /* Hybrid Lightning/Energy Pulse Icon */
-                      <g transform="scale(0.55)">
-                        <path d="M 0.5 -4 L -2 0 L 0.5 0 L -0.5 4 L 2 0 L -0.5 0 Z" fill={theme.selectedFill} />
-                      </g>
-                    )}
-
-                    {/* District Name Label Badge */}
-                    <text
-                      x="0"
-                      y="-8"
-                      textAnchor="middle"
-                      fill="#000000"
-                      fontSize="5.0"
-                      fontWeight="600"
-                      fontFamily="sans-serif"
-                      className="uppercase font-mono tracking-wider pointer-events-none"
-                    >
-                      {m.district}
-                    </text>
-                  </g>
-                ))}
-              </g>
-            )}
           </g>
 
           {/* Clean Light-Mode Vector Compass Rose */}

@@ -10,7 +10,7 @@ export const StrategicMarketHero: React.FC = () => {
         <>
           Strategic Advisory &amp; <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-            Energy Markets.
+            Energy Markets
           </span>
         </>
       }

@@ -50,7 +50,6 @@ export const solarGreenfieldProjects: StateProjectDataMap = {
 
 // 2. SHOVEL READY SOLAR PROJECTS DATASET
 export const solarShovelReadyProjects: StateProjectDataMap = {
-  "IN-[#RJ]": [],
   "IN-RJ": [
     {
       id: "solar-sr-rj-01",

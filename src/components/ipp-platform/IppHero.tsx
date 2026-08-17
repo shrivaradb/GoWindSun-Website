@@ -10,7 +10,7 @@ export const IppHero: React.FC = () => {
         <>
           IPP Platform <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-            Renewable Assets.
+            Renewable Assets
           </span>
         </>
       }

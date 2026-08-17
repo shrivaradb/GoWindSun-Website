@@ -25,7 +25,7 @@ export default function HybridProjectsPage() {
           <>
             Wind-Solar Hybrid Projects <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-              For Acquisition.
+              For Acquisition
             </span>
           </>
         }

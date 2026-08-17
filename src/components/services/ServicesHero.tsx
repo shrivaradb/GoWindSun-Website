@@ -10,7 +10,7 @@ export const ServicesHero: React.FC = () => {
         <>
           Integrated <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-            Renewable Energy Services.
+            Renewable Energy Services
           </span>
         </>
       }

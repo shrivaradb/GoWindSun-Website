@@ -10,7 +10,7 @@ export const ProjectServicesHero: React.FC = () => {
         <>
           Project Development &amp; <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-            EPC Execution.
+            EPC Execution
           </span>
         </>
       }

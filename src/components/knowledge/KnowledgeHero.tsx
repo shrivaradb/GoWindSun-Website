@@ -24,7 +24,7 @@ export const KnowledgeHero: React.FC<KnowledgeHeroProps> = ({
       title={
         <>
           KNOWLEDGE HUB & <br />
-          <span className="text-[#0186D5]">REGULATORY INTELLIGENCE.</span>
+          <span className="text-[#0186D5]">REGULATORY INTELLIGENCE</span>
         </>
       }
       subtitle="Authoritative Technical Whitepapers & Clean Energy Market Research."

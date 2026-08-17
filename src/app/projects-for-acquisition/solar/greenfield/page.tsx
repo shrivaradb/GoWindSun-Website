@@ -22,7 +22,7 @@ export default function GreenfieldSolarProjectsPage() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-tight">
               Greenfield Solar Projects <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-400 to-amber-400">
-                For Acquisition.
+                For Acquisition
               </span>
             </h1>
 

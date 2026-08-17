@@ -12,7 +12,7 @@ export default function TermsOfServicePage() {
       <StandardHero
         title={
           <>
-            TERMS OF <span className="text-[#0186D5]">SERVICE.</span>
+            TERMS OF <span className="text-[#0186D5]">SERVICE</span>
           </>
         }
         subtitle="Website Terms of Use & Legal Advisory Governance Notice."

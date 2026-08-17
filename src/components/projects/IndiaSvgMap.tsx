@@ -427,15 +427,13 @@ export const IndiaSvgMap: React.FC<IndiaSvgMapProps> = ({
                     {/* District Name Label Badge */}
                     <text
                       x="0"
-                      y="-7.5"
+                      y="-8"
                       textAnchor="middle"
-                      fill="#0F172A"
-                      stroke="#FFFFFF"
-                      strokeWidth="0.6"
-                      fontSize="3.8"
-                      fontWeight="bold"
+                      fill="#000000"
+                      fontSize="5.0"
+                      fontWeight="600"
                       fontFamily="sans-serif"
-                      className="uppercase font-mono tracking-tight pointer-events-none"
+                      className="uppercase font-mono tracking-wider pointer-events-none"
                     >
                       {m.district}
                     </text>

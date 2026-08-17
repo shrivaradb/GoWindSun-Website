@@ -25,7 +25,7 @@ export const IndiaPowerhouseSection: React.FC = () => {
           {/* Right Column: Magazine Editorial Narrative */}
           <div className="lg:col-span-7 space-y-6 text-base text-slate-700 leading-relaxed font-normal">
             <p className="text-lg text-slate-800 font-medium leading-relaxed">
-              Integrated Renewable Energy Solutions for Wind, Solar, Hybrid, BESS, and Energy Infrastructure across India—empowering businesses, developers, industries, and government agencies to accelerate the clean energy transition.
+              Integrated Renewable Energy Solutions empowering businesses, developers, industries, and government agencies to accelerate the clean energy transition.
             </p>
             <p>
               India is one of the world's fastest-growing major economies and among the most dynamic energy markets globally. With sustained economic growth, rapid industrialization, urbanization, digitalization, and rising electricity demand, India is committed to ensuring affordable, reliable, sustainable, and modern energy access for all.

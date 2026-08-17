@@ -134,7 +134,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-400">
                 <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span>GoWindSun India Pvt. Ltd. Pune, Maharashtra – India</span>
+                <span>GoWindSun India Private Limited Pune, Maharashtra – India</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -162,12 +162,6 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>© {new Date().getFullYear()} GoWindSun India Private Limited. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="/tenders" className="hover:text-slate-200 transition-colors">
-              Tenders
-            </Link>
-            <Link href="/careers" className="hover:text-slate-200 transition-colors">
-              Careers
-            </Link>
             <Link href="/privacy" className="hover:text-slate-200 transition-colors">
               Privacy Policy
             </Link>

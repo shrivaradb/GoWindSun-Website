@@ -1,7 +1,7 @@
 Document: SEO and Metadata
-Version: 1.0.0
+Version: 1.1.0
 Status: Active
-Last Updated: 15 August 2026
+Last Updated: 18 August 2026
 
 # GoWindSun Website — SEO & Metadata Specification
 
@@ -11,14 +11,15 @@ This document details the search engine optimization (SEO) configurations, meta 
 
 ## 1. Global Meta Configuration (`site.ts` & `index.html`)
 
-All primary meta tags are managed via [`src/config/site.ts`](file:///c:/Website/GoWindSun-Website/src/config/site.ts) and [`index.html`](file:///c:/Website/GoWindSun-Website/index.html):
+All primary meta tags are managed via [`src/config/site.ts`](file:///c:/Website/GoWindSun-Website/src/config/site.ts), [`index.html`](file:///c:/Website/GoWindSun-Website/index.html), and Next.js App Router metadata structures:
 
 * **Official Site Title:** `GoWindSun India Private Limited`
 * **Short Brand Name:** `GoWindSun`
-* **Canonical Base URL:** `https://gowindsun.com`
+* **Canonical Base URL:** `https://gowindsun.com` (`metadataBase: new URL("https://gowindsun.com")`)
+* **Homepage Canonical:** `https://gowindsun.com/` (explicit trailing slash)
 * **Meta Description:**
   > "Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems."
-* **Open Graph Image (`og:image`):** `https://gowindsun.com/og.jpg`
+* **Open Graph Image (`og:image`):** `https://gowindsun.com/logo.png`
 * **Favicon & Apple Touch Icon:** Defined in [`index.html`](file:///c:/Website/GoWindSun-Website/index.html).
 
 ---
@@ -39,6 +40,8 @@ To maximize accessibility and search engine indexing efficiency, every page enfo
 
 ## 3. Robots, Sitemap & Indexing
 
-* **Indexing Directive:** All public corporate pages (`/`, `/about`, `/services`, `/projects-for-acquisition`, `/tenders`, `/careers`, `/knowledge-hub`, `/contact`) are configured for full search engine indexing (`index, follow`).
-* **Sitemap Generation:** Static sitemap XML mapping all 21+ routes.
-* **Canonical URL Rules:** Every route enforces a canonical link header pointing to `https://gowindsun.com/#/[route]` to prevent duplicate content indexing on static CDN mirrors.
+* **Indexing Directive:** All public corporate pages (`/`, `/about`, `/services`, `/projects-for-acquisition`, `/tenders`, `/careers`, `/knowledge-hub`, `/contact`, `/privacy`, `/terms`) are configured for full search engine indexing (`index, follow`).
+* **Sitemap Generation:** Static XML sitemap [`public/sitemap.xml`](file:///c:/Website/GoWindSun-Website/public/sitemap.xml) mapping all active routes using `https://gowindsun.com/`.
+* **Robots.txt:** [`public/robots.txt`](file:///c:/Website/GoWindSun-Website/public/robots.txt) references `Sitemap: https://gowindsun.com/sitemap.xml` with zero `noindex` block directives.
+* **Canonical URL Rules:** Every route enforces a self-referencing canonical URL header pointing to the official non-www HTTPS domain `https://gowindsun.com/` (homepage) or `https://gowindsun.com/<path>` (subpages). Static HTML entry point `index.html` contains explicit `<link rel="canonical" href="https://gowindsun.com/">`.
+

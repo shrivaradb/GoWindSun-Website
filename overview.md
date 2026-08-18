@@ -1,8 +1,8 @@
-# GoWindSun India Pvt Ltd Website
+# GoWindSun India Private Limited Website
 ## Developer Documentation & Project Blueprint
-**Version:** 1.0
+**Version:** 1.1
 **Status:** Active Development
-**Framework:** Next.js 16 App Router + TypeScript
+**Framework:** Next.js App Router + Vite + TypeScript
 
 ---
 
@@ -10,9 +10,9 @@
 
 ## Company
 
-**GoWindSun India Pvt Ltd**
+**GoWindSun India Private Limited**
 
-GoWindSun India Pvt Ltd is an Indian renewable energy engineering company delivering integrated clean energy solutions across utility-scale, commercial, industrial and institutional sectors.
+GoWindSun India Private Limited is an Indian renewable energy engineering company delivering integrated clean energy solutions across utility-scale, commercial, industrial and institutional sectors.
 
 The company specializes in designing, consulting, developing and delivering renewable energy infrastructure that combines multiple technologies into reliable energy ecosystems.
 

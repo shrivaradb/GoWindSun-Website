@@ -4,6 +4,18 @@ All notable changes, updates, architectural decisions, and documentation release
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to Semantic Versioning (`MAJOR.MINOR.PATCH`).
 
+## [1.1.0] - 18 August 2026
+
+### SEO, Canonical URLs & Metadata System
+- **Google Canonical URL Resolution:** Fixed Google Search Console duplicate indexing issue by establishing `https://gowindsun.com/` as the single official canonical URL across static HTML, dynamic runtime SEO tags, and sitemaps.
+- **Static HTML Canonical Tag:** Injected explicit static `<link rel="canonical" href="https://gowindsun.com/" />` into `index.html` to guarantee crawlers receive canonical headers prior to client-side hydration.
+- **Next.js App Router Metadata Integration:** Added `declare module "next"` type definitions in `src/next-env-compat.d.ts`, created `src/app/layout.tsx` with `metadataBase: new URL("https://gowindsun.com")`, and added Next.js metadata exports across all active routes.
+- **Unified Site Title:** Standardized site title to `GoWindSun India Private Limited` across HTML `<title>`, Open Graph tags, Twitter cards, layout templates, SEO components, and mobile navigation footer.
+
+### UI & Page Polish
+- **404 Route Not Found Page:** Streamlined 404 page presentation in `src/app/not-found.tsx` for cleaner visual aesthetics.
+- **About Section Typography:** Removed trailing full stop from main heading in `src/components/about/WhoWeAreSection.tsx`.
+
 ---
 
 ## [1.0.0] - 15 August 2026

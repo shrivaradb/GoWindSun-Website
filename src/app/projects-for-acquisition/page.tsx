@@ -180,7 +180,7 @@ export default function ProjectsForAcquisitionMainPage() {
   return (
     <div className="bg-white min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
       <SEO
-        title="Renewable Energy Projects for Acquisition | GoWindSun"
+        title="Renewable Energy Projects for Acquisition | GoWindSun India Private Limited"
         description="Explore renewable energy projects for acquisition across wind, solar and hybrid assets through GoWindSun's project acquisition platform."
         canonical="/projects-for-acquisition"
       />

@@ -1,17 +1,29 @@
 import { SEO } from "@/components/seo/SEO";
-"use client";
-
+import type { Metadata } from "next";
 import React from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { ArrowLeft } from "lucide-react";
 import { StandardHero } from "@/components/ui/StandardHero";
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gowindsun.com"),
+  title: "Our Journey | GoWindSun India Private Limited",
+  description: "Explore the growth chronicle, engineering milestones, greenfield site allocations, and asset acquisition pipeline of GoWindSun India Private Limited.",
+  alternates: {
+    canonical: "https://gowindsun.com/about/our-journey",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function OurJourneyPage() {
   return (
     <>
       <SEO
-        title="Our Journey | GoWindSun India Pvt Ltd"
+        title="Our Journey | GoWindSun India Private Limited"
         description="Explore the growth chronicle, engineering milestones, greenfield site allocations, and asset acquisition pipeline of GoWindSun India Private Limited."
         canonical="/about/our-journey"
       />

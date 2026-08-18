@@ -1,5 +1,6 @@
 import { SEO } from "@/components/seo/SEO";
 import React from "react";
+import type { Metadata } from "next";
 import { TradingHero } from "@/components/services/trading/TradingHero";
 import { TradingEnergyFlowDiagram } from "@/components/services/trading/TradingEnergyFlowDiagram";
 import { TradingServicesForOfftakers } from "@/components/services/trading/TradingServicesForOfftakers";
@@ -8,11 +9,24 @@ import { TradingOpenAccessModels } from "@/components/services/trading/TradingOp
 import { TradingOverviewBanner } from "@/components/services/trading/TradingOverviewBanner";
 import { TradingMinimalCta } from "@/components/services/trading/TradingMinimalCta";
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gowindsun.com"),
+  title: "Renewable Energy Trading | GoWindSun India Private Limited",
+  description: "Power trading advisory, Corporate PPAs, Open Access power procurement, Group Captive models, and green energy attribute certificate trading in India.",
+  alternates: {
+    canonical: "https://gowindsun.com/services/renewable-energy-trading",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function RenewableEnergyTradingPage() {
   return (
     <main className="min-h-screen bg-white">
       <SEO
-        title="Renewable Energy Trading | GoWindSun India Pvt Ltd"
+        title="Renewable Energy Trading | GoWindSun India Private Limited"
         description="Power trading advisory, Corporate PPAs, Open Access power procurement, Group Captive models, and green energy attribute certificate trading in India."
         canonical="/services/renewable-energy-trading"
       />

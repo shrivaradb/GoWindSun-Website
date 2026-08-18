@@ -1,5 +1,6 @@
 import { SEO } from "@/components/seo/SEO";
 import React from "react";
+import type { Metadata } from "next";
 import { IppHero } from "@/components/ipp-platform/IppHero";
 import { IppPlatformStatement } from "@/components/ipp-platform/IppPlatformStatement";
 import { IppOpportunityLandscape } from "@/components/ipp-platform/IppOpportunityLandscape";
@@ -9,11 +10,24 @@ import { IppStrategicAdvantages } from "@/components/ipp-platform/IppStrategicAd
 import { IppPlatformOverviewBanner } from "@/components/ipp-platform/IppPlatformOverviewBanner";
 import { IppMinimalCta } from "@/components/ipp-platform/IppMinimalCta";
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gowindsun.com"),
+  title: "IPP Platform | GoWindSun India Private Limited",
+  description: "Institutional Independent Power Producer platform for utility-scale solar, wind, and hybrid renewable energy project development, asset acquisition, and capital structuring.",
+  alternates: {
+    canonical: "https://gowindsun.com/ipp-platform",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function IppPlatformPage() {
   return (
     <main className="min-h-screen bg-white">
       <SEO
-        title="IPP Platform | GoWindSun India Pvt Ltd"
+        title="IPP Platform | GoWindSun India Private Limited"
         description="Institutional Independent Power Producer platform for utility-scale solar, wind, and hybrid renewable energy project development, asset acquisition, and capital structuring."
         canonical="/ipp-platform"
       />

@@ -29,9 +29,14 @@ export function SEO({
   jsonLd,
 }: SEOProps) {
   const location = useLocation();
-  const rawPath = canonical || location.pathname;
-  const cleanPath = rawPath === "/" ? "" : rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
-  const currentUrl = `${SITE_URL}${cleanPath}`;
+  const rawPath = canonical !== undefined ? canonical : location.pathname;
+  let currentUrl: string;
+  if (rawPath === "/" || rawPath === "" || (rawPath === location.pathname && location.pathname === "/")) {
+    currentUrl = `${SITE_URL}/`;
+  } else {
+    const cleanPath = rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
+    currentUrl = `${SITE_URL}${cleanPath}`;
+  }
 
   // Strict SEO Title Mapping — Accepts Exact Title Provided or Defaults to Home Title
   const pageTitle = title || DEFAULT_TITLE;

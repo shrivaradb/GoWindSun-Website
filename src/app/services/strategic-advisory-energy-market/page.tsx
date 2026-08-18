@@ -1,5 +1,6 @@
 import { SEO } from "@/components/seo/SEO";
 import React from "react";
+import type { Metadata } from "next";
 import { EditorialMarketHero } from "@/components/services/strategic-market-intelligence/EditorialMarketHero";
 import { EditorialStatement } from "@/components/services/strategic-market-intelligence/EditorialStatement";
 import { MarketSignalsStrip } from "@/components/services/strategic-market-intelligence/MarketSignalsStrip";
@@ -12,11 +13,24 @@ import { CommercialPerspectiveSection } from "@/components/services/strategic-ma
 import { MarketIntelligenceIndex } from "@/components/services/strategic-market-intelligence/MarketIntelligenceIndex";
 import { MinimalStrategicCta } from "@/components/services/strategic-market-intelligence/MinimalStrategicCta";
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gowindsun.com"),
+  title: "Strategic Advisory & Energy Market Services | GoWindSun India Private Limited",
+  description: "Executive strategic advisory across Corporate PPAs, Open Access wheeling, Group Captive models, asset repowering, M&A due diligence, and energy market intelligence.",
+  alternates: {
+    canonical: "https://gowindsun.com/services/strategic-advisory-energy-market",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function StrategicAdvisoryEnergyMarketPage() {
   return (
     <main className="min-h-screen bg-[#06111F]">
       <SEO
-        title="Renewable Energy Strategic Advisory | GoWindSun"
+        title="Strategic Advisory & Energy Market Services | GoWindSun India Private Limited"
         description="Executive strategic advisory across Corporate PPAs, Open Access wheeling, Group Captive models, asset repowering, M&A due diligence, and energy market intelligence."
         canonical="/services/strategic-advisory-energy-market"
       />

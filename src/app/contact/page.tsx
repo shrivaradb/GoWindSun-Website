@@ -1,10 +1,24 @@
 import { SEO } from "@/components/seo/SEO";
 import React from "react";
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { siteConfig } from "@/config/site";
 import { Mail, Phone, ShieldCheck, ArrowRight, MapPin, Clock, FileText, Send, Building2, Zap } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { StandardHero } from "@/components/ui/StandardHero";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gowindsun.com"),
+  title: "Contact GoWindSun India Private Limited",
+  description: "Get in touch with GoWindSun India Private Limited for utility-scale solar, wind, hybrid, and storage engineering advisory, turnkey EPC, and project acquisition.",
+  alternates: {
+    canonical: "https://gowindsun.com/contact",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function ContactPage() {
   const phoneClean = siteConfig.contact.phone.replace(/\s+/g, "");
@@ -63,7 +77,7 @@ export default function ContactPage() {
   return (
     <div className="bg-white min-h-screen text-slate-900">
       <SEO
-        title="Contact GoWindSun India Pvt Ltd"
+        title="Contact GoWindSun India Private Limited"
         description="Get in touch with GoWindSun India Private Limited for utility-scale solar, wind, hybrid, and storage engineering advisory, turnkey EPC, and project acquisition."
         canonical="/contact"
       />

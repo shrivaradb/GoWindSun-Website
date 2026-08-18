@@ -1,14 +1,28 @@
 import { SEO } from "@/components/seo/SEO";
 import React from "react";
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { FileText, Scale, ShieldAlert, Copyright, Gavel, CheckCircle2 } from "lucide-react";
 import { StandardHero } from "@/components/ui/StandardHero";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gowindsun.com"),
+  title: "Terms of Service | GoWindSun India Private Limited",
+  description: "GoWindSun India Private Limited Terms of Service, website terms of use, and legal advisory governance policies.",
+  alternates: {
+    canonical: "https://gowindsun.com/terms",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function TermsOfServicePage() {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
       <SEO
-        title="Terms of Service | GoWindSun India Pvt Ltd"
+        title="Terms of Service | GoWindSun India Private Limited"
         description="GoWindSun India Private Limited Terms of Service, website terms of use, and legal advisory governance policies."
         canonical="/terms"
       />

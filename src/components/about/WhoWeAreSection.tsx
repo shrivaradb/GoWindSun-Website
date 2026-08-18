@@ -16,7 +16,7 @@ export const WhoWeAreSection: React.FC = () => {
               Corporate Identity & Founding Purpose
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.15]">
-              Decades of Sector Leadership & Technocommercial Mastery.
+              Decades of Sector Leadership & Technocommercial Mastery
             </h2>
             <p className="text-sm font-bold text-slate-700 leading-relaxed pt-2">
               Accelerating India’s clean energy transition through bankable project development, techno-commercial advisory, and market solutions.

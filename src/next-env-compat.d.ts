@@ -36,3 +36,23 @@ declare module "next/navigation" {
   };
   export function useSearchParams(): [URLSearchParams, (params: any) => void];
 }
+
+declare module "next" {
+  export interface Metadata {
+    metadataBase?: URL | null;
+    title?: string | { default: string; template: string };
+    description?: string;
+    keywords?: string | string[];
+    alternates?: {
+      canonical?: string | null;
+      languages?: Record<string, string>;
+    };
+    robots?: {
+      index?: boolean;
+      follow?: boolean;
+    };
+    openGraph?: any;
+    twitter?: any;
+  }
+}
+

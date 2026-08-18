@@ -153,7 +153,7 @@ export default function TendersPage() {
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
       <SEO
-        title="Renewable Energy Tenders | GoWindSun India Pvt Ltd"
+        title="Renewable Energy Tenders | GoWindSun India Private Limited"
         description="Active renewable energy tenders, project procurement notices, land acquisition RFPs, and C&I Corporate PPA off-take invitations across India."
         canonical="/tenders"
       />

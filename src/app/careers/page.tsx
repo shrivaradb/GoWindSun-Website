@@ -34,7 +34,7 @@ export default function CareersPage() {
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
       <SEO
-        title="Careers | GoWindSun India Pvt Ltd"
+        title="Careers | GoWindSun India Private Limited"
         description="Join GoWindSun India Private Limited — Empowering engineers, wind energy analysts, solar EPC managers, power market specialists, and regulatory experts."
         canonical="/careers"
       />

@@ -203,7 +203,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenU
 
           <div className="pt-6 border-t border-slate-200 text-center">
             <p className="text-xs text-slate-500">
-              © {new Date().getFullYear()} GoWindSun India Pvt Ltd. All rights reserved.
+              © {new Date().getFullYear()} GoWindSun India Private Limited. All rights reserved.
             </p>
           </div>
         </motion.div>

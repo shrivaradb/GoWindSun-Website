@@ -1,5 +1,6 @@
 import { SEO } from "@/components/seo/SEO";
 import React from "react";
+import type { Metadata } from "next";
 import { AboutHero } from "@/components/about/AboutHero";
 import { WhoWeAreSection } from "@/components/about/WhoWeAreSection";
 import { StatementBanner } from "@/components/about/StatementBanner";
@@ -11,11 +12,24 @@ import { TechSection } from "@/components/about/TechSection";
 import { WhyGoWindSunSection } from "@/components/about/WhyGoWindSunSection";
 import { AboutCtaSection } from "@/components/about/AboutCtaSection";
 
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gowindsun.com"),
+  title: "About GoWindSun India Private Limited",
+  description: "Learn about GoWindSun India Private Limited, an Indian renewable energy engineering powerhouse delivering integrated utility-scale solar, wind, hybrid, and storage infrastructure.",
+  alternates: {
+    canonical: "https://gowindsun.com/about",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default function AboutPage() {
   return (
- <>
+    <>
       <SEO
-        title="About GoWindSun India Pvt Ltd"
+        title="About GoWindSun India Private Limited"
         description="Learn about GoWindSun India Private Limited, an Indian renewable energy engineering powerhouse delivering integrated utility-scale solar, wind, hybrid, and storage infrastructure."
         canonical="/about"
       />

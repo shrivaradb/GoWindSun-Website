@@ -1,14 +1,28 @@
 import { SEO } from "@/components/seo/SEO";
 import React from "react";
+import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 import { Shield, Lock, FileText, CheckCircle2, Eye } from "lucide-react";
 import { StandardHero } from "@/components/ui/StandardHero";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://gowindsun.com"),
+  title: "Privacy Policy | GoWindSun India Private Limited",
+  description: "GoWindSun India Private Limited Privacy Policy, corporate telemetry protection, and data governance commitments.",
+  alternates: {
+    canonical: "https://gowindsun.com/privacy",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="bg-slate-50 min-h-screen text-slate-900 selection:bg-emerald-600 selection:text-white">
       <SEO
-        title="Privacy Policy | GoWindSun India Pvt Ltd"
+        title="Privacy Policy | GoWindSun India Private Limited"
         description="GoWindSun India Private Limited Privacy Policy, corporate telemetry protection, and data governance commitments."
         canonical="/privacy"
       />

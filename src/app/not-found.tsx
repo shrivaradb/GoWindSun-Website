@@ -22,17 +22,6 @@ export default function NotFound() {
 
       <Container>
         <div className="max-w-2xl mx-auto text-center space-y-8 relative z-10">
-          {/* 404 Error Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-mono font-bold uppercase tracking-widest"
-          >
-            <AlertTriangle className="w-4 h-4 text-amber-400" />
-            <span>Error 404 — Route Not Found</span>
-          </motion.div>
-
           {/* Large 404 Headline */}
           <motion.h1
             initial={{ opacity: 0, scale: 0.9 }}

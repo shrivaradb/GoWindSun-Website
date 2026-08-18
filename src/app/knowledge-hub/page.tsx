@@ -47,7 +47,7 @@ export default function KnowledgeHubPage() {
   return (
     <main className="min-h-screen bg-[#06111F] text-white antialiased">
       <SEO
-        title="Renewable Energy Knowledge Hub | GoWindSun"
+        title="Renewable Energy Knowledge Hub | GoWindSun India Private Limited"
         description="Official renewable energy market intelligence repository tracking verified wind turbine prices (WTG), solar PV module costs, CAPEX benchmarks, tenders, and tariffs."
         canonical="/knowledge-hub"
       />

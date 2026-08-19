@@ -1,0 +1,28 @@
+# GoWindSun India Private Limited — Web Server Configuration
+
+# Enforce HTTPS and 301 Permanent Redirect from www to non-www
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redirect www.gowindsun.com to https://gowindsun.com/
+  RewriteCond %{HTTP_HOST} ^www\.gowindsun\.com$ [NC]
+  RewriteRule ^(.*)$ https://gowindsun.com/$1 [L,R=301]
+
+  # Redirect HTTP to HTTPS for gowindsun.com
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} ^gowindsun\.com$ [NC]
+  RewriteRule ^(.*)$ https://gowindsun.com/$1 [L,R=301]
+
+  # SPA Routing Fallback for HTML5 / Client-Side Routing
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Caching & Security Headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

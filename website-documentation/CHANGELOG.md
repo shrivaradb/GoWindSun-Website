@@ -4,6 +4,13 @@ All notable changes, updates, architectural decisions, and documentation release
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to Semantic Versioning (`MAJOR.MINOR.PATCH`).
 
+## [1.2.0] - 19 August 2026
+
+### Server-Level 301 Redirects & Hostname Canonicalization
+- **Apache `.htaccess` 301 Redirect:** Resolved Google Search Console duplicate indexing warning (**"Duplicate, Google chose different canonical than user"**) by implementing server-level 301 Permanent Redirect rules in `public/.htaccess` to automatically redirect `www.gowindsun.com` to `https://gowindsun.com/`.
+- **cPanel Build Integration:** Configured build process to output `dist/.htaccess` for seamless cPanel deployment to `public_html/`.
+- **Live Verification:** Verified HTTP 301 status live on production server via `curl.exe -ILs https://www.gowindsun.com/` returning `Location: https://gowindsun.com/`.
+
 ## [1.1.0] - 18 August 2026
 
 ### SEO, Canonical URLs & Metadata System

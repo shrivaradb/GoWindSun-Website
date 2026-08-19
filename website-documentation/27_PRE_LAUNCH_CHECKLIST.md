@@ -67,5 +67,8 @@ This document provides a detailed pre-launch checklist that must be executed and
 
 - [ ] **Metadata:** Meta title `GoWindSun India Private Limited` and meta description set. Single `<h1>` tag present per page.
 - [ ] **Canonical Links:** Canonical link tags point to `https://gowindsun.com`.
+- [ ] **Server 301 Redirect:** `public/.htaccess` exists in build (`dist/.htaccess`) and executes 301 permanent redirect from `www.gowindsun.com` to `https://gowindsun.com/`.
+- [ ] **cPanel Dotfiles Enabled:** cPanel File Manager "Show Hidden Files" enabled so `.htaccess` remains active.
 - [ ] **Secrets Safeguard:** No API tokens, passwords, database credentials, or private keys exist in committed code or documentation.
 - [ ] **Backup Package Verified:** Physical project backup package created in `/backup`.
+

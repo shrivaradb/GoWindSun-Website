@@ -1,7 +1,7 @@
 Document: Website Architecture
-Version: 1.0.0
+Version: 1.1.0
 Status: Active
-Last Updated: 15 August 2026
+Last Updated: 19 August 2026
 
 # GoWindSun Website — Technical Architecture Specification
 
@@ -119,8 +119,12 @@ All shell commands must be executed from the project root directory:
   ```
   Launches a local static server previewing the generated `dist/` directory.
 
-* **Deploy to Production Hosting (GitHub Pages):**
+* **Deploy to Production Hosting (cPanel / Apache Web Server):**
+  Upload the entire contents of `dist/` (including `dist/.htaccess`) to `public_html/`. Ensure "Show Hidden Files (dotfiles)" is enabled in cPanel File Manager so `.htaccess` executes the 301 permanent redirect (`www.gowindsun.com` -> `https://gowindsun.com/`).
+
+* **Deploy to Alternate Static Hosting (GitHub Pages):**
   ```bash
   npm run deploy
   ```
   Executes `npm run build` followed by automated deployment to the `gh-pages` branch.
+

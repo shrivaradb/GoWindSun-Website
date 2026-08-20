@@ -1,19 +1,23 @@
 # GoWindSun India Private Limited — Web Server Configuration
 
-# Enforce HTTPS and 301 Permanent Redirect from www to non-www
+# Enforce HTTPS, 301 Permanent Redirect from www to non-www, and block legacy WP endpoints
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Redirect www.gowindsun.com to https://gowindsun.com/
+  # 1. Return 410 Gone for legacy WordPress endpoints and RSS feeds
+  RewriteCond %{REQUEST_URI} ^/(wp-login\.php|wp-admin|wp-content|wp-includes|xmlrpc\.php|feed|wp-json) [NC,OR]
+  RewriteCond %{REQUEST_URI} \.php$ [NC]
+  RewriteRule ^ - [R=410,L]
+
+  # 2. Redirect www.gowindsun.com to https://gowindsun.com/
   RewriteCond %{HTTP_HOST} ^www\.gowindsun\.com$ [NC]
   RewriteRule ^(.*)$ https://gowindsun.com/$1 [L,R=301]
 
-  # Redirect HTTP to HTTPS for gowindsun.com
+  # 3. Redirect HTTP to HTTPS for gowindsun.com
   RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP_HOST} ^gowindsun\.com$ [NC]
   RewriteRule ^(.*)$ https://gowindsun.com/$1 [L,R=301]
 
-  # SPA Routing Fallback for HTML5 / Client-Side Routing
+  # 4. SPA Routing Fallback for HTML5 / Client-Side Routing
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ index.html [L]
@@ -26,3 +30,4 @@
   Header set X-XSS-Protection "1; mode=block"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>
+

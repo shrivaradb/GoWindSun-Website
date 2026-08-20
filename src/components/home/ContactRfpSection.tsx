@@ -7,6 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
 import { Mail, Phone, ShieldCheck, ArrowRight, FileText, Send, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { WhatsAppButton, WhatsAppIcon, getWhatsAppUrl } from "@/components/ui/WhatsAppButton";
 
 export const ContactRfpSection: React.FC = () => {
   const phoneClean = siteConfig.contact.phone.replace(/\s+/g, "");
@@ -66,6 +67,18 @@ export const ContactRfpSection: React.FC = () => {
                 <div>
                   <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider">Telephonic Desk</div>
                   <a href={`tel:${phoneClean}`} className="text-sm font-bold text-slate-900 hover:text-amber-700">
+                    {siteConfig.contact.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="p-3 rounded-xl bg-white text-emerald-600 border border-slate-200 shrink-0">
+                  <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
+                </div>
+                <div>
+                  <div className="text-xs text-slate-500 font-semibold uppercase tracking-wider">WhatsApp Business</div>
+                  <a href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="text-sm font-bold text-slate-900 hover:text-emerald-700">
                     {siteConfig.contact.phone}
                   </a>
                 </div>
@@ -156,20 +169,25 @@ export const ContactRfpSection: React.FC = () => {
               </a>
             </div>
 
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-4">
+            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
               <a
                 href={`mailto:${siteConfig.contact.email}`}
-                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-[#0186D5] hover:bg-[#0186D5]/90 text-white font-bold text-sm rounded-full shadow-lg transition-all"
+                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#0186D5] hover:bg-[#0186D5]/90 text-white font-bold text-xs rounded-full shadow-lg transition-all"
               >
                 <Mail className="w-4 h-4" />
                 <span>Send Direct Email</span>
               </a>
+              <WhatsAppButton
+                variant="emerald"
+                buttonText="Chat on WhatsApp"
+                className="w-full sm:w-auto flex-1 rounded-full py-3 text-xs"
+              />
               <a
                 href={`tel:${phoneClean}`}
-                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-sm rounded-full shadow-lg transition-all"
+                className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-full shadow-lg transition-all"
               >
                 <Phone className="w-4 h-4" />
-                <span>Call +91 90110 71864</span>
+                <span>Call Us</span>
               </a>
             </div>
           </div>

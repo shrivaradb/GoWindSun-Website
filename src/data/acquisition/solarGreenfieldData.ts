@@ -23,5 +23,6 @@ export const solarGreenfieldDataset: Record<string, SolarGreenfieldRecord[]> = {
     { id: "sg-mh-11", stateCode: "IN-MH", stateName: "Maharashtra", district: "Nanded", ctuStu: "STU (220/132/33 kV)", capacityMW: "100 MW" },
     { id: "sg-mh-12", stateCode: "IN-MH", stateName: "Maharashtra", district: "Satara", ctuStu: "STU (220/132 kV)", capacityMW: "200 MW" },
     { id: "sg-mh-13", stateCode: "IN-MH", stateName: "Maharashtra", district: "Wardha", ctuStu: "STU (132/33 kV)", capacityMW: "100 MW" },
+    { id: "sg-mh-14", stateCode: "IN-MH", stateName: "Maharashtra", district: "Akola", ctuStu: "STU", capacityMW: "50 MW" },
   ],
 };

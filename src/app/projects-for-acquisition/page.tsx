@@ -76,7 +76,7 @@ export default function ProjectsForAcquisitionMainPage() {
           list.push({
             id: rec.id,
             technology: tech,
-            stage: stage,
+            stage: (rec as { stage?: "Greenfield" | "Shovel Ready" | "Operational" }).stage || stage,
             stateCode,
             stateName: cleanStateName,
             district: rec.district || "State Corridor",
@@ -205,7 +205,7 @@ export default function ProjectsForAcquisitionMainPage() {
       <section className="py-12 lg:py-16 bg-[#06111F] text-white border-y border-slate-800 relative">
         <Container>
           <div className="max-w-6xl mx-auto space-y-6">
-            
+
             {/* Elevated Glassmorphic Filter Card Container */}
             <div className="bg-[#0A182A] border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-slate-950/60 relative overflow-hidden backdrop-blur-md">
               {/* Vibrant Top Accent Gradient Bar */}
@@ -236,7 +236,7 @@ export default function ProjectsForAcquisitionMainPage() {
 
               {/* Filter Controls Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                
+
                 {/* Filter 1 — State */}
                 <div className="space-y-2">
                   <label className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-200">
@@ -247,11 +247,10 @@ export default function ProjectsForAcquisitionMainPage() {
                     <select
                       value={selectedState}
                       onChange={(e) => handleStateChange(e.target.value)}
-                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${
-                        selectedState !== "ALL"
+                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${selectedState !== "ALL"
                           ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
                           : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
-                      }`}
+                        }`}
                     >
                       <option value="ALL">All States</option>
                       {availableStates.map((st) => (
@@ -274,11 +273,10 @@ export default function ProjectsForAcquisitionMainPage() {
                     <select
                       value={selectedDistrict}
                       onChange={(e) => setSelectedDistrict(e.target.value)}
-                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${
-                        selectedDistrict !== "ALL"
+                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${selectedDistrict !== "ALL"
                           ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
                           : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
-                      }`}
+                        }`}
                     >
                       <option value="ALL">All Districts</option>
                       {availableDistricts.map((dist) => (
@@ -301,11 +299,10 @@ export default function ProjectsForAcquisitionMainPage() {
                     <select
                       value={selectedTech}
                       onChange={(e) => setSelectedTech(e.target.value)}
-                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${
-                        selectedTech !== "ALL"
+                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${selectedTech !== "ALL"
                           ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
                           : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
-                      }`}
+                        }`}
                     >
                       <option value="ALL">All Technologies</option>
                       <option value="Wind">Wind</option>
@@ -326,11 +323,10 @@ export default function ProjectsForAcquisitionMainPage() {
                     <select
                       value={selectedStage}
                       onChange={(e) => setSelectedStage(e.target.value)}
-                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${
-                        selectedStage !== "ALL"
+                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${selectedStage !== "ALL"
                           ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
                           : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
-                      }`}
+                        }`}
                     >
                       <option value="ALL">All Stages</option>
                       <option value="Greenfield">Greenfield</option>
@@ -355,7 +351,7 @@ export default function ProjectsForAcquisitionMainPage() {
       <section className="py-16 bg-slate-50 min-h-[600px]">
         <Container>
           <div className="max-w-6xl mx-auto space-y-8">
-            
+
             {/* Result Counter & Active Filters Display */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
               <div>
@@ -407,9 +403,8 @@ export default function ProjectsForAcquisitionMainPage() {
                     >
                       {/* Accent Top Bar */}
                       <div
-                        className={`absolute top-0 left-0 right-0 h-1.5 ${
-                          isWind ? "bg-[#0186D5]" : isSolar ? "bg-[#F97316]" : "bg-[#059669]"
-                        }`}
+                        className={`absolute top-0 left-0 right-0 h-1.5 ${isWind ? "bg-[#0186D5]" : isSolar ? "bg-[#F97316]" : "bg-[#059669]"
+                          }`}
                       />
 
                       <div className="space-y-4 pt-1">

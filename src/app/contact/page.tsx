@@ -6,6 +6,7 @@ import { siteConfig } from "@/config/site";
 import { Mail, Phone, ShieldCheck, ArrowRight, MapPin, Clock, FileText, Send, Building2, Zap } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { StandardHero } from "@/components/ui/StandardHero";
+import { WhatsAppButton, WhatsAppIcon } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gowindsun.com"),
@@ -161,6 +162,32 @@ export default function ContactPage() {
                   <span>Call Us</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </a>
+              </div>
+
+              {/* WhatsApp Business Channel */}
+              <div className="space-y-3 pb-6 border-b border-slate-200 bg-emerald-50/50 p-5 rounded-2xl border border-emerald-200/80">
+                <div className="flex items-center gap-3">
+                  <WhatsAppIcon className="w-6 h-6 text-[#25D366] shrink-0" />
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 leading-snug">
+                      Chat with us on WhatsApp
+                    </h3>
+                    <span className="text-xs font-mono font-semibold text-emerald-800">
+                      +91 90110 71864
+                    </span>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed pt-1">
+                  Connect with the GoWindSun team directly on WhatsApp for enquiries, project discussions and renewable energy opportunities.
+                </p>
+                <div className="pt-2">
+                  <WhatsAppButton
+                    variant="emerald"
+                    size="md"
+                    buttonText="Chat on WhatsApp"
+                    className="w-full shadow-md"
+                  />
+                </div>
               </div>
 
               {/* Response Time & Location */}

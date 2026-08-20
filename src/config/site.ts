@@ -9,6 +9,8 @@ export const siteConfig = {
     email: "director@gowindsun.com",
     secondaryEmail: "gowindnsun@gmail.com",
     phone: "+91 90110 71864",
+    whatsappNumber: "919011071864",
+    whatsappUrl: "https://wa.me/919011071864",
   },
   nav: [
     {

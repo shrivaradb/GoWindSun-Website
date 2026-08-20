@@ -76,7 +76,7 @@ export default function NewProjectAcquisitionPage() {
           list.push({
             id: rec.id,
             technology: tech,
-            stage: stage,
+            stage: (rec as { stage?: "Greenfield" | "Shovel Ready" | "Operational" }).stage || stage,
             stateCode,
             stateName: cleanStateName,
             district: rec.district || "State Corridor",

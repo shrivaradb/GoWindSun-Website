@@ -28,14 +28,4 @@ export const shovelReadyWindExcelDataset: Record<string, ShovelReadyWindRecord[]
       capacityMW: "100 MW",
     },
   ],
-  "IN-GJ": [
-    {
-      id: "sr-w-3",
-      stateCode: "IN-GJ",
-      stateName: "Gujarat",
-      district: "Morbi",
-      ctuStu: "STU",
-      capacityMW: "45 MW Wind (85 MW Hybrid)",
-    },
-  ],
 };

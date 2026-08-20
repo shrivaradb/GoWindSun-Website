@@ -10,8 +10,9 @@ export interface SolarGreenfieldRecord {
 export const solarGreenfieldDataset: Record<string, SolarGreenfieldRecord[]> = {
   "IN-MH": [
     { id: "sg-mh-1", stateCode: "IN-MH", stateName: "Maharashtra", district: "Jalna", ctuStu: "STU (132/33 kV)", capacityMW: "100 MW" },
-    { id: "sg-mh-2", stateCode: "IN-MH", stateName: "Maharashtra", district: "Washim", ctuStu: "STU (132/33 kV)", capacityMW: "100 MW" },
-    { id: "sg-mh-3", stateCode: "IN-MH", stateName: "Maharashtra", district: "Sambhaji Nagar", ctuStu: "STU (220/132/33 kV)", capacityMW: "150 MW" },
+    { id: "sg-mh-2-a", stateCode: "IN-MH", stateName: "Maharashtra", district: "Washim", ctuStu: "STU", capacityMW: "100 MW (Land on Lease)" },
+    { id: "sg-mh-2-b", stateCode: "IN-MH", stateName: "Maharashtra", district: "Washim", ctuStu: "STU", capacityMW: "100 MW (Land for Sale)" },
+    { id: "sg-mh-3", stateCode: "IN-MH", stateName: "Maharashtra", district: "Chhatrapati Sambhajinagar", ctuStu: "STU (220/132/33 kV)", capacityMW: "150 MW" },
     { id: "sg-mh-4", stateCode: "IN-MH", stateName: "Maharashtra", district: "Dharashiv", ctuStu: "STU (220/132 kV)", capacityMW: "150 MW" },
     { id: "sg-mh-5", stateCode: "IN-MH", stateName: "Maharashtra", district: "Jalgaon", ctuStu: "STU (132/33 kV)", capacityMW: "100 MW" },
     { id: "sg-mh-6", stateCode: "IN-MH", stateName: "Maharashtra", district: "Chandrapur", ctuStu: "STU (132/33 kV)", capacityMW: "100 MW" },

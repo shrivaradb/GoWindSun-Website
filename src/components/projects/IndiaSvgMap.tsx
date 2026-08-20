@@ -85,7 +85,7 @@ const STATE_DISTRICT_MARKERS: Record<string, Array<{ district: string; x: number
     { district: "Buldhana", x: 172, y: 375 },
     { district: "Dhule", x: 122, y: 368 },
     { district: "Latur", x: 215, y: 428 },
-    { district: "Aurangabad / Sambhaji Nagar", x: 152, y: 408 },
+    { district: "Chhatrapati Sambhajinagar", x: 152, y: 408 },
     { district: "Satara", x: 142, y: 472 },
     { district: "Sangli", x: 148, y: 488 },
     { district: "Kolhapur", x: 138, y: 492 },

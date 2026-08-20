@@ -26,7 +26,7 @@ export const greenfieldWindExcelDataset: GreenfieldWindDataMap = {
       "id": "greenfield-wind-in-mh-2",
       "stateCode": "IN-MH",
       "stateName": "Maharashtra",
-      "district": "Aurangabad",
+      "district": "Chhatrapati Sambhajinagar",
       "ctuStu": "STU",
       "capacityMW": "150 wind"
     },
@@ -146,7 +146,7 @@ export const greenfieldWindExcelDataset: GreenfieldWindDataMap = {
       "id": "greenfield-wind-in-mh-17",
       "stateCode": "IN-MH",
       "stateName": "Maharashtra",
-      "district": "Sambhaji Nagar",
+      "district": "Chhatrapati Sambhajinagar",
       "ctuStu": "STU",
       "capacityMW": "100 MW wind"
     },

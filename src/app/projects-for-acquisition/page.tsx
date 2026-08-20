@@ -124,17 +124,15 @@ export default function ProjectsForAcquisitionMainPage() {
     return Array.from(stateMap.entries()).map(([code, name]) => ({ code, name }));
   }, [allProjects, selectedTech, selectedStage]);
 
-  // 4. Dynamic District Options based on selected State
+  // 4. Dynamic District Options based on active filters
   const availableDistricts = useMemo(() => {
-    if (selectedState === "ALL") return [];
     const distSet = new Set<string>();
     allProjects.forEach((p) => {
-      if (p.stateCode === selectedState && p.district) {
-        const matchTech = selectedTech === "ALL" || p.technology.toLowerCase() === selectedTech.toLowerCase();
-        const matchStage = selectedStage === "ALL" || p.stage.toLowerCase() === selectedStage.toLowerCase();
-        if (matchTech && matchStage) {
-          distSet.add(p.district);
-        }
+      const matchState = selectedState === "ALL" || p.stateCode === selectedState;
+      const matchTech = selectedTech === "ALL" || p.technology.toLowerCase() === selectedTech.toLowerCase();
+      const matchStage = selectedStage === "ALL" || p.stage.toLowerCase() === selectedStage.toLowerCase();
+      if (matchState && matchTech && matchStage && p.district) {
+        distSet.add(p.district);
       }
     });
     return Array.from(distSet).sort();
@@ -203,175 +201,150 @@ export default function ProjectsForAcquisitionMainPage() {
         description="Filter bankable utility-scale wind, solar, and hybrid energy assets by technology, development stage, state, and district corridors for direct M&A, equity investment, and project acquisition."
       />
 
-      {/* 2. PROMINENT FILTER INTERFACE & SEARCH PORTAL */}
-      <section className="py-12 lg:py-16 bg-[#06111F] text-white border-y border-slate-800">
+      {/* 2. PROMINENT HIGH-CONTRAST FILTER INTERFACE */}
+      <section className="py-12 lg:py-16 bg-[#06111F] text-white border-y border-slate-800 relative">
         <Container>
-          <div className="max-w-6xl mx-auto space-y-8">
+          <div className="max-w-6xl mx-auto space-y-6">
             
-            {/* Header Title & Reset */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-6">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight uppercase">
-                  Find Renewable Energy Projects
-                </h2>
-              </div>
+            {/* Elevated Glassmorphic Filter Card Container */}
+            <div className="bg-[#0A182A] border border-slate-700/80 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-slate-950/60 relative overflow-hidden backdrop-blur-md">
+              {/* Vibrant Top Accent Gradient Bar */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0186D5] via-[#059669] to-[#F97316]" />
 
-              {(selectedTech !== "ALL" || selectedStage !== "ALL" || selectedState !== "ALL" || selectedDistrict !== "ALL" || searchQuery) && (
-                <button
-                  onClick={handleClearFilters}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono font-bold uppercase border border-slate-700 transition-colors cursor-pointer self-start md:self-auto"
-                >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  <span>Clear Filters</span>
-                </button>
-              )}
-            </div>
-
-            {/* Filter Controls Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              
-              {/* Filter 1 — Technology */}
-              <div className="space-y-2">
-                <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
-                  Technology
-                </label>
-                <div className="relative">
-                  <select
-                    value={selectedTech}
-                    onChange={(e) => setSelectedTech(e.target.value)}
-                    className="w-full bg-[#0A1728] text-white border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-1 focus:ring-[#0186D5] transition-all cursor-pointer"
-                  >
-                    <option value="ALL">All Technologies (Wind, Solar, Hybrid)</option>
-                    <option value="Wind">Wind</option>
-                    <option value="Solar">Solar</option>
-                    <option value="Hybrid">Hybrid</option>
-                  </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              {/* Header Title & Reset */}
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800/80 pb-5 mb-6">
+                <div>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-400 text-[11px] font-mono font-bold uppercase tracking-wider mb-2">
+                    <Filter className="w-3.5 h-3.5" />
+                    <span>Project Filter Portal</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight uppercase">
+                    Find Renewable Energy Projects
+                  </h2>
                 </div>
-              </div>
 
-              {/* Filter 2 — Project Stage */}
-              <div className="space-y-2">
-                <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
-                  Project Stage
-                </label>
-                <div className="relative">
-                  <select
-                    value={selectedStage}
-                    onChange={(e) => setSelectedStage(e.target.value)}
-                    className="w-full bg-[#0A1728] text-white border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-1 focus:ring-[#0186D5] transition-all cursor-pointer"
-                  >
-                    <option value="ALL">All Stages (Greenfield, Shovel Ready, Operational)</option>
-                    <option value="Greenfield">Greenfield</option>
-                    <option value="Shovel Ready">Shovel Ready</option>
-                    <option value="Operational">Operational</option>
-                  </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Filter 3 — State */}
-              <div className="space-y-2">
-                <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
-                  State
-                </label>
-                <div className="relative">
-                  <select
-                    value={selectedState}
-                    onChange={(e) => handleStateChange(e.target.value)}
-                    className="w-full bg-[#0A1728] text-white border border-slate-700 rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-1 focus:ring-[#0186D5] transition-all cursor-pointer"
-                  >
-                    <option value="ALL">All States</option>
-                    {availableStates.map((st) => (
-                      <option key={st.code} value={st.code}>
-                        {st.name}
-                      </option>
-                    ))}
-                  </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-
-              {/* Filter 4 — District (Cascading) */}
-              <div className="space-y-2">
-                <label className="block text-xs font-mono font-bold uppercase tracking-wider text-slate-300">
-                  District
-                </label>
-                <div className="relative">
-                  <select
-                    value={selectedDistrict}
-                    onChange={(e) => setSelectedDistrict(e.target.value)}
-                    disabled={selectedState === "ALL"}
-                    className={`w-full text-white border rounded-xl px-4 py-3 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-1 focus:ring-[#0186D5] transition-all ${
-                      selectedState === "ALL"
-                        ? "bg-slate-900/60 text-slate-500 border-slate-800 cursor-not-allowed"
-                        : "bg-[#0A1728] border-slate-700 cursor-pointer"
-                    }`}
-                  >
-                    {selectedState === "ALL" ? (
-                      <option value="ALL">Select a state first</option>
-                    ) : (
-                      <>
-                        <option value="ALL">All Districts in State</option>
-                        {availableDistricts.map((dist) => (
-                          <option key={dist} value={dist}>
-                            {dist}
-                          </option>
-                        ))}
-                      </>
-                    )}
-                  </select>
-                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-                </div>
-              </div>
-
-            </div>
-
-            {/* Keyword Search Input & Quick Technology Pills */}
-            <div className="flex flex-col md:flex-row items-center gap-4 pt-2">
-              <div className="relative w-full md:w-96">
-                <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                <input
-                  type="text"
-                  placeholder="Search by district, state, capacity, grid..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-[#0A1728] border border-slate-700 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#0186D5] transition-colors"
-                />
-                {searchQuery && (
+                {(selectedTech !== "ALL" || selectedStage !== "ALL" || selectedState !== "ALL" || selectedDistrict !== "ALL" || searchQuery) && (
                   <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white"
+                    onClick={handleClearFilters}
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono font-bold uppercase border border-slate-700 transition-colors cursor-pointer self-start md:self-auto shadow-md"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <RotateCcw className="w-3.5 h-3.5 text-sky-400" />
+                    <span>Clear Filters</span>
                   </button>
                 )}
               </div>
 
-              {/* Quick Tech Selection Pills */}
-              <div className="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                {[
-                  { label: "All Technologies", value: "ALL" },
-                  { label: "Wind", value: "Wind" },
-                  { label: "Solar", value: "Solar" },
-                  { label: "Hybrid", value: "Hybrid" },
-                ].map((pill) => {
-                  const isActive = selectedTech === pill.value;
-                  return (
-                    <button
-                      key={pill.value}
-                      onClick={() => setSelectedTech(pill.value)}
-                      className={`px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                        isActive
-                          ? "bg-[#0186D5] text-white shadow-md shadow-[#0186D5]/30 font-bold"
-                          : "bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white border border-slate-700/60"
+              {/* Filter Controls Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                
+                {/* Filter 1 — State */}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-200">
+                    <MapPin className="w-3.5 h-3.5 text-sky-400" />
+                    <span>State</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={selectedState}
+                      onChange={(e) => handleStateChange(e.target.value)}
+                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${
+                        selectedState !== "ALL"
+                          ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
+                          : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
                       }`}
                     >
-                      {pill.label}
-                    </button>
-                  );
-                })}
+                      <option value="ALL">All States</option>
+                      {availableStates.map((st) => (
+                        <option key={st.code} value={st.code}>
+                          {st.name}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Filter 2 — District */}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-200">
+                    <Building2 className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>District</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={selectedDistrict}
+                      onChange={(e) => setSelectedDistrict(e.target.value)}
+                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${
+                        selectedDistrict !== "ALL"
+                          ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
+                          : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
+                      }`}
+                    >
+                      <option value="ALL">All Districts</option>
+                      {availableDistricts.map((dist) => (
+                        <option key={dist} value={dist}>
+                          {dist}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Filter 3 — Technology */}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-200">
+                    <Zap className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Technology</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={selectedTech}
+                      onChange={(e) => setSelectedTech(e.target.value)}
+                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${
+                        selectedTech !== "ALL"
+                          ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
+                          : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
+                      }`}
+                    >
+                      <option value="ALL">All Technologies</option>
+                      <option value="Wind">Wind</option>
+                      <option value="Solar">Solar</option>
+                      <option value="Hybrid">Hybrid</option>
+                    </select>
+                    <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Filter 4 — Project Stage */}
+                <div className="space-y-2">
+                  <label className="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-200">
+                    <SlidersHorizontal className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>Project Stage</span>
+                  </label>
+                  <div className="relative">
+                    <select
+                      value={selectedStage}
+                      onChange={(e) => setSelectedStage(e.target.value)}
+                      className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${
+                        selectedStage !== "ALL"
+                          ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
+                          : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
+                      }`}
+                    >
+                      <option value="ALL">All Stages</option>
+                      <option value="Greenfield">Greenfield</option>
+                      <option value="Shovel Ready">Shovel Ready</option>
+                      <option value="Operational">Operational</option>
+                    </select>
+                    <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
+                </div>
+
               </div>
+
+              {/* Vibrant Bottom Accent Gradient Bar */}
+              <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0186D5] via-[#059669] to-[#F97316]" />
             </div>
 
           </div>

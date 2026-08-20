@@ -73,6 +73,12 @@ export default function ProjectsForAcquisitionMainPage() {
           if (stateCode === "IN-KA") cleanStateName = "Karnataka";
           if (stateCode === "IN-MP") cleanStateName = "Madhya Pradesh";
 
+          let cleanCtuStu = rec.ctuStu ? rec.ctuStu.replace(/\s*\([^)]*\)/g, "").trim() : "";
+          if (cleanCtuStu.includes("CTU") && cleanCtuStu.includes("STU")) cleanCtuStu = "STU / CTU";
+          else if (cleanCtuStu.includes("CTU")) cleanCtuStu = "CTU";
+          else if (cleanCtuStu.includes("STU")) cleanCtuStu = "STU";
+          else cleanCtuStu = "STU / CTU";
+
           list.push({
             id: rec.id,
             technology: tech,
@@ -80,7 +86,7 @@ export default function ProjectsForAcquisitionMainPage() {
             stateCode,
             stateName: cleanStateName,
             district: rec.district || "State Corridor",
-            ctuStu: rec.ctuStu || "STU/CTU",
+            ctuStu: cleanCtuStu,
             capacityMW: rec.capacityMW || "Available on Request",
           });
         });
@@ -248,8 +254,8 @@ export default function ProjectsForAcquisitionMainPage() {
                       value={selectedState}
                       onChange={(e) => handleStateChange(e.target.value)}
                       className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${selectedState !== "ALL"
-                          ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
-                          : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
+                        ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
+                        : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
                         }`}
                     >
                       <option value="ALL">All States</option>
@@ -274,8 +280,8 @@ export default function ProjectsForAcquisitionMainPage() {
                       value={selectedDistrict}
                       onChange={(e) => setSelectedDistrict(e.target.value)}
                       className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${selectedDistrict !== "ALL"
-                          ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
-                          : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
+                        ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
+                        : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
                         }`}
                     >
                       <option value="ALL">All Districts</option>
@@ -300,8 +306,8 @@ export default function ProjectsForAcquisitionMainPage() {
                       value={selectedTech}
                       onChange={(e) => setSelectedTech(e.target.value)}
                       className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${selectedTech !== "ALL"
-                          ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
-                          : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
+                        ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
+                        : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
                         }`}
                     >
                       <option value="ALL">All Technologies</option>
@@ -324,8 +330,8 @@ export default function ProjectsForAcquisitionMainPage() {
                       value={selectedStage}
                       onChange={(e) => setSelectedStage(e.target.value)}
                       className={`w-full text-white border rounded-xl pl-4 pr-10 py-3.5 text-xs sm:text-sm font-semibold appearance-none focus:outline-none focus:border-[#0186D5] focus:ring-2 focus:ring-[#0186D5]/40 transition-all cursor-pointer truncate ${selectedStage !== "ALL"
-                          ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
-                          : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
+                        ? "bg-[#0E2744] border-sky-400 ring-2 ring-sky-400/40 font-bold shadow-lg shadow-sky-950/50"
+                        : "bg-[#06111F] border-slate-700/90 hover:border-slate-500"
                         }`}
                     >
                       <option value="ALL">All Stages</option>
@@ -412,30 +418,30 @@ export default function ProjectsForAcquisitionMainPage() {
                         <div className="flex items-center justify-between gap-2">
                           <div className="flex items-center gap-1.5">
                             {isWind && (
-                              <span className="px-2.5 py-0.5 rounded-full bg-sky-50 text-[#0186D5] border border-sky-200 text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1">
-                                <Wind className="w-3 h-3" />
+                              <span className="px-3 py-1 rounded-full bg-sky-50 text-[#0186D5] border border-sky-200 text-xs font-mono font-black uppercase tracking-wider flex items-center gap-1.5">
+                                <Wind className="w-3.5 h-3.5" />
                                 Wind
                               </span>
                             )}
                             {isSolar && (
-                              <span className="px-2.5 py-0.5 rounded-full bg-orange-50 text-[#F97316] border border-orange-200 text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1">
-                                <Sun className="w-3 h-3" />
+                              <span className="px-3 py-1 rounded-full bg-orange-50 text-[#F97316] border border-orange-200 text-xs font-mono font-black uppercase tracking-wider flex items-center gap-1.5">
+                                <Sun className="w-3.5 h-3.5" />
                                 Solar
                               </span>
                             )}
                             {isHybrid && (
-                              <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#059669] border border-emerald-200 text-[10px] font-mono font-bold uppercase tracking-wider flex items-center gap-1">
-                                <Layers className="w-3 h-3" />
+                              <span className="px-3 py-1 rounded-full bg-emerald-50 text-[#059669] border border-emerald-200 text-xs font-mono font-black uppercase tracking-wider flex items-center gap-1.5">
+                                <Zap className="w-3.5 h-3.5 fill-current" />
                                 Hybrid
                               </span>
                             )}
 
-                            <span className="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 text-[10px] font-mono font-semibold uppercase">
+                            <span className="px-3 py-1 rounded-full bg-slate-100/90 text-slate-800 border border-slate-200 text-xs font-mono font-extrabold uppercase tracking-wide">
                               {project.stage}
                             </span>
                           </div>
 
-                          <span className="text-[10px] font-mono text-slate-400 font-bold uppercase">
+                          <span className="px-2.5 py-0.5 rounded-lg bg-slate-100/90 text-slate-700 border border-slate-200 text-xs sm:text-sm font-mono font-black uppercase tracking-wider">
                             {project.stateCode}
                           </span>
                         </div>

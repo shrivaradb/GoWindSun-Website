@@ -97,30 +97,7 @@ export const windShovelReadyProjects: StateProjectDataMap = {
 };
 
 // 3. OPERATIONAL WIND PROJECTS DATASET
-export const windOperationalProjects: StateProjectDataMap = {
-  "IN-MH": [
-    {
-      id: "wind-op-mh-01",
-      stateCode: "IN-MH",
-      stateName: "Maharashtra",
-      district: "Dhule Region",
-      projectName: "Dhule Operational Wind Asset (Commissioned)",
-      projectType: "wind",
-      stageKey: "wind-operational",
-      availableLand: "Fully Commissioned Site Footprint",
-      landArea: "Commissioned Project Area",
-      potentialCapacity: "Operational Capacity",
-      technology: "Commissioned Multi-Megawatt WTG Array",
-      developmentStage: "Operational / Generation Active",
-      gridConnectivity: "Synchronized MSETCL Grid Line",
-      substation: "MSETCL 220kV Grid Substation",
-      transmissionAvailability: "Active Power Evacuation",
-      location: "Dhule Wind Park",
-      acquisitionStatus: "Operational Asset Sale / Equity Transfer",
-      additionalNotes: "Operational wind asset with active generation history.",
-    },
-  ],
-};
+export const windOperationalProjects: StateProjectDataMap = {};
 
 // 4. OVERVIEW WIND PROJECTS DATASET (Combines all stage datasets for wind overview page)
 export const windProjects: StateProjectDataMap = {

@@ -22,7 +22,7 @@ export const solarShovelReadyDataset: Record<string, SolarShovelReadyRecord[]> =
     { id: "ssr-rj-2", stateCode: "IN-RJ", stateName: "Rajasthan", district: "Churu", ctuStu: "STU", capacityMW: "200 MW" },
   ],
   "IN-MH": [
-    { id: "ssr-mh-1", stateCode: "IN-MH", stateName: "Maharashtra", district: "Ahilya Nagar", ctuStu: "STU (33 kV MSEDCL)", capacityMW: "25 MW AC" },
+    { id: "ssr-mh-1", stateCode: "IN-MH", stateName: "Maharashtra", district: "Ahilya Nagar", ctuStu: "STU", capacityMW: "25 MW AC" },
   ],
   "IN-GJ": [
     {
@@ -30,7 +30,7 @@ export const solarShovelReadyDataset: Record<string, SolarShovelReadyRecord[]> =
       stateCode: "IN-GJ",
       stateName: "Gujarat",
       district: "Gujarat Region",
-      ctuStu: "CTU (220kV)",
+      ctuStu: "CTU",
       capacityMW: "300 MW",
     },
   ],

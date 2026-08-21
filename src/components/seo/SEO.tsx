@@ -19,6 +19,24 @@ const DEFAULT_KEYWORDS =
 const SITE_URL = "https://gowindsun.com";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.png`;
 
+function getCanonicalUrl(input?: string, currentPath: string = "/"): string {
+  const raw = input !== undefined ? input : currentPath;
+  let path = raw;
+  if (path.startsWith("http://") || path.startsWith("https://")) {
+    try {
+      const parsed = new URL(path);
+      path = parsed.pathname;
+    } catch {
+      path = path.replace(/^https?:\/\/[^\/]+/, "");
+    }
+  }
+  if (!path || path === "/") {
+    return `${SITE_URL}/`;
+  }
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${SITE_URL}${cleanPath}`;
+}
+
 export function SEO({
   title,
   description = DEFAULT_DESCRIPTION,
@@ -29,14 +47,7 @@ export function SEO({
   jsonLd,
 }: SEOProps) {
   const location = useLocation();
-  const rawPath = canonical !== undefined ? canonical : location.pathname;
-  let currentUrl: string;
-  if (rawPath === "/" || rawPath === "" || (rawPath === location.pathname && location.pathname === "/")) {
-    currentUrl = `${SITE_URL}/`;
-  } else {
-    const cleanPath = rawPath.startsWith("/") ? rawPath : `/${rawPath}`;
-    currentUrl = `${SITE_URL}${cleanPath}`;
-  }
+  const currentUrl = getCanonicalUrl(canonical, location.pathname);
 
   // Strict SEO Title Mapping — Accepts Exact Title Provided or Defaults to Home Title
   const pageTitle = title || DEFAULT_TITLE;

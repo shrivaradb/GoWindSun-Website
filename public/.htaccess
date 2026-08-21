@@ -9,12 +9,14 @@
   RewriteCond %{REQUEST_URI} \.php$ [NC]
   RewriteRule ^ - [R=410,L]
 
-  # 2. Redirect www.gowindsun.com to https://gowindsun.com/
-  RewriteCond %{HTTP_HOST} ^www\.gowindsun\.com$ [NC]
+  # 2. Redirect www.gowindsun.com (and all www subdomains) to https://gowindsun.com/
+  RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
   RewriteRule ^(.*)$ https://gowindsun.com/$1 [L,R=301]
 
   # 3. Redirect HTTP to HTTPS for gowindsun.com
-  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteCond %{HTTP:X-Forwarded-SSL} !=on
   RewriteRule ^(.*)$ https://gowindsun.com/$1 [L,R=301]
 
   # 4. SPA Routing Fallback for HTML5 / Client-Side Routing

@@ -4,6 +4,13 @@ All notable changes, updates, architectural decisions, and documentation release
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to Semantic Versioning (`MAJOR.MINOR.PATCH`).
 
+## [1.3.0] - 21 August 2026
+
+### Site-Wide WWW Canonical Migration
+- **WWW Canonical Migration:** Migration of official canonical base URL across all metadata, SEO components, sitemaps, robots.txt, and HTML entry points to `https://www.gowindsun.com/`.
+- **Apache `.htaccess` Non-WWW to WWW Redirect:** Updated `.htaccess` 301 Permanent Redirect rules to redirect non-www (`https://gowindsun.com/`) and HTTP (`http://gowindsun.com/`, `http://www.gowindsun.com/`) to `https://www.gowindsun.com/`.
+- **Sitemap & Robots Update:** Standardized all 17 sitemap `<loc>` entries and `robots.txt` Sitemap header to reference `https://www.gowindsun.com/`.
+
 ## [1.2.0] - 19 August 2026
 
 ### Server-Level 301 Redirects & Hostname Canonicalization

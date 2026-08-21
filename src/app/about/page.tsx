@@ -13,11 +13,11 @@ import { WhyGoWindSunSection } from "@/components/about/WhyGoWindSunSection";
 import { AboutCtaSection } from "@/components/about/AboutCtaSection";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "About GoWindSun India Private Limited",
   description: "Learn about GoWindSun India Private Limited, an Indian renewable energy engineering powerhouse delivering integrated utility-scale solar, wind, hybrid, and storage infrastructure.",
   alternates: {
-    canonical: "https://gowindsun.com/about",
+    canonical: "https://www.gowindsun.com/about",
   },
   robots: {
     index: true,

@@ -6,11 +6,11 @@ import { Shield, Lock, FileText, CheckCircle2, Eye } from "lucide-react";
 import { StandardHero } from "@/components/ui/StandardHero";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "Privacy Policy | GoWindSun India Private Limited",
-  description: "GoWindSun India Private Limited Privacy Policy, corporate telemetry protection, and data governance commitments.",
+  description: "Privacy policy and data protection commitments of GoWindSun India Private Limited regarding website usage and client inquiries.",
   alternates: {
-    canonical: "https://gowindsun.com/privacy",
+    canonical: "https://www.gowindsun.com/privacy",
   },
   robots: {
     index: true,

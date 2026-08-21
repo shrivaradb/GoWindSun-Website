@@ -11,11 +11,11 @@ import { IppPlatformOverviewBanner } from "@/components/ipp-platform/IppPlatform
 import { IppMinimalCta } from "@/components/ipp-platform/IppMinimalCta";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "IPP Platform | GoWindSun India Private Limited",
   description: "Institutional Independent Power Producer platform for utility-scale solar, wind, and hybrid renewable energy project development, asset acquisition, and capital structuring.",
   alternates: {
-    canonical: "https://gowindsun.com/ipp-platform",
+    canonical: "https://www.gowindsun.com/ipp-platform",
   },
   robots: {
     index: true,

@@ -3,8 +3,8 @@ export const siteConfig = {
   shortName: "GoWindSun",
   description:
     "Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems.",
-  url: "https://gowindsun.com",
-  ogImage: "https://gowindsun.com/og.jpg",
+  url: "https://www.gowindsun.com",
+  ogImage: "https://www.gowindsun.com/og.jpg",
   contact: {
     email: "director@gowindsun.com",
     secondaryEmail: "gowindnsun@gmail.com",

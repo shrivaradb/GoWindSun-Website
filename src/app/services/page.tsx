@@ -7,11 +7,11 @@ import { EngagementWorkflow } from "@/components/services/EngagementWorkflow";
 import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "Renewable Energy Services | GoWindSun India Private Limited",
   description: "Comprehensive renewable energy engineering, EPC execution, technical advisory, asset management, and strategic market services across solar, wind, hybrid, and storage ecosystems.",
   alternates: {
-    canonical: "https://gowindsun.com/services",
+    canonical: "https://www.gowindsun.com/services",
   },
   robots: {
     index: true,

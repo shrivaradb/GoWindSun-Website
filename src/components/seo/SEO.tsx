@@ -16,7 +16,7 @@ const DEFAULT_DESCRIPTION =
   "GoWindSun India Private Limited delivers integrated renewable energy solutions across solar, wind, and battery storage to accelerate the clean energy transition.";
 const DEFAULT_KEYWORDS =
   "Renewable Energy India, Utility Scale Solar, Wind Energy Developer, Solar Wind Hybrid, BESS Battery Storage, Open Access Solar, Group Captive PPA, GoWindSun India";
-const SITE_URL = "https://gowindsun.com";
+const SITE_URL = "https://www.gowindsun.com";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/logo.png`;
 
 function getCanonicalUrl(input?: string, currentPath: string = "/"): string {

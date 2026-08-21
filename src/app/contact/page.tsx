@@ -9,11 +9,11 @@ import { StandardHero } from "@/components/ui/StandardHero";
 import { WhatsAppButton, WhatsAppIcon } from "@/components/ui/WhatsAppButton";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "Contact GoWindSun India Private Limited",
   description: "Get in touch with GoWindSun India Private Limited for utility-scale solar, wind, hybrid, and storage engineering advisory, turnkey EPC, and project acquisition.",
   alternates: {
-    canonical: "https://gowindsun.com/contact",
+    canonical: "https://www.gowindsun.com/contact",
   },
   robots: {
     index: true,

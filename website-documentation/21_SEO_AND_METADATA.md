@@ -1,7 +1,7 @@
 Document: SEO and Metadata
-Version: 1.2.0
+Version: 1.3.0
 Status: Active
-Last Updated: 19 August 2026
+Last Updated: 21 August 2026
 
 # GoWindSun Website — SEO & Metadata Specification
 
@@ -15,35 +15,41 @@ All primary meta tags are managed via [`src/config/site.ts`](file:///c:/Website/
 
 * **Official Site Title:** `GoWindSun India Private Limited`
 * **Short Brand Name:** `GoWindSun`
-* **Canonical Base URL:** `https://gowindsun.com` (`metadataBase: new URL("https://gowindsun.com")`)
-* **Homepage Canonical:** `https://gowindsun.com/` (explicit trailing slash)
+* **Canonical Base URL:** `https://www.gowindsun.com` (`metadataBase: new URL("https://www.gowindsun.com")`)
+* **Homepage Canonical:** `https://www.gowindsun.com/` (explicit trailing slash)
 * **Meta Description:**
   > "Indian renewable energy engineering company delivering integrated clean energy infrastructure across utility-scale solar, wind, hybrid, and battery storage ecosystems."
-* **Open Graph Image (`og:image`):** `https://gowindsun.com/logo.png`
+* **Open Graph Image (`og:image`):** `https://www.gowindsun.com/logo.png`
 * **Favicon & Apple Touch Icon:** Defined in [`index.html`](file:///c:/Website/GoWindSun-Website/index.html).
 
 ---
 
 ## 2. Server-Level 301 Redirect System & Hostname Canonicalization (`.htaccess`)
 
-To resolve Google Search Console duplicate indexing issues (**"Duplicate, Google chose different canonical than user"**), a server-level HTTP 301 Permanent Redirect is enforced at the Apache / cPanel web server level via [`public/.htaccess`](file:///c:/Website/GoWindSun-Website/public/.htaccess).
+To enforce `https://www.gowindsun.com/` as the single canonical source of truth, a server-level HTTP 301 Permanent Redirect is enforced at the Apache / cPanel web server level via [`public/.htaccess`](file:///c:/Website/GoWindSun-Website/public/.htaccess).
 
 ### 2.1 Apache `.htaccess` Configuration Rules
 ```apache
-# Enforce HTTPS and 301 Permanent Redirect from www to non-www
+# Enforce HTTPS and 301 Permanent Redirect from non-www to www
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Redirect www.gowindsun.com to https://gowindsun.com/
-  RewriteCond %{HTTP_HOST} ^www\.gowindsun\.com$ [NC]
-  RewriteRule ^(.*)$ https://gowindsun.com/$1 [L,R=301]
+  # 1. Return 410 Gone for legacy WordPress endpoints and RSS feeds
+  RewriteCond %{REQUEST_URI} ^/(wp-login\.php|wp-admin|wp-content|wp-includes|xmlrpc\.php|feed|wp-json) [NC,OR]
+  RewriteCond %{REQUEST_URI} \.php$ [NC]
+  RewriteRule ^ - [R=410,L]
 
-  # Redirect HTTP to HTTPS for gowindsun.com
-  RewriteCond %{HTTPS} off
+  # 2. Redirect non-www (gowindsun.com) to https://www.gowindsun.com/
   RewriteCond %{HTTP_HOST} ^gowindsun\.com$ [NC]
-  RewriteRule ^(.*)$ https://gowindsun.com/$1 [L,R=301]
+  RewriteRule ^(.*)$ https://www.gowindsun.com/$1 [L,R=301]
 
-  # SPA Routing Fallback for HTML5 / Client-Side Routing
+  # 3. Redirect HTTP to HTTPS for www.gowindsun.com
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteCond %{HTTP:X-Forwarded-SSL} !=on
+  RewriteRule ^(.*)$ https://www.gowindsun.com/$1 [L,R=301]
+
+  # 4. SPA Routing Fallback for HTML5 / Client-Side Routing
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ index.html [L]
@@ -57,11 +63,11 @@ To resolve Google Search Console duplicate indexing issues (**"Duplicate, Google
 
 ### 2.3 Live HTTP Verification Command
 ```bash
-curl.exe -ILs https://www.gowindsun.com/
+curl.exe -ILs https://gowindsun.com/
 ```
 **Expected Live Response:**
 - Status: `HTTP/1.1 301 Moved Permanently`
-- Location: `https://gowindsun.com/`
+- Location: `https://www.gowindsun.com/`
 
 ---
 
@@ -82,8 +88,8 @@ To maximize accessibility and search engine indexing efficiency, every page enfo
 ## 4. Robots, Sitemap & Indexing
 
 * **Indexing Directive:** All public corporate pages (`/`, `/about`, `/services`, `/projects-for-acquisition`, `/tenders`, `/careers`, `/knowledge-hub`, `/contact`, `/privacy`, `/terms`) are configured for full search engine indexing (`index, follow`).
-* **Sitemap Generation:** Static XML sitemap [`public/sitemap.xml`](file:///c:/Website/GoWindSun-Website/public/sitemap.xml) mapping all active routes using `https://gowindsun.com/`.
-* **Robots.txt:** [`public/robots.txt`](file:///c:/Website/GoWindSun-Website/public/robots.txt) references `Sitemap: https://gowindsun.com/sitemap.xml` with zero `noindex` block directives.
-* **Canonical URL Rules:** Every route enforces a self-referencing canonical URL header pointing to the official non-www HTTPS domain `https://gowindsun.com/` (homepage) or `https://gowindsun.com/<path>` (subpages). Static HTML entry point `index.html` contains explicit `<link rel="canonical" href="https://gowindsun.com/">`.
+* **Sitemap Generation:** Static XML sitemap [`public/sitemap.xml`](file:///c:/Website/GoWindSun-Website/public/sitemap.xml) mapping all active routes using `https://www.gowindsun.com/`.
+* **Robots.txt:** [`public/robots.txt`](file:///c:/Website/GoWindSun-Website/public/robots.txt) references `Sitemap: https://www.gowindsun.com/sitemap.xml` with zero `noindex` block directives.
+* **Canonical URL Rules:** Every route enforces a self-referencing canonical URL header pointing to the official WWW HTTPS domain `https://www.gowindsun.com/` (homepage) or `https://www.gowindsun.com/<path>` (subpages). Static HTML entry point `index.html` contains explicit `<link rel="canonical" href="https://www.gowindsun.com/">`.
 
 

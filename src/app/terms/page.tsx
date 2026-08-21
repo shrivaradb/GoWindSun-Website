@@ -6,11 +6,11 @@ import { FileText, Scale, ShieldAlert, Copyright, Gavel, CheckCircle2 } from "lu
 import { StandardHero } from "@/components/ui/StandardHero";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "Terms of Service | GoWindSun India Private Limited",
-  description: "GoWindSun India Private Limited Terms of Service, website terms of use, and legal advisory governance policies.",
+  description: "Terms and conditions governing the use of the GoWindSun India Private Limited web portal.",
   alternates: {
-    canonical: "https://gowindsun.com/terms",
+    canonical: "https://www.gowindsun.com/terms",
   },
   robots: {
     index: true,

@@ -7,11 +7,11 @@ import { EngagementWorkflow } from "@/components/services/EngagementWorkflow";
 import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
-  title: "Renewable Energy Project Development & EPC | GoWindSun India Private Limited",
-  description: "Turnkey EPC execution, clear-title land acquisition, EHV substation construction, and grid evacuation engineering for utility-scale solar, wind, and hybrid projects.",
+  metadataBase: new URL("https://www.gowindsun.com"),
+  title: "Project Development & EPC | GoWindSun India Private Limited",
+  description: "Turnkey EPC execution, grid integration, and utility-scale project development across solar, wind, and storage ecosystems.",
   alternates: {
-    canonical: "https://gowindsun.com/services/project-development-epc",
+    canonical: "https://www.gowindsun.com/services/project-development-epc",
   },
   robots: {
     index: true,

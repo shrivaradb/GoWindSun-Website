@@ -14,11 +14,11 @@ import { MarketIntelligenceIndex } from "@/components/services/strategic-market-
 import { MinimalStrategicCta } from "@/components/services/strategic-market-intelligence/MinimalStrategicCta";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "Strategic Advisory & Energy Market Services | GoWindSun India Private Limited",
-  description: "Executive strategic advisory across Corporate PPAs, Open Access wheeling, Group Captive models, asset repowering, M&A due diligence, and energy market intelligence.",
+  description: "Strategic market entry, regulatory policy advisory, energy storage strategy, and corporate PPA structuring.",
   alternates: {
-    canonical: "https://gowindsun.com/services/strategic-advisory-energy-market",
+    canonical: "https://www.gowindsun.com/services/strategic-advisory-energy-market",
   },
   robots: {
     index: true,

@@ -10,11 +10,11 @@ import { TradingOverviewBanner } from "@/components/services/trading/TradingOver
 import { TradingMinimalCta } from "@/components/services/trading/TradingMinimalCta";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "Renewable Energy Trading | GoWindSun India Private Limited",
-  description: "Power trading advisory, Corporate PPAs, Open Access power procurement, Group Captive models, and green energy attribute certificate trading in India.",
+  description: "Green power trading, power purchase agreement (PPA) advisory, I-REC green certificates, and open access wheeling solutions.",
   alternates: {
-    canonical: "https://gowindsun.com/services/renewable-energy-trading",
+    canonical: "https://www.gowindsun.com/services/renewable-energy-trading",
   },
   robots: {
     index: true,

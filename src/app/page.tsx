@@ -8,11 +8,11 @@ import { TransitionDriversSection } from "@/components/home/TransitionDriversSec
 import { IntegratedSolutionsInfographic } from "@/components/home/IntegratedSolutionsInfographic";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "GoWindSun India Private Limited",
   description: "GoWindSun India Private Limited delivers integrated renewable energy solutions across solar, wind, and battery storage to accelerate the clean energy transition.",
   alternates: {
-    canonical: "https://gowindsun.com/",
+    canonical: "https://www.gowindsun.com/",
   },
   robots: {
     index: true,
@@ -26,7 +26,7 @@ export default function HomePage() {
       <SEO
         title="GoWindSun India Private Limited"
         description="GoWindSun India Private Limited delivers integrated renewable energy solutions across solar, wind, and battery storage to accelerate the clean energy transition."
-        ogImage="https://gowindsun.com/logo.png"
+        ogImage="https://www.gowindsun.com/logo.png"
         canonical="/"
       />
 

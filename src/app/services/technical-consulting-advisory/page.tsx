@@ -7,11 +7,11 @@ import { ServicesSpecTable } from "@/components/services/ServicesSpecTable";
 import { ServicesCtaSection } from "@/components/services/ServicesCtaSection";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: "Technical Consulting & Advisory Services | GoWindSun India Private Limited",
-  description: "Bankable PVSyst yield reports, Met Mast wind resource campaigns, DPR feasibility audits, owner's engineering, and technical due diligence.",
+  description: "Bankable energy yield assessment, PVSyst/WAsP simulations, owner's engineering, and technical due diligence.",
   alternates: {
-    canonical: "https://gowindsun.com/services/technical-consulting-advisory",
+    canonical: "https://www.gowindsun.com/services/technical-consulting-advisory",
   },
   robots: {
     index: true,

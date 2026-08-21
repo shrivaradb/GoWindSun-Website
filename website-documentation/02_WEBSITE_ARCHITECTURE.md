@@ -120,7 +120,7 @@ All shell commands must be executed from the project root directory:
   Launches a local static server previewing the generated `dist/` directory.
 
 * **Deploy to Production Hosting (cPanel / Apache Web Server):**
-  Upload the entire contents of `dist/` (including `dist/.htaccess`) to `public_html/`. Ensure "Show Hidden Files (dotfiles)" is enabled in cPanel File Manager so `.htaccess` executes the 301 permanent redirect (`www.gowindsun.com` -> `https://gowindsun.com/`).
+  Upload the entire contents of `dist/` (including `dist/.htaccess`) to `public_html/`. Ensure "Show Hidden Files (dotfiles)" is enabled in cPanel File Manager so `.htaccess` executes the 301 permanent redirect (`gowindsun.com` -> `https://www.gowindsun.com/`).
 
 * **Deploy to Alternate Static Hosting (GitHub Pages):**
   ```bash

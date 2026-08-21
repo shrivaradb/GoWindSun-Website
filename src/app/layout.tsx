@@ -3,7 +3,7 @@ import React from "react";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gowindsun.com"),
+  metadataBase: new URL("https://www.gowindsun.com"),
   title: {
     default: "GoWindSun India Private Limited",
     template: "%s | GoWindSun India Private Limited",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "GoWindSun India Private Limited delivers integrated renewable energy solutions across solar, wind, and battery storage to accelerate the clean energy transition.",
   alternates: {
-    canonical: "https://gowindsun.com/",
+    canonical: "https://www.gowindsun.com/",
   },
   robots: {
     index: true,
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://gowindsun.com/",
+    url: "https://www.gowindsun.com/",
     title: "GoWindSun India Private Limited",
     description:
       "GoWindSun India Private Limited delivers integrated renewable energy solutions across solar, wind, and battery storage to accelerate the clean energy transition.",
     siteName: "GoWindSun India Private Limited",
     images: [
       {
-        url: "https://gowindsun.com/logo.png",
+        url: "https://www.gowindsun.com/logo.png",
       },
     ],
   },

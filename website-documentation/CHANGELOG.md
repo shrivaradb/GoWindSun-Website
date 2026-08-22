@@ -4,6 +4,20 @@ All notable changes, updates, architectural decisions, and documentation release
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to Semantic Versioning (`MAJOR.MINOR.PATCH`).
 
+## [1.4.0] - 22 August 2026
+
+### High-Resolution Brand Logo & Comprehensive Favicon System
+- **Ultra-Sharp 1024x1024 Master Logo:** Upgraded `public/logo.png` to a high-resolution 1024x1024 1:1 square master asset featuring smooth anti-aliased RGBA background transparency.
+- **Complete Favicon Suite Generation:** Generated multi-resolution icons to meet Google Search Central guidelines and device standards:
+  - `public/favicon.ico` (multi-resolution 16x16, 32x32, 48x48 icon)
+  - `public/favicon.png` (48x48 PNG meeting Google Search minimum 48px square requirement)
+  - `public/favicon-16x16.png` & `public/favicon-32x32.png` (desktop browser tab icons)
+  - `public/apple-touch-icon.png` (180x180 PNG for Apple/iOS devices)
+  - `public/android-chrome-192x192.png` & `public/android-chrome-512x512.png` (Mobile PWA icons)
+  - `public/site.webmanifest` (Web application manifest specification)
+- **Root-Relative HTML Tagging:** Updated `index.html` with explicit root-relative link tags (`/favicon.ico`, `/favicon.png`, `/site.webmanifest`) preventing 404 broken icon links when Google crawls nested subroutes.
+- **Hosting & Search Engine Cache Diagnostic:** Performed empirical API audit on Google's live Favicon CDN proxy (`https://www.google.com/s2/favicons`), verifying that `gowindsun.com` cache is updated (5708 bytes) and documenting the asynchronous `Googlebot-Favicons` re-crawl behavior for `www.gowindsun.com`.
+
 ## [1.3.0] - 21 August 2026
 
 ### Site-Wide WWW Canonical Migration

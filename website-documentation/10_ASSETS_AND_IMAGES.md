@@ -1,19 +1,27 @@
 Document: Assets and Images Inventory
-Version: 1.0.0
+Version: 1.4.0
 Status: Active
-Last Updated: 15 August 2026
+Last Updated: 22 August 2026
 
 # GoWindSun Website — Master Assets & Images Inventory
 
-This document serves as the master technical inventory for all images, logos, diagrams, slideshow visuals, background graphics, and raw Excel datasets within the **GoWindSun India Private Limited** repository.
+This document serves as the master technical inventory for all images, logos, diagrams, slideshow visuals, background graphics, favicons, and raw Excel datasets within the **GoWindSun India Private Limited** repository.
 
 ---
 
-## 1. Corporate Logos & Branding Assets
+## 1. Corporate Logos, Favicons & Branding Assets
 
 | Filename | File Path | Format | Size | Primary Usage / Page Location |
 | :--- | :--- | :--- | :--- | :--- |
-| `logo.png` | [`public/logo.png`](file:///c:/Website/GoWindSun-Website/public/logo.png) | PNG | 671 KB | Primary GoWindSun corporate emblem (Navbar header & Footer) |
+| `logo.png` | [`public/logo.png`](file:///c:/Website/GoWindSun-Website/public/logo.png) | PNG (1024x1024) | ~920 KB | Ultra-sharp primary emblem (Navbar header, Open Graph `og:image`, & Footer) |
+| `favicon.ico` | [`public/favicon.ico`](file:///c:/Website/GoWindSun-Website/public/favicon.ico) | ICO | ~9.9 KB | Multi-resolution root icon (16x16, 32x32, 48x48) for browser tabs & fallback |
+| `favicon.png` | [`public/favicon.png`](file:///c:/Website/GoWindSun-Website/public/favicon.png) | PNG (48x48) | ~5.9 KB | Primary Google Search result snippet icon (Google 48px square requirement) |
+| `favicon-16x16.png` | [`public/favicon-16x16.png`](file:///c:/Website/GoWindSun-Website/public/favicon-16x16.png) | PNG (16x16) | ~900 B | Standard desktop browser tab favicon |
+| `favicon-32x32.png` | [`public/favicon-32x32.png`](file:///c:/Website/GoWindSun-Website/public/favicon-32x32.png) | PNG (32x32) | ~2.6 KB | High-DPI / Retina desktop browser tab favicon |
+| `apple-touch-icon.png` | [`public/apple-touch-icon.png`](file:///c:/Website/GoWindSun-Website/public/apple-touch-icon.png) | PNG (180x180) | ~39.5 KB | Apple iOS home screen bookmark icon |
+| `android-chrome-192x192.png` | [`public/android-chrome-192x192.png`](file:///c:/Website/GoWindSun-Website/public/android-chrome-192x192.png) | PNG (192x192) | ~43.8 KB | Mobile Chrome / PWA web app icon (Medium density) |
+| `android-chrome-512x512.png` | [`public/android-chrome-512x512.png`](file:///c:/Website/GoWindSun-Website/public/android-chrome-512x512.png) | PNG (512x512) | ~195 KB | Mobile Chrome / PWA web app icon (High density) |
+| `site.webmanifest` | [`public/site.webmanifest`](file:///c:/Website/GoWindSun-Website/public/site.webmanifest) | JSON | 400 B | Web application manifest (`theme_color: #059669`) |
 | `logo_text.png` | [`public/images/logo_text.png`](file:///c:/Website/GoWindSun-Website/public/images/logo_text.png) | PNG | 231 KB | "GoWindSun India Private Limited" official typography logo |
 | `RecLogo.png` | [`public/RecLogo.png`](file:///c:/Website/GoWindSun-Website/public/RecLogo.png) | PNG | 1.14 MB | Renewable Energy Certificate (REC) compliance badge |
 

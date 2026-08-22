@@ -1,7 +1,7 @@
 Document: SEO and Metadata
-Version: 1.3.0
+Version: 1.4.0
 Status: Active
-Last Updated: 21 August 2026
+Last Updated: 22 August 2026
 
 # GoWindSun Website — SEO & Metadata Specification
 
@@ -91,5 +91,45 @@ To maximize accessibility and search engine indexing efficiency, every page enfo
 * **Sitemap Generation:** Static XML sitemap [`public/sitemap.xml`](file:///c:/Website/GoWindSun-Website/public/sitemap.xml) mapping all active routes using `https://www.gowindsun.com/`.
 * **Robots.txt:** [`public/robots.txt`](file:///c:/Website/GoWindSun-Website/public/robots.txt) references `Sitemap: https://www.gowindsun.com/sitemap.xml` with zero `noindex` block directives.
 * **Canonical URL Rules:** Every route enforces a self-referencing canonical URL header pointing to the official WWW HTTPS domain `https://www.gowindsun.com/` (homepage) or `https://www.gowindsun.com/<path>` (subpages). Static HTML entry point `index.html` contains explicit `<link rel="canonical" href="https://www.gowindsun.com/">`.
+
+---
+
+## 5. Favicon System & Google Search Result Snippet Icons
+
+To guarantee proper favicon display beside links in Google Search results and browser tabs, the site adheres to [Google Search Central Favicon Guidelines](https://developers.google.com/search/docs/appearance/favicon-in-search):
+
+### 5.1 Asset Specifications & File Matrix
+
+| Asset Filename | Dimensions | Format | Purpose / Target Device |
+| :--- | :--- | :--- | :--- |
+| `logo.png` | `1024x1024` | RGBA PNG | Master high-res transparent emblem (Open Graph `og:image` & navbar header) |
+| `favicon.ico` | Multi (16/32/48) | ICO | Root browser fallback & legacy search engine crawlers (`/favicon.ico`) |
+| `favicon.png` | `48x48` | PNG | Primary Google Search result snippet icon (meets 48px square requirement) |
+| `favicon-16x16.png` | `16x16` | PNG | Standard desktop browser tab favicon |
+| `favicon-32x32.png` | `32x32` | PNG | High-DPI / Retina desktop browser tab favicon |
+| `apple-touch-icon.png` | `180x180` | PNG | Apple iOS home screen bookmark icon |
+| `android-chrome-192x192.png` | `192x192` | PNG | Mobile Chrome / PWA web app icon (Medium density) |
+| `android-chrome-512x512.png` | `512x512` | PNG | Mobile Chrome / PWA web app icon (High density) |
+| `site.webmanifest` | JSON | Manifest | Web application manifest (`theme_color: #059669`) |
+
+### 5.2 HTML Head Declarations (`index.html`)
+
+```html
+<!-- Primary Favicons & Icons for Browsers and Google Search -->
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#059669" />
+```
+
+### 5.3 Googlebot-Favicons Crawling & CDN Cache Behavior
+1. **Root-Relative Paths:** All icon references use root-relative `/` URLs (e.g. `/favicon.ico`, `/favicon.png`). Relative paths like `./logo.png` are prohibited because they resolve to non-existent URLs (404) when Google crawls subpages like `/services`.
+2. **Asynchronous Favicon Indexing:** Google uses a dedicated, low-frequency background crawler (`Googlebot-Favicons`). Google caches favicons per domain variant (`gowindsun.com` vs `www.gowindsun.com`).
+3. **CDN Cache Verification:** Live API verification via `https://www.google.com/s2/favicons?domain=gowindsun.com` confirms Google's CDN holds the updated emblem asset.
+
 
 

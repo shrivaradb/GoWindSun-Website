@@ -99,27 +99,27 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
               <li>
-                <Link href="/services" className="hover:text-emerald-400 transition-colors font-medium">
+                <Link href="/services" className="hover:text-[#0186D5] transition-colors font-medium">
                   Services Overview
                 </Link>
               </li>
               <li>
-                <Link href="/services/project-development-epc" className="hover:text-emerald-400 transition-colors">
+                <Link href="/services/project-development-epc" className="hover:text-[#0186D5] transition-colors">
                   Project Development &amp; EPC
                 </Link>
               </li>
               <li>
-                <Link href="/services/technical-consulting-advisory" className="hover:text-emerald-400 transition-colors">
+                <Link href="/services/technical-consulting-advisory" className="hover:text-[#0186D5] transition-colors">
                   Technical Consulting &amp; Advisory
                 </Link>
               </li>
               <li>
-                <Link href="/services/asset-management-operations" className="hover:text-emerald-400 transition-colors">
+                <Link href="/services/asset-management-operations" className="hover:text-[#0186D5] transition-colors">
                   Asset Management &amp; Operations
                 </Link>
               </li>
               <li>
-                <Link href="/services/strategic-advisory-energy-market" className="hover:text-emerald-400 transition-colors">
+                <Link href="/services/strategic-advisory-energy-market" className="hover:text-[#0186D5] transition-colors">
                   Strategic Advisory &amp; Energy Markets
                 </Link>
               </li>
@@ -134,7 +134,10 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3 text-sm text-slate-300">
               <li className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-400">
                 <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                <span>GoWindSun India Private Limited Pune, Maharashtra – India</span>
+                <div className="flex flex-col">
+                  <span>GoWindSun India Private Limited</span>
+                  <span>Pune, Maharashtra – India</span>
+                </div>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0" />
